@@ -1,0 +1,25 @@
+  1. Team ID
+
+  2. Team affiliation
+
+  3. Contact information
+
+  4. Submission, i.e., ZIP file name
+
+  5. System specs
+
+  - 5.1 Core approach
+
+  - 5.2 Supervised or unsupervised
+
+  - 5.3 Important/interesting/novel features used
+
+  - 5.4 Important/interesting/novel tools used
+
+  - 5.5 Significant data pre/post-processing
+
+  - 5.6 Other data used (outside of the provided)
+
+  - 5.7 Did you participate in SemEval-2015 task 3?
+
+  6 References (if applicable)
