@@ -8,11 +8,12 @@ From the SemEval Site:
 > answer posts that are most useful for answering the new question.”
 
 > Additionally, we propose two sub-tasks:
-> 1.) Question Similarity (QS): given the new question and a set of related questions from the collection, rank the similar 
+
+> [1] Question Similarity (QS): given the new question and a set of related questions from the collection, rank the similar 
 > questions according to their similarity to the original question (with the idea that the answers to the similar
 > questions should be answering the new question as well).
 
-> 2.) Relevance Classification (RC): given a question from a question-answer thread, rank the answer posts according to 
+> [2] Relevance Classification (RC): given a question from a question-answer thread, rank the answer posts according to 
 > their relevance with respect to the question.
 
 
