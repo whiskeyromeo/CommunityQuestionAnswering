@@ -23,14 +23,14 @@ From the SemEval Site:
 
 ###Important Dates
 
-*Mon 01 Aug 2016: Trial data ready
-*Mon 05 Sep 2016: Training data ready
-*Mon 09 Jan 2017: Evaluation start
-*Mon 30 Jan 2017: Evaluation end
-*Mon 06 Feb 2017: Results posted
-*Mon 27 Feb 2017: Paper submissions due
-*Mon 03 Apr 2017: Author notifications
-*Mon 17 Apr 2017: Camera ready submissions due
+* Mon 01 Aug 2016: Trial data ready
+* Mon 05 Sep 2016: Training data ready
+* Mon 09 Jan 2017: Evaluation start
+* Mon 30 Jan 2017: Evaluation end
+* Mon 06 Feb 2017: Results posted
+* Mon 27 Feb 2017: Paper submissions due
+* Mon 03 Apr 2017: Author notifications
+* Mon 17 Apr 2017: Camera ready submissions due
 
 
 
