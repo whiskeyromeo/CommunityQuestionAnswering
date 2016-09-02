@@ -19,22 +19,25 @@ From the SemEval Site:
 ***
 ####SubTasks
 
-* **Subtask A: Question-Comment Similarity**
-> Given a question and its first 10 comments in the question thread, **rerank** these 10 comments **according to 
-> their relevance with respect to the question**. 
-* **Subtask B: Question-Question Similarity**
-> Given a new question (aka original question) and the set of the first 10 related questions (retrieved by a 
-> search engine), **rerank** the related questions according to their similarity **with respect to the original 
-> question**.
-* **Subtask C: Question-External Comment Similarity**  *-- this is the main English subtask.*
-> Given a new question (aka the original question),
-> the set of the first 10 related questions (retrieved by a search engine), each associated with its first 10 
-> comments appearing in its thread, **rerank** the 100 comments (10 questions x 10 comments) **according to their 
-> relevance with respect to the original question**.
-* **Multi-Domain Duplicate Detection Subtask (CQADupStack Task)** - *Task E: Identify duplicate questions in StackExchange.*
-> Given a new question (aka the original question), a set of 50 candidate questions,rerank the 50 candidate 
-> questions according to their relevance with respect to the original question, and **truncate the result list** in 
-> such a way that only "PerfectMatch" questions appear in it.
+* **Subtask A: Question-Comment Similarity**: 
+	> Given a question and its first 10 comments in the question thread, **rerank** these 10 comments **according to 
+	> their relevance with respect to the question**. 
+* **Subtask B: Question-Question Similarity**: 
+	> Given a new question (aka original question) and the set of the first 10 related questions (retrieved by a 
+	> search engine), **rerank** the related questions according to their similarity **with respect to the original 
+	> question**.
+* **Subtask C: Question-External Comment Similarity** : *-- this is the main English subtask.* 
+	> Given a new question (aka the original question),
+	> the set of the first 10 related questions (retrieved by a search engine), each associated with its first 10 
+	> comments appearing in its thread, **rerank** the 100 comments (10 questions x 10 comments) **according to their 
+	> relevance with respect to the original question**.
+* **Multi-Domain Duplicate Detection Subtask (CQADupStack Task)** : - *Task E: Identify duplicate questions in StackExchange.*
+	> Given a new question (aka the original question), a set of 50 candidate questions,rerank the 50 candidate 
+	> questions according to their relevance with respect to the original question, and **truncate the result list** in 
+	> such a way that only "PerfectMatch" questions appear in it.
+
+
+***
 
 ###Important Dates
 
@@ -49,10 +52,14 @@ From the SemEval Site:
 * Mon 03 Apr 2017: Author notifications
 * Mon 17 Apr 2017: Camera ready submissions due
 
-###Things to look into
+***
 
-**Suggestions by Professor**
-	* Feature Vectors
+##Things to look into
+
+**Suggestions by Professor McInnes**
+* Feature Vectors
+
+***
 
 ###Links
 
