@@ -72,4 +72,5 @@ From the SemEval Site:
 
 ####Former SemEval Projects
 * [SemanticZ SemEval Task 3 2016](http://m-mitchell.com/NAACL-2016/SemEval/pdf/SemEval123.pdf)
-
+* [Voltron: A Hybrid System For Answer Validation Based On Lexical And
+Distance Features](http://anthology.aclweb.org/S/S15/S15-2.pdf#page=284)
