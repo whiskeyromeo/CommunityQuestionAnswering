@@ -18,6 +18,7 @@ From the SemEval Site:
 
 ***
 ####SubTasks
+
 	* **Subtask A: Question-Comment Similarity**
 		> Given a question and its first 10 comments in the question thread, **rerank** these 10 comments **according to 
 		> their relevance with respect to the question**. 
@@ -38,6 +39,7 @@ From the SemEval Site:
 ###Important Dates
 
 **From SemEval Site**
+
 	* Mon 01 Aug 2016: Trial data ready
 	* Mon 05 Sep 2016: Training data ready
 	* Mon 09 Jan 2017: Evaluation start
