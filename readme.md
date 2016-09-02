@@ -62,5 +62,4 @@ From the SemEval Site:
 
 ####Former SemEval Projects
 [SemanticZ SemEval Task 3 2016](http://m-mitchell.com/NAACL-2016/SemEval/pdf/SemEval123.pdf)
-[SemanticZ at SemEval-2016 Task 3](../Data/S16-1136)
 
