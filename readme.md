@@ -69,7 +69,7 @@ From the SemEval Site:
 * [Intro to NLP( Might help fill in the gaps)](http://blog.algorithmia.com/introduction-natural-language-processing-nlp/)
 * [Processing Corpora with Python and the NLTK](http://www.freecode.com/articles/processing-corpora-with-python-and-the-natural-language-toolkit)
 * [Dan Jurafsky & Chris Manning: Natural Language Processing Youtube vids](https://www.youtube.com/playlist?list=PL6397E4B26D00A269)
-
+* [Word2Vec with TensorFlow](https://www.tensorflow.org/versions/r0.10/tutorials/word2vec/index.html)
 ####Former SemEval Projects
 * [SemanticZ SemEval Task 3 2016](http://m-mitchell.com/NAACL-2016/SemEval/pdf/SemEval123.pdf)
 * [Voltron: A Hybrid System For Answer Validation Based On Lexical And
