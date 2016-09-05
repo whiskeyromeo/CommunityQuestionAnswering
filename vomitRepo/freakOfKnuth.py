@@ -20,7 +20,7 @@ import xml.etree.ElementTree as ET
 #from bs4 import BeautifulSoup
 
 #here you'd put the filepath to whatever data you are parsing
-filePath = '../CommunityQuestionAnswering/Data/train-more-for-subtaskA-from-2015/SemEval2015-Task3-CQA-QL-train-reformatted-excluding-2016-questions-cleansed.xml'
+filePath = '../Data/train-more-for-subtaskA-from-2015/SemEval2015-Task3-CQA-QL-train-reformatted-excluding-2016-questions-cleansed.xml'
 
 def elementParser(filePath):
 
