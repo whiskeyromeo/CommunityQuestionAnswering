@@ -14,26 +14,15 @@
 __author__ = "freakOfKnuth"
 
 import nltk, re, pprint
-from nltk import word_tokenize
-#from NlpFunctions import XmlToString
 import xml.etree.ElementTree as ET
-#from bs4 import BeautifulSoup
-
 #here you'd put the filepath to whatever data you are parsing
 filePath = '../Data/train-more-for-subtaskA-from-2015/SemEval2015-Task3-CQA-QL-train-reformatted-excluding-2016-questions-cleansed.xml'
 
 def elementParser(filePath):
 
-    # was a function of mine, realized I didn't need it anymore
-    #file = XmlToString(filePath)
-
     # builds a tree, sets the root
     tree = ET.parse(filePath)
     root = tree.getroot()
-
-    # introductory forloop dealing with root and children
-    # for child in root:
-    #     print(child.tag, child.attrib)
 
     # testing different ways to parse out questions and subjects
     # we'll need to parse out, group things, then do NLP(pos,N-gram,etc), then machine learning
@@ -42,7 +31,9 @@ def elementParser(filePath):
     for Thread in root.findall('Thread'):
         relQuestion = Thread.find('RelQuestion')
         subject = relQuestion.find('RelQSubject').text
-        print((relQuestion.get('RELQ_CATEGORY')), subject)
+        relq_id = relQuestion.find('RELQ_ID')
+        print relq_id
+        #print((relQuestion.get('RELQ_CATEGORY')), subject)
 
 
 # calls the function
