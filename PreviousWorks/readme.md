@@ -10,7 +10,7 @@
 		> "we use a combination of surface, morphological, syntactic, and contextual features as well as distance metrics between the question and answer"
 
 **Methods**
-	> "Our approach is to measure the relatednes of a comment to the question or measure if a question-comment pair is consistent...we attempt to classify each pair as Good, Potential, or Bad"
+> "Our approach is to measure the relatednes of a comment to the question or measure if a question-comment pair is consistent...we attempt to classify each pair as Good, Potential, or Bad"
 	* Did not organize the whole text according to the structure of reult matrix, as occurs in Vector Space Models(VSMs)
 		* Higher scores obtained from Vector Space Models
 	* Uses n-grams, cosine similarity
@@ -27,11 +27,11 @@
 	* TF Vector Space Features
 		* DKPros implementation of cosine similarity to compute similar wording(higher cosine similarity = similar wording)
 	* Word2Vec Semantic Similarity
-		* > "For a given question-comment pair, we extract word2vec vectors from a pre-trained set for all tokens for which one is available. We compute the centroids for the question and the comment, then use the cosine between the two as a feature. The intention is to capture the similarity between different terms in the pair...the same proc is applied once more for only noun phrase tokens as they carry more information about the topic"
+	 > "For a given question-comment pair, we extract word2vec vectors from a pre-trained set for all tokens for which one is available. We compute the centroids for the question and the comment, then use the cosine between the two as a feature. The intention is to capture the similarity between different terms in the pair...the same proc is applied once more for only noun phrase tokens as they carry more information about the topic"
 
 **Classifier Model**
 	* MALLET : 
-		> calculates term-frequency feature vectors from its input documents. These vectors are fed to a MaxEnt classifier, trained and evaluated using tenfold cross validation. For final classification the trained classsifier outputs class probabilities for each of the tree desired categories.
+	> calculates term-frequency feature vectors from its input documents. These vectors are fed to a MaxEnt classifier, trained and evaluated using tenfold cross validation. For final classification the trained classsifier outputs class probabilities for each of the tree desired categories.
 
 **Experiment/Results**
 	* baseline :
