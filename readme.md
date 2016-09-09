@@ -74,3 +74,5 @@ From the SemEval Site:
 * [SemanticZ SemEval Task 3 2016](http://m-mitchell.com/NAACL-2016/SemEval/pdf/SemEval123.pdf)
 * [Voltron: A Hybrid System For Answer Validation Based On Lexical And
 Distance Features](http://anthology.aclweb.org/S/S15/S15-2.pdf#page=284)
+* [Word2Vec - Google Code Archive](https://code.google.com/archive/p/word2vec/)
+* [Deep Learning with Word2Vec and gensim](http://rare-technologies.com/deep-learning-with-word2vec-and-gensim/)

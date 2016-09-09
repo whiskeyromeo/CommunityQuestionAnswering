@@ -55,15 +55,23 @@ thisList = elementParser(filePath)
 question_sents = []
 question_words = []
 pos_questions = []
-the_count = []
+question_bigrams = []
+
+
 
 for row in thisList:
+	print row
 	# tokenize the questions into sentences
 	sent_tokenized = nltk.sent_tokenize(row['question'])
 	question_sents.append(sent_tokenized)
 
 	# tokenize the questions into words
 	word_tokenized = nltk.word_tokenize(row['question'])
+
+	#Create a bigram distribution of the words from each question
+	quest_bigram = nltk.bigrams(word_tokenized)
+	question_bigrams.append(quest_bigram)
+
 	#remove the stopwords from each sentence
 	stopwords = nltk.corpus.stopwords.words('english')
 	word_tokenized = [i for i in word_tokenized if i not in stopwords]
@@ -79,24 +87,38 @@ flattened = []
 for question in question_words:
 	for word in question:
 		flattened.append(word)
+#### General Frequency Distribution ############
 
-# Get the frequency distribution of all of the words across the questions
+
+
+
+# Get the frequency distribution of all of the words across all the questions
 word_dist = nltk.FreqDist(flattened)
-for word, freq in word_dist.most_common(50):
-	print('{}: {}'.format(word, freq))
+# for word, freq in word_dist.most_common(50):
+# 	print('{}: {}'.format(word, freq))
 
+##### NGrams ###########
 
+#compute frequency distribution for the bigrams found in the first question
+fdist = nltk.FreqDist(question_bigrams[0])
+# for k,v in fdist.items():
+#     print k,v
 
+#print question_sents[0]
 
+# for value in question_bigrams[0]:
+# 	print value
 
-
-
-# print question_sents
+###### General iteration #######
+# for row in question_sents:
+	# print row
 # for row in pos_questions:
 # 	print row
 
 # for row in question_words:
 # 	print row
+
+
 
 
 
