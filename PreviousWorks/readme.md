@@ -62,20 +62,21 @@
 
 ###SemanticZ at SemEval-2016 Task 3
 **Implementation of Subtasks A and C**
-	* A: Ranking
+* A: Ranking
+
 **Tools**
-	* Word2Vec(Mikolov et. al 2013)
-	* Preprocessing(in order):
-		* replacement:
-			* url with TOKEN_URL
-			* numbers with TOKEN_NUM
-			* images with TOKEN_IMG
-			* emoticons with TOKEN_EMO
-		* tokenized text by matching only continuous alphabet characters including _(underscore)
-		* lowercased the result
-		* performed removal of stopwords with nltk
-	* POS Tagging: Stanford tagger(Toutanova et al. 2003)
-	* L2-regularized logistic regression classifier as in Liblinear( Fan et al. 2008)
+* Word2Vec(Mikolov et. al 2013)
+* Preprocessing(in order):
+	* replacement:
+		* url with TOKEN_URL
+		* numbers with TOKEN_NUM
+		* images with TOKEN_IMG
+		* emoticons with TOKEN_EMO
+	* tokenized text by matching only continuous alphabet characters including _(underscore)
+	* lowercased the result
+	* performed removal of stopwords with nltk
+* POS Tagging: Stanford tagger(Toutanova et al. 2003)
+* L2-regularized logistic regression classifier as in Liblinear( Fan et al. 2008)
 
 **Method**
 >"We approach subtask A as a classification problem. For each comment, we extract a variety of features from both the question and the comment, and we train a classifier to label comments as Good or Bad with respect to the therad question. We rank according to the classifier's score of being classified as Good with respect to the question".
@@ -149,10 +150,11 @@
 ***
 ###SUper Team at SemEval-2016 Task 3
 **Implementation of Subtasks A,B, and C**
-	* A: Q-A Ranking
-	* B: Q-Q Ranking 
+* A: Q-A Ranking
+* B: Q-Q Ranking
+ 
 **Tools**
-	* Preprocessing/Feature Extraction: based on Zamanov(Voltron)
+* Preprocessing/Feature Extraction: based on Zamanov(Voltron)
 
 
 
