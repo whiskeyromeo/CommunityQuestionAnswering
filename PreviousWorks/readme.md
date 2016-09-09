@@ -5,6 +5,7 @@
 * A: Classification of answer to question as Good, Bad, or Potentially Useful
 
 **Tools**
+
 * Preprocessing: GATE(Cunningham et. al 2002)
 * Classification: MALLET(McCallum and Kachites, 2002)
 * Distance metrics based on word2vec(Mikolov et. al 2013a) and DKPro Similarity(Bar, et al)(de Castilho, 2014)
@@ -16,7 +17,9 @@
 * Did not organize the whole text according to the structure of reult matrix, as occurs in Vector Space Models(VSMs)
 	* Higher scores obtained from Vector Space Models
 * Uses n-grams, cosine similarity
+
 	> "We assume that when answering a question, people tend to use the same words with which the question was asked becasue that would make it easier for the question author to understand. Therefore, similar wording and especially similar phrases would be an indication of more informative comment"
+
 * Tokens not punctuation or stop words are considered meaningful
 
 	>"For every meaningful token we extract its stem, lemma, and orthography"
@@ -25,7 +28,9 @@
 	* Use bigrams and trigrams, n>= 4 assumed to adversely impact training time
 * Bad Answers
 	* Assumed:
-		> Bad comments often include a lot of punctuation, more than one question in the answer...exclamations
+	
+	> Bad comments often include a lot of punctuation, more than one question in the answer...exclamations
+
 * Structural Features
 	* named entities given more weight via GATE's build-in NER tools
 * TF Vector Space Features
@@ -40,6 +45,7 @@
 	> calculates term-frequency feature vectors from its input documents. These vectors are fed to a MaxEnt classifier, trained and evaluated using tenfold cross validation. For final classification the trained classsifier outputs class probabilities for each of the tree desired categories.
 
 **Experiment/Results**
+
 * baseline :
 	* uses only word stokens, sentence, question and answer length, as well as bigrams and trigrams of the q-a pair
 	* Very weak : *gold-standard* = 44.18%, *baseline* = 24.05%
@@ -62,9 +68,11 @@
 
 ###SemanticZ at SemEval-2016 Task 3
 **Implementation of Subtasks A and C**
+
 * A: Ranking
 
 **Tools**
+
 * Word2Vec(Mikolov et. al 2013)
 * Preprocessing(in order):
 	* replacement:
@@ -116,6 +124,7 @@
 		* Question category
 
 **Classifier**
+
 * Concatenated features in a bag of features vector
 	* scaled in the 0 to 1 range
 * Used different feature configurations
@@ -125,20 +134,21 @@
 * probability(P(good)) used as relevance rank for each comment
 
 **Experiments** 
+
 * Qatar Living Forum(QLF) Data performed best, second QLF+GoogleNews+DohaNews
 * Best results initially from word vectors of size 800
 	* resulted in significant slowdown
-* Exceeded MAP of above by using better parameters
-	* Best configuration with:
-		* vector size = 200, window size = 5, min. word freq = 1, skip-gram = 3
+* Exceeded MAP of above by using better parameters	
+	* vector size = 200, window size = 5, min. word freq = 1, skip-gram = 3
 * Best Accuracy:
-		* vector size = 200, window size = 5, min. word freq = 1, skip-gram = 1
-		* vector size = 100, window size = 10, min. word freq = 5, skip-gram = 1
+	* vector size = 200, window size = 5, min. word freq = 1, skip-gram = 1
+	* vector size = 100, window size = 10, min. word freq = 5, skip-gram = 1
 
 **Results**
 * Second Place for Subtask A
 
 **Ideas**
+
 * MTE-NN system with best performing word embeddings models and features
 * troll user features(Mihaylov et al.2015a/b) and PMI-based goodness polarity lexicons as in PMI-Cool
 * Rich knowledge Sources(SUper Team system)
@@ -148,12 +158,16 @@
 ***
 
 ***
+
 ###SUper Team at SemEval-2016 Task 3
 **Implementation of Subtasks A,B, and C**
+
 * A: Q-A Ranking
 * B: Q-Q Ranking
- 
+
+
 **Tools**
+
 * Preprocessing/Feature Extraction: based on Zamanov(Voltron)
 
 
