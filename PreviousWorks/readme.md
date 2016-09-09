@@ -153,7 +153,8 @@
 * troll user features(Mihaylov et al.2015a/b) and PMI-based goodness polarity lexicons as in PMI-Cool
 * Rich knowledge Sources(SUper Team system)
 * Use information from entire threads to make better predictions
-	* > using thread level information for answer classification has already been shown useful by using features modeling the thread structure and dialogue or by applying threadlevel inference using the predictions of local classifiers
+	
+	> using thread level information for answer classification has already been shown useful...by using features modeling the thread structure and dialogue or by applying threadlevel inference using the predictions of local classifiers
 
 ***
 
@@ -169,7 +170,7 @@
 **Tools**
 
 * Preprocessing/Feature Extraction: based on Zamanov(Voltron)
-
+* 
 
 
 
