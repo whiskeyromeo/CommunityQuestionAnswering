@@ -2,12 +2,13 @@
 
 ###Voltron: A Hybrid System For Answer Validation Based on Lexical and Distance Features
 **Implementation of Subtask A**
-	* A: Classification of answer to question as Good, Bad, or Potentially Useful
+* A: Classification of answer to question as Good, Bad, or Potentially Useful
+
 **Tools**
-	* Preprocessing: GATE(Cunningham et. al 2002)
-	* Classification: MALLET(McCallum and Kachites, 2002)
-	* Distance metrics based on word2vec(Mikolov et. al 2013a) and DKPro Similarity(Bar, et al)(de Castilho, 2014)
-		> "we use a combination of surface, morphological, syntactic, and contextual features as well as distance metrics between the question and answer"
+* Preprocessing: GATE(Cunningham et. al 2002)
+* Classification: MALLET(McCallum and Kachites, 2002)
+* Distance metrics based on word2vec(Mikolov et. al 2013a) and DKPro Similarity(Bar, et al)(de Castilho, 2014)
+	> "we use a combination of surface, morphological, syntactic, and contextual features as well as distance metrics between the question and answer"
 
 **Methods**
 > "Our approach is to measure the relatednes of a comment to the question or measure if a question-comment pair is consistent...we attempt to classify each pair as Good, Potential, or Bad"
@@ -39,21 +40,21 @@
 	> calculates term-frequency feature vectors from its input documents. These vectors are fed to a MaxEnt classifier, trained and evaluated using tenfold cross validation. For final classification the trained classsifier outputs class probabilities for each of the tree desired categories.
 
 **Experiment/Results**
-	* baseline :
-		* uses only word stokens, sentence, question and answer length, as well as bigrams and trigrams of the q-a pair
-		* Very weak : *gold-standard* = 44.18%, *baseline* = 24.05%
-	* baseline + GATE gazetteers(named entities, etc...) :
-		* improvement of 1% : 25.33%
-	* baseline + DKPro cosine similarity:
-		* improvement of +- 4%
-	* baseline + word2vec:
-	 	* no improvement
-	 	* used set of vectors trained on Google News, not vectors specifically trained for SemEval
-	* Combination of all features:
-		* improvement to 50% accuracy and 32.02% F1
-	* Final Submissions: Combination
-		* Trained on SemEval development data *twice*
-		* improvement of 14% in F1 score, to 62.35% in accuracy
+* baseline :
+	* uses only word stokens, sentence, question and answer length, as well as bigrams and trigrams of the q-a pair
+	* Very weak : *gold-standard* = 44.18%, *baseline* = 24.05%
+* baseline + GATE gazetteers(named entities, etc...) :
+	* improvement of 1% : 25.33%
+* baseline + DKPro cosine similarity:
+	* improvement of +- 4%
+* baseline + word2vec:
+ 	* no improvement
+ 	* used set of vectors trained on Google News, not vectors specifically trained for SemEval
+* Combination of all features:
+	* improvement to 50% accuracy and 32.02% F1
+* Final Submissions: Combination
+	* Trained on SemEval development data *twice*
+	* improvement of 14% in F1 score, to 62.35% in accuracy
 
 ***
 
@@ -114,38 +115,34 @@
 		* Question category
 
 **Classifier**
-
-	* Concatenated features in a bag of features vector
-		* scaled in the 0 to 1 range
-	* Used different feature configurations
-	* tuned classifier with varying values of cost parameter, taking one with best accuracy
-	* used binary classification(good v bad), output a label of either good or bad
-		* 0 <= P(good) <= 1
-	* probability(P(good)) used as relevance rank for each comment
+* Concatenated features in a bag of features vector
+	* scaled in the 0 to 1 range
+* Used different feature configurations
+* tuned classifier with varying values of cost parameter, taking one with best accuracy
+* used binary classification(good v bad), output a label of either good or bad
+	* 0 <= P(good) <= 1
+* probability(P(good)) used as relevance rank for each comment
 
 **Experiments** 
+* Qatar Living Forum(QLF) Data performed best, second QLF+GoogleNews+DohaNews
+* Best results initially from word vectors of size 800
+	* resulted in significant slowdown
+* Exceeded MAP of above by using better parameters
+	* Best configuration with:
+		* vector size = 200, window size = 5, min. word freq = 1, skip-gram = 3
+* Best Accuracy:
+		* vector size = 200, window size = 5, min. word freq = 1, skip-gram = 1
+		* vector size = 100, window size = 10, min. word freq = 5, skip-gram = 1
 
-	* Qatar Living Forum(QLF) Data performed best, second QLF+GoogleNews+DohaNews
-	* Best results initially from word vectors of size 800
-		* resulted in significant slowdown
-	* Exceeded MAP of above by using better parameters
-		* Best configuration with:
-			* vector size = 200, window size = 5, min. word freq = 1, skip-gram = 3
-	* Best Accuracy:
-			* vector size = 200, window size = 5, min. word freq = 1, skip-gram = 1
-			* vector size = 100, window size = 10, min. word freq = 5, skip-gram = 1
-	
 **Results**
-
-	* Second Place for Subtask A
+* Second Place for Subtask A
 
 **Ideas**
-
-	* MTE-NN system with best performing word embeddings models and features
-	* troll user features(Mihaylov et al.2015a/b) and PMI-based goodness polarity lexicons as in PMI-Cool
-	* Rich knowledge Sources(SUper Team system)
-	* Use information from entire threads to make better predictions
-		* > using thread level information for answer classification has already been shown useful by using features modeling the thread structure and dialogue or by applying threadlevel inference using the predictions of local classifiers
+* MTE-NN system with best performing word embeddings models and features
+* troll user features(Mihaylov et al.2015a/b) and PMI-based goodness polarity lexicons as in PMI-Cool
+* Rich knowledge Sources(SUper Team system)
+* Use information from entire threads to make better predictions
+	* > using thread level information for answer classification has already been shown useful by using features modeling the thread structure and dialogue or by applying threadlevel inference using the predictions of local classifiers
 
 ***
 
