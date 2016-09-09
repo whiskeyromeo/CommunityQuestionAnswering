@@ -18,7 +18,7 @@
 	> "We assume that when answering a question, people tend to use the same words with which the question was asked becasue that would make it easier for the question author to understand. Therefore, similar wording and especially similar phrases would be an indication of more informative comment"
 * Tokens not punctuation or stop words are considered meaningful
 
->"For every meaningful token we extract its stem, lemma, and orthography"
+	>"For every meaningful token we extract its stem, lemma, and orthography"
 
 * N-Grams
 	* Use bigrams and trigrams, n>= 4 assumed to adversely impact training time
@@ -31,11 +31,12 @@
 	* DKPros implementation of cosine similarity to compute similar wording(higher cosine similarity = similar wording)
 * Word2Vec Semantic Similarity
 
-> "For a given question-comment pair, we extract word2vec vectors from a pre-trained set for all tokens for which one is available. We compute the centroids for the question and the comment, then use the cosine between the two as a feature. The intention is to capture the similarity between different terms in the pair...the same proc is applied once more for only noun phrase tokens as they carry more information about the topic"
+	> "For a given question-comment pair, we extract word2vec vectors from a pre-trained set for all tokens for which one is available. We compute the centroids for the question and the comment, then use the cosine between the two as a feature. The intention is to capture the similarity between different terms in the pair...the same proc is applied once more for only noun phrase tokens as they carry more information about the topic"
 
 **Classifier Model**
 * MALLET : 
-> calculates term-frequency feature vectors from its input documents. These vectors are fed to a MaxEnt classifier, trained and evaluated using tenfold cross validation. For final classification the trained classsifier outputs class probabilities for each of the tree desired categories.
+
+	> calculates term-frequency feature vectors from its input documents. These vectors are fed to a MaxEnt classifier, trained and evaluated using tenfold cross validation. For final classification the trained classsifier outputs class probabilities for each of the tree desired categories.
 
 **Experiment/Results**
 	* baseline :
@@ -76,41 +77,44 @@
 	* L2-regularized logistic regression classifier as in Liblinear( Fan et al. 2008)
 
 **Method**
-	* >"We approach subtask A as a classification problem. For each comment, we extract a variety of features from both the question and the comment, and we train a classifier to label comments as Good or Bad with respect to the therad question. We rank according to the classifier's score of being classified as Good with respect to the question".
-	* Word2Vec:
-		* Semantic Word Embeddings
-			* obtained from word2vec models trained on different unannotated data sources including QatarLiving and DohaNews
-			* For each piece of text, constructed centroid vector from the vectors of all words in that text(after preprocessing, e.g. no stopwords)
-		* Semantic Vector Similarities:
-			* Question 2 Answer:
-				* assumed a relevant answer should have a centroid vector that is close to that for the question.
-			* Maximized Similarity:
-				* ranked each word in the answer to the question body centroid vector according to similarity and took average similarity of the top N words. 
-				* Took the top 1,2,3, and 5 words similarities as features. 
-				* assumption that if average similarity for the top N most similar words is high, answer might be relevant
-			* Aligned Similarity:
-				* For each word, chose the most similar from text and took the average of all best word pair similarities
-		* Word Clusters(WC) Similarity:
-			* clustered the Word2Vec vocab in 1,000 clusters using K-Means
-			* calculated cluster similarity between question word and answer word clusters
-			* For all experiments, model trained on QatarLiving forums
-				* vector size = 100
-				* window size = 10
-				* min. word freq = 5
-				* skip-gram = 1
-		* Latent Dirichlet Allocation(LDA) topic Similarity:
-			* built models with 100 topics
-			* for each word in question and comment text, build a bag-of-topics with corresponding distribution, calculating the similarity
-			* assumption if question and comment share topics, they're more likely to be relevant
-		* MetaData: 
-			* Answer contains a question mark - bad answer?
-			* Answer Length - more clarity with longer?
-			* Question Length - more clarity with longer?
-			* Question to comment length - question long/answer short less relevant?
-			* Answer author is same as corresponding question's author - if answer posted by author, why did they ask the question?
-			* Answer rank in thread
-			* Question category
+>"We approach subtask A as a classification problem. For each comment, we extract a variety of features from both the question and the comment, and we train a classifier to label comments as Good or Bad with respect to the therad question. We rank according to the classifier's score of being classified as Good with respect to the question".
+	
+* Word2Vec:
+	* Semantic Word Embeddings
+		* obtained from word2vec models trained on different unannotated data sources including QatarLiving and DohaNews
+		* For each piece of text, constructed centroid vector from the vectors of all words in that text(after preprocessing, e.g. no stopwords)
+	* Semantic Vector Similarities:
+		* Question 2 Answer:
+			* assumed a relevant answer should have a centroid vector that is close to that for the question.
+		* Maximized Similarity:
+			* ranked each word in the answer to the question body centroid vector according to similarity and took average similarity of the top N words. 
+			* Took the top 1,2,3, and 5 words similarities as features. 
+			* assumption that if average similarity for the top N most similar words is high, answer might be relevant
+		* Aligned Similarity:
+			* For each word, chose the most similar from text and took the average of all best word pair similarities
+	* Word Clusters(WC) Similarity:
+		* clustered the Word2Vec vocab in 1,000 clusters using K-Means
+		* calculated cluster similarity between question word and answer word clusters
+		* For all experiments, model trained on QatarLiving forums
+			* vector size = 100
+			* window size = 10
+			* min. word freq = 5
+			* skip-gram = 1
+	* Latent Dirichlet Allocation(LDA) topic Similarity:
+		* built models with 100 topics
+		* for each word in question and comment text, build a bag-of-topics with corresponding distribution, calculating the similarity
+		* assumption if question and comment share topics, they're more likely to be relevant
+	* MetaData: 
+		* Answer contains a question mark - bad answer?
+		* Answer Length - more clarity with longer?
+		* Question Length - more clarity with longer?
+		* Question to comment length - question long/answer short less relevant?
+		* Answer author is same as corresponding question's author - if answer posted by author, why did they ask the question?
+		* Answer rank in thread
+		* Question category
+
 **Classifier**
+
 	* Concatenated features in a bag of features vector
 		* scaled in the 0 to 1 range
 	* Used different feature configurations
@@ -120,6 +124,7 @@
 	* probability(P(good)) used as relevance rank for each comment
 
 **Experiments** 
+
 	* Qatar Living Forum(QLF) Data performed best, second QLF+GoogleNews+DohaNews
 	* Best results initially from word vectors of size 800
 		* resulted in significant slowdown
@@ -131,9 +136,11 @@
 			* vector size = 100, window size = 10, min. word freq = 5, skip-gram = 1
 	
 **Results**
+
 	* Second Place for Subtask A
 
 **Ideas**
+
 	* MTE-NN system with best performing word embeddings models and features
 	* troll user features(Mihaylov et al.2015a/b) and PMI-based goodness polarity lexicons as in PMI-Cool
 	* Rich knowledge Sources(SUper Team system)
