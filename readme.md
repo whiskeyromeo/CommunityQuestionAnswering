@@ -81,7 +81,8 @@ From the SemEval Site:
 * (http://stackoverflow.com/questions/28259301/how-to-convert-an-xml-file-to-nice-pandas-dataframe) Pandas is nice because of their DataFrame, which is an enhanced version of a matrix, it has     built in data analysis methods. The reason I add this is that I'm using it right now in a Kaggle tutorial. We are implementing machine learning on this DataFrame using sklearn. There are methods for splitting the data and cross validation as well. This is a link to how one might go from an XML similar to ours into a DataFrame. Yet, the problem of what to call the columns still remains, that is, what features will we use to feed into the algorithm. 
 * [Word2Vec - Google Code Archive](https://code.google.com/archive/p/word2vec/)
 * [Deep Learning with Word2Vec and gensim](http://rare-technologies.com/deep-learning-with-word2vec-and-gensim/)
-
+* [Apache OpenNLP - Machine Learning Toolkit](https://opennlp.apache.org/)
+* [KeLP on github](https://github.com/SAG-KeLP)
 
 ####Former SemEval Projects
 * [SemanticZ SemEval Task 3 2016](http://m-mitchell.com/NAACL-2016/SemEval/pdf/SemEval123.pdf)
