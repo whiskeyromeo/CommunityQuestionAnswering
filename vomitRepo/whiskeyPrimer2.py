@@ -4,7 +4,7 @@
 	applies the word2vec algorithm. Current implementation
 	uses the skip-gram model- CBOW may be faster - skip-gram 
 	is supposedly more accurate.
-	
+
 """
 __author__ = "whiskeyromeo"
 
@@ -132,6 +132,48 @@ model.save(model_name)
 # Should test the accuracy of the model, currently not...
 # TODO - get better output
 model.accuracy('./question-words.txt')
+
+######################
+## Cluster it up - Kaggle rip
+######################
+from sklearn.cluster import KMeans
+
+word_vectors = model.syn0
+num_clusters = word_vectors.shape[0]/5
+
+kmeans_clustering = KMeans(n_clusters = num_clusters)
+idx = kmeans_clustering.fit_predict( word_vectors )
+
+word_centroid_map = dict(zip(model.index2word, idx))
+
+"""
+	Straight from the Kaggle Bag of Popcorn Tut 3
+"""
+def create_bag_of_centroids( wordlist, word_centroid_map ):
+    #
+    # The number of clusters is equal to the highest cluster index
+    # in the word / centroid map
+    num_centroids = max( word_centroid_map.values() ) + 1
+    #
+    # Pre-allocate the bag of centroids vector (for speed)
+    bag_of_centroids = np.zeros( num_centroids, dtype="float32" )
+    #
+    # Loop over the words in the review. If the word is in the vocabulary,
+    # find which cluster it belongs to, and increment that cluster count 
+    # by one
+    for word in wordlist:
+        if word in word_centroid_map:
+            index = word_centroid_map[word]
+            bag_of_centroids[index] += 1
+    #
+    # Return the "bag of centroids"
+    return bag_of_centroids
+
+centroids = np.zeros((len(sentences), num_clusters), dtype="float32")
+counter = 0
+for line in sentences:
+	centroids[counter] = create_bag_of_centroids( line, word_centroid_map)
+	counter += 1
 
 
 

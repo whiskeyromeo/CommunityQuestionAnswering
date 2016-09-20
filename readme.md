@@ -88,6 +88,6 @@ From the SemEval Site:
 * [SemanticZ SemEval Task 3 2016](http://m-mitchell.com/NAACL-2016/SemEval/pdf/SemEval123.pdf)
 * [Voltron: A Hybrid System For Answer Validation Based On Lexical And
 Distance Features](http://anthology.aclweb.org/S/S15/S15-2.pdf#page=284)
-
+* [Guzman : MTE-NN at SemEval 2016- Task 3](https://www.researchgate.net/publication/305334825_MTE-NN_at_SemEval-2016_Task_3_Can_Machine_Translation_Evaluation_Help_Community_Question_Answering)
 
 
