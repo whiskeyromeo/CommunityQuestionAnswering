@@ -9,12 +9,12 @@ class HTMLOutput:
         self.pages = {}
 
     def addstring(self, title, content):
-        if not self.pages.has_key(title):
+        if title not in self.pages:
             self.pages[title] = ""
         self.pages[title] += cgi.escape(content) + "\n"
 
     def adddata(self, title, content):
-        if not self.pages.has_key(title):
+        if title not in self.pages:
             self.pages[title] = ""
         self.pages[title] += cgi.escape(json.dumps(content, sort_keys=True, indent=4, separators=(',', ': '))) + "\n"
 
