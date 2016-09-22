@@ -1,29 +1,40 @@
-import json
+import simplejson
 import os
 import cgi
+import types
 
 
 class HTMLOutput:
 
     def __init__(self):
         self.pages = {}
+        self.pageorder = []
+
+    def encode_special(self, obj):
+        if isinstance(obj, types.GeneratorType):
+            return list(obj)
+        raise TypeError("%r is not JSON serializable" % (o,))
 
     def addstring(self, title, content):
         if title not in self.pages:
             self.pages[title] = ""
         self.pages[title] += cgi.escape(content) + "\n"
+        if title not in self.pageorder:
+            self.pageorder.append(title)
 
     def adddata(self, title, content):
         if title not in self.pages:
             self.pages[title] = ""
-        self.pages[title] += cgi.escape(json.dumps(content, sort_keys=True, indent=4, separators=(',', ': '))) + "\n"
+        self.pages[title] += cgi.escape(simplejson.dumps(content, default=self.encode_special, skipkeys=True, sort_keys=True, indent=4))
+        if title not in self.pageorder:
+            self.pageorder.append(title)
 
     def render(self):
         tabs = []
         pages = []
         path = os.path.dirname(os.path.abspath(__file__))
 
-        for title in self.pages:
+        for title in self.pageorder:
             tabs.append("<div class=\"tab\">" + title + "</div>")
             pages.append("<div class=\"page\" name=\"" + title + "\">" + self.pages[title] + "</div>")
 

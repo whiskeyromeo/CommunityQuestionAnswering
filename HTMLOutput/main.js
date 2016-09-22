@@ -6,6 +6,9 @@ function init() {
 
     var $pages = jQuery('.content .page');
     $pages.first().addClass('active');
+
+    jQuery(window).resize(onResize);
+    onResize();
 }
 
 function onTabClick(e) {
@@ -19,6 +22,12 @@ function onTabClick(e) {
     var $pages = jQuery('.content .page');
     $pages.removeClass('active');
     $pages.filter('[name="' + name + '"]').addClass('active');
+}
+
+function onResize() {
+    var navHeight = jQuery('.nav').height();
+    jQuery('.content').css('margin-top', navHeight + 10);
+    console.log(navHeight);
 }
 
 jQuery(document).ready(init);
