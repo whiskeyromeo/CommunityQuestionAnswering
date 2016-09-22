@@ -2,6 +2,7 @@ import sys
 import webbrowser
 sys.path.append('../HTMLOutput/')
 from HTMLOutput import HTMLOutput
+from loader import loadXMLQuestions
 
 # Start up output system
 
@@ -9,8 +10,8 @@ output = HTMLOutput()
 
 # Load data from files
 
-output.addstring("test page", "this is a test")
-output.addstring("test page", "this is another test")
+questionList = loadXMLQuestions('../Data/train-more-for-subtaskA-from-2015/SemEval2015-Task3-CQA-QL-train-reformatted-excluding-2016-questions-cleansed.xml')
+output.adddata("Loader: questionList", questionList)
 
 # Pre-process data to normalize text and remove junk
 
@@ -22,4 +23,6 @@ output.addstring("test page", "this is another test")
 
 outputpath = output.render()
 print "Output rendered to", outputpath
-webbrowser.open(outputpath)
+
+if "--nobrowser" not in sys.argv:
+    webbrowser.open(outputpath)

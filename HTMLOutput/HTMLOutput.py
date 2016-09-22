@@ -1,5 +1,6 @@
 import json
 import os
+import cgi
 
 
 class HTMLOutput:
@@ -10,12 +11,12 @@ class HTMLOutput:
     def addstring(self, title, content):
         if not self.pages.has_key(title):
             self.pages[title] = ""
-        self.pages[title] += content + "\n"
+        self.pages[title] += cgi.escape(content) + "\n"
 
     def adddata(self, title, content):
         if not self.pages.has_key(title):
             self.pages[title] = ""
-        self.pages[title] += json.dumps(content, sort_keys=True, indent=4, separators=(',', ': ')) + "\n"
+        self.pages[title] += cgi.escape(json.dumps(content, sort_keys=True, indent=4, separators=(',', ': '))) + "\n"
 
     def render(self):
         tabs = []
