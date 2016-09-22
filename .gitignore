@@ -1,3 +1,5 @@
 .idea
 *.pyc
 output.html
+output.*.html
+runcounter.txt
