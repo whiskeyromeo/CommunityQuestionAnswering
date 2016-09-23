@@ -5,10 +5,7 @@ import nltk, re, pprint
 import xml.etree.ElementTree as ElementTree
 import sys
 import os
-sys.path.append(os.path.abspath("../HTMLOutput"))
-import HTMLOutput as HTMLOutput
 
-output = HTMLOutput.HTMLOutput()
 
 # from nltk.stem.porter import PorterStemmer
 
@@ -97,9 +94,6 @@ for question in question_words:
 #### General Frequency Distribution ############
 
 
-output.adddata("question_words", question_words)
-output.adddata("flatted", flattened)
-
 # Get the frequency distribution of all of the words across all the questions
 word_dist = nltk.FreqDist(flattened)
 # for word, freq in word_dist.most_common(50):
@@ -125,7 +119,4 @@ fdist = nltk.FreqDist(question_bigrams[0])
 
 # for row in question_words:
 # 	print row
-
-htmlpath = output.render()
-print "Output is at " + htmlpath
 
