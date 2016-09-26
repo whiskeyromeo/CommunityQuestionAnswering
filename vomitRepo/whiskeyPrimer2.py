@@ -11,7 +11,10 @@ __author__ = "whiskeyromeo"
 import re, pprint
 import xml.etree.ElementTree as ElementTree
 from bs4 import BeautifulSoup
-from nltk import stopwords
+from gensim.models import Word2Vec
+#from nltk.corpus import stopwords
+import nltk
+stopwords = ['']
 
 def getValues(tree, category):
     parent = tree.find(".//parent[@name='%s']" % category)
@@ -19,11 +22,8 @@ def getValues(tree, category):
 
 filePaths = [
 	'../Data/train-more-for-subtaskA-from-2015/SemEval2015-Task3-CQA-QL-train-reformatted-excluding-2016-questions-cleansed.xml',
-	'../Data/train-more-for-subtaskA-from-2015/SemEval2015-Task3-CQA-QL-train-reformatted-excluding-2016-questions-multiline.xml',
-	'../Data/train-more-for-subtaskA-from-2015/SemEval2015-Task3-CQA-QL-train-reformatted-multiline.xml',
 	'../Data/train-more-for-subtaskA-from-2015/SemEval2015-Task3-CQA-QL-dev-reformatted-excluding-2016-questions-cleansed.xml',
-	'../Data/train-more-for-subtaskA-from-2015/SemEval2015-Task3-CQA-QL-dev-reformatted-excluding-2016-questions-multiline.xml',
-	'../Data/train-more-for-subtaskA-from-2015/SemEval2015-Task3-CQA-QL-dev-reformatted-multiline.xml'
+	'../Data/train-more-for-subtaskA-from-2015/SemEval2015-Task3-CQA-QL-test-reformatted-excluding-2016-questions-cleansed.xml',
 ]
 
 """
@@ -94,7 +94,7 @@ def sentence_to_wordlist(question, remove_stopwords=False):
 			words = [w for w in words if not w in stops]
 		return words
 
-tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
+#tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
 
 """
 	question_to_sentences
@@ -112,68 +112,70 @@ def question_to_sentences(question, tokenizer, remove_stopwords=False):
 	return sentences
 
 sentences = []
-for row in thisList:
-	questions.append(row['question'])
-	for comment in row['comments']:
-		comments.append(comment['comment'])
+# for row in thisList:
+# 	questions.append(row['question'])
+# 	for comment in row['comments']:
+# 		comments.append(comment['comment'])
 
-for question in questions:
-	sentences += question_to_sentences(question, tokenizer)
+# for question in questions:
+# 	sentences += question_to_sentences(question, tokenizer)
 
-for comment in comments:
-	sentences += question_to_sentences(comment, tokenizer)
+# for comment in comments:
+# 	sentences += question_to_sentences(comment, tokenizer)
 
 #Train the model based on the kaggle input parameters, can easily be changed
-model = word2vec.Word2Vec(sentences, workers=4, size=300, min_count=40, window=10, sample=1e-3)
+# model = Word2Vec(sentences, workers=4, size=300, min_count=40, window=10, sample=1e-3)
 model_name = "first_w2v_train_dev"
 #Save the model so we can pull it back up at any point
-model.save(model_name)
-
+# model.save(model_name)
+model = Word2Vec.load(model_name)
 # Should test the accuracy of the model, currently not...
 # TODO - get better output
-model.accuracy('./question-words.txt')
+#model.accuracy('./question-words.txt')
 
 ######################
 ## Cluster it up - Kaggle rip
 ######################
 from sklearn.cluster import KMeans
 
-word_vectors = model.syn0
-num_clusters = word_vectors.shape[0]/5
+# word_vectors = model.syn0
+# num_clusters = word_vectors.shape[0]/5
 
-kmeans_clustering = KMeans(n_clusters = num_clusters)
-idx = kmeans_clustering.fit_predict( word_vectors )
+# kmeans_clustering = KMeans(n_clusters = num_clusters)
+# idx = kmeans_clustering.fit_predict( word_vectors )
 
-word_centroid_map = dict(zip(model.index2word, idx))
+# word_centroid_map = dict(zip(model.index2word, idx))
 
 """
 	Straight from the Kaggle Bag of Popcorn Tut 3
 """
-def create_bag_of_centroids( wordlist, word_centroid_map ):
-    #
-    # The number of clusters is equal to the highest cluster index
-    # in the word / centroid map
-    num_centroids = max( word_centroid_map.values() ) + 1
-    #
-    # Pre-allocate the bag of centroids vector (for speed)
-    bag_of_centroids = np.zeros( num_centroids, dtype="float32" )
-    #
-    # Loop over the words in the review. If the word is in the vocabulary,
-    # find which cluster it belongs to, and increment that cluster count 
-    # by one
-    for word in wordlist:
-        if word in word_centroid_map:
-            index = word_centroid_map[word]
-            bag_of_centroids[index] += 1
-    #
-    # Return the "bag of centroids"
-    return bag_of_centroids
+# def create_bag_of_centroids( wordlist, word_centroid_map ):
+#     #
+#     # The number of clusters is equal to the highest cluster index
+#     # in the word / centroid map
+#     num_centroids = max( word_centroid_map.values() ) + 1
+#     #
+#     # Pre-allocate the bag of centroids vector (for speed)
+#     bag_of_centroids = np.zeros( num_centroids, dtype="float32" )
+#     #
+#     # Loop over the words in the review. If the word is in the vocabulary,
+#     # find which cluster it belongs to, and increment that cluster count 
+#     # by one
+#     for word in wordlist:
+#         if word in word_centroid_map:
+#             index = word_centroid_map[word]
+#             bag_of_centroids[index] += 1
+#     #
+#     # Return the "bag of centroids"
+#     return bag_of_centroids
 
-centroids = np.zeros((len(sentences), num_clusters), dtype="float32")
-counter = 0
-for line in sentences:
-	centroids[counter] = create_bag_of_centroids( line, word_centroid_map)
-	counter += 1
+# centroids = np.zeros((len(sentences), num_clusters), dtype="float32")
+# counter = 0
+# for line in sentences:
+# 	centroids[counter] = create_bag_of_centroids( line, word_centroid_map)
+# 	counter += 1
+
+
 
 
 
