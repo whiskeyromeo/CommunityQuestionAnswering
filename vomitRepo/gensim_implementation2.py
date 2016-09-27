@@ -1,54 +1,61 @@
+from whiskeyPrimer2 import elementParser, filePaths
+from collections import defaultdict
 from gensim import corpora, models, similarities
 from six import iteritems
-from QuestionFileCreator import CreateFilePath
 import logging
-import os
+from QuestionFileCreator import CreateFilePath
 
 # Create the uniform filepath for saving documents
-new_dest = CreateFilePath('genImp1')
+new_dest = CreateFilePath('genImp2')
 
 
 logging.basicConfig(filename=new_dest +'.log', format='%(asctime)s : %(levelname)s : %(message)s', level=logging.DEBUG)
-logger = logging.getLogger(__name__)
 
+thisList = []
+# Create the list full of all of the data
+for filePath in filePaths:
+	thisList += elementParser(filePath)
 
-######################
-# Memory Friendly Implementation
-######################
+# Create a list to hold all of the questions
+questions = []
+for row in thisList:
+	questions.append(row['question'])
 
-# This type of dictionary apparently wont eat all of your memory...ram rum ram rum....
+# get the stopwords
 stops = set('for a of the and to in'.split())
-# collect stats about all tokens
-dictionary = corpora.Dictionary(line.lower().split() for line in open('myfile.txt'))
-# remove stopwords
-stop_ids = [dictionary.token2id[stopword] for stopword in stops if stopword in dictionary.token2id]
-# remove words only appearing once
-once_ids = [tokenid for tokenid, docfreq in iteritems(dictionary.dfs) if docfreq == 1]
-dictionary.filter_tokens(stop_ids + once_ids)
-dictionary.compactify()
+
+# remove the stopwords, tokenize the questions
+queries = [[word for word in question.lower().split() if word not in stops] for question in questions]
+
+
+# remove words that appear only once
+frequency = defaultdict(int)
+for query in queries:
+	for token in query:
+		frequency[token] += 1
+
+
+# Create a dictionary to represent the words by their mapped integer ids
+# Access representations via dictionary.token2id
+dictionary = corpora.Dictionary(queries)
+
 dictionary.save(new_dest +'.dict')
-
-
-#########################
-# Create a corpus from the memory friendly dictionary implementation
-#########################
-class MyCorpus(object):
-	def __iter__(self):
-		for line in open('myfile.txt'):
-			yield dictionary.doc2bow(line.lower().split())
-
-# Create the corpus based off of myfile.txt
-corpus = MyCorpus()
+#
+# Create a vector representation of the questions, Using same format as 
+# what went into the dictionary so that we can properly map ids/values
+corpus = [dictionary.doc2bow(query) for query in queries]
+#
 
 # Save corpus as Matrix Market file
 
-#corpora.MmCorpus.serialize(new_dest +'.mm', corpus)
+corpora.MmCorpus.serialize(new_dest +'.mm', corpus)
 
 # or SVMlight format, Blei LDA-C, GibbsLDA++
 
-#corpora.SvmLightCorpus.serialize('./tmp/corpus.svmlight', corpus)
-#corpora.BleiCorpus.serialize('./tmp/corpus.lda-c', corpus)
-#corpora.LowCorpus.serialize('./tmp/corpus.low', corpus)
+#corpora.SvmLightCorpus.serialize(new_dest +'.svmlight', corpus)
+#corpora.BleiCorpus.serialize(new_dest +'.lda-c', corpus)
+#corpora.LowCorpus.serialize(new_dest +'.low', corpus)
+
 
 
 
@@ -84,30 +91,24 @@ lsi = models.LsiModel.load(new_dest +'.lsi')
 #	number of features will hog a lot of RAM(1M @ 256 feature_count = >2GB RAM)
 # 	If RAM is an issue, use similarities.Similarity 
 
-## TODO: Fix it
-	# This is broken as the current MyCorpus clas outputs an object which has no len()
 index = similarities.MatrixSimilarity(lsi[corpus])
 
-
-# index.save(new_dest +'.index')
-# index = similarities.MatrixSimilarity.load(new_dest +'.index')
+index.save(new_dest +'.index')
+index = similarities.MatrixSimilarity.load(new_dest +'.index')
 
 # Perform a similarity query against the corpus( returns a bunch of 2-tuples)
-
-
+doc = questions[0]
+vec_bow = dictionary.doc2bow(doc.lower().split())
+vec_lsi = lsi[vec_bow] # convert the query to LSI space
 sims = index[vec_lsi]
 
 # sort the result
 sims = sorted(enumerate(sims), key=lambda item: -item[1])
 
-for key, value in sims[:10]:
+for key, value in sims[1:10]:
 	print key
 	print questions[key]
 	print value
 	print "************"
-
-
-
-
 
 

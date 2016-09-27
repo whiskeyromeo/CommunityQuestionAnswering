@@ -10,7 +10,7 @@ __author__ = "whiskeyromeo"
 
 import re, pprint
 import xml.etree.ElementTree as ElementTree
-from bs4 import BeautifulSoup
+#from bs4 import BeautifulSoup
 from gensim.models import Word2Vec
 #from nltk.corpus import stopwords
 import nltk
@@ -126,9 +126,12 @@ sentences = []
 #Train the model based on the kaggle input parameters, can easily be changed
 # model = Word2Vec(sentences, workers=4, size=300, min_count=40, window=10, sample=1e-3)
 model_name = "first_w2v_train_dev"
+
 #Save the model so we can pull it back up at any point
 # model.save(model_name)
-model = Word2Vec.load(model_name)
+#model = Word2Vec.load(model_name)
+
+
 # Should test the accuracy of the model, currently not...
 # TODO - get better output
 #model.accuracy('./question-words.txt')

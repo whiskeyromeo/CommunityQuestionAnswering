@@ -2,3 +2,10 @@
 *.pyc
 output
 runcounter.txt
+*.mm
+*.lsi
+*.index
+*.lsi.projection
+*.dict
+vomitRepo/tmp/*
+*.log
