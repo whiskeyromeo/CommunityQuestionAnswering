@@ -7,7 +7,9 @@ from preprocessSentencesAndWords import *
 from preprocessBigram import *
 from preprocessStopwords import *
 from preprocessPartOfSpeech import *
+from featuresDoc2Vec import *
 from setup import setup
+from pprint import pprint
 
 def getargvalue(name, required):
     output = False
@@ -28,6 +30,7 @@ def getargvalue(name, required):
 
 # Start up output system
 
+global output
 output = HTMLOutput()
 output.adddata("Command Line", sys.argv)
 
@@ -38,9 +41,10 @@ if "--setup" in sys.argv:
 
 # Load data from files
 
+print("Loading")
 questionFile = getargvalue("questionfile", True)
 QAData = loadXMLQuestions(questionFile)
-output.adddata("Loader: questionList", QAData)
+output.adddata("Loader", QAData)
 
 # Pre-process:
 # - augment questions and answers with versions of those split into sentences
@@ -48,28 +52,41 @@ output.adddata("Loader: questionList", QAData)
 # - remove stopwords
 # - part-of-speech tagging
 
+print("PreProcessing: Sentences and Words")
 QAData = preprocessAddSentencesAndWords(QAData)
-output.adddata("Sentences: questionList", QAData)
+output.adddata("Sentences", QAData[0:2])
 
 if "--nostopwords" not in sys.argv:
+    print("PreProcessing: Stopwords")
     QAData = preprocessStopwords(QAData)
     output.adddata("Stopwords: stopwords", preprocessStopwordsList())
-    output.adddata("Stopwords: questionList", QAData)
+    output.adddata("Stopwords", QAData[0:2])
 
+print("PreProcessing: Bigrams")
 QAData = preprocessBigram(QAData)
-output.adddata("Bigram: questionList", QAData)
+output.adddata("Bigram", QAData[0:2])
 
+print("PreProcessing: Parts of Speech")
 QAData = preprocessPartOfSpeech(QAData)
-output.adddata("PartOfSpeech: questionList", QAData)
+output.adddata("PartOfSpeech", QAData[0:2])
 
 # Transform data into feature sets
+
+if "--doc2vec" in sys.argv:
+    print("Feature Generation: Doc2Vec")
+    QAData = featuresdoc2vec(QAData)
+    output.adddata("Doc2Vec", QAData[0:2])
 
 # Run/train the comparison system
 
 # Final output
 
+print("Output: Rendering HTML")
 outputpath = output.render()
-print("Output rendered to " + outputpath)
+print("Output: rendered to " + outputpath)
 
 if "--nobrowser" not in sys.argv:
+    print("Output: Launching browser")
     webbrowser.open(outputpath)
+
+print("Finished")

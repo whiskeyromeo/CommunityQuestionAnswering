@@ -2,6 +2,7 @@ import simplejson
 import os
 import cgi
 import types
+import numpy
 
 
 class HTMLOutput:
@@ -13,7 +14,9 @@ class HTMLOutput:
     def encode_special(self, obj):
         if isinstance(obj, types.GeneratorType):
             return list(obj)
-        raise TypeError("%r is not JSON serializable" % (o,))
+        if isinstance(obj, numpy.ndarray):
+            return obj.tolist()
+        raise TypeError("%r is not JSON serializable" % type(obj))
 
     def addstring(self, title, content):
         if title not in self.pages:
