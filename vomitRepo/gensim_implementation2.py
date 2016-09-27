@@ -74,7 +74,7 @@ corpus_tfidf = tfidf[corpus]
 # Initialize an LSI transformation(Latent Semantic Indexing)
 # Transform the weighted tfidf corpus into latent 2-d space(num_topics = dimensions)
 # num_topics should be between 200-500 as that has found to be the sweet spot...
-lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=2)
+lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=200)
 corpus_lsi = lsi[corpus_tfidf]
 
 # Save the model to disk for later
