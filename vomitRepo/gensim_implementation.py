@@ -1,6 +1,6 @@
 from gensim import corpora, models, similarities
 from six import iteritems
-from QuestionFileCreator import CreateFilePath
+from QuestionFileCreator import CreateFilePath, QuestionFileReader
 import logging
 import os
 
@@ -8,8 +8,6 @@ import os
 new_dest = CreateFilePath('genImp1')
 
 filename = 'cleanQuestions.txt'
-
-
 
 logging.basicConfig(filename=new_dest +'.log', format='%(asctime)s : %(levelname)s : %(message)s', level=logging.DEBUG)
 logger = logging.getLogger(__name__)
@@ -53,8 +51,6 @@ serialized_corpus = corpora.MmCorpus(new_dest + '.mm')
 #corpora.BleiCorpus.serialize('./tmp/corpus.lda-c', corpus)
 #corpora.LowCorpus.serialize('./tmp/corpus.low', corpus)
 
-
-
 #########################
 # Implementing a Transformation
 #########################
@@ -70,7 +66,7 @@ corpus_tfidf = tfidf[corpus]
 # Initialize an LSI transformation(Latent Semantic Indexing)
 # Transform the weighted tfidf corpus into latent 2-d space(num_topics = dimensions)
 # num_topics should be between 200-500 as that has found to be the sweet spot...
-lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=2)
+lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=200)
 corpus_lsi = lsi[corpus_tfidf]
 
 # Save the model to disk for later
@@ -96,20 +92,20 @@ index = similarities.MatrixSimilarity.load(new_dest +'.index')
 
 # Perform a similarity query against the corpus( returns a bunch of 2-tuples)
 # Perform a similarity query against the corpus( returns a bunch of 2-tuples)
-
+questions = QuestionFileReader(filename)
 
 doc = questions[0]
 vec_bow = dictionary.doc2bow(doc.lower().split())
 vec_lsi = lsi[vec_bow] # convert the query to LSI space
 sims = index[vec_lsi]
 # sort the result
-#sims = sorted(enumerate(sims), key=lambda item: -item[1])
+sims = sorted(enumerate(sims), key=lambda item: -item[1])
 
-# for key, value in sims[:10]:
-# 	print key
-# 	print questions[key]
-# 	print value
-# 	print "************"
+for key, value in sims[:10]:
+	print key
+	print questions[key]
+	print value
+	print "************"
 
 
 

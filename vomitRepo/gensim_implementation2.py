@@ -89,7 +89,6 @@ index.save(new_dest +'.index')
 index = similarities.MatrixSimilarity.load(new_dest +'.index')
 
 
-
 # Perform a similarity query against the corpus( returns a bunch of 2-tuples)
 doc = questions[0]
 vec_bow = dictionary.doc2bow(doc.lower().split())
