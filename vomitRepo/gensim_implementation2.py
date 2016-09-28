@@ -1,9 +1,9 @@
-from whiskeyPrimer2 import elementParser, filePaths
+from whiskeyPrimer2 import filePaths
 from collections import defaultdict
 from gensim import corpora, models, similarities
 from six import iteritems
 import logging
-from QuestionFileCreator import CreateFilePath
+from QuestionFileCreator import CreateFilePath, QuestionCreator
 
 # Create the uniform filepath for saving documents
 new_dest = CreateFilePath('genImp2')
@@ -11,16 +11,8 @@ new_dest = CreateFilePath('genImp2')
 
 logging.basicConfig(filename=new_dest +'.log', format='%(asctime)s : %(levelname)s : %(message)s', level=logging.DEBUG)
 
-thisList = []
-# Create the list full of all of the data
-for filePath in filePaths:
-	thisList += elementParser(filePath)
-
 # Create a list to hold all of the questions
-questions = []
-for row in thisList:
-	questions.append(row['question'])
-
+questions = QuestionCreator(filePaths)
 # get the stopwords
 stops = set('for a of the and to in'.split())
 
@@ -95,6 +87,8 @@ index = similarities.MatrixSimilarity(lsi[corpus])
 
 index.save(new_dest +'.index')
 index = similarities.MatrixSimilarity.load(new_dest +'.index')
+
+
 
 # Perform a similarity query against the corpus( returns a bunch of 2-tuples)
 doc = questions[0]

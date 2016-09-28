@@ -1,4 +1,4 @@
-from vomitRepo.cosineSimilarity import cosineSimilarity
+from cosineSimilarity import cosineSimilarity
 
 testQ = [1,2,3]
 testC = [[1,2,3],[-1,-2,-3],[-1,-2,3]]

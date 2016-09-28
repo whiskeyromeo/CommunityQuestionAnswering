@@ -7,6 +7,9 @@ import os
 # Create the uniform filepath for saving documents
 new_dest = CreateFilePath('genImp1')
 
+filename = 'cleanQuestions.txt'
+
+
 
 logging.basicConfig(filename=new_dest +'.log', format='%(asctime)s : %(levelname)s : %(message)s', level=logging.DEBUG)
 logger = logging.getLogger(__name__)
@@ -19,7 +22,7 @@ logger = logging.getLogger(__name__)
 # This type of dictionary apparently wont eat all of your memory...ram rum ram rum....
 stops = set('for a of the and to in'.split())
 # collect stats about all tokens
-dictionary = corpora.Dictionary(line.lower().split() for line in open('myfile.txt'))
+dictionary = corpora.Dictionary(line.lower().split() for line in open(filename))
 # remove stopwords
 stop_ids = [dictionary.token2id[stopword] for stopword in stops if stopword in dictionary.token2id]
 # remove words only appearing once
@@ -34,7 +37,7 @@ dictionary.save(new_dest +'.dict')
 #########################
 class MyCorpus(object):
 	def __iter__(self):
-		for line in open('myfile.txt'):
+		for line in open(filename):
 			yield dictionary.doc2bow(line.lower().split())
 
 # Create the corpus based off of myfile.txt
@@ -42,8 +45,8 @@ corpus = MyCorpus()
 
 # Save corpus as Matrix Market file
 
-#corpora.MmCorpus.serialize(new_dest +'.mm', corpus)
-
+corpora.MmCorpus.serialize(new_dest +'.mm', corpus)
+serialized_corpus = corpora.MmCorpus(new_dest + '.mm')
 # or SVMlight format, Blei LDA-C, GibbsLDA++
 
 #corpora.SvmLightCorpus.serialize('./tmp/corpus.svmlight', corpus)
@@ -72,7 +75,7 @@ corpus_lsi = lsi[corpus_tfidf]
 
 # Save the model to disk for later
 lsi.save(new_dest +'.lsi')
-lsi = models.LsiModel.load(new_dest +'.lsi')
+#lsi = models.LsiModel.load(new_dest +'.lsi')
 
 ##########################
 # Queries with cosine similarities
@@ -84,27 +87,29 @@ lsi = models.LsiModel.load(new_dest +'.lsi')
 #	number of features will hog a lot of RAM(1M @ 256 feature_count = >2GB RAM)
 # 	If RAM is an issue, use similarities.Similarity 
 
-## TODO: Fix it
-	# This is broken as the current MyCorpus clas outputs an object which has no len()
-index = similarities.MatrixSimilarity(lsi[corpus])
+# Fixed - Need to pass in the serialized version of the corpus rather than the original version...
+index = similarities.MatrixSimilarity(lsi[serialized_corpus])
 
 
-# index.save(new_dest +'.index')
-# index = similarities.MatrixSimilarity.load(new_dest +'.index')
+index.save(new_dest +'.index')
+index = similarities.MatrixSimilarity.load(new_dest +'.index')
 
+# Perform a similarity query against the corpus( returns a bunch of 2-tuples)
 # Perform a similarity query against the corpus( returns a bunch of 2-tuples)
 
 
+doc = questions[0]
+vec_bow = dictionary.doc2bow(doc.lower().split())
+vec_lsi = lsi[vec_bow] # convert the query to LSI space
 sims = index[vec_lsi]
-
 # sort the result
-sims = sorted(enumerate(sims), key=lambda item: -item[1])
+#sims = sorted(enumerate(sims), key=lambda item: -item[1])
 
-for key, value in sims[:10]:
-	print key
-	print questions[key]
-	print value
-	print "************"
+# for key, value in sims[:10]:
+# 	print key
+# 	print questions[key]
+# 	print value
+# 	print "************"
 
 
 
