@@ -75,8 +75,10 @@ def QuestionCleaner(questions = []):
 		# Remove Questions shorter than 5 characters in length
 		if(len(question) < 5):
 			questions.pop(idx)
+		# Remove all punctuation
+		questions[idx] = re.sub('[^\w\s]', ' ', questions[idx])
 		# Remove all unecessary whitespace
-		re.sub('[\s+]', ' ', question)
+		questions[idx] = re.sub('[\s+]', ' ', questions[idx])
 		# Replace all emoticons
 		# re.sub('r(^|\s)(:D|:\/|:-\)|:\)|;\)|:\(|;-\)|:-\(|:P|:-P)', 'TOKEN_EMO', 'question')
 	return questions
@@ -89,9 +91,9 @@ def QuestionCleaner(questions = []):
 '''
 def CleanQuestionFileCreator(filename, questions):
 	# Get over the damned 'ascii' cannot compile error...
+	questions = QuestionCleaner(questions)
 	reload(sys)
 	sys.setdefaultencoding('utf-8')
-	questions = QuestionCleaner(questions)
 	file = open(filename + '.txt' , 'w')
 	logging.info('Ready to write to cleanfile ' + filename)
 	for idx, row in enumerate(questions):
@@ -102,17 +104,6 @@ def CleanQuestionFileCreator(filename, questions):
 	logging.info('Finished writing to cleanfile ' + filename)
 	reload(sys)
 	sys.setdefaultencoding('ascii')
-
-
-
-#############
-#Temporary!!!!
-############
-questions = QuestionCreator(filePaths)
-cleanQuestions = QuestionCleaner(questions)
-
-
-
 
 
 
