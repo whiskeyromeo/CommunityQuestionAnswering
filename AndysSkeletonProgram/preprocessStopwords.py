@@ -6,7 +6,7 @@ def preprocessStopwordsList():
     return stopwords
 
 # This should remvoe stopwords from the questions and answers
-def preprocessStopwords(QATree):
+def preprocessStopwords(QATree, output):
 
     stopwords = preprocessStopwordsList()
 

@@ -3,7 +3,7 @@ import webbrowser
 sys.path.append('../HTMLOutput/')
 from HTMLOutput import HTMLOutput
 from loader import loadXMLQuestions
-from preprocessSentencesAndWords import *
+from preprocessWords import *
 from preprocessBigram import *
 from preprocessStopwords import *
 from preprocessPartOfSpeech import *
@@ -20,6 +20,10 @@ def getargvalue(name, required):
         raise Exception("Required argument " + name + " not found in sys.argv")
     return output
 
+# Question-to-Question Module
+#
+# Task: train or compute how similar two questions are to each other
+
 # arguments:
 #   --setup - do any 1-time setup necessary, such as downloading dictionaries
 #   --nobrowser - don't open a web browser with the output file
@@ -30,7 +34,6 @@ def getargvalue(name, required):
 
 # Start up output system
 
-global output
 output = HTMLOutput()
 output.adddata("Command Line", sys.argv)
 
@@ -46,40 +49,44 @@ questionFile = getargvalue("questionfile", True)
 QAData = loadXMLQuestions(questionFile)
 output.adddata("Loader", QAData)
 
-# Pre-process:
-# - augment questions and answers with versions of those split into sentences
-# - create bigram distributions of the words from each question
-# - remove stopwords
-# - part-of-speech tagging
+# Pre-process: takes in question and outputs additional attributes, such as question_words
 
-print("PreProcessing: Sentences and Words")
-QAData = preprocessAddSentencesAndWords(QAData)
-output.adddata("Sentences", QAData[0:2])
+print("PreProcessing: Words")
+QAData = preprocessAddWords(QAData, output)
+output.adddata("Words", QAData[0:2])
 
 if "--nostopwords" not in sys.argv:
     print("PreProcessing: Stopwords")
-    QAData = preprocessStopwords(QAData)
+    QAData = preprocessStopwords(QAData, output)
     output.adddata("Stopwords: stopwords", preprocessStopwordsList())
     output.adddata("Stopwords", QAData[0:2])
 
 print("PreProcessing: Bigrams")
-QAData = preprocessBigram(QAData)
+QAData = preprocessBigram(QAData, output)
 output.adddata("Bigram", QAData[0:2])
 
 print("PreProcessing: Parts of Speech")
-QAData = preprocessPartOfSpeech(QAData)
+QAData = preprocessPartOfSpeech(QAData, output)
 output.adddata("PartOfSpeech", QAData[0:2])
 
-# Transform data into feature sets
+# Feature generation: takes question_words or other question attributes, outputs question_features_*
 
 if "--doc2vec" in sys.argv:
     print("Feature Generation: Doc2Vec")
-    QAData = featuresdoc2vec(QAData)
+    QAData = featuresdoc2vec(QAData, output)
     output.adddata("Doc2Vec", QAData[0:2])
 
-# Run/train the comparison system
+# TODO: Other feature generators
 
-# Final output
+# TODO: Merge all features into final feature set
+
+# Run/train the comparison system (iterate over each pair of questions)
+
+# TODO:
+
+# Final output (sort scores)
+
+# TODO: Output in correct format for scoring system
 
 print("Output: Rendering HTML")
 outputpath = output.render()
