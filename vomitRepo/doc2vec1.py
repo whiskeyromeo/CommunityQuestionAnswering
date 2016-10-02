@@ -1,7 +1,7 @@
 from gensim import utils
 from gensim.models import Doc2Vec
 from gensim.models.doc2vec import TaggedDocument, LabeledSentence, Doc2Vec
-from QuestionFileCreator import QuestionFileReader
+from QuestionFileCreator import QuestionCleaner
 import re
 import logging
 
@@ -9,11 +9,22 @@ from nltk.corpus import stopwords
 import numpy
 from random import shuffle
 from sklearn.linear_model import LogisticRegression
+from whiskeyPrimer2 import thisList
 
 
-filename = 'cleanQuestions.txt'
-questions = QuestionFileReader(filename)
-stops = stopwords.words('english')
+
+def getQuestions(hashmap):
+	questions = []
+	for row in hashmap:
+		qData = {
+			"id": row["threadId"],
+			"question": row["question"] 
+		}
+		questions.append(qData)
+	return questions
+
+questions = getQuestions(thisList)
+
 
 # mod_questions = []
 # for idx, question in enumerate(questions):
@@ -46,7 +57,9 @@ def altDoc2Vec(questions):
 	for epoch in range(10):
 		model.train(mod_questions)
 
-	model.save('./tmp/doc2vec_size100window10,min5work4samp1e-4')
+	model.save('./tmp/doc2vec_size100window10min5work4samp1e-4')
+
+	
 
 
 def RareDoc2Vec(questions):

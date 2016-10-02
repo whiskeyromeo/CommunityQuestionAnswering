@@ -68,19 +68,19 @@ def CreateFilePath(filename):
 
 '''
 def QuestionCleaner(questions = []):
-	print "Getting ready to clean questions..."
+	print("Getting ready to clean questions...")
 	# remove NonTypes or blank questions that may have slipped in
 	questions = filter(None, questions)
 	for idx, question in enumerate(questions):
 		# Remove Questions shorter than 5 characters in length
 		if(len(question) < 5):
 			questions.pop(idx)
+		# Replace all emoticons
+		#
 		# Remove all punctuation
 		questions[idx] = re.sub('[^\w\s]', ' ', questions[idx])
 		# Remove all unecessary whitespace
 		questions[idx] = re.sub('[\s+]', ' ', questions[idx])
-		# Replace all emoticons
-		# re.sub('r(^|\s)(:D|:\/|:-\)|:\)|;\)|:\(|;-\)|:-\(|:P|:-P)', 'TOKEN_EMO', 'question')
 	return questions
 	
 
@@ -93,7 +93,6 @@ def CleanQuestionFileCreator(filename, questions):
 	# Get over the damned 'ascii' cannot compile error...
 	questions = QuestionCleaner(questions)
 	reload(sys)
-	sys.setdefaultencoding('utf-8')
 	file = open(filename + '.txt' , 'w')
 	logging.info('Ready to write to cleanfile ' + filename)
 	for idx, row in enumerate(questions):

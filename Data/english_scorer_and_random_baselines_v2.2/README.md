@@ -89,12 +89,12 @@ We provide the following files:
 [3] USE NOTES
 
 Use of the scorer:
-   python MAP_scripts/ev.py <GOLD_FILE> <PREDICTIONS_FILE>
+  * python MAP_scripts/ev.py <GOLD_FILE> <PREDICTIONS_FILE>
 
 Example use:
-   python MAP_scripts/ev.py SemEval2016-Task3-CQA-QL-dev-subtaskA.xml.subtaskA.relevancy SemEval2016-Task3-CQA-QL-dev-subtaskA.xml.subtaskA.pred
-   python MAP_scripts/ev.py SemEval2016-Task3-CQA-QL-dev.xml.subtaskB.relevancy SemEval2016-Task3-CQA-QL-dev.xml.subtaskB.pred
-   python MAP_scripts/ev.py SemEval2016-Task3-CQA-QL-dev.xml.subtaskC.relevancy SemEval2016-Task3-CQA-QL-dev.xml.subtaskC.pred
+  * python ./MAP_scripts/ev.py SemEval2016-Task3-CQA-QL-dev-subtaskA.xml.subtaskA.relevancy SemEval2016-Task3-CQA-QL-dev-subtaskA.xml.subtaskA.pred
+  * python ./MAP_scripts/ev.py SemEval2016-Task3-CQA-QL-dev.xml.subtaskB.relevancy SemEval2016-Task3-CQA-QL-dev.xml.subtaskB.pred
+  * python ./MAP_scripts/ev.py SemEval2016-Task3-CQA-QL-dev.xml.subtaskC.relevancy SemEval2016-Task3-CQA-QL-dev.xml.subtaskC.pred
 
 
 Using the baseline/gold label generation scripts (here for subtask A; similarly for subtasks B and C):

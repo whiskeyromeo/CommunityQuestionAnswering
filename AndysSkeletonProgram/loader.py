@@ -26,6 +26,8 @@ def elementParser(filepath):
 		QuestionDict['threadId'] = relQuestion.attrib['RELQ_ID']
 		QuestionDict['subject'] = subject
 		QuestionDict['question'] = relQuestion.find('RelQBody').text
+		if(QuestionDict['question'] is None):
+			QuestionDict['question'] = QuestionDict['subject']
 		comments = []
 		# Pull the comments from the filepath
 		for relComment in Thread.findall('RelComment'):
