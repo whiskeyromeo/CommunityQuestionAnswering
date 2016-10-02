@@ -1,4 +1,4 @@
-name: Snowflakes
+
 dependencies:
 - biopython=1.67=np111py34_0
 - boto=2.42.0=py34_0

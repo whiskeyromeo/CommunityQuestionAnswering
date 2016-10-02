@@ -1,5 +1,8 @@
-''' Takes the input of a question vector and a list of lists which contains high dimensional vectors and
-    computes & returns the cosine similarity of all the vectors in the list with the new question vector'''
+""" Takes the input of a question vector and a list of lists which contains high dimensional vectors and
+    computes & returns the cosine similarity of all the vectors in the list with the new question vector
+
+    Author: Josh"""
+
 import math
 
 def cosineSimilarity(questionNew = [], questionCollection = [[]]):

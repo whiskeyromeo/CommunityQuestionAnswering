@@ -1,6 +1,8 @@
+
 import sys
 import webbrowser
 sys.path.append('../HTMLOutput/')
+sys.path.append('../AndysSkeletonProgram/')
 from HTMLOutput import HTMLOutput
 from loader import loadXMLQuestions
 from preprocessWords import *
@@ -9,7 +11,8 @@ from preprocessStopwords import *
 from preprocessPartOfSpeech import *
 from featuresDoc2Vec import *
 from setup import setup
-from pprint import pprint
+from Features import *
+
 
 def getargvalue(name, required):
     output = False
@@ -75,6 +78,11 @@ if "--doc2vec" in sys.argv:
     print("Feature Generation: Doc2Vec")
     QAData = featuresdoc2vec(QAData, output)
     output.adddata("Doc2Vec", QAData[0:2])
+
+if "--cosineSimilarity" in sys.argv:
+    print("Cosine Similarity")
+    cosineSimilarityMatrix = cosineSimilarity.cosineSimilarity(QAData[3]["question_features_doc2vec"],[QAData[0]["question_features_doc2vec"],QAData[3]["question_features_doc2vec"],QAData[2]["question_features_doc2vec"]])
+    output.adddata("Cosine Similarity", cosineSimilarityMatrix)
 
 # TODO: Other feature generators
 
