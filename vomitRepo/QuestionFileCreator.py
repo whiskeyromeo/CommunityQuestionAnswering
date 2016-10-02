@@ -68,20 +68,26 @@ def CreateFilePath(filename):
 
 '''
 def QuestionCleaner(questions = []):
-	print("Getting ready to clean questions...")
-	# remove NonTypes or blank questions that may have slipped in
-	questions = filter(None, questions)
-	for idx, question in enumerate(questions):
-		# Remove Questions shorter than 5 characters in length
-		if(len(question) < 5):
-			questions.pop(idx)
-		# Replace all emoticons
-		#
-		# Remove all punctuation
-		questions[idx] = re.sub('[^\w\s]', ' ', questions[idx])
-		# Remove all unecessary whitespace
-		questions[idx] = re.sub('[\s+]', ' ', questions[idx])
+	for q in questions:
+		q['question'] = re.sub('[^\w\s]', ' ', q['question'])
+		q['question'] = re.sub('[\s+]', ' ', q['question'])
 	return questions
+	
+# def QuestionCleaner(questions = []):
+# 	print("Getting ready to clean questions...")
+# 	# remove NonTypes or blank questions that may have slipped in
+# 	questions = filter(None, questions)
+# 	for idx, question in enumerate(questions):
+# 		# Remove Questions shorter than 5 characters in length
+# 		if(len(question) < 5):
+# 			questions.pop(idx)
+# 		# Replace all emoticons
+# 		#
+# 		# Remove all punctuation
+# 		questions[idx] = re.sub('[^\w\s]', ' ', questions[idx])
+# 		# Remove all unecessary whitespace
+# 		questions[idx] = re.sub('[\s+]', ' ', questions[idx])
+# 	return questions
 	
 
 '''
