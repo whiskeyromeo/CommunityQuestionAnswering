@@ -18,7 +18,7 @@ def trainedword2vec(output):
 
 def featuresdoc2vec(QAData, output):
 
-    trained = trainedword2vec(output)
+    #trained = trainedword2vec(output)
 
     output.addstring("Test", "This is a test")
 
@@ -42,7 +42,6 @@ def featuresdoc2vec(QAData, output):
     # Iterate back over each of the sentences and compute vectors for them
 
     for row in QAData:
-        row['question_features_doc2vec'] = []
         row['question_features_doc2vec'] = model.infer_vector(row['question'])
 
     return QAData

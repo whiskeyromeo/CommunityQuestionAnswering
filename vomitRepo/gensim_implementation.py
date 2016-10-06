@@ -38,7 +38,7 @@ class MyCorpus(object):
 		for line in open(filename):
 			yield dictionary.doc2bow(line.lower().split())
 
-# Create the corpus based off of myfile.txt
+# Create the corpus based off of the filename
 corpus = MyCorpus()
 
 # Save corpus as Matrix Market file
@@ -90,7 +90,6 @@ index = similarities.MatrixSimilarity(lsi[serialized_corpus])
 index.save(new_dest +'.index')
 index = similarities.MatrixSimilarity.load(new_dest +'.index')
 
-# Perform a similarity query against the corpus( returns a bunch of 2-tuples)
 # Perform a similarity query against the corpus( returns a bunch of 2-tuples)
 questions = QuestionFileReader(filename)
 
