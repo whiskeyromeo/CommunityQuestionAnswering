@@ -70,6 +70,12 @@ mod_questions = prepLabeledSentList(questions)
 
 model = BuildDoc2VecMap(thisList)
 
+vecList = []
+for vecs in thisList:
+	vecList.add(vecs["D2V_qVec1"])
+
+
+
 
 # mod_questions = []
 # for idx, question in enumerate(questions):
