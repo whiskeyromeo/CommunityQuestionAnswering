@@ -65,6 +65,8 @@ def BuildDoc2VecMap(hashmap):
 	return model
 
 
+#### Proof of Concept ###########
+
 questions = getQuestions(thisList)
 mod_questions = prepLabeledSentList(questions)
 
@@ -79,6 +81,8 @@ simMatrix = cosineSimilarity(vecList[0], vecList)
 
 for idx,row in enumerate(thisList):
 	row["simVal"] = simMatrix[idx]
+
+##### EndProof ##################
 
 
 # TODO:
@@ -118,6 +122,12 @@ for idx,row in enumerate(thisList):
 #testFile = '../SemEval2016_task3_test_input/English/SemEval2016-Task3-CQA-QL-test-input.xml'
 
 
+
+
+
+
+
+### Alternative DOC2VEC IMPLEMENTATIONS ##########
 
 
 # mod_questions = []
