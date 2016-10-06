@@ -1,0 +1,36 @@
+2016-09-27 07:26:28,539 : INFO : adding document #0 to Dictionary(0 unique tokens: [])
+2016-09-27 07:26:28,797 : INFO : built Dictionary(14577 unique tokens: [u'kitchen............', u'shaksee', u'included;plus', u'$1.94', u'50qr;']...) from 3088 documents (total 104426 corpus positions)
+2016-09-27 07:26:43,559 : DEBUG : rebuilding dictionary, shrinking gaps
+2016-09-27 07:26:43,564 : DEBUG : rebuilding dictionary, shrinking gaps
+2016-09-27 07:26:44,227 : INFO : saving Dictionary object under genImp1.dict, separately None
+2016-09-27 07:27:14,187 : INFO : collecting document frequencies
+2016-09-27 07:27:14,188 : INFO : PROGRESS: processing document #0
+2016-09-27 07:27:14,404 : INFO : calculating IDF weights for 3088 documents and 4651 features (69245 matrix non-zeros)
+2016-09-27 07:27:25,747 : INFO : using serial LSI version on this node
+2016-09-27 07:27:25,747 : INFO : updating model with new documents
+2016-09-27 07:27:26,117 : INFO : preparing a new chunk of documents
+2016-09-27 07:27:26,118 : DEBUG : converting corpus to csc format
+2016-09-27 07:27:26,155 : INFO : using 100 extra samples and 2 power iterations
+2016-09-27 07:27:26,155 : INFO : 1st phase: constructing (4652, 102) action matrix
+2016-09-27 07:27:26,182 : INFO : orthonormalizing (4652, 102) action matrix
+2016-09-27 07:27:26,184 : DEBUG : computing QR of (4652, 102) dense matrix
+2016-09-27 07:27:26,225 : DEBUG : running 2 power iterations
+2016-09-27 07:27:26,239 : DEBUG : computing QR of (4652, 102) dense matrix
+2016-09-27 07:27:26,261 : DEBUG : computing QR of (4652, 102) dense matrix
+2016-09-27 07:27:26,276 : INFO : 2nd phase: running dense svd on (102, 3088) matrix
+2016-09-27 07:27:26,310 : INFO : computing the final decomposition
+2016-09-27 07:27:26,311 : INFO : keeping 2 factors (discarding 86.203% of energy spectrum)
+2016-09-27 07:27:26,314 : INFO : processed documents up to #3088
+2016-09-27 07:27:26,317 : INFO : topic #0(8.455): 0.200*"i" + 0.169*"can" + 0.166*"my" + 0.156*"is" + 0.144*"me" + 0.143*"it" + 0.137*"where" + 0.136*"any" + 0.136*"know" + 0.134*"you"
+2016-09-27 07:27:26,317 : INFO : topic #1(4.389): -0.400*"where" + -0.331*"buy" + 0.288*"visa" + 0.205*"my" + 0.196*"visit" + -0.186*"find" + -0.184*"can" + -0.164*"anyone" + -0.163*"does" + -0.153*"know"
+2016-09-27 07:28:01,554 : INFO : saving Projection object under ./tmp/genImp1.lsi.projection, separately None
+2016-09-27 07:28:01,555 : INFO : saving LsiModel object under ./tmp/genImp1.lsi, separately None
+2016-09-27 07:28:01,555 : INFO : not storing attribute projection
+2016-09-27 07:28:01,555 : INFO : not storing attribute dispatcher
+2016-09-27 07:28:21,802 : WARNING : scanning corpus to determine the number of features (consider setting `num_features` explicitly)
+2016-09-27 07:29:25,736 : INFO : loading LsiModel object from ./tmp/genImp1.lsi
+2016-09-27 07:29:25,740 : INFO : loading id2word recursively from ./tmp/genImp1.lsi.id2word.* with mmap=None
+2016-09-27 07:29:25,740 : INFO : setting ignored attribute projection to None
+2016-09-27 07:29:25,740 : INFO : setting ignored attribute dispatcher to None
+2016-09-27 07:29:25,740 : INFO : loading LsiModel object from ./tmp/genImp1.lsi.projection
+2016-09-27 07:29:31,600 : WARNING : scanning corpus to determine the number of features (consider setting `num_features` explicitly)

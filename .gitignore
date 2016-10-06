@@ -8,4 +8,3 @@ runcounter.txt
 *.lsi.projection
 *.dict
 vomitRepo/tmp/*
-*.log
