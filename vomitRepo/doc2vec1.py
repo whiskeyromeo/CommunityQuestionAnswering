@@ -1,7 +1,7 @@
 from gensim import utils
 from gensim.models import Doc2Vec
 from gensim.models.doc2vec import TaggedDocument, LabeledSentence, Doc2Vec
-from QuestionFileCreator import QuestionCleaner
+from QuestionFileCreator import QuestionCleaner, getQuestions
 import re
 import logging
 
@@ -14,20 +14,6 @@ from cosineSimilarity import cosineSimilarity
 
 
 stops = set(stopwords.words('english'))
-
-
-'''
-	Creates a hashmap out of the questions and threadIds from the elementParser hash output
-'''
-def getQuestions(hashmap):
-	questions = []
-	for row in hashmap:
-		qData = {
-			"id": row["threadId"],
-			"question": row["question"] 
-		}
-		questions.append(qData)
-	return questions
 
 
 '''
@@ -82,17 +68,7 @@ def BuildDoc2VecMap(hashmap):
 questions = getQuestions(thisList)
 mod_questions = prepLabeledSentList(questions)
 
-
-
-
-
-
-
-
-
-
-
-
+model = BuildDoc2VecMap(thisList)
 
 
 # mod_questions = []

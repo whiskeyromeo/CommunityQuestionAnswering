@@ -72,7 +72,7 @@ def QuestionCleaner(questions = []):
 		q['question'] = re.sub('[^\w\s]', ' ', q['question'])
 		q['question'] = re.sub('[\s+]', ' ', q['question'])
 	return questions
-	
+
 # def QuestionCleaner(questions = []):
 # 	print("Getting ready to clean questions...")
 # 	# remove NonTypes or blank questions that may have slipped in
@@ -111,9 +111,18 @@ def CleanQuestionFileCreator(filename, questions):
 	sys.setdefaultencoding('ascii')
 
 
-
-
-
+'''
+	Creates a hashmap out of the questions and threadIds from the elementParser hash output
+'''
+def getQuestions(hashmap):
+	questions = []
+	for row in hashmap:
+		qData = {
+			"id": row["threadId"],
+			"question": row["question"] 
+		}
+		questions.append(qData)
+	return questions
 
 
 
