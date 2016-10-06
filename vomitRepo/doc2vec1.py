@@ -72,9 +72,14 @@ model = BuildDoc2VecMap(thisList)
 
 vecList = []
 for vecs in thisList:
-	vecList.add(vecs["D2V_qVec1"])
+	vecList.append(vecs["D2V_qVec1"])
 
 
+simMatrix = cosineSimilarity(vecList[0], vecList)
+
+for idx,row in enumerate(thisList):
+	row["simVal"] = simMatrix[idx]
+	print(row["simVal"])
 
 
 # mod_questions = []
