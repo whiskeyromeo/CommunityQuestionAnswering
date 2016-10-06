@@ -79,7 +79,45 @@ simMatrix = cosineSimilarity(vecList[0], vecList)
 
 for idx,row in enumerate(thisList):
 	row["simVal"] = simMatrix[idx]
-	print(row["simVal"])
+
+
+# TODO:
+# Write a function to run modified elementParser over
+# the TestFile to pull the Ids of the relevant question.
+# Need to step by 10 to pull each question_id 
+# Returns : a list of the questions and their ids
+
+
+
+# TODO : Write function which takes a list of objects consisting 
+# of questions and their ids, performs doc2vec using a pretrained
+# model, and then 
+# Pulls the top 10 ranked questions into an associated object
+# Returns : a list of objects consisting of Questions 
+# and list of RankedQuestion objects
+# Output format:
+		# [{
+		# 	QuestionId: 	"QUEST_ID", 
+		# 	RankedQuestions: [
+		# 		{
+		# 			RankedQId:  "RANKEDQ",
+		# 			Rank:		"RANK || 0",
+		# 			CoSim: 		"COSINE_SIMILARITY",
+		# 			Rel:		"BOOL"
+
+		# 		}]
+		# }]
+
+
+
+# TODO : Write function to perform
+# construction of tsv file from output of previous function
+# Format:
+# <ORIG_Q> <TEST_Q> <RANK> <COSINE> <RELEVANT Y/N>
+
+#testFile = '../SemEval2016_task3_test_input/English/SemEval2016-Task3-CQA-QL-test-input.xml'
+
+
 
 
 # mod_questions = []
