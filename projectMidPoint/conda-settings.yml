@@ -13,6 +13,7 @@ dependencies:
 - readline=6.2=2
 - requests=2.11.1=py34_0
 - scipy=0.18.1=np111py34_0
+- scikit-learn=0.18=np111py34_0
 - setuptools=26.1.1=py34_0
 - simplejson=3.8.2=py34_0
 - six=1.10.0=py34_0
