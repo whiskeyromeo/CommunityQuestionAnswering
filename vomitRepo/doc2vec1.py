@@ -6,7 +6,7 @@ from gensim.models.doc2vec import TaggedDocument, LabeledSentence, Doc2Vec
 
 from QuestionFileCreator import QuestionCleaner, getQuestions
 from cosineSimilarity import cosineSimilarity
-from elementParser import elementParseroriginalQuestionParser
+from elementParser import elementParser, originalQuestionParser
 
 from random import shuffle
 from pprint import pprint
@@ -131,9 +131,8 @@ def getVectors(questionList):
 """
 
 
-def createPredictionFile(filePath, questionList, model, withStops=False):
+def createPredictionFile(filePath, model, withStops=False):
 	testQuestions = originalQuestionParser(filePath)
-	vecList = getVectors(questionList)
 	head, tail = os.path.split(filePath)
 	tail = tail.split('.')[0]
 	if(withStops):
@@ -148,21 +147,23 @@ def createPredictionFile(filePath, questionList, model, withStops=False):
 			else: 
 				t_question['origQNoStops'] = " ".join([i for i in t_question['origQuestion'].lower().split() if i not in stops])
 				t_question['D2V_OVec1'] = model.infer_vector(t_question['origQNoStops'])
-			simMatrix = cosineSimilarity(t_question['D2V_OVec1'], vecList)
-			for idx, row in enumerate(questionList):
-				row['simVal'] = simMatrix[idx]
-			# Sort the questions based on their cosine similarity and pull that into 
-			# a new list - prevents modification of the original questionList
-			newList = sorted(questionList, key=lambda x:x['simVal'], reverse=True)
-			count = 1
-			for question in newList[:10]:
-				if(question['simVal'] < 0.9):
-					rel = False
-				else: 
-					rel = True
-				writer.writerow([t_question['quest_ID'], question['threadId'], count, question['simVal'], rel])
-				count += 1
 
+			vecList = []
+			for rel_quest in t_question['rel_questions']:
+				if(withStops):
+					rel_quest['D2V_qVec1'] = model.infer_vector(rel_quest['question'])
+				else:
+					rel_quest['relQNoStops'] = " ".join([i for i in rel_quest['question'].lower().split() if i not in stops])
+					rel_quest['D2V_qVec1'] = model.infer_vector(rel_quest['relQNoStops'])
+				vecList.append(rel_quest['D2V_qVec1'])		
+			simMatrix = cosineSimilarity(t_question['D2V_OVec1'], vecList)
+			for idx, row in enumerate(t_question['rel_questions']):
+				row['simVal'] = simMatrix[idx]
+				writer.writerow([t_question['quest_ID'], row['rel_quest_ID'], 0, row['simVal'], row['relevant']])
+				
+
+createPredictionFile(origQfilePath, model, True)
+createPredictionFile(origQfilePath, model)
 
 
 

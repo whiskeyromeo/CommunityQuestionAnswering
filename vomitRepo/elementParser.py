@@ -74,6 +74,8 @@ def originalQuestionParser(filepath):
 		relQuestion['category'] = RelQuestion.attrib['RELQ_CATEGORY']
 		relQuestion['subject'] = RelQuestion.find('RelQSubject').text
 		relQuestion['question'] = RelQuestion.find('RelQBody').text
+		if(relQuestion['question'] is None):
+			relQuestion['question'] = relQuestion['subject']
 		relevancy = RelQuestion.attrib['RELQ_RELEVANCE2ORGQ']
 		if(relevancy == 'PerfectMatch' or relevancy == 'Good'):
 			relevant = True
