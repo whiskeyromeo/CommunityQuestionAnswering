@@ -14,6 +14,7 @@ from cosineSimilarity import cosineSimilarity
 from elementParser import originalQuestionParser
 import csv
 from pprint import pprint
+import os
 
 stops = set(stopwords.words('english'))
 
@@ -69,20 +70,17 @@ def BuildDoc2VecMap(hashmap):
 
 #### Proof of Concept ###########
 
-questions = getQuestions(thisList)
-mod_questions = prepLabeledSentList(questions)
-
 model = BuildDoc2VecMap(thisList)
 
-vecList = []
-for vecs in thisList:
-	vecList.append(vecs["D2V_qVec1"])
+# vecList = []
+# for vecs in thisList:
+# 	vecList.append(vecs["D2V_qVec1"])
 
 
-simMatrix = cosineSimilarity(vecList[0], vecList)
+# simMatrix = cosineSimilarity(vecList[0], vecList)
 
-for idx,row in enumerate(thisList):
-	row["simVal"] = simMatrix[idx]
+# for idx,row in enumerate(thisList):
+# 	row["simVal"] = simMatrix[idx]
 
 ##### EndProof ##################
 
@@ -94,33 +92,85 @@ for idx,row in enumerate(thisList):
 
 origQfilePath = '../Data/english_scorer_and_random_baselines_v2.2/SemEval2016-Task3-CQA-QL-dev.xml'
 
-testQuestions = originalQuestionParser(origQfilePath)
+"""
+	Create a list of vectors with a 1/1 match for each question in questionList
+"""
+def getVectors(questionList):
+	vecList = []
+	for vecs in questionList:
+		vecList.append(vecs["D2V_qVec1"])
+	return vecList
+
+"""
+	Create a prediction file
+	Arguments:
+		filePath : Should be a filepath which conforms to the structure needed for the originalQuestionParser
+		questionList : Should be a list of hashes containing the information about the provided questions
+	Output:
+		file: takes the filename from the filePath and saves a .pred file based on that name
+		containing the information needed to run the MAP against it 
+"""
+def createPredictionFile(filePath, questionList, model, withStops=False):
+	testQuestions = originalQuestionParser(filePath)
+	vecList = getVectors(questionList)
+	head, tail = os.path.split(filePath)
+	tail = tail.split('.')[0]
+	if(withStops):
+		predFile = tail + '-with-stops.pred'
+	else:
+		predFile = tail + '.pred'
+	with open(predFile, "w") as tsvfile:
+		writer = csv.writer(tsvfile, delimiter="\t")
+		for t_question in testQuestions:
+			if(withStops):
+				t_question['D2V_OVec1'] = model.infer_vector(t_qustion['origQuestion'])
+			else: 
+				t_question['origQNoStops'] = " ".join([i for i in t_question['origQuestion'].lower().split() if i not in stops])
+				t_question['D2V_OVec1'] = model.infer_vector(t_question['origQNoStops'])
+			simMatrix = cosineSimilarity(t_question['D2V_OVec1'], vecList)
+			for idx, row in enumerate(questionList):
+				row['simVal'] = simMatrix[idx]
+			# Sort the questions based on their cosine similarity and pull that into 
+			# a new list - prevents modification of the original questionList
+			newList = sorted(questionList, key=lambda x:x['simVal'], reverse=True)
+			count = 1
+			for question in newList[:10]:
+				if(question['simVal'] < 0.9):
+					rel = False
+				else: 
+					rel = True
+				writer.writerow([t_question['quest_ID'], question['threadId'], count, question['simVal'], rel])
+				count += 1
 
 
 # TODO : Convert to function following code
 # thisperforms construction of tsv file from output of previous function
 # Output Format:
 # 	<ORIG_Q> <TEST_Q> <RANK> <COSINE> <RELEVANT Y/N>
-with open("./record.pred","w") as tsvfile: 
-	writer = csv.writer(tsvfile, delimiter='\t')
-	for t_question in testQuestions[:10]:
-		t_question['origQNoStops'] = " ".join([i for i in t_question['origQuestion'].lower().split() if i not in stops])
-		t_question['D2V_OVec1'] = model.infer_vector(t_question['origQNoStops'])
-		simMatrix = cosineSimilarity(t_question['D2V_OVec1'], vecList)
-		for idx, row in enumerate(thisList):
-			row['simVal'] = simMatrix[idx]
-		newList = sorted(thisList, key=lambda x:x['simVal'], reverse=True)
-		count = 1
-		for question in newList[:10]:
-			if(question['simVal'] < 0.9):
-				rel = False
-			else:
-				rel = True
-			writer.writerow([t_question['quest_ID'], question['threadId'], count, question['simVal'], rel])
-			count += 1
+
+# with open("./record.pred","w") as tsvfile: 
+# 	writer = csv.writer(tsvfile, delimiter='\t')
+# 	for t_question in testQuestions[:10]:
+# 		t_question['origQNoStops'] = " ".join([i for i in t_question['origQuestion'].lower().split() if i not in stops])
+# 		t_question['D2V_OVec1'] = model.infer_vector(t_question['origQNoStops'])
+# 		simMatrix = cosineSimilarity(t_question['D2V_OVec1'], vecList)
+# 		for idx, row in enumerate(thisList):
+# 			row['simVal'] = simMatrix[idx]
+# 		newList = sorted(thisList, key=lambda x:x['simVal'], reverse=True)
+# 		count = 1
+# 		for question in newList[:10]:
+# 			if(question['simVal'] < 0.9):
+# 				rel = False
+# 			else:
+# 				rel = True
+# 			writer.writerow([t_question['quest_ID'], question['threadId'], count, question['simVal'], rel])
+# 			count += 1
 
 
 ### Alternative DOC2VEC IMPLEMENTATIONS ##########
+
+# questions = getQuestions(thisList)
+# mod_questions = prepLabeledSentList(questions)
 
 
 # mod_questions = []

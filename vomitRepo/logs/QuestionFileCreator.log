@@ -11440,3 +11440,1133 @@
 2016-10-08 22:35:03,288 : INFO : saving Doc2Vec object under ./tmp/RareModel, separately None
 2016-10-08 22:35:03,288 : INFO : not storing attribute cum_table
 2016-10-08 22:35:03,288 : INFO : not storing attribute syn0norm
+2016-10-09 11:10:15,017 : INFO : collecting all words and their counts
+2016-10-09 11:10:15,018 : INFO : PROGRESS: at example #0, processed 0 words (0/s), 0 word types, 0 tags
+2016-10-09 11:10:15,105 : INFO : collected 11802 word types and 13 unique tags from a corpus of 4880 examples and 95616 words
+2016-10-09 11:10:15,116 : INFO : min_count=5 retains 2637 unique words (drops 9165)
+2016-10-09 11:10:15,116 : INFO : min_count leaves 81620 word corpus (85% of original 95616)
+2016-10-09 11:10:15,121 : INFO : deleting the raw counts dictionary of 11802 items
+2016-10-09 11:10:15,121 : INFO : sample=0 downsamples 0 most-common words
+2016-10-09 11:10:15,121 : INFO : downsampling leaves estimated 81620 word corpus (100.0% of prior 81620)
+2016-10-09 11:10:15,121 : INFO : estimated required memory for 2637 words and 300 dimensions: 8192900 bytes
+2016-10-09 11:10:15,123 : INFO : constructing a huffman tree from 2637 words
+2016-10-09 11:10:15,183 : INFO : built huffman tree with maximum node depth 14
+2016-10-09 11:10:15,184 : INFO : resetting layer weights
+2016-10-09 11:10:15,222 : INFO : training model with 1 workers on 2637 vocabulary and 300 features, using sg=0 hs=1 sample=0 negative=0
+2016-10-09 11:10:15,222 : INFO : expecting 4880 sentences, matching count from corpus used for vocabulary survey
+2016-10-09 11:10:15,224 : DEBUG : queueing job #0 (9993 words, 558 sentences) at alpha 0.02500
+2016-10-09 11:10:15,224 : DEBUG : queueing job #1 (9982 words, 562 sentences) at alpha 0.02500
+2016-10-09 11:10:15,225 : DEBUG : queueing job #2 (9977 words, 564 sentences) at alpha 0.02500
+2016-10-09 11:10:15,226 : DEBUG : queueing job #3 (9991 words, 547 sentences) at alpha 0.02500
+2016-10-09 11:10:15,264 : DEBUG : queueing job #4 (9983 words, 581 sentences) at alpha 0.02500
+2016-10-09 11:10:15,299 : DEBUG : queueing job #5 (9992 words, 501 sentences) at alpha 0.02500
+2016-10-09 11:10:15,337 : DEBUG : queueing job #6 (9964 words, 447 sentences) at alpha 0.02500
+2016-10-09 11:10:15,373 : DEBUG : queueing job #7 (9952 words, 428 sentences) at alpha 0.02500
+2016-10-09 11:10:15,409 : DEBUG : queueing job #8 (9966 words, 433 sentences) at alpha 0.02500
+2016-10-09 11:10:15,446 : DEBUG : queueing job #9 (9990 words, 491 sentences) at alpha 0.02500
+2016-10-09 11:10:15,486 : DEBUG : queueing job #10 (9993 words, 566 sentences) at alpha 0.02500
+2016-10-09 11:10:15,523 : DEBUG : queueing job #11 (9991 words, 561 sentences) at alpha 0.02500
+2016-10-09 11:10:15,560 : DEBUG : queueing job #12 (9987 words, 560 sentences) at alpha 0.02500
+2016-10-09 11:10:15,597 : DEBUG : queueing job #13 (9967 words, 547 sentences) at alpha 0.02500
+2016-10-09 11:10:15,633 : DEBUG : queueing job #14 (9987 words, 578 sentences) at alpha 0.02500
+2016-10-09 11:10:15,668 : DEBUG : queueing job #15 (9989 words, 465 sentences) at alpha 0.02500
+2016-10-09 11:10:15,703 : DEBUG : queueing job #16 (9993 words, 431 sentences) at alpha 0.02500
+2016-10-09 11:10:15,740 : DEBUG : queueing job #17 (9986 words, 420 sentences) at alpha 0.02500
+2016-10-09 11:10:15,775 : DEBUG : queueing job #18 (9996 words, 453 sentences) at alpha 0.02500
+2016-10-09 11:10:15,813 : DEBUG : queueing job #19 (9986 words, 538 sentences) at alpha 0.02500
+2016-10-09 11:10:15,850 : DEBUG : queueing job #20 (9994 words, 557 sentences) at alpha 0.02500
+2016-10-09 11:10:15,887 : DEBUG : queueing job #21 (9997 words, 576 sentences) at alpha 0.02500
+2016-10-09 11:10:15,925 : DEBUG : queueing job #22 (9980 words, 542 sentences) at alpha 0.02500
+2016-10-09 11:10:15,961 : DEBUG : queueing job #23 (9990 words, 572 sentences) at alpha 0.02500
+2016-10-09 11:10:15,996 : DEBUG : queueing job #24 (9985 words, 528 sentences) at alpha 0.02500
+2016-10-09 11:10:16,031 : DEBUG : queueing job #25 (9968 words, 453 sentences) at alpha 0.02500
+2016-10-09 11:10:16,067 : DEBUG : queueing job #26 (9994 words, 424 sentences) at alpha 0.02500
+2016-10-09 11:10:16,103 : DEBUG : queueing job #27 (9973 words, 435 sentences) at alpha 0.02500
+2016-10-09 11:10:16,143 : DEBUG : queueing job #28 (9993 words, 465 sentences) at alpha 0.02500
+2016-10-09 11:10:16,180 : DEBUG : queueing job #29 (9980 words, 572 sentences) at alpha 0.02500
+2016-10-09 11:10:16,218 : DEBUG : queueing job #30 (9985 words, 557 sentences) at alpha 0.02500
+2016-10-09 11:10:16,255 : INFO : PROGRESS: at 58.68% examples, 309550 words/s, in_qsize 1, out_qsize 0
+2016-10-09 11:10:16,256 : DEBUG : queueing job #31 (9986 words, 562 sentences) at alpha 0.02500
+2016-10-09 11:10:16,293 : DEBUG : queueing job #32 (9998 words, 550 sentences) at alpha 0.02500
+2016-10-09 11:10:16,329 : DEBUG : queueing job #33 (9999 words, 579 sentences) at alpha 0.02500
+2016-10-09 11:10:16,364 : DEBUG : queueing job #34 (9996 words, 479 sentences) at alpha 0.02500
+2016-10-09 11:10:16,399 : DEBUG : queueing job #35 (9990 words, 433 sentences) at alpha 0.02500
+2016-10-09 11:10:16,435 : DEBUG : queueing job #36 (9989 words, 421 sentences) at alpha 0.02500
+2016-10-09 11:10:16,471 : DEBUG : queueing job #37 (9999 words, 457 sentences) at alpha 0.02500
+2016-10-09 11:10:16,509 : DEBUG : queueing job #38 (9966 words, 512 sentences) at alpha 0.02500
+2016-10-09 11:10:16,546 : DEBUG : queueing job #39 (9984 words, 570 sentences) at alpha 0.02500
+2016-10-09 11:10:16,582 : DEBUG : queueing job #40 (9977 words, 562 sentences) at alpha 0.02500
+2016-10-09 11:10:16,621 : DEBUG : queueing job #41 (9997 words, 552 sentences) at alpha 0.02500
+2016-10-09 11:10:16,657 : DEBUG : queueing job #42 (9997 words, 557 sentences) at alpha 0.02500
+2016-10-09 11:10:16,693 : DEBUG : queueing job #43 (9991 words, 551 sentences) at alpha 0.02500
+2016-10-09 11:10:16,729 : DEBUG : queueing job #44 (9978 words, 460 sentences) at alpha 0.02500
+2016-10-09 11:10:16,764 : DEBUG : queueing job #45 (9997 words, 423 sentences) at alpha 0.02500
+2016-10-09 11:10:16,801 : DEBUG : queueing job #46 (9976 words, 432 sentences) at alpha 0.02500
+2016-10-09 11:10:16,837 : DEBUG : queueing job #47 (8756 words, 388 sentences) at alpha 0.02500
+2016-10-09 11:10:16,910 : DEBUG : job loop exiting, total 48 jobs
+2016-10-09 11:10:16,979 : DEBUG : worker exiting, processed 48 jobs
+2016-10-09 11:10:16,979 : INFO : worker thread finished; awaiting finish of 0 more threads
+2016-10-09 11:10:16,979 : INFO : training on 478080 raw words (545575 effective words) took 1.8s, 311042 effective words/s
+2016-10-09 11:10:16,979 : INFO : training model with 1 workers on 2637 vocabulary and 300 features, using sg=0 hs=1 sample=0 negative=0
+2016-10-09 11:10:16,979 : INFO : expecting 4880 sentences, matching count from corpus used for vocabulary survey
+2016-10-09 11:10:16,980 : DEBUG : queueing job #0 (9993 words, 558 sentences) at alpha 0.02300
+2016-10-09 11:10:16,981 : DEBUG : queueing job #1 (9982 words, 562 sentences) at alpha 0.02300
+2016-10-09 11:10:16,982 : DEBUG : queueing job #2 (9977 words, 564 sentences) at alpha 0.02300
+2016-10-09 11:10:16,983 : DEBUG : queueing job #3 (9991 words, 547 sentences) at alpha 0.02300
+2016-10-09 11:10:17,019 : DEBUG : queueing job #4 (9983 words, 581 sentences) at alpha 0.02300
+2016-10-09 11:10:17,054 : DEBUG : queueing job #5 (9992 words, 501 sentences) at alpha 0.02300
+2016-10-09 11:10:17,089 : DEBUG : queueing job #6 (9964 words, 447 sentences) at alpha 0.02300
+2016-10-09 11:10:17,125 : DEBUG : queueing job #7 (9952 words, 428 sentences) at alpha 0.02300
+2016-10-09 11:10:17,161 : DEBUG : queueing job #8 (9966 words, 433 sentences) at alpha 0.02300
+2016-10-09 11:10:17,199 : DEBUG : queueing job #9 (9990 words, 491 sentences) at alpha 0.02300
+2016-10-09 11:10:17,236 : DEBUG : queueing job #10 (9993 words, 566 sentences) at alpha 0.02300
+2016-10-09 11:10:17,273 : DEBUG : queueing job #11 (9991 words, 561 sentences) at alpha 0.02300
+2016-10-09 11:10:17,312 : DEBUG : queueing job #12 (9987 words, 560 sentences) at alpha 0.02300
+2016-10-09 11:10:17,349 : DEBUG : queueing job #13 (9967 words, 547 sentences) at alpha 0.02300
+2016-10-09 11:10:17,385 : DEBUG : queueing job #14 (9987 words, 578 sentences) at alpha 0.02300
+2016-10-09 11:10:17,420 : DEBUG : queueing job #15 (9989 words, 465 sentences) at alpha 0.02300
+2016-10-09 11:10:17,456 : DEBUG : queueing job #16 (9993 words, 431 sentences) at alpha 0.02300
+2016-10-09 11:10:17,492 : DEBUG : queueing job #17 (9986 words, 420 sentences) at alpha 0.02300
+2016-10-09 11:10:17,529 : DEBUG : queueing job #18 (9996 words, 453 sentences) at alpha 0.02300
+2016-10-09 11:10:17,567 : DEBUG : queueing job #19 (9986 words, 538 sentences) at alpha 0.02300
+2016-10-09 11:10:17,604 : DEBUG : queueing job #20 (9994 words, 557 sentences) at alpha 0.02300
+2016-10-09 11:10:17,641 : DEBUG : queueing job #21 (9997 words, 576 sentences) at alpha 0.02300
+2016-10-09 11:10:17,680 : DEBUG : queueing job #22 (9980 words, 542 sentences) at alpha 0.02300
+2016-10-09 11:10:17,716 : DEBUG : queueing job #23 (9990 words, 572 sentences) at alpha 0.02300
+2016-10-09 11:10:17,752 : DEBUG : queueing job #24 (9985 words, 528 sentences) at alpha 0.02300
+2016-10-09 11:10:17,791 : DEBUG : queueing job #25 (9968 words, 453 sentences) at alpha 0.02300
+2016-10-09 11:10:17,827 : DEBUG : queueing job #26 (9994 words, 424 sentences) at alpha 0.02300
+2016-10-09 11:10:17,863 : DEBUG : queueing job #27 (9973 words, 435 sentences) at alpha 0.02300
+2016-10-09 11:10:17,900 : DEBUG : queueing job #28 (9993 words, 465 sentences) at alpha 0.02300
+2016-10-09 11:10:17,938 : DEBUG : queueing job #29 (9980 words, 572 sentences) at alpha 0.02300
+2016-10-09 11:10:17,975 : DEBUG : queueing job #30 (9985 words, 557 sentences) at alpha 0.02300
+2016-10-09 11:10:18,012 : INFO : PROGRESS: at 58.68% examples, 309302 words/s, in_qsize 1, out_qsize 0
+2016-10-09 11:10:18,013 : DEBUG : queueing job #31 (9986 words, 562 sentences) at alpha 0.02300
+2016-10-09 11:10:18,050 : DEBUG : queueing job #32 (9998 words, 550 sentences) at alpha 0.02300
+2016-10-09 11:10:18,086 : DEBUG : queueing job #33 (9999 words, 579 sentences) at alpha 0.02300
+2016-10-09 11:10:18,122 : DEBUG : queueing job #34 (9996 words, 479 sentences) at alpha 0.02300
+2016-10-09 11:10:18,157 : DEBUG : queueing job #35 (9990 words, 433 sentences) at alpha 0.02300
+2016-10-09 11:10:18,194 : DEBUG : queueing job #36 (9989 words, 421 sentences) at alpha 0.02300
+2016-10-09 11:10:18,233 : DEBUG : queueing job #37 (9999 words, 457 sentences) at alpha 0.02300
+2016-10-09 11:10:18,271 : DEBUG : queueing job #38 (9966 words, 512 sentences) at alpha 0.02300
+2016-10-09 11:10:18,310 : DEBUG : queueing job #39 (9984 words, 570 sentences) at alpha 0.02300
+2016-10-09 11:10:18,347 : DEBUG : queueing job #40 (9977 words, 562 sentences) at alpha 0.02300
+2016-10-09 11:10:18,385 : DEBUG : queueing job #41 (9997 words, 552 sentences) at alpha 0.02300
+2016-10-09 11:10:18,421 : DEBUG : queueing job #42 (9997 words, 557 sentences) at alpha 0.02300
+2016-10-09 11:10:18,456 : DEBUG : queueing job #43 (9991 words, 551 sentences) at alpha 0.02300
+2016-10-09 11:10:18,492 : DEBUG : queueing job #44 (9978 words, 460 sentences) at alpha 0.02300
+2016-10-09 11:10:18,528 : DEBUG : queueing job #45 (9997 words, 423 sentences) at alpha 0.02300
+2016-10-09 11:10:18,565 : DEBUG : queueing job #46 (9976 words, 432 sentences) at alpha 0.02300
+2016-10-09 11:10:18,604 : DEBUG : queueing job #47 (8756 words, 388 sentences) at alpha 0.02300
+2016-10-09 11:10:18,678 : DEBUG : job loop exiting, total 48 jobs
+2016-10-09 11:10:18,747 : DEBUG : worker exiting, processed 48 jobs
+2016-10-09 11:10:18,748 : INFO : worker thread finished; awaiting finish of 0 more threads
+2016-10-09 11:10:18,748 : INFO : training on 478080 raw words (545575 effective words) took 1.8s, 308962 effective words/s
+2016-10-09 11:10:18,748 : INFO : training model with 1 workers on 2637 vocabulary and 300 features, using sg=0 hs=1 sample=0 negative=0
+2016-10-09 11:10:18,748 : INFO : expecting 4880 sentences, matching count from corpus used for vocabulary survey
+2016-10-09 11:10:18,749 : DEBUG : queueing job #0 (9993 words, 558 sentences) at alpha 0.02100
+2016-10-09 11:10:18,750 : DEBUG : queueing job #1 (9982 words, 562 sentences) at alpha 0.02100
+2016-10-09 11:10:18,751 : DEBUG : queueing job #2 (9977 words, 564 sentences) at alpha 0.02100
+2016-10-09 11:10:18,751 : DEBUG : queueing job #3 (9991 words, 547 sentences) at alpha 0.02100
+2016-10-09 11:10:18,791 : DEBUG : queueing job #4 (9983 words, 581 sentences) at alpha 0.02100
+2016-10-09 11:10:18,826 : DEBUG : queueing job #5 (9992 words, 501 sentences) at alpha 0.02100
+2016-10-09 11:10:18,861 : DEBUG : queueing job #6 (9964 words, 447 sentences) at alpha 0.02100
+2016-10-09 11:10:18,897 : DEBUG : queueing job #7 (9952 words, 428 sentences) at alpha 0.02100
+2016-10-09 11:10:18,933 : DEBUG : queueing job #8 (9966 words, 433 sentences) at alpha 0.02100
+2016-10-09 11:10:18,970 : DEBUG : queueing job #9 (9990 words, 491 sentences) at alpha 0.02100
+2016-10-09 11:10:19,007 : DEBUG : queueing job #10 (9993 words, 566 sentences) at alpha 0.02100
+2016-10-09 11:10:19,044 : DEBUG : queueing job #11 (9991 words, 561 sentences) at alpha 0.02100
+2016-10-09 11:10:19,082 : DEBUG : queueing job #12 (9987 words, 560 sentences) at alpha 0.02100
+2016-10-09 11:10:19,118 : DEBUG : queueing job #13 (9967 words, 547 sentences) at alpha 0.02100
+2016-10-09 11:10:19,154 : DEBUG : queueing job #14 (9987 words, 578 sentences) at alpha 0.02100
+2016-10-09 11:10:19,189 : DEBUG : queueing job #15 (9989 words, 465 sentences) at alpha 0.02100
+2016-10-09 11:10:19,225 : DEBUG : queueing job #16 (9993 words, 431 sentences) at alpha 0.02100
+2016-10-09 11:10:19,261 : DEBUG : queueing job #17 (9986 words, 420 sentences) at alpha 0.02100
+2016-10-09 11:10:19,298 : DEBUG : queueing job #18 (9996 words, 453 sentences) at alpha 0.02100
+2016-10-09 11:10:19,336 : DEBUG : queueing job #19 (9986 words, 538 sentences) at alpha 0.02100
+2016-10-09 11:10:19,372 : DEBUG : queueing job #20 (9994 words, 557 sentences) at alpha 0.02100
+2016-10-09 11:10:19,409 : DEBUG : queueing job #21 (9997 words, 576 sentences) at alpha 0.02100
+2016-10-09 11:10:19,447 : DEBUG : queueing job #22 (9980 words, 542 sentences) at alpha 0.02100
+2016-10-09 11:10:19,487 : DEBUG : queueing job #23 (9990 words, 572 sentences) at alpha 0.02100
+2016-10-09 11:10:19,524 : DEBUG : queueing job #24 (9985 words, 528 sentences) at alpha 0.02100
+2016-10-09 11:10:19,560 : DEBUG : queueing job #25 (9968 words, 453 sentences) at alpha 0.02100
+2016-10-09 11:10:19,596 : DEBUG : queueing job #26 (9994 words, 424 sentences) at alpha 0.02100
+2016-10-09 11:10:19,633 : DEBUG : queueing job #27 (9973 words, 435 sentences) at alpha 0.02100
+2016-10-09 11:10:19,670 : DEBUG : queueing job #28 (9993 words, 465 sentences) at alpha 0.02100
+2016-10-09 11:10:19,707 : DEBUG : queueing job #29 (9980 words, 572 sentences) at alpha 0.02100
+2016-10-09 11:10:19,744 : DEBUG : queueing job #30 (9985 words, 557 sentences) at alpha 0.02100
+2016-10-09 11:10:19,781 : INFO : PROGRESS: at 58.68% examples, 309172 words/s, in_qsize 1, out_qsize 0
+2016-10-09 11:10:19,782 : DEBUG : queueing job #31 (9986 words, 562 sentences) at alpha 0.02100
+2016-10-09 11:10:19,819 : DEBUG : queueing job #32 (9998 words, 550 sentences) at alpha 0.02100
+2016-10-09 11:10:19,855 : DEBUG : queueing job #33 (9999 words, 579 sentences) at alpha 0.02100
+2016-10-09 11:10:19,890 : DEBUG : queueing job #34 (9996 words, 479 sentences) at alpha 0.02100
+2016-10-09 11:10:19,925 : DEBUG : queueing job #35 (9990 words, 433 sentences) at alpha 0.02100
+2016-10-09 11:10:19,961 : DEBUG : queueing job #36 (9989 words, 421 sentences) at alpha 0.02100
+2016-10-09 11:10:19,997 : DEBUG : queueing job #37 (9999 words, 457 sentences) at alpha 0.02100
+2016-10-09 11:10:20,035 : DEBUG : queueing job #38 (9966 words, 512 sentences) at alpha 0.02100
+2016-10-09 11:10:20,073 : DEBUG : queueing job #39 (9984 words, 570 sentences) at alpha 0.02100
+2016-10-09 11:10:20,112 : DEBUG : queueing job #40 (9977 words, 562 sentences) at alpha 0.02100
+2016-10-09 11:10:20,150 : DEBUG : queueing job #41 (9997 words, 552 sentences) at alpha 0.02100
+2016-10-09 11:10:20,187 : DEBUG : queueing job #42 (9997 words, 557 sentences) at alpha 0.02100
+2016-10-09 11:10:20,223 : DEBUG : queueing job #43 (9991 words, 551 sentences) at alpha 0.02100
+2016-10-09 11:10:20,259 : DEBUG : queueing job #44 (9978 words, 460 sentences) at alpha 0.02100
+2016-10-09 11:10:20,297 : DEBUG : queueing job #45 (9997 words, 423 sentences) at alpha 0.02100
+2016-10-09 11:10:20,336 : DEBUG : queueing job #46 (9976 words, 432 sentences) at alpha 0.02100
+2016-10-09 11:10:20,373 : DEBUG : queueing job #47 (8756 words, 388 sentences) at alpha 0.02100
+2016-10-09 11:10:20,445 : DEBUG : job loop exiting, total 48 jobs
+2016-10-09 11:10:20,514 : DEBUG : worker exiting, processed 48 jobs
+2016-10-09 11:10:20,514 : INFO : worker thread finished; awaiting finish of 0 more threads
+2016-10-09 11:10:20,514 : INFO : training on 478080 raw words (545575 effective words) took 1.8s, 309311 effective words/s
+2016-10-09 11:10:20,514 : INFO : training model with 1 workers on 2637 vocabulary and 300 features, using sg=0 hs=1 sample=0 negative=0
+2016-10-09 11:10:20,515 : INFO : expecting 4880 sentences, matching count from corpus used for vocabulary survey
+2016-10-09 11:10:20,516 : DEBUG : queueing job #0 (9993 words, 558 sentences) at alpha 0.01900
+2016-10-09 11:10:20,516 : DEBUG : queueing job #1 (9982 words, 562 sentences) at alpha 0.01900
+2016-10-09 11:10:20,517 : DEBUG : queueing job #2 (9977 words, 564 sentences) at alpha 0.01900
+2016-10-09 11:10:20,518 : DEBUG : queueing job #3 (9991 words, 547 sentences) at alpha 0.01900
+2016-10-09 11:10:20,555 : DEBUG : queueing job #4 (9983 words, 581 sentences) at alpha 0.01900
+2016-10-09 11:10:20,590 : DEBUG : queueing job #5 (9992 words, 501 sentences) at alpha 0.01900
+2016-10-09 11:10:20,627 : DEBUG : queueing job #6 (9964 words, 447 sentences) at alpha 0.01900
+2016-10-09 11:10:20,663 : DEBUG : queueing job #7 (9952 words, 428 sentences) at alpha 0.01900
+2016-10-09 11:10:20,700 : DEBUG : queueing job #8 (9966 words, 433 sentences) at alpha 0.01900
+2016-10-09 11:10:20,738 : DEBUG : queueing job #9 (9990 words, 491 sentences) at alpha 0.01900
+2016-10-09 11:10:20,776 : DEBUG : queueing job #10 (9993 words, 566 sentences) at alpha 0.01900
+2016-10-09 11:10:20,814 : DEBUG : queueing job #11 (9991 words, 561 sentences) at alpha 0.01900
+2016-10-09 11:10:20,852 : DEBUG : queueing job #12 (9987 words, 560 sentences) at alpha 0.01900
+2016-10-09 11:10:20,889 : DEBUG : queueing job #13 (9967 words, 547 sentences) at alpha 0.01900
+2016-10-09 11:10:20,926 : DEBUG : queueing job #14 (9987 words, 578 sentences) at alpha 0.01900
+2016-10-09 11:10:20,961 : DEBUG : queueing job #15 (9989 words, 465 sentences) at alpha 0.01900
+2016-10-09 11:10:21,000 : DEBUG : queueing job #16 (9993 words, 431 sentences) at alpha 0.01900
+2016-10-09 11:10:21,037 : DEBUG : queueing job #17 (9986 words, 420 sentences) at alpha 0.01900
+2016-10-09 11:10:21,074 : DEBUG : queueing job #18 (9996 words, 453 sentences) at alpha 0.01900
+2016-10-09 11:10:21,113 : DEBUG : queueing job #19 (9986 words, 538 sentences) at alpha 0.01900
+2016-10-09 11:10:21,150 : DEBUG : queueing job #20 (9994 words, 557 sentences) at alpha 0.01900
+2016-10-09 11:10:21,188 : DEBUG : queueing job #21 (9997 words, 576 sentences) at alpha 0.01900
+2016-10-09 11:10:21,227 : DEBUG : queueing job #22 (9980 words, 542 sentences) at alpha 0.01900
+2016-10-09 11:10:21,264 : DEBUG : queueing job #23 (9990 words, 572 sentences) at alpha 0.01900
+2016-10-09 11:10:21,300 : DEBUG : queueing job #24 (9985 words, 528 sentences) at alpha 0.01900
+2016-10-09 11:10:21,335 : DEBUG : queueing job #25 (9968 words, 453 sentences) at alpha 0.01900
+2016-10-09 11:10:21,371 : DEBUG : queueing job #26 (9994 words, 424 sentences) at alpha 0.01900
+2016-10-09 11:10:21,412 : DEBUG : queueing job #27 (9973 words, 435 sentences) at alpha 0.01900
+2016-10-09 11:10:21,449 : DEBUG : queueing job #28 (9993 words, 465 sentences) at alpha 0.01900
+2016-10-09 11:10:21,488 : DEBUG : queueing job #29 (9980 words, 572 sentences) at alpha 0.01900
+2016-10-09 11:10:21,525 : DEBUG : queueing job #30 (9985 words, 557 sentences) at alpha 0.01900
+2016-10-09 11:10:21,526 : INFO : PROGRESS: at 56.90% examples, 304273 words/s, in_qsize 2, out_qsize 0
+2016-10-09 11:10:21,564 : DEBUG : queueing job #31 (9986 words, 562 sentences) at alpha 0.01900
+2016-10-09 11:10:21,603 : DEBUG : queueing job #32 (9998 words, 550 sentences) at alpha 0.01900
+2016-10-09 11:10:21,641 : DEBUG : queueing job #33 (9999 words, 579 sentences) at alpha 0.01900
+2016-10-09 11:10:21,677 : DEBUG : queueing job #34 (9996 words, 479 sentences) at alpha 0.01900
+2016-10-09 11:10:21,713 : DEBUG : queueing job #35 (9990 words, 433 sentences) at alpha 0.01900
+2016-10-09 11:10:21,750 : DEBUG : queueing job #36 (9989 words, 421 sentences) at alpha 0.01900
+2016-10-09 11:10:21,786 : DEBUG : queueing job #37 (9999 words, 457 sentences) at alpha 0.01900
+2016-10-09 11:10:21,825 : DEBUG : queueing job #38 (9966 words, 512 sentences) at alpha 0.01900
+2016-10-09 11:10:21,863 : DEBUG : queueing job #39 (9984 words, 570 sentences) at alpha 0.01900
+2016-10-09 11:10:21,900 : DEBUG : queueing job #40 (9977 words, 562 sentences) at alpha 0.01900
+2016-10-09 11:10:21,939 : DEBUG : queueing job #41 (9997 words, 552 sentences) at alpha 0.01900
+2016-10-09 11:10:21,976 : DEBUG : queueing job #42 (9997 words, 557 sentences) at alpha 0.01900
+2016-10-09 11:10:22,012 : DEBUG : queueing job #43 (9991 words, 551 sentences) at alpha 0.01900
+2016-10-09 11:10:22,047 : DEBUG : queueing job #44 (9978 words, 460 sentences) at alpha 0.01900
+2016-10-09 11:10:22,083 : DEBUG : queueing job #45 (9997 words, 423 sentences) at alpha 0.01900
+2016-10-09 11:10:22,123 : DEBUG : queueing job #46 (9976 words, 432 sentences) at alpha 0.01900
+2016-10-09 11:10:22,161 : DEBUG : queueing job #47 (8756 words, 388 sentences) at alpha 0.01900
+2016-10-09 11:10:22,235 : DEBUG : job loop exiting, total 48 jobs
+2016-10-09 11:10:22,306 : DEBUG : worker exiting, processed 48 jobs
+2016-10-09 11:10:22,306 : INFO : worker thread finished; awaiting finish of 0 more threads
+2016-10-09 11:10:22,306 : INFO : training on 478080 raw words (545575 effective words) took 1.8s, 304911 effective words/s
+2016-10-09 11:10:22,307 : INFO : training model with 1 workers on 2637 vocabulary and 300 features, using sg=0 hs=1 sample=0 negative=0
+2016-10-09 11:10:22,307 : INFO : expecting 4880 sentences, matching count from corpus used for vocabulary survey
+2016-10-09 11:10:22,308 : DEBUG : queueing job #0 (9993 words, 558 sentences) at alpha 0.01700
+2016-10-09 11:10:22,309 : DEBUG : queueing job #1 (9982 words, 562 sentences) at alpha 0.01700
+2016-10-09 11:10:22,309 : DEBUG : queueing job #2 (9977 words, 564 sentences) at alpha 0.01700
+2016-10-09 11:10:22,310 : DEBUG : queueing job #3 (9991 words, 547 sentences) at alpha 0.01700
+2016-10-09 11:10:22,347 : DEBUG : queueing job #4 (9983 words, 581 sentences) at alpha 0.01700
+2016-10-09 11:10:22,382 : DEBUG : queueing job #5 (9992 words, 501 sentences) at alpha 0.01700
+2016-10-09 11:10:22,420 : DEBUG : queueing job #6 (9964 words, 447 sentences) at alpha 0.01700
+2016-10-09 11:10:22,456 : DEBUG : queueing job #7 (9952 words, 428 sentences) at alpha 0.01700
+2016-10-09 11:10:22,492 : DEBUG : queueing job #8 (9966 words, 433 sentences) at alpha 0.01700
+2016-10-09 11:10:22,529 : DEBUG : queueing job #9 (9990 words, 491 sentences) at alpha 0.01700
+2016-10-09 11:10:22,567 : DEBUG : queueing job #10 (9993 words, 566 sentences) at alpha 0.01700
+2016-10-09 11:10:22,604 : DEBUG : queueing job #11 (9991 words, 561 sentences) at alpha 0.01700
+2016-10-09 11:10:22,642 : DEBUG : queueing job #12 (9987 words, 560 sentences) at alpha 0.01700
+2016-10-09 11:10:22,679 : DEBUG : queueing job #13 (9967 words, 547 sentences) at alpha 0.01700
+2016-10-09 11:10:22,715 : DEBUG : queueing job #14 (9987 words, 578 sentences) at alpha 0.01700
+2016-10-09 11:10:22,750 : DEBUG : queueing job #15 (9989 words, 465 sentences) at alpha 0.01700
+2016-10-09 11:10:22,786 : DEBUG : queueing job #16 (9993 words, 431 sentences) at alpha 0.01700
+2016-10-09 11:10:22,822 : DEBUG : queueing job #17 (9986 words, 420 sentences) at alpha 0.01700
+2016-10-09 11:10:22,858 : DEBUG : queueing job #18 (9996 words, 453 sentences) at alpha 0.01700
+2016-10-09 11:10:22,896 : DEBUG : queueing job #19 (9986 words, 538 sentences) at alpha 0.01700
+2016-10-09 11:10:22,933 : DEBUG : queueing job #20 (9994 words, 557 sentences) at alpha 0.01700
+2016-10-09 11:10:22,970 : DEBUG : queueing job #21 (9997 words, 576 sentences) at alpha 0.01700
+2016-10-09 11:10:23,008 : DEBUG : queueing job #22 (9980 words, 542 sentences) at alpha 0.01700
+2016-10-09 11:10:23,044 : DEBUG : queueing job #23 (9990 words, 572 sentences) at alpha 0.01700
+2016-10-09 11:10:23,079 : DEBUG : queueing job #24 (9985 words, 528 sentences) at alpha 0.01700
+2016-10-09 11:10:23,115 : DEBUG : queueing job #25 (9968 words, 453 sentences) at alpha 0.01700
+2016-10-09 11:10:23,153 : DEBUG : queueing job #26 (9994 words, 424 sentences) at alpha 0.01700
+2016-10-09 11:10:23,189 : DEBUG : queueing job #27 (9973 words, 435 sentences) at alpha 0.01700
+2016-10-09 11:10:23,226 : DEBUG : queueing job #28 (9993 words, 465 sentences) at alpha 0.01700
+2016-10-09 11:10:23,263 : DEBUG : queueing job #29 (9980 words, 572 sentences) at alpha 0.01700
+2016-10-09 11:10:23,304 : DEBUG : queueing job #30 (9985 words, 557 sentences) at alpha 0.01700
+2016-10-09 11:10:23,341 : INFO : PROGRESS: at 58.68% examples, 308963 words/s, in_qsize 1, out_qsize 0
+2016-10-09 11:10:23,342 : DEBUG : queueing job #31 (9986 words, 562 sentences) at alpha 0.01700
+2016-10-09 11:10:23,379 : DEBUG : queueing job #32 (9998 words, 550 sentences) at alpha 0.01700
+2016-10-09 11:10:23,415 : DEBUG : queueing job #33 (9999 words, 579 sentences) at alpha 0.01700
+2016-10-09 11:10:23,449 : DEBUG : queueing job #34 (9996 words, 479 sentences) at alpha 0.01700
+2016-10-09 11:10:23,485 : DEBUG : queueing job #35 (9990 words, 433 sentences) at alpha 0.01700
+2016-10-09 11:10:23,523 : DEBUG : queueing job #36 (9989 words, 421 sentences) at alpha 0.01700
+2016-10-09 11:10:23,559 : DEBUG : queueing job #37 (9999 words, 457 sentences) at alpha 0.01700
+2016-10-09 11:10:23,601 : DEBUG : queueing job #38 (9966 words, 512 sentences) at alpha 0.01700
+2016-10-09 11:10:23,638 : DEBUG : queueing job #39 (9984 words, 570 sentences) at alpha 0.01700
+2016-10-09 11:10:23,675 : DEBUG : queueing job #40 (9977 words, 562 sentences) at alpha 0.01700
+2016-10-09 11:10:23,713 : DEBUG : queueing job #41 (9997 words, 552 sentences) at alpha 0.01700
+2016-10-09 11:10:23,756 : DEBUG : queueing job #42 (9997 words, 557 sentences) at alpha 0.01700
+2016-10-09 11:10:23,791 : DEBUG : queueing job #43 (9991 words, 551 sentences) at alpha 0.01700
+2016-10-09 11:10:23,826 : DEBUG : queueing job #44 (9978 words, 460 sentences) at alpha 0.01700
+2016-10-09 11:10:23,862 : DEBUG : queueing job #45 (9997 words, 423 sentences) at alpha 0.01700
+2016-10-09 11:10:23,898 : DEBUG : queueing job #46 (9976 words, 432 sentences) at alpha 0.01700
+2016-10-09 11:10:23,935 : DEBUG : queueing job #47 (8756 words, 388 sentences) at alpha 0.01700
+2016-10-09 11:10:24,008 : DEBUG : job loop exiting, total 48 jobs
+2016-10-09 11:10:24,079 : DEBUG : worker exiting, processed 48 jobs
+2016-10-09 11:10:24,080 : INFO : worker thread finished; awaiting finish of 0 more threads
+2016-10-09 11:10:24,080 : INFO : training on 478080 raw words (545575 effective words) took 1.8s, 308131 effective words/s
+2016-10-09 11:10:24,080 : INFO : training model with 1 workers on 2637 vocabulary and 300 features, using sg=0 hs=1 sample=0 negative=0
+2016-10-09 11:10:24,080 : INFO : expecting 4880 sentences, matching count from corpus used for vocabulary survey
+2016-10-09 11:10:24,082 : DEBUG : queueing job #0 (9993 words, 558 sentences) at alpha 0.01500
+2016-10-09 11:10:24,083 : DEBUG : queueing job #1 (9982 words, 562 sentences) at alpha 0.01500
+2016-10-09 11:10:24,083 : DEBUG : queueing job #2 (9977 words, 564 sentences) at alpha 0.01500
+2016-10-09 11:10:24,084 : DEBUG : queueing job #3 (9991 words, 547 sentences) at alpha 0.01500
+2016-10-09 11:10:24,125 : DEBUG : queueing job #4 (9983 words, 581 sentences) at alpha 0.01500
+2016-10-09 11:10:24,162 : DEBUG : queueing job #5 (9992 words, 501 sentences) at alpha 0.01500
+2016-10-09 11:10:24,197 : DEBUG : queueing job #6 (9964 words, 447 sentences) at alpha 0.01500
+2016-10-09 11:10:24,234 : DEBUG : queueing job #7 (9952 words, 428 sentences) at alpha 0.01500
+2016-10-09 11:10:24,273 : DEBUG : queueing job #8 (9966 words, 433 sentences) at alpha 0.01500
+2016-10-09 11:10:24,311 : DEBUG : queueing job #9 (9990 words, 491 sentences) at alpha 0.01500
+2016-10-09 11:10:24,348 : DEBUG : queueing job #10 (9993 words, 566 sentences) at alpha 0.01500
+2016-10-09 11:10:24,385 : DEBUG : queueing job #11 (9991 words, 561 sentences) at alpha 0.01500
+2016-10-09 11:10:24,422 : DEBUG : queueing job #12 (9987 words, 560 sentences) at alpha 0.01500
+2016-10-09 11:10:24,459 : DEBUG : queueing job #13 (9967 words, 547 sentences) at alpha 0.01500
+2016-10-09 11:10:24,495 : DEBUG : queueing job #14 (9987 words, 578 sentences) at alpha 0.01500
+2016-10-09 11:10:24,530 : DEBUG : queueing job #15 (9989 words, 465 sentences) at alpha 0.01500
+2016-10-09 11:10:24,566 : DEBUG : queueing job #16 (9993 words, 431 sentences) at alpha 0.01500
+2016-10-09 11:10:24,603 : DEBUG : queueing job #17 (9986 words, 420 sentences) at alpha 0.01500
+2016-10-09 11:10:24,639 : DEBUG : queueing job #18 (9996 words, 453 sentences) at alpha 0.01500
+2016-10-09 11:10:24,678 : DEBUG : queueing job #19 (9986 words, 538 sentences) at alpha 0.01500
+2016-10-09 11:10:24,714 : DEBUG : queueing job #20 (9994 words, 557 sentences) at alpha 0.01500
+2016-10-09 11:10:24,751 : DEBUG : queueing job #21 (9997 words, 576 sentences) at alpha 0.01500
+2016-10-09 11:10:24,790 : DEBUG : queueing job #22 (9980 words, 542 sentences) at alpha 0.01500
+2016-10-09 11:10:24,826 : DEBUG : queueing job #23 (9990 words, 572 sentences) at alpha 0.01500
+2016-10-09 11:10:24,861 : DEBUG : queueing job #24 (9985 words, 528 sentences) at alpha 0.01500
+2016-10-09 11:10:24,897 : DEBUG : queueing job #25 (9968 words, 453 sentences) at alpha 0.01500
+2016-10-09 11:10:24,932 : DEBUG : queueing job #26 (9994 words, 424 sentences) at alpha 0.01500
+2016-10-09 11:10:24,969 : DEBUG : queueing job #27 (9973 words, 435 sentences) at alpha 0.01500
+2016-10-09 11:10:25,006 : DEBUG : queueing job #28 (9993 words, 465 sentences) at alpha 0.01500
+2016-10-09 11:10:25,043 : DEBUG : queueing job #29 (9980 words, 572 sentences) at alpha 0.01500
+2016-10-09 11:10:25,080 : DEBUG : queueing job #30 (9985 words, 557 sentences) at alpha 0.01500
+2016-10-09 11:10:25,117 : INFO : PROGRESS: at 58.68% examples, 308487 words/s, in_qsize 1, out_qsize 0
+2016-10-09 11:10:25,118 : DEBUG : queueing job #31 (9986 words, 562 sentences) at alpha 0.01500
+2016-10-09 11:10:25,155 : DEBUG : queueing job #32 (9998 words, 550 sentences) at alpha 0.01500
+2016-10-09 11:10:25,194 : DEBUG : queueing job #33 (9999 words, 579 sentences) at alpha 0.01500
+2016-10-09 11:10:25,229 : DEBUG : queueing job #34 (9996 words, 479 sentences) at alpha 0.01500
+2016-10-09 11:10:25,265 : DEBUG : queueing job #35 (9990 words, 433 sentences) at alpha 0.01500
+2016-10-09 11:10:25,301 : DEBUG : queueing job #36 (9989 words, 421 sentences) at alpha 0.01500
+2016-10-09 11:10:25,338 : DEBUG : queueing job #37 (9999 words, 457 sentences) at alpha 0.01500
+2016-10-09 11:10:25,375 : DEBUG : queueing job #38 (9966 words, 512 sentences) at alpha 0.01500
+2016-10-09 11:10:25,412 : DEBUG : queueing job #39 (9984 words, 570 sentences) at alpha 0.01500
+2016-10-09 11:10:25,449 : DEBUG : queueing job #40 (9977 words, 562 sentences) at alpha 0.01500
+2016-10-09 11:10:25,487 : DEBUG : queueing job #41 (9997 words, 552 sentences) at alpha 0.01500
+2016-10-09 11:10:25,527 : DEBUG : queueing job #42 (9997 words, 557 sentences) at alpha 0.01500
+2016-10-09 11:10:25,562 : DEBUG : queueing job #43 (9991 words, 551 sentences) at alpha 0.01500
+2016-10-09 11:10:25,597 : DEBUG : queueing job #44 (9978 words, 460 sentences) at alpha 0.01500
+2016-10-09 11:10:25,633 : DEBUG : queueing job #45 (9997 words, 423 sentences) at alpha 0.01500
+2016-10-09 11:10:25,669 : DEBUG : queueing job #46 (9976 words, 432 sentences) at alpha 0.01500
+2016-10-09 11:10:25,706 : DEBUG : queueing job #47 (8756 words, 388 sentences) at alpha 0.01500
+2016-10-09 11:10:25,779 : DEBUG : job loop exiting, total 48 jobs
+2016-10-09 11:10:25,853 : DEBUG : worker exiting, processed 48 jobs
+2016-10-09 11:10:25,854 : INFO : worker thread finished; awaiting finish of 0 more threads
+2016-10-09 11:10:25,854 : INFO : training on 478080 raw words (545575 effective words) took 1.8s, 308229 effective words/s
+2016-10-09 11:10:25,854 : INFO : training model with 1 workers on 2637 vocabulary and 300 features, using sg=0 hs=1 sample=0 negative=0
+2016-10-09 11:10:25,854 : INFO : expecting 4880 sentences, matching count from corpus used for vocabulary survey
+2016-10-09 11:10:25,855 : DEBUG : queueing job #0 (9993 words, 558 sentences) at alpha 0.01300
+2016-10-09 11:10:25,856 : DEBUG : queueing job #1 (9982 words, 562 sentences) at alpha 0.01300
+2016-10-09 11:10:25,857 : DEBUG : queueing job #2 (9977 words, 564 sentences) at alpha 0.01300
+2016-10-09 11:10:25,858 : DEBUG : queueing job #3 (9991 words, 547 sentences) at alpha 0.01300
+2016-10-09 11:10:25,895 : DEBUG : queueing job #4 (9983 words, 581 sentences) at alpha 0.01300
+2016-10-09 11:10:25,930 : DEBUG : queueing job #5 (9992 words, 501 sentences) at alpha 0.01300
+2016-10-09 11:10:25,965 : DEBUG : queueing job #6 (9964 words, 447 sentences) at alpha 0.01300
+2016-10-09 11:10:26,001 : DEBUG : queueing job #7 (9952 words, 428 sentences) at alpha 0.01300
+2016-10-09 11:10:26,037 : DEBUG : queueing job #8 (9966 words, 433 sentences) at alpha 0.01300
+2016-10-09 11:10:26,074 : DEBUG : queueing job #9 (9990 words, 491 sentences) at alpha 0.01300
+2016-10-09 11:10:26,111 : DEBUG : queueing job #10 (9993 words, 566 sentences) at alpha 0.01300
+2016-10-09 11:10:26,149 : DEBUG : queueing job #11 (9991 words, 561 sentences) at alpha 0.01300
+2016-10-09 11:10:26,186 : DEBUG : queueing job #12 (9987 words, 560 sentences) at alpha 0.01300
+2016-10-09 11:10:26,223 : DEBUG : queueing job #13 (9967 words, 547 sentences) at alpha 0.01300
+2016-10-09 11:10:26,259 : DEBUG : queueing job #14 (9987 words, 578 sentences) at alpha 0.01300
+2016-10-09 11:10:26,294 : DEBUG : queueing job #15 (9989 words, 465 sentences) at alpha 0.01300
+2016-10-09 11:10:26,330 : DEBUG : queueing job #16 (9993 words, 431 sentences) at alpha 0.01300
+2016-10-09 11:10:26,366 : DEBUG : queueing job #17 (9986 words, 420 sentences) at alpha 0.01300
+2016-10-09 11:10:26,402 : DEBUG : queueing job #18 (9996 words, 453 sentences) at alpha 0.01300
+2016-10-09 11:10:26,440 : DEBUG : queueing job #19 (9986 words, 538 sentences) at alpha 0.01300
+2016-10-09 11:10:26,477 : DEBUG : queueing job #20 (9994 words, 557 sentences) at alpha 0.01300
+2016-10-09 11:10:26,514 : DEBUG : queueing job #21 (9997 words, 576 sentences) at alpha 0.01300
+2016-10-09 11:10:26,552 : DEBUG : queueing job #22 (9980 words, 542 sentences) at alpha 0.01300
+2016-10-09 11:10:26,588 : DEBUG : queueing job #23 (9990 words, 572 sentences) at alpha 0.01300
+2016-10-09 11:10:26,626 : DEBUG : queueing job #24 (9985 words, 528 sentences) at alpha 0.01300
+2016-10-09 11:10:26,661 : DEBUG : queueing job #25 (9968 words, 453 sentences) at alpha 0.01300
+2016-10-09 11:10:26,697 : DEBUG : queueing job #26 (9994 words, 424 sentences) at alpha 0.01300
+2016-10-09 11:10:26,734 : DEBUG : queueing job #27 (9973 words, 435 sentences) at alpha 0.01300
+2016-10-09 11:10:26,771 : DEBUG : queueing job #28 (9993 words, 465 sentences) at alpha 0.01300
+2016-10-09 11:10:26,808 : DEBUG : queueing job #29 (9980 words, 572 sentences) at alpha 0.01300
+2016-10-09 11:10:26,844 : DEBUG : queueing job #30 (9985 words, 557 sentences) at alpha 0.01300
+2016-10-09 11:10:26,881 : INFO : PROGRESS: at 58.68% examples, 311237 words/s, in_qsize 1, out_qsize 0
+2016-10-09 11:10:26,882 : DEBUG : queueing job #31 (9986 words, 562 sentences) at alpha 0.01300
+2016-10-09 11:10:26,919 : DEBUG : queueing job #32 (9998 words, 550 sentences) at alpha 0.01300
+2016-10-09 11:10:26,955 : DEBUG : queueing job #33 (9999 words, 579 sentences) at alpha 0.01300
+2016-10-09 11:10:26,990 : DEBUG : queueing job #34 (9996 words, 479 sentences) at alpha 0.01300
+2016-10-09 11:10:27,026 : DEBUG : queueing job #35 (9990 words, 433 sentences) at alpha 0.01300
+2016-10-09 11:10:27,063 : DEBUG : queueing job #36 (9989 words, 421 sentences) at alpha 0.01300
+2016-10-09 11:10:27,099 : DEBUG : queueing job #37 (9999 words, 457 sentences) at alpha 0.01300
+2016-10-09 11:10:27,138 : DEBUG : queueing job #38 (9966 words, 512 sentences) at alpha 0.01300
+2016-10-09 11:10:27,174 : DEBUG : queueing job #39 (9984 words, 570 sentences) at alpha 0.01300
+2016-10-09 11:10:27,213 : DEBUG : queueing job #40 (9977 words, 562 sentences) at alpha 0.01300
+2016-10-09 11:10:27,253 : DEBUG : queueing job #41 (9997 words, 552 sentences) at alpha 0.01300
+2016-10-09 11:10:27,290 : DEBUG : queueing job #42 (9997 words, 557 sentences) at alpha 0.01300
+2016-10-09 11:10:27,327 : DEBUG : queueing job #43 (9991 words, 551 sentences) at alpha 0.01300
+2016-10-09 11:10:27,362 : DEBUG : queueing job #44 (9978 words, 460 sentences) at alpha 0.01300
+2016-10-09 11:10:27,398 : DEBUG : queueing job #45 (9997 words, 423 sentences) at alpha 0.01300
+2016-10-09 11:10:27,435 : DEBUG : queueing job #46 (9976 words, 432 sentences) at alpha 0.01300
+2016-10-09 11:10:27,471 : DEBUG : queueing job #47 (8756 words, 388 sentences) at alpha 0.01300
+2016-10-09 11:10:27,544 : DEBUG : job loop exiting, total 48 jobs
+2016-10-09 11:10:27,614 : DEBUG : worker exiting, processed 48 jobs
+2016-10-09 11:10:27,614 : INFO : worker thread finished; awaiting finish of 0 more threads
+2016-10-09 11:10:27,614 : INFO : training on 478080 raw words (545575 effective words) took 1.8s, 310507 effective words/s
+2016-10-09 11:10:27,614 : INFO : training model with 1 workers on 2637 vocabulary and 300 features, using sg=0 hs=1 sample=0 negative=0
+2016-10-09 11:10:27,614 : INFO : expecting 4880 sentences, matching count from corpus used for vocabulary survey
+2016-10-09 11:10:27,616 : DEBUG : queueing job #0 (9993 words, 558 sentences) at alpha 0.01100
+2016-10-09 11:10:27,616 : DEBUG : queueing job #1 (9982 words, 562 sentences) at alpha 0.01100
+2016-10-09 11:10:27,617 : DEBUG : queueing job #2 (9977 words, 564 sentences) at alpha 0.01100
+2016-10-09 11:10:27,618 : DEBUG : queueing job #3 (9991 words, 547 sentences) at alpha 0.01100
+2016-10-09 11:10:27,654 : DEBUG : queueing job #4 (9983 words, 581 sentences) at alpha 0.01100
+2016-10-09 11:10:27,689 : DEBUG : queueing job #5 (9992 words, 501 sentences) at alpha 0.01100
+2016-10-09 11:10:27,724 : DEBUG : queueing job #6 (9964 words, 447 sentences) at alpha 0.01100
+2016-10-09 11:10:27,760 : DEBUG : queueing job #7 (9952 words, 428 sentences) at alpha 0.01100
+2016-10-09 11:10:27,797 : DEBUG : queueing job #8 (9966 words, 433 sentences) at alpha 0.01100
+2016-10-09 11:10:27,835 : DEBUG : queueing job #9 (9990 words, 491 sentences) at alpha 0.01100
+2016-10-09 11:10:27,874 : DEBUG : queueing job #10 (9993 words, 566 sentences) at alpha 0.01100
+2016-10-09 11:10:27,910 : DEBUG : queueing job #11 (9991 words, 561 sentences) at alpha 0.01100
+2016-10-09 11:10:27,948 : DEBUG : queueing job #12 (9987 words, 560 sentences) at alpha 0.01100
+2016-10-09 11:10:27,984 : DEBUG : queueing job #13 (9967 words, 547 sentences) at alpha 0.01100
+2016-10-09 11:10:28,020 : DEBUG : queueing job #14 (9987 words, 578 sentences) at alpha 0.01100
+2016-10-09 11:10:28,055 : DEBUG : queueing job #15 (9989 words, 465 sentences) at alpha 0.01100
+2016-10-09 11:10:28,091 : DEBUG : queueing job #16 (9993 words, 431 sentences) at alpha 0.01100
+2016-10-09 11:10:28,128 : DEBUG : queueing job #17 (9986 words, 420 sentences) at alpha 0.01100
+2016-10-09 11:10:28,164 : DEBUG : queueing job #18 (9996 words, 453 sentences) at alpha 0.01100
+2016-10-09 11:10:28,202 : DEBUG : queueing job #19 (9986 words, 538 sentences) at alpha 0.01100
+2016-10-09 11:10:28,240 : DEBUG : queueing job #20 (9994 words, 557 sentences) at alpha 0.01100
+2016-10-09 11:10:28,277 : DEBUG : queueing job #21 (9997 words, 576 sentences) at alpha 0.01100
+2016-10-09 11:10:28,315 : DEBUG : queueing job #22 (9980 words, 542 sentences) at alpha 0.01100
+2016-10-09 11:10:28,352 : DEBUG : queueing job #23 (9990 words, 572 sentences) at alpha 0.01100
+2016-10-09 11:10:28,387 : DEBUG : queueing job #24 (9985 words, 528 sentences) at alpha 0.01100
+2016-10-09 11:10:28,422 : DEBUG : queueing job #25 (9968 words, 453 sentences) at alpha 0.01100
+2016-10-09 11:10:28,458 : DEBUG : queueing job #26 (9994 words, 424 sentences) at alpha 0.01100
+2016-10-09 11:10:28,496 : DEBUG : queueing job #27 (9973 words, 435 sentences) at alpha 0.01100
+2016-10-09 11:10:28,537 : DEBUG : queueing job #28 (9993 words, 465 sentences) at alpha 0.01100
+2016-10-09 11:10:28,574 : DEBUG : queueing job #29 (9980 words, 572 sentences) at alpha 0.01100
+2016-10-09 11:10:28,612 : DEBUG : queueing job #30 (9985 words, 557 sentences) at alpha 0.01100
+2016-10-09 11:10:28,649 : INFO : PROGRESS: at 58.68% examples, 308794 words/s, in_qsize 1, out_qsize 0
+2016-10-09 11:10:28,650 : DEBUG : queueing job #31 (9986 words, 562 sentences) at alpha 0.01100
+2016-10-09 11:10:28,690 : DEBUG : queueing job #32 (9998 words, 550 sentences) at alpha 0.01100
+2016-10-09 11:10:28,726 : DEBUG : queueing job #33 (9999 words, 579 sentences) at alpha 0.01100
+2016-10-09 11:10:28,761 : DEBUG : queueing job #34 (9996 words, 479 sentences) at alpha 0.01100
+2016-10-09 11:10:28,797 : DEBUG : queueing job #35 (9990 words, 433 sentences) at alpha 0.01100
+2016-10-09 11:10:28,833 : DEBUG : queueing job #36 (9989 words, 421 sentences) at alpha 0.01100
+2016-10-09 11:10:28,869 : DEBUG : queueing job #37 (9999 words, 457 sentences) at alpha 0.01100
+2016-10-09 11:10:28,907 : DEBUG : queueing job #38 (9966 words, 512 sentences) at alpha 0.01100
+2016-10-09 11:10:28,944 : DEBUG : queueing job #39 (9984 words, 570 sentences) at alpha 0.01100
+2016-10-09 11:10:28,980 : DEBUG : queueing job #40 (9977 words, 562 sentences) at alpha 0.01100
+2016-10-09 11:10:29,018 : DEBUG : queueing job #41 (9997 words, 552 sentences) at alpha 0.01100
+2016-10-09 11:10:29,055 : DEBUG : queueing job #42 (9997 words, 557 sentences) at alpha 0.01100
+2016-10-09 11:10:29,093 : DEBUG : queueing job #43 (9991 words, 551 sentences) at alpha 0.01100
+2016-10-09 11:10:29,128 : DEBUG : queueing job #44 (9978 words, 460 sentences) at alpha 0.01100
+2016-10-09 11:10:29,164 : DEBUG : queueing job #45 (9997 words, 423 sentences) at alpha 0.01100
+2016-10-09 11:10:29,200 : DEBUG : queueing job #46 (9976 words, 432 sentences) at alpha 0.01100
+2016-10-09 11:10:29,237 : DEBUG : queueing job #47 (8756 words, 388 sentences) at alpha 0.01100
+2016-10-09 11:10:29,310 : DEBUG : job loop exiting, total 48 jobs
+2016-10-09 11:10:29,379 : DEBUG : worker exiting, processed 48 jobs
+2016-10-09 11:10:29,379 : INFO : worker thread finished; awaiting finish of 0 more threads
+2016-10-09 11:10:29,379 : INFO : training on 478080 raw words (545575 effective words) took 1.8s, 309643 effective words/s
+2016-10-09 11:10:29,379 : INFO : training model with 1 workers on 2637 vocabulary and 300 features, using sg=0 hs=1 sample=0 negative=0
+2016-10-09 11:10:29,379 : INFO : expecting 4880 sentences, matching count from corpus used for vocabulary survey
+2016-10-09 11:10:29,380 : DEBUG : queueing job #0 (9993 words, 558 sentences) at alpha 0.00900
+2016-10-09 11:10:29,381 : DEBUG : queueing job #1 (9982 words, 562 sentences) at alpha 0.00900
+2016-10-09 11:10:29,382 : DEBUG : queueing job #2 (9977 words, 564 sentences) at alpha 0.00900
+2016-10-09 11:10:29,383 : DEBUG : queueing job #3 (9991 words, 547 sentences) at alpha 0.00900
+2016-10-09 11:10:29,420 : DEBUG : queueing job #4 (9983 words, 581 sentences) at alpha 0.00900
+2016-10-09 11:10:29,455 : DEBUG : queueing job #5 (9992 words, 501 sentences) at alpha 0.00900
+2016-10-09 11:10:29,491 : DEBUG : queueing job #6 (9964 words, 447 sentences) at alpha 0.00900
+2016-10-09 11:10:29,527 : DEBUG : queueing job #7 (9952 words, 428 sentences) at alpha 0.00900
+2016-10-09 11:10:29,564 : DEBUG : queueing job #8 (9966 words, 433 sentences) at alpha 0.00900
+2016-10-09 11:10:29,602 : DEBUG : queueing job #9 (9990 words, 491 sentences) at alpha 0.00900
+2016-10-09 11:10:29,641 : DEBUG : queueing job #10 (9993 words, 566 sentences) at alpha 0.00900
+2016-10-09 11:10:29,678 : DEBUG : queueing job #11 (9991 words, 561 sentences) at alpha 0.00900
+2016-10-09 11:10:29,717 : DEBUG : queueing job #12 (9987 words, 560 sentences) at alpha 0.00900
+2016-10-09 11:10:29,754 : DEBUG : queueing job #13 (9967 words, 547 sentences) at alpha 0.00900
+2016-10-09 11:10:29,790 : DEBUG : queueing job #14 (9987 words, 578 sentences) at alpha 0.00900
+2016-10-09 11:10:29,826 : DEBUG : queueing job #15 (9989 words, 465 sentences) at alpha 0.00900
+2016-10-09 11:10:29,862 : DEBUG : queueing job #16 (9993 words, 431 sentences) at alpha 0.00900
+2016-10-09 11:10:29,898 : DEBUG : queueing job #17 (9986 words, 420 sentences) at alpha 0.00900
+2016-10-09 11:10:29,935 : DEBUG : queueing job #18 (9996 words, 453 sentences) at alpha 0.00900
+2016-10-09 11:10:29,974 : DEBUG : queueing job #19 (9986 words, 538 sentences) at alpha 0.00900
+2016-10-09 11:10:30,011 : DEBUG : queueing job #20 (9994 words, 557 sentences) at alpha 0.00900
+2016-10-09 11:10:30,049 : DEBUG : queueing job #21 (9997 words, 576 sentences) at alpha 0.00900
+2016-10-09 11:10:30,087 : DEBUG : queueing job #22 (9980 words, 542 sentences) at alpha 0.00900
+2016-10-09 11:10:30,125 : DEBUG : queueing job #23 (9990 words, 572 sentences) at alpha 0.00900
+2016-10-09 11:10:30,160 : DEBUG : queueing job #24 (9985 words, 528 sentences) at alpha 0.00900
+2016-10-09 11:10:30,196 : DEBUG : queueing job #25 (9968 words, 453 sentences) at alpha 0.00900
+2016-10-09 11:10:30,233 : DEBUG : queueing job #26 (9994 words, 424 sentences) at alpha 0.00900
+2016-10-09 11:10:30,269 : DEBUG : queueing job #27 (9973 words, 435 sentences) at alpha 0.00900
+2016-10-09 11:10:30,308 : DEBUG : queueing job #28 (9993 words, 465 sentences) at alpha 0.00900
+2016-10-09 11:10:30,346 : DEBUG : queueing job #29 (9980 words, 572 sentences) at alpha 0.00900
+2016-10-09 11:10:30,382 : INFO : PROGRESS: at 56.90% examples, 306555 words/s, in_qsize 1, out_qsize 0
+2016-10-09 11:10:30,383 : DEBUG : queueing job #30 (9985 words, 557 sentences) at alpha 0.00900
+2016-10-09 11:10:30,422 : DEBUG : queueing job #31 (9986 words, 562 sentences) at alpha 0.00900
+2016-10-09 11:10:30,459 : DEBUG : queueing job #32 (9998 words, 550 sentences) at alpha 0.00900
+2016-10-09 11:10:30,496 : DEBUG : queueing job #33 (9999 words, 579 sentences) at alpha 0.00900
+2016-10-09 11:10:30,531 : DEBUG : queueing job #34 (9996 words, 479 sentences) at alpha 0.00900
+2016-10-09 11:10:30,567 : DEBUG : queueing job #35 (9990 words, 433 sentences) at alpha 0.00900
+2016-10-09 11:10:30,605 : DEBUG : queueing job #36 (9989 words, 421 sentences) at alpha 0.00900
+2016-10-09 11:10:30,643 : DEBUG : queueing job #37 (9999 words, 457 sentences) at alpha 0.00900
+2016-10-09 11:10:30,682 : DEBUG : queueing job #38 (9966 words, 512 sentences) at alpha 0.00900
+2016-10-09 11:10:30,719 : DEBUG : queueing job #39 (9984 words, 570 sentences) at alpha 0.00900
+2016-10-09 11:10:30,757 : DEBUG : queueing job #40 (9977 words, 562 sentences) at alpha 0.00900
+2016-10-09 11:10:30,796 : DEBUG : queueing job #41 (9997 words, 552 sentences) at alpha 0.00900
+2016-10-09 11:10:30,833 : DEBUG : queueing job #42 (9997 words, 557 sentences) at alpha 0.00900
+2016-10-09 11:10:30,868 : DEBUG : queueing job #43 (9991 words, 551 sentences) at alpha 0.00900
+2016-10-09 11:10:30,904 : DEBUG : queueing job #44 (9978 words, 460 sentences) at alpha 0.00900
+2016-10-09 11:10:30,940 : DEBUG : queueing job #45 (9997 words, 423 sentences) at alpha 0.00900
+2016-10-09 11:10:30,977 : DEBUG : queueing job #46 (9976 words, 432 sentences) at alpha 0.00900
+2016-10-09 11:10:31,014 : DEBUG : queueing job #47 (8756 words, 388 sentences) at alpha 0.00900
+2016-10-09 11:10:31,087 : DEBUG : job loop exiting, total 48 jobs
+2016-10-09 11:10:31,158 : DEBUG : worker exiting, processed 48 jobs
+2016-10-09 11:10:31,158 : INFO : worker thread finished; awaiting finish of 0 more threads
+2016-10-09 11:10:31,158 : INFO : training on 478080 raw words (545575 effective words) took 1.8s, 307064 effective words/s
+2016-10-09 11:10:31,158 : INFO : training model with 1 workers on 2637 vocabulary and 300 features, using sg=0 hs=1 sample=0 negative=0
+2016-10-09 11:10:31,158 : INFO : expecting 4880 sentences, matching count from corpus used for vocabulary survey
+2016-10-09 11:10:31,159 : DEBUG : queueing job #0 (9993 words, 558 sentences) at alpha 0.00700
+2016-10-09 11:10:31,160 : DEBUG : queueing job #1 (9982 words, 562 sentences) at alpha 0.00700
+2016-10-09 11:10:31,161 : DEBUG : queueing job #2 (9977 words, 564 sentences) at alpha 0.00700
+2016-10-09 11:10:31,162 : DEBUG : queueing job #3 (9991 words, 547 sentences) at alpha 0.00700
+2016-10-09 11:10:31,198 : DEBUG : queueing job #4 (9983 words, 581 sentences) at alpha 0.00700
+2016-10-09 11:10:31,234 : DEBUG : queueing job #5 (9992 words, 501 sentences) at alpha 0.00700
+2016-10-09 11:10:31,269 : DEBUG : queueing job #6 (9964 words, 447 sentences) at alpha 0.00700
+2016-10-09 11:10:31,306 : DEBUG : queueing job #7 (9952 words, 428 sentences) at alpha 0.00700
+2016-10-09 11:10:31,342 : DEBUG : queueing job #8 (9966 words, 433 sentences) at alpha 0.00700
+2016-10-09 11:10:31,380 : DEBUG : queueing job #9 (9990 words, 491 sentences) at alpha 0.00700
+2016-10-09 11:10:31,417 : DEBUG : queueing job #10 (9993 words, 566 sentences) at alpha 0.00700
+2016-10-09 11:10:31,454 : DEBUG : queueing job #11 (9991 words, 561 sentences) at alpha 0.00700
+2016-10-09 11:10:31,492 : DEBUG : queueing job #12 (9987 words, 560 sentences) at alpha 0.00700
+2016-10-09 11:10:31,529 : DEBUG : queueing job #13 (9967 words, 547 sentences) at alpha 0.00700
+2016-10-09 11:10:31,565 : DEBUG : queueing job #14 (9987 words, 578 sentences) at alpha 0.00700
+2016-10-09 11:10:31,601 : DEBUG : queueing job #15 (9989 words, 465 sentences) at alpha 0.00700
+2016-10-09 11:10:31,637 : DEBUG : queueing job #16 (9993 words, 431 sentences) at alpha 0.00700
+2016-10-09 11:10:31,674 : DEBUG : queueing job #17 (9986 words, 420 sentences) at alpha 0.00700
+2016-10-09 11:10:31,711 : DEBUG : queueing job #18 (9996 words, 453 sentences) at alpha 0.00700
+2016-10-09 11:10:31,749 : DEBUG : queueing job #19 (9986 words, 538 sentences) at alpha 0.00700
+2016-10-09 11:10:31,786 : DEBUG : queueing job #20 (9994 words, 557 sentences) at alpha 0.00700
+2016-10-09 11:10:31,824 : DEBUG : queueing job #21 (9997 words, 576 sentences) at alpha 0.00700
+2016-10-09 11:10:31,863 : DEBUG : queueing job #22 (9980 words, 542 sentences) at alpha 0.00700
+2016-10-09 11:10:31,900 : DEBUG : queueing job #23 (9990 words, 572 sentences) at alpha 0.00700
+2016-10-09 11:10:31,935 : DEBUG : queueing job #24 (9985 words, 528 sentences) at alpha 0.00700
+2016-10-09 11:10:31,970 : DEBUG : queueing job #25 (9968 words, 453 sentences) at alpha 0.00700
+2016-10-09 11:10:32,006 : DEBUG : queueing job #26 (9994 words, 424 sentences) at alpha 0.00700
+2016-10-09 11:10:32,043 : DEBUG : queueing job #27 (9973 words, 435 sentences) at alpha 0.00700
+2016-10-09 11:10:32,080 : DEBUG : queueing job #28 (9993 words, 465 sentences) at alpha 0.00700
+2016-10-09 11:10:32,118 : DEBUG : queueing job #29 (9980 words, 572 sentences) at alpha 0.00700
+2016-10-09 11:10:32,155 : DEBUG : queueing job #30 (9985 words, 557 sentences) at alpha 0.00700
+2016-10-09 11:10:32,192 : INFO : PROGRESS: at 58.68% examples, 308971 words/s, in_qsize 1, out_qsize 0
+2016-10-09 11:10:32,193 : DEBUG : queueing job #31 (9986 words, 562 sentences) at alpha 0.00700
+2016-10-09 11:10:32,231 : DEBUG : queueing job #32 (9998 words, 550 sentences) at alpha 0.00700
+2016-10-09 11:10:32,267 : DEBUG : queueing job #33 (9999 words, 579 sentences) at alpha 0.00700
+2016-10-09 11:10:32,302 : DEBUG : queueing job #34 (9996 words, 479 sentences) at alpha 0.00700
+2016-10-09 11:10:32,342 : DEBUG : queueing job #35 (9990 words, 433 sentences) at alpha 0.00700
+2016-10-09 11:10:32,378 : DEBUG : queueing job #36 (9989 words, 421 sentences) at alpha 0.00700
+2016-10-09 11:10:32,415 : DEBUG : queueing job #37 (9999 words, 457 sentences) at alpha 0.00700
+2016-10-09 11:10:32,453 : DEBUG : queueing job #38 (9966 words, 512 sentences) at alpha 0.00700
+2016-10-09 11:10:32,490 : DEBUG : queueing job #39 (9984 words, 570 sentences) at alpha 0.00700
+2016-10-09 11:10:32,527 : DEBUG : queueing job #40 (9977 words, 562 sentences) at alpha 0.00700
+2016-10-09 11:10:32,565 : DEBUG : queueing job #41 (9997 words, 552 sentences) at alpha 0.00700
+2016-10-09 11:10:32,603 : DEBUG : queueing job #42 (9997 words, 557 sentences) at alpha 0.00700
+2016-10-09 11:10:32,640 : DEBUG : queueing job #43 (9991 words, 551 sentences) at alpha 0.00700
+2016-10-09 11:10:32,675 : DEBUG : queueing job #44 (9978 words, 460 sentences) at alpha 0.00700
+2016-10-09 11:10:32,711 : DEBUG : queueing job #45 (9997 words, 423 sentences) at alpha 0.00700
+2016-10-09 11:10:32,748 : DEBUG : queueing job #46 (9976 words, 432 sentences) at alpha 0.00700
+2016-10-09 11:10:32,784 : DEBUG : queueing job #47 (8756 words, 388 sentences) at alpha 0.00700
+2016-10-09 11:10:32,866 : DEBUG : job loop exiting, total 48 jobs
+2016-10-09 11:10:32,935 : DEBUG : worker exiting, processed 48 jobs
+2016-10-09 11:10:32,936 : INFO : worker thread finished; awaiting finish of 0 more threads
+2016-10-09 11:10:32,936 : INFO : training on 478080 raw words (545575 effective words) took 1.8s, 307405 effective words/s
+2016-10-09 11:10:32,936 : INFO : saving Doc2Vec object under ./tmp/RareModel, separately None
+2016-10-09 11:10:32,936 : INFO : not storing attribute cum_table
+2016-10-09 11:10:32,936 : INFO : not storing attribute syn0norm
+2016-10-09 11:20:56,003 : INFO : collecting all words and their counts
+2016-10-09 11:20:56,004 : INFO : PROGRESS: at example #0, processed 0 words (0/s), 0 word types, 0 tags
+2016-10-09 11:20:56,095 : INFO : collected 11802 word types and 13 unique tags from a corpus of 4880 examples and 95616 words
+2016-10-09 11:20:56,106 : INFO : min_count=5 retains 2637 unique words (drops 9165)
+2016-10-09 11:20:56,106 : INFO : min_count leaves 81620 word corpus (85% of original 95616)
+2016-10-09 11:20:56,110 : INFO : deleting the raw counts dictionary of 11802 items
+2016-10-09 11:20:56,111 : INFO : sample=0 downsamples 0 most-common words
+2016-10-09 11:20:56,111 : INFO : downsampling leaves estimated 81620 word corpus (100.0% of prior 81620)
+2016-10-09 11:20:56,111 : INFO : estimated required memory for 2637 words and 300 dimensions: 8192900 bytes
+2016-10-09 11:20:56,113 : INFO : constructing a huffman tree from 2637 words
+2016-10-09 11:20:56,173 : INFO : built huffman tree with maximum node depth 14
+2016-10-09 11:20:56,174 : INFO : resetting layer weights
+2016-10-09 11:20:56,209 : INFO : training model with 1 workers on 2637 vocabulary and 300 features, using sg=0 hs=1 sample=0 negative=0
+2016-10-09 11:20:56,209 : INFO : expecting 4880 sentences, matching count from corpus used for vocabulary survey
+2016-10-09 11:20:56,211 : DEBUG : queueing job #0 (9993 words, 558 sentences) at alpha 0.02500
+2016-10-09 11:20:56,211 : DEBUG : queueing job #1 (9982 words, 562 sentences) at alpha 0.02500
+2016-10-09 11:20:56,212 : DEBUG : queueing job #2 (9977 words, 564 sentences) at alpha 0.02500
+2016-10-09 11:20:56,213 : DEBUG : queueing job #3 (9991 words, 547 sentences) at alpha 0.02500
+2016-10-09 11:20:56,254 : DEBUG : queueing job #4 (9983 words, 581 sentences) at alpha 0.02500
+2016-10-09 11:20:56,289 : DEBUG : queueing job #5 (9992 words, 501 sentences) at alpha 0.02500
+2016-10-09 11:20:56,328 : DEBUG : queueing job #6 (9964 words, 447 sentences) at alpha 0.02500
+2016-10-09 11:20:56,365 : DEBUG : queueing job #7 (9952 words, 428 sentences) at alpha 0.02500
+2016-10-09 11:20:56,401 : DEBUG : queueing job #8 (9966 words, 433 sentences) at alpha 0.02500
+2016-10-09 11:20:56,439 : DEBUG : queueing job #9 (9990 words, 491 sentences) at alpha 0.02500
+2016-10-09 11:20:56,481 : DEBUG : queueing job #10 (9993 words, 566 sentences) at alpha 0.02500
+2016-10-09 11:20:56,519 : DEBUG : queueing job #11 (9991 words, 561 sentences) at alpha 0.02500
+2016-10-09 11:20:56,557 : DEBUG : queueing job #12 (9987 words, 560 sentences) at alpha 0.02500
+2016-10-09 11:20:56,599 : DEBUG : queueing job #13 (9967 words, 547 sentences) at alpha 0.02500
+2016-10-09 11:20:56,636 : DEBUG : queueing job #14 (9987 words, 578 sentences) at alpha 0.02500
+2016-10-09 11:20:56,671 : DEBUG : queueing job #15 (9989 words, 465 sentences) at alpha 0.02500
+2016-10-09 11:20:56,706 : DEBUG : queueing job #16 (9993 words, 431 sentences) at alpha 0.02500
+2016-10-09 11:20:56,742 : DEBUG : queueing job #17 (9986 words, 420 sentences) at alpha 0.02500
+2016-10-09 11:20:56,782 : DEBUG : queueing job #18 (9996 words, 453 sentences) at alpha 0.02500
+2016-10-09 11:20:56,823 : DEBUG : queueing job #19 (9986 words, 538 sentences) at alpha 0.02500
+2016-10-09 11:20:56,860 : DEBUG : queueing job #20 (9994 words, 557 sentences) at alpha 0.02500
+2016-10-09 11:20:56,898 : DEBUG : queueing job #21 (9997 words, 576 sentences) at alpha 0.02500
+2016-10-09 11:20:56,939 : DEBUG : queueing job #22 (9980 words, 542 sentences) at alpha 0.02500
+2016-10-09 11:20:56,975 : DEBUG : queueing job #23 (9990 words, 572 sentences) at alpha 0.02500
+2016-10-09 11:20:57,010 : DEBUG : queueing job #24 (9985 words, 528 sentences) at alpha 0.02500
+2016-10-09 11:20:57,048 : DEBUG : queueing job #25 (9968 words, 453 sentences) at alpha 0.02500
+2016-10-09 11:20:57,086 : DEBUG : queueing job #26 (9994 words, 424 sentences) at alpha 0.02500
+2016-10-09 11:20:57,123 : DEBUG : queueing job #27 (9973 words, 435 sentences) at alpha 0.02500
+2016-10-09 11:20:57,160 : DEBUG : queueing job #28 (9993 words, 465 sentences) at alpha 0.02500
+2016-10-09 11:20:57,197 : DEBUG : queueing job #29 (9980 words, 572 sentences) at alpha 0.02500
+2016-10-09 11:20:57,233 : INFO : PROGRESS: at 56.90% examples, 300648 words/s, in_qsize 1, out_qsize 0
+2016-10-09 11:20:57,234 : DEBUG : queueing job #30 (9985 words, 557 sentences) at alpha 0.02500
+2016-10-09 11:20:57,274 : DEBUG : queueing job #31 (9986 words, 562 sentences) at alpha 0.02500
+2016-10-09 11:20:57,312 : DEBUG : queueing job #32 (9998 words, 550 sentences) at alpha 0.02500
+2016-10-09 11:20:57,351 : DEBUG : queueing job #33 (9999 words, 579 sentences) at alpha 0.02500
+2016-10-09 11:20:57,385 : DEBUG : queueing job #34 (9996 words, 479 sentences) at alpha 0.02500
+2016-10-09 11:20:57,421 : DEBUG : queueing job #35 (9990 words, 433 sentences) at alpha 0.02500
+2016-10-09 11:20:57,457 : DEBUG : queueing job #36 (9989 words, 421 sentences) at alpha 0.02500
+2016-10-09 11:20:57,493 : DEBUG : queueing job #37 (9999 words, 457 sentences) at alpha 0.02500
+2016-10-09 11:20:57,530 : DEBUG : queueing job #38 (9966 words, 512 sentences) at alpha 0.02500
+2016-10-09 11:20:57,567 : DEBUG : queueing job #39 (9984 words, 570 sentences) at alpha 0.02500
+2016-10-09 11:20:57,606 : DEBUG : queueing job #40 (9977 words, 562 sentences) at alpha 0.02500
+2016-10-09 11:20:57,643 : DEBUG : queueing job #41 (9997 words, 552 sentences) at alpha 0.02500
+2016-10-09 11:20:57,679 : DEBUG : queueing job #42 (9997 words, 557 sentences) at alpha 0.02500
+2016-10-09 11:20:57,714 : DEBUG : queueing job #43 (9991 words, 551 sentences) at alpha 0.02500
+2016-10-09 11:20:57,749 : DEBUG : queueing job #44 (9978 words, 460 sentences) at alpha 0.02500
+2016-10-09 11:20:57,784 : DEBUG : queueing job #45 (9997 words, 423 sentences) at alpha 0.02500
+2016-10-09 11:20:57,820 : DEBUG : queueing job #46 (9976 words, 432 sentences) at alpha 0.02500
+2016-10-09 11:20:57,860 : DEBUG : queueing job #47 (8756 words, 388 sentences) at alpha 0.02500
+2016-10-09 11:20:57,940 : DEBUG : job loop exiting, total 48 jobs
+2016-10-09 11:20:58,009 : DEBUG : worker exiting, processed 48 jobs
+2016-10-09 11:20:58,009 : INFO : worker thread finished; awaiting finish of 0 more threads
+2016-10-09 11:20:58,009 : INFO : training on 478080 raw words (545575 effective words) took 1.8s, 303582 effective words/s
+2016-10-09 11:20:58,009 : INFO : training model with 1 workers on 2637 vocabulary and 300 features, using sg=0 hs=1 sample=0 negative=0
+2016-10-09 11:20:58,009 : INFO : expecting 4880 sentences, matching count from corpus used for vocabulary survey
+2016-10-09 11:20:58,011 : DEBUG : queueing job #0 (9993 words, 558 sentences) at alpha 0.02300
+2016-10-09 11:20:58,011 : DEBUG : queueing job #1 (9982 words, 562 sentences) at alpha 0.02300
+2016-10-09 11:20:58,012 : DEBUG : queueing job #2 (9977 words, 564 sentences) at alpha 0.02300
+2016-10-09 11:20:58,013 : DEBUG : queueing job #3 (9991 words, 547 sentences) at alpha 0.02300
+2016-10-09 11:20:58,048 : DEBUG : queueing job #4 (9983 words, 581 sentences) at alpha 0.02300
+2016-10-09 11:20:58,082 : DEBUG : queueing job #5 (9992 words, 501 sentences) at alpha 0.02300
+2016-10-09 11:20:58,118 : DEBUG : queueing job #6 (9964 words, 447 sentences) at alpha 0.02300
+2016-10-09 11:20:58,153 : DEBUG : queueing job #7 (9952 words, 428 sentences) at alpha 0.02300
+2016-10-09 11:20:58,189 : DEBUG : queueing job #8 (9966 words, 433 sentences) at alpha 0.02300
+2016-10-09 11:20:58,225 : DEBUG : queueing job #9 (9990 words, 491 sentences) at alpha 0.02300
+2016-10-09 11:20:58,262 : DEBUG : queueing job #10 (9993 words, 566 sentences) at alpha 0.02300
+2016-10-09 11:20:58,298 : DEBUG : queueing job #11 (9991 words, 561 sentences) at alpha 0.02300
+2016-10-09 11:20:58,335 : DEBUG : queueing job #12 (9987 words, 560 sentences) at alpha 0.02300
+2016-10-09 11:20:58,371 : DEBUG : queueing job #13 (9967 words, 547 sentences) at alpha 0.02300
+2016-10-09 11:20:58,410 : DEBUG : queueing job #14 (9987 words, 578 sentences) at alpha 0.02300
+2016-10-09 11:20:58,444 : DEBUG : queueing job #15 (9989 words, 465 sentences) at alpha 0.02300
+2016-10-09 11:20:58,479 : DEBUG : queueing job #16 (9993 words, 431 sentences) at alpha 0.02300
+2016-10-09 11:20:58,514 : DEBUG : queueing job #17 (9986 words, 420 sentences) at alpha 0.02300
+2016-10-09 11:20:58,549 : DEBUG : queueing job #18 (9996 words, 453 sentences) at alpha 0.02300
+2016-10-09 11:20:58,586 : DEBUG : queueing job #19 (9986 words, 538 sentences) at alpha 0.02300
+2016-10-09 11:20:58,622 : DEBUG : queueing job #20 (9994 words, 557 sentences) at alpha 0.02300
+2016-10-09 11:20:58,658 : DEBUG : queueing job #21 (9997 words, 576 sentences) at alpha 0.02300
+2016-10-09 11:20:58,695 : DEBUG : queueing job #22 (9980 words, 542 sentences) at alpha 0.02300
+2016-10-09 11:20:58,731 : DEBUG : queueing job #23 (9990 words, 572 sentences) at alpha 0.02300
+2016-10-09 11:20:58,765 : DEBUG : queueing job #24 (9985 words, 528 sentences) at alpha 0.02300
+2016-10-09 11:20:58,799 : DEBUG : queueing job #25 (9968 words, 453 sentences) at alpha 0.02300
+2016-10-09 11:20:58,834 : DEBUG : queueing job #26 (9994 words, 424 sentences) at alpha 0.02300
+2016-10-09 11:20:58,870 : DEBUG : queueing job #27 (9973 words, 435 sentences) at alpha 0.02300
+2016-10-09 11:20:58,906 : DEBUG : queueing job #28 (9993 words, 465 sentences) at alpha 0.02300
+2016-10-09 11:20:58,942 : DEBUG : queueing job #29 (9980 words, 572 sentences) at alpha 0.02300
+2016-10-09 11:20:58,978 : DEBUG : queueing job #30 (9985 words, 557 sentences) at alpha 0.02300
+2016-10-09 11:20:59,014 : INFO : PROGRESS: at 58.68% examples, 318046 words/s, in_qsize 1, out_qsize 0
+2016-10-09 11:20:59,015 : DEBUG : queueing job #31 (9986 words, 562 sentences) at alpha 0.02300
+2016-10-09 11:20:59,051 : DEBUG : queueing job #32 (9998 words, 550 sentences) at alpha 0.02300
+2016-10-09 11:20:59,087 : DEBUG : queueing job #33 (9999 words, 579 sentences) at alpha 0.02300
+2016-10-09 11:20:59,120 : DEBUG : queueing job #34 (9996 words, 479 sentences) at alpha 0.02300
+2016-10-09 11:20:59,155 : DEBUG : queueing job #35 (9990 words, 433 sentences) at alpha 0.02300
+2016-10-09 11:20:59,190 : DEBUG : queueing job #36 (9989 words, 421 sentences) at alpha 0.02300
+2016-10-09 11:20:59,226 : DEBUG : queueing job #37 (9999 words, 457 sentences) at alpha 0.02300
+2016-10-09 11:20:59,263 : DEBUG : queueing job #38 (9966 words, 512 sentences) at alpha 0.02300
+2016-10-09 11:20:59,299 : DEBUG : queueing job #39 (9984 words, 570 sentences) at alpha 0.02300
+2016-10-09 11:20:59,335 : DEBUG : queueing job #40 (9977 words, 562 sentences) at alpha 0.02300
+2016-10-09 11:20:59,372 : DEBUG : queueing job #41 (9997 words, 552 sentences) at alpha 0.02300
+2016-10-09 11:20:59,409 : DEBUG : queueing job #42 (9997 words, 557 sentences) at alpha 0.02300
+2016-10-09 11:20:59,445 : DEBUG : queueing job #43 (9991 words, 551 sentences) at alpha 0.02300
+2016-10-09 11:20:59,482 : DEBUG : queueing job #44 (9978 words, 460 sentences) at alpha 0.02300
+2016-10-09 11:20:59,517 : DEBUG : queueing job #45 (9997 words, 423 sentences) at alpha 0.02300
+2016-10-09 11:20:59,554 : DEBUG : queueing job #46 (9976 words, 432 sentences) at alpha 0.02300
+2016-10-09 11:20:59,597 : DEBUG : queueing job #47 (8756 words, 388 sentences) at alpha 0.02300
+2016-10-09 11:20:59,668 : DEBUG : job loop exiting, total 48 jobs
+2016-10-09 11:20:59,735 : DEBUG : worker exiting, processed 48 jobs
+2016-10-09 11:20:59,736 : INFO : worker thread finished; awaiting finish of 0 more threads
+2016-10-09 11:20:59,736 : INFO : training on 478080 raw words (545575 effective words) took 1.7s, 316521 effective words/s
+2016-10-09 11:20:59,736 : INFO : training model with 1 workers on 2637 vocabulary and 300 features, using sg=0 hs=1 sample=0 negative=0
+2016-10-09 11:20:59,736 : INFO : expecting 4880 sentences, matching count from corpus used for vocabulary survey
+2016-10-09 11:20:59,737 : DEBUG : queueing job #0 (9993 words, 558 sentences) at alpha 0.02100
+2016-10-09 11:20:59,738 : DEBUG : queueing job #1 (9982 words, 562 sentences) at alpha 0.02100
+2016-10-09 11:20:59,738 : DEBUG : queueing job #2 (9977 words, 564 sentences) at alpha 0.02100
+2016-10-09 11:20:59,739 : DEBUG : queueing job #3 (9991 words, 547 sentences) at alpha 0.02100
+2016-10-09 11:20:59,775 : DEBUG : queueing job #4 (9983 words, 581 sentences) at alpha 0.02100
+2016-10-09 11:20:59,809 : DEBUG : queueing job #5 (9992 words, 501 sentences) at alpha 0.02100
+2016-10-09 11:20:59,843 : DEBUG : queueing job #6 (9964 words, 447 sentences) at alpha 0.02100
+2016-10-09 11:20:59,878 : DEBUG : queueing job #7 (9952 words, 428 sentences) at alpha 0.02100
+2016-10-09 11:20:59,914 : DEBUG : queueing job #8 (9966 words, 433 sentences) at alpha 0.02100
+2016-10-09 11:20:59,951 : DEBUG : queueing job #9 (9990 words, 491 sentences) at alpha 0.02100
+2016-10-09 11:20:59,988 : DEBUG : queueing job #10 (9993 words, 566 sentences) at alpha 0.02100
+2016-10-09 11:21:00,024 : DEBUG : queueing job #11 (9991 words, 561 sentences) at alpha 0.02100
+2016-10-09 11:21:00,061 : DEBUG : queueing job #12 (9987 words, 560 sentences) at alpha 0.02100
+2016-10-09 11:21:00,097 : DEBUG : queueing job #13 (9967 words, 547 sentences) at alpha 0.02100
+2016-10-09 11:21:00,132 : DEBUG : queueing job #14 (9987 words, 578 sentences) at alpha 0.02100
+2016-10-09 11:21:00,166 : DEBUG : queueing job #15 (9989 words, 465 sentences) at alpha 0.02100
+2016-10-09 11:21:00,201 : DEBUG : queueing job #16 (9993 words, 431 sentences) at alpha 0.02100
+2016-10-09 11:21:00,236 : DEBUG : queueing job #17 (9986 words, 420 sentences) at alpha 0.02100
+2016-10-09 11:21:00,275 : DEBUG : queueing job #18 (9996 words, 453 sentences) at alpha 0.02100
+2016-10-09 11:21:00,312 : DEBUG : queueing job #19 (9986 words, 538 sentences) at alpha 0.02100
+2016-10-09 11:21:00,348 : DEBUG : queueing job #20 (9994 words, 557 sentences) at alpha 0.02100
+2016-10-09 11:21:00,385 : DEBUG : queueing job #21 (9997 words, 576 sentences) at alpha 0.02100
+2016-10-09 11:21:00,422 : DEBUG : queueing job #22 (9980 words, 542 sentences) at alpha 0.02100
+2016-10-09 11:21:00,459 : DEBUG : queueing job #23 (9990 words, 572 sentences) at alpha 0.02100
+2016-10-09 11:21:00,494 : DEBUG : queueing job #24 (9985 words, 528 sentences) at alpha 0.02100
+2016-10-09 11:21:00,528 : DEBUG : queueing job #25 (9968 words, 453 sentences) at alpha 0.02100
+2016-10-09 11:21:00,564 : DEBUG : queueing job #26 (9994 words, 424 sentences) at alpha 0.02100
+2016-10-09 11:21:00,600 : DEBUG : queueing job #27 (9973 words, 435 sentences) at alpha 0.02100
+2016-10-09 11:21:00,638 : DEBUG : queueing job #28 (9993 words, 465 sentences) at alpha 0.02100
+2016-10-09 11:21:00,674 : DEBUG : queueing job #29 (9980 words, 572 sentences) at alpha 0.02100
+2016-10-09 11:21:00,711 : DEBUG : queueing job #30 (9985 words, 557 sentences) at alpha 0.02100
+2016-10-09 11:21:00,747 : INFO : PROGRESS: at 58.68% examples, 316076 words/s, in_qsize 1, out_qsize 0
+2016-10-09 11:21:00,748 : DEBUG : queueing job #31 (9986 words, 562 sentences) at alpha 0.02100
+2016-10-09 11:21:00,784 : DEBUG : queueing job #32 (9998 words, 550 sentences) at alpha 0.02100
+2016-10-09 11:21:00,819 : DEBUG : queueing job #33 (9999 words, 579 sentences) at alpha 0.02100
+2016-10-09 11:21:00,852 : DEBUG : queueing job #34 (9996 words, 479 sentences) at alpha 0.02100
+2016-10-09 11:21:00,887 : DEBUG : queueing job #35 (9990 words, 433 sentences) at alpha 0.02100
+2016-10-09 11:21:00,922 : DEBUG : queueing job #36 (9989 words, 421 sentences) at alpha 0.02100
+2016-10-09 11:21:00,958 : DEBUG : queueing job #37 (9999 words, 457 sentences) at alpha 0.02100
+2016-10-09 11:21:00,995 : DEBUG : queueing job #38 (9966 words, 512 sentences) at alpha 0.02100
+2016-10-09 11:21:01,032 : DEBUG : queueing job #39 (9984 words, 570 sentences) at alpha 0.02100
+2016-10-09 11:21:01,068 : DEBUG : queueing job #40 (9977 words, 562 sentences) at alpha 0.02100
+2016-10-09 11:21:01,105 : DEBUG : queueing job #41 (9997 words, 552 sentences) at alpha 0.02100
+2016-10-09 11:21:01,141 : DEBUG : queueing job #42 (9997 words, 557 sentences) at alpha 0.02100
+2016-10-09 11:21:01,177 : DEBUG : queueing job #43 (9991 words, 551 sentences) at alpha 0.02100
+2016-10-09 11:21:01,212 : DEBUG : queueing job #44 (9978 words, 460 sentences) at alpha 0.02100
+2016-10-09 11:21:01,247 : DEBUG : queueing job #45 (9997 words, 423 sentences) at alpha 0.02100
+2016-10-09 11:21:01,283 : DEBUG : queueing job #46 (9976 words, 432 sentences) at alpha 0.02100
+2016-10-09 11:21:01,319 : DEBUG : queueing job #47 (8756 words, 388 sentences) at alpha 0.02100
+2016-10-09 11:21:01,390 : DEBUG : job loop exiting, total 48 jobs
+2016-10-09 11:21:01,458 : DEBUG : worker exiting, processed 48 jobs
+2016-10-09 11:21:01,458 : INFO : worker thread finished; awaiting finish of 0 more threads
+2016-10-09 11:21:01,458 : INFO : training on 478080 raw words (545575 effective words) took 1.7s, 317229 effective words/s
+2016-10-09 11:21:01,458 : INFO : training model with 1 workers on 2637 vocabulary and 300 features, using sg=0 hs=1 sample=0 negative=0
+2016-10-09 11:21:01,458 : INFO : expecting 4880 sentences, matching count from corpus used for vocabulary survey
+2016-10-09 11:21:01,460 : DEBUG : queueing job #0 (9993 words, 558 sentences) at alpha 0.01900
+2016-10-09 11:21:01,460 : DEBUG : queueing job #1 (9982 words, 562 sentences) at alpha 0.01900
+2016-10-09 11:21:01,461 : DEBUG : queueing job #2 (9977 words, 564 sentences) at alpha 0.01900
+2016-10-09 11:21:01,463 : DEBUG : queueing job #3 (9991 words, 547 sentences) at alpha 0.01900
+2016-10-09 11:21:01,499 : DEBUG : queueing job #4 (9983 words, 581 sentences) at alpha 0.01900
+2016-10-09 11:21:01,533 : DEBUG : queueing job #5 (9992 words, 501 sentences) at alpha 0.01900
+2016-10-09 11:21:01,568 : DEBUG : queueing job #6 (9964 words, 447 sentences) at alpha 0.01900
+2016-10-09 11:21:01,607 : DEBUG : queueing job #7 (9952 words, 428 sentences) at alpha 0.01900
+2016-10-09 11:21:01,644 : DEBUG : queueing job #8 (9966 words, 433 sentences) at alpha 0.01900
+2016-10-09 11:21:01,680 : DEBUG : queueing job #9 (9990 words, 491 sentences) at alpha 0.01900
+2016-10-09 11:21:01,716 : DEBUG : queueing job #10 (9993 words, 566 sentences) at alpha 0.01900
+2016-10-09 11:21:01,752 : DEBUG : queueing job #11 (9991 words, 561 sentences) at alpha 0.01900
+2016-10-09 11:21:01,789 : DEBUG : queueing job #12 (9987 words, 560 sentences) at alpha 0.01900
+2016-10-09 11:21:01,825 : DEBUG : queueing job #13 (9967 words, 547 sentences) at alpha 0.01900
+2016-10-09 11:21:01,863 : DEBUG : queueing job #14 (9987 words, 578 sentences) at alpha 0.01900
+2016-10-09 11:21:01,898 : DEBUG : queueing job #15 (9989 words, 465 sentences) at alpha 0.01900
+2016-10-09 11:21:01,933 : DEBUG : queueing job #16 (9993 words, 431 sentences) at alpha 0.01900
+2016-10-09 11:21:01,968 : DEBUG : queueing job #17 (9986 words, 420 sentences) at alpha 0.01900
+2016-10-09 11:21:02,005 : DEBUG : queueing job #18 (9996 words, 453 sentences) at alpha 0.01900
+2016-10-09 11:21:02,042 : DEBUG : queueing job #19 (9986 words, 538 sentences) at alpha 0.01900
+2016-10-09 11:21:02,078 : DEBUG : queueing job #20 (9994 words, 557 sentences) at alpha 0.01900
+2016-10-09 11:21:02,114 : DEBUG : queueing job #21 (9997 words, 576 sentences) at alpha 0.01900
+2016-10-09 11:21:02,151 : DEBUG : queueing job #22 (9980 words, 542 sentences) at alpha 0.01900
+2016-10-09 11:21:02,190 : DEBUG : queueing job #23 (9990 words, 572 sentences) at alpha 0.01900
+2016-10-09 11:21:02,225 : DEBUG : queueing job #24 (9985 words, 528 sentences) at alpha 0.01900
+2016-10-09 11:21:02,259 : DEBUG : queueing job #25 (9968 words, 453 sentences) at alpha 0.01900
+2016-10-09 11:21:02,295 : DEBUG : queueing job #26 (9994 words, 424 sentences) at alpha 0.01900
+2016-10-09 11:21:02,330 : DEBUG : queueing job #27 (9973 words, 435 sentences) at alpha 0.01900
+2016-10-09 11:21:02,366 : DEBUG : queueing job #28 (9993 words, 465 sentences) at alpha 0.01900
+2016-10-09 11:21:02,403 : DEBUG : queueing job #29 (9980 words, 572 sentences) at alpha 0.01900
+2016-10-09 11:21:02,439 : DEBUG : queueing job #30 (9985 words, 557 sentences) at alpha 0.01900
+2016-10-09 11:21:02,475 : INFO : PROGRESS: at 58.68% examples, 314426 words/s, in_qsize 1, out_qsize 0
+2016-10-09 11:21:02,476 : DEBUG : queueing job #31 (9986 words, 562 sentences) at alpha 0.01900
+2016-10-09 11:21:02,513 : DEBUG : queueing job #32 (9998 words, 550 sentences) at alpha 0.01900
+2016-10-09 11:21:02,548 : DEBUG : queueing job #33 (9999 words, 579 sentences) at alpha 0.01900
+2016-10-09 11:21:02,585 : DEBUG : queueing job #34 (9996 words, 479 sentences) at alpha 0.01900
+2016-10-09 11:21:02,620 : DEBUG : queueing job #35 (9990 words, 433 sentences) at alpha 0.01900
+2016-10-09 11:21:02,655 : DEBUG : queueing job #36 (9989 words, 421 sentences) at alpha 0.01900
+2016-10-09 11:21:02,691 : DEBUG : queueing job #37 (9999 words, 457 sentences) at alpha 0.01900
+2016-10-09 11:21:02,730 : DEBUG : queueing job #38 (9966 words, 512 sentences) at alpha 0.01900
+2016-10-09 11:21:02,769 : DEBUG : queueing job #39 (9984 words, 570 sentences) at alpha 0.01900
+2016-10-09 11:21:02,806 : DEBUG : queueing job #40 (9977 words, 562 sentences) at alpha 0.01900
+2016-10-09 11:21:02,843 : DEBUG : queueing job #41 (9997 words, 552 sentences) at alpha 0.01900
+2016-10-09 11:21:02,879 : DEBUG : queueing job #42 (9997 words, 557 sentences) at alpha 0.01900
+2016-10-09 11:21:02,914 : DEBUG : queueing job #43 (9991 words, 551 sentences) at alpha 0.01900
+2016-10-09 11:21:02,950 : DEBUG : queueing job #44 (9978 words, 460 sentences) at alpha 0.01900
+2016-10-09 11:21:02,985 : DEBUG : queueing job #45 (9997 words, 423 sentences) at alpha 0.01900
+2016-10-09 11:21:03,020 : DEBUG : queueing job #46 (9976 words, 432 sentences) at alpha 0.01900
+2016-10-09 11:21:03,056 : DEBUG : queueing job #47 (8756 words, 388 sentences) at alpha 0.01900
+2016-10-09 11:21:03,127 : DEBUG : job loop exiting, total 48 jobs
+2016-10-09 11:21:03,195 : DEBUG : worker exiting, processed 48 jobs
+2016-10-09 11:21:03,195 : INFO : worker thread finished; awaiting finish of 0 more threads
+2016-10-09 11:21:03,195 : INFO : training on 478080 raw words (545575 effective words) took 1.7s, 314734 effective words/s
+2016-10-09 11:21:03,195 : INFO : training model with 1 workers on 2637 vocabulary and 300 features, using sg=0 hs=1 sample=0 negative=0
+2016-10-09 11:21:03,195 : INFO : expecting 4880 sentences, matching count from corpus used for vocabulary survey
+2016-10-09 11:21:03,196 : DEBUG : queueing job #0 (9993 words, 558 sentences) at alpha 0.01700
+2016-10-09 11:21:03,197 : DEBUG : queueing job #1 (9982 words, 562 sentences) at alpha 0.01700
+2016-10-09 11:21:03,198 : DEBUG : queueing job #2 (9977 words, 564 sentences) at alpha 0.01700
+2016-10-09 11:21:03,199 : DEBUG : queueing job #3 (9991 words, 547 sentences) at alpha 0.01700
+2016-10-09 11:21:03,234 : DEBUG : queueing job #4 (9983 words, 581 sentences) at alpha 0.01700
+2016-10-09 11:21:03,271 : DEBUG : queueing job #5 (9992 words, 501 sentences) at alpha 0.01700
+2016-10-09 11:21:03,306 : DEBUG : queueing job #6 (9964 words, 447 sentences) at alpha 0.01700
+2016-10-09 11:21:03,341 : DEBUG : queueing job #7 (9952 words, 428 sentences) at alpha 0.01700
+2016-10-09 11:21:03,377 : DEBUG : queueing job #8 (9966 words, 433 sentences) at alpha 0.01700
+2016-10-09 11:21:03,413 : DEBUG : queueing job #9 (9990 words, 491 sentences) at alpha 0.01700
+2016-10-09 11:21:03,449 : DEBUG : queueing job #10 (9993 words, 566 sentences) at alpha 0.01700
+2016-10-09 11:21:03,485 : DEBUG : queueing job #11 (9991 words, 561 sentences) at alpha 0.01700
+2016-10-09 11:21:03,523 : DEBUG : queueing job #12 (9987 words, 560 sentences) at alpha 0.01700
+2016-10-09 11:21:03,559 : DEBUG : queueing job #13 (9967 words, 547 sentences) at alpha 0.01700
+2016-10-09 11:21:03,596 : DEBUG : queueing job #14 (9987 words, 578 sentences) at alpha 0.01700
+2016-10-09 11:21:03,630 : DEBUG : queueing job #15 (9989 words, 465 sentences) at alpha 0.01700
+2016-10-09 11:21:03,665 : DEBUG : queueing job #16 (9993 words, 431 sentences) at alpha 0.01700
+2016-10-09 11:21:03,700 : DEBUG : queueing job #17 (9986 words, 420 sentences) at alpha 0.01700
+2016-10-09 11:21:03,736 : DEBUG : queueing job #18 (9996 words, 453 sentences) at alpha 0.01700
+2016-10-09 11:21:03,773 : DEBUG : queueing job #19 (9986 words, 538 sentences) at alpha 0.01700
+2016-10-09 11:21:03,809 : DEBUG : queueing job #20 (9994 words, 557 sentences) at alpha 0.01700
+2016-10-09 11:21:03,845 : DEBUG : queueing job #21 (9997 words, 576 sentences) at alpha 0.01700
+2016-10-09 11:21:03,882 : DEBUG : queueing job #22 (9980 words, 542 sentences) at alpha 0.01700
+2016-10-09 11:21:03,918 : DEBUG : queueing job #23 (9990 words, 572 sentences) at alpha 0.01700
+2016-10-09 11:21:03,952 : DEBUG : queueing job #24 (9985 words, 528 sentences) at alpha 0.01700
+2016-10-09 11:21:03,986 : DEBUG : queueing job #25 (9968 words, 453 sentences) at alpha 0.01700
+2016-10-09 11:21:04,021 : DEBUG : queueing job #26 (9994 words, 424 sentences) at alpha 0.01700
+2016-10-09 11:21:04,057 : DEBUG : queueing job #27 (9973 words, 435 sentences) at alpha 0.01700
+2016-10-09 11:21:04,093 : DEBUG : queueing job #28 (9993 words, 465 sentences) at alpha 0.01700
+2016-10-09 11:21:04,130 : DEBUG : queueing job #29 (9980 words, 572 sentences) at alpha 0.01700
+2016-10-09 11:21:04,166 : DEBUG : queueing job #30 (9985 words, 557 sentences) at alpha 0.01700
+2016-10-09 11:21:04,202 : INFO : PROGRESS: at 58.68% examples, 317396 words/s, in_qsize 1, out_qsize 0
+2016-10-09 11:21:04,203 : DEBUG : queueing job #31 (9986 words, 562 sentences) at alpha 0.01700
+2016-10-09 11:21:04,239 : DEBUG : queueing job #32 (9998 words, 550 sentences) at alpha 0.01700
+2016-10-09 11:21:04,275 : DEBUG : queueing job #33 (9999 words, 579 sentences) at alpha 0.01700
+2016-10-09 11:21:04,309 : DEBUG : queueing job #34 (9996 words, 479 sentences) at alpha 0.01700
+2016-10-09 11:21:04,343 : DEBUG : queueing job #35 (9990 words, 433 sentences) at alpha 0.01700
+2016-10-09 11:21:04,379 : DEBUG : queueing job #36 (9989 words, 421 sentences) at alpha 0.01700
+2016-10-09 11:21:04,417 : DEBUG : queueing job #37 (9999 words, 457 sentences) at alpha 0.01700
+2016-10-09 11:21:04,454 : DEBUG : queueing job #38 (9966 words, 512 sentences) at alpha 0.01700
+2016-10-09 11:21:04,490 : DEBUG : queueing job #39 (9984 words, 570 sentences) at alpha 0.01700
+2016-10-09 11:21:04,527 : DEBUG : queueing job #40 (9977 words, 562 sentences) at alpha 0.01700
+2016-10-09 11:21:04,567 : DEBUG : queueing job #41 (9997 words, 552 sentences) at alpha 0.01700
+2016-10-09 11:21:04,607 : DEBUG : queueing job #42 (9997 words, 557 sentences) at alpha 0.01700
+2016-10-09 11:21:04,641 : DEBUG : queueing job #43 (9991 words, 551 sentences) at alpha 0.01700
+2016-10-09 11:21:04,675 : DEBUG : queueing job #44 (9978 words, 460 sentences) at alpha 0.01700
+2016-10-09 11:21:04,710 : DEBUG : queueing job #45 (9997 words, 423 sentences) at alpha 0.01700
+2016-10-09 11:21:04,746 : DEBUG : queueing job #46 (9976 words, 432 sentences) at alpha 0.01700
+2016-10-09 11:21:04,782 : DEBUG : queueing job #47 (8756 words, 388 sentences) at alpha 0.01700
+2016-10-09 11:21:04,853 : DEBUG : job loop exiting, total 48 jobs
+2016-10-09 11:21:04,920 : DEBUG : worker exiting, processed 48 jobs
+2016-10-09 11:21:04,921 : INFO : worker thread finished; awaiting finish of 0 more threads
+2016-10-09 11:21:04,921 : INFO : training on 478080 raw words (545575 effective words) took 1.7s, 316658 effective words/s
+2016-10-09 11:21:04,921 : INFO : training model with 1 workers on 2637 vocabulary and 300 features, using sg=0 hs=1 sample=0 negative=0
+2016-10-09 11:21:04,921 : INFO : expecting 4880 sentences, matching count from corpus used for vocabulary survey
+2016-10-09 11:21:04,922 : DEBUG : queueing job #0 (9993 words, 558 sentences) at alpha 0.01500
+2016-10-09 11:21:04,923 : DEBUG : queueing job #1 (9982 words, 562 sentences) at alpha 0.01500
+2016-10-09 11:21:04,923 : DEBUG : queueing job #2 (9977 words, 564 sentences) at alpha 0.01500
+2016-10-09 11:21:04,924 : DEBUG : queueing job #3 (9991 words, 547 sentences) at alpha 0.01500
+2016-10-09 11:21:04,960 : DEBUG : queueing job #4 (9983 words, 581 sentences) at alpha 0.01500
+2016-10-09 11:21:04,994 : DEBUG : queueing job #5 (9992 words, 501 sentences) at alpha 0.01500
+2016-10-09 11:21:05,028 : DEBUG : queueing job #6 (9964 words, 447 sentences) at alpha 0.01500
+2016-10-09 11:21:05,063 : DEBUG : queueing job #7 (9952 words, 428 sentences) at alpha 0.01500
+2016-10-09 11:21:05,099 : DEBUG : queueing job #8 (9966 words, 433 sentences) at alpha 0.01500
+2016-10-09 11:21:05,135 : DEBUG : queueing job #9 (9990 words, 491 sentences) at alpha 0.01500
+2016-10-09 11:21:05,171 : DEBUG : queueing job #10 (9993 words, 566 sentences) at alpha 0.01500
+2016-10-09 11:21:05,207 : DEBUG : queueing job #11 (9991 words, 561 sentences) at alpha 0.01500
+2016-10-09 11:21:05,244 : DEBUG : queueing job #12 (9987 words, 560 sentences) at alpha 0.01500
+2016-10-09 11:21:05,280 : DEBUG : queueing job #13 (9967 words, 547 sentences) at alpha 0.01500
+2016-10-09 11:21:05,315 : DEBUG : queueing job #14 (9987 words, 578 sentences) at alpha 0.01500
+2016-10-09 11:21:05,349 : DEBUG : queueing job #15 (9989 words, 465 sentences) at alpha 0.01500
+2016-10-09 11:21:05,384 : DEBUG : queueing job #16 (9993 words, 431 sentences) at alpha 0.01500
+2016-10-09 11:21:05,419 : DEBUG : queueing job #17 (9986 words, 420 sentences) at alpha 0.01500
+2016-10-09 11:21:05,454 : DEBUG : queueing job #18 (9996 words, 453 sentences) at alpha 0.01500
+2016-10-09 11:21:05,492 : DEBUG : queueing job #19 (9986 words, 538 sentences) at alpha 0.01500
+2016-10-09 11:21:05,527 : DEBUG : queueing job #20 (9994 words, 557 sentences) at alpha 0.01500
+2016-10-09 11:21:05,564 : DEBUG : queueing job #21 (9997 words, 576 sentences) at alpha 0.01500
+2016-10-09 11:21:05,601 : DEBUG : queueing job #22 (9980 words, 542 sentences) at alpha 0.01500
+2016-10-09 11:21:05,636 : DEBUG : queueing job #23 (9990 words, 572 sentences) at alpha 0.01500
+2016-10-09 11:21:05,671 : DEBUG : queueing job #24 (9985 words, 528 sentences) at alpha 0.01500
+2016-10-09 11:21:05,705 : DEBUG : queueing job #25 (9968 words, 453 sentences) at alpha 0.01500
+2016-10-09 11:21:05,740 : DEBUG : queueing job #26 (9994 words, 424 sentences) at alpha 0.01500
+2016-10-09 11:21:05,775 : DEBUG : queueing job #27 (9973 words, 435 sentences) at alpha 0.01500
+2016-10-09 11:21:05,811 : DEBUG : queueing job #28 (9993 words, 465 sentences) at alpha 0.01500
+2016-10-09 11:21:05,847 : DEBUG : queueing job #29 (9980 words, 572 sentences) at alpha 0.01500
+2016-10-09 11:21:05,884 : DEBUG : queueing job #30 (9985 words, 557 sentences) at alpha 0.01500
+2016-10-09 11:21:05,920 : DEBUG : queueing job #31 (9986 words, 562 sentences) at alpha 0.01500
+2016-10-09 11:21:05,957 : DEBUG : queueing job #32 (9998 words, 550 sentences) at alpha 0.01500
+2016-10-09 11:21:05,957 : INFO : PROGRESS: at 60.59% examples, 319504 words/s, in_qsize 2, out_qsize 0
+2016-10-09 11:21:05,993 : DEBUG : queueing job #33 (9999 words, 579 sentences) at alpha 0.01500
+2016-10-09 11:21:06,027 : DEBUG : queueing job #34 (9996 words, 479 sentences) at alpha 0.01500
+2016-10-09 11:21:06,061 : DEBUG : queueing job #35 (9990 words, 433 sentences) at alpha 0.01500
+2016-10-09 11:21:06,097 : DEBUG : queueing job #36 (9989 words, 421 sentences) at alpha 0.01500
+2016-10-09 11:21:06,133 : DEBUG : queueing job #37 (9999 words, 457 sentences) at alpha 0.01500
+2016-10-09 11:21:06,170 : DEBUG : queueing job #38 (9966 words, 512 sentences) at alpha 0.01500
+2016-10-09 11:21:06,206 : DEBUG : queueing job #39 (9984 words, 570 sentences) at alpha 0.01500
+2016-10-09 11:21:06,241 : DEBUG : queueing job #40 (9977 words, 562 sentences) at alpha 0.01500
+2016-10-09 11:21:06,279 : DEBUG : queueing job #41 (9997 words, 552 sentences) at alpha 0.01500
+2016-10-09 11:21:06,314 : DEBUG : queueing job #42 (9997 words, 557 sentences) at alpha 0.01500
+2016-10-09 11:21:06,348 : DEBUG : queueing job #43 (9991 words, 551 sentences) at alpha 0.01500
+2016-10-09 11:21:06,383 : DEBUG : queueing job #44 (9978 words, 460 sentences) at alpha 0.01500
+2016-10-09 11:21:06,418 : DEBUG : queueing job #45 (9997 words, 423 sentences) at alpha 0.01500
+2016-10-09 11:21:06,453 : DEBUG : queueing job #46 (9976 words, 432 sentences) at alpha 0.01500
+2016-10-09 11:21:06,489 : DEBUG : queueing job #47 (8756 words, 388 sentences) at alpha 0.01500
+2016-10-09 11:21:06,560 : DEBUG : job loop exiting, total 48 jobs
+2016-10-09 11:21:06,627 : DEBUG : worker exiting, processed 48 jobs
+2016-10-09 11:21:06,627 : INFO : worker thread finished; awaiting finish of 0 more threads
+2016-10-09 11:21:06,628 : INFO : training on 478080 raw words (545575 effective words) took 1.7s, 320157 effective words/s
+2016-10-09 11:21:06,628 : INFO : training model with 1 workers on 2637 vocabulary and 300 features, using sg=0 hs=1 sample=0 negative=0
+2016-10-09 11:21:06,628 : INFO : expecting 4880 sentences, matching count from corpus used for vocabulary survey
+2016-10-09 11:21:06,629 : DEBUG : queueing job #0 (9993 words, 558 sentences) at alpha 0.01300
+2016-10-09 11:21:06,630 : DEBUG : queueing job #1 (9982 words, 562 sentences) at alpha 0.01300
+2016-10-09 11:21:06,630 : DEBUG : queueing job #2 (9977 words, 564 sentences) at alpha 0.01300
+2016-10-09 11:21:06,631 : DEBUG : queueing job #3 (9991 words, 547 sentences) at alpha 0.01300
+2016-10-09 11:21:06,667 : DEBUG : queueing job #4 (9983 words, 581 sentences) at alpha 0.01300
+2016-10-09 11:21:06,701 : DEBUG : queueing job #5 (9992 words, 501 sentences) at alpha 0.01300
+2016-10-09 11:21:06,735 : DEBUG : queueing job #6 (9964 words, 447 sentences) at alpha 0.01300
+2016-10-09 11:21:06,770 : DEBUG : queueing job #7 (9952 words, 428 sentences) at alpha 0.01300
+2016-10-09 11:21:06,806 : DEBUG : queueing job #8 (9966 words, 433 sentences) at alpha 0.01300
+2016-10-09 11:21:06,842 : DEBUG : queueing job #9 (9990 words, 491 sentences) at alpha 0.01300
+2016-10-09 11:21:06,882 : DEBUG : queueing job #10 (9993 words, 566 sentences) at alpha 0.01300
+2016-10-09 11:21:06,918 : DEBUG : queueing job #11 (9991 words, 561 sentences) at alpha 0.01300
+2016-10-09 11:21:06,954 : DEBUG : queueing job #12 (9987 words, 560 sentences) at alpha 0.01300
+2016-10-09 11:21:06,990 : DEBUG : queueing job #13 (9967 words, 547 sentences) at alpha 0.01300
+2016-10-09 11:21:07,025 : DEBUG : queueing job #14 (9987 words, 578 sentences) at alpha 0.01300
+2016-10-09 11:21:07,059 : DEBUG : queueing job #15 (9989 words, 465 sentences) at alpha 0.01300
+2016-10-09 11:21:07,094 : DEBUG : queueing job #16 (9993 words, 431 sentences) at alpha 0.01300
+2016-10-09 11:21:07,129 : DEBUG : queueing job #17 (9986 words, 420 sentences) at alpha 0.01300
+2016-10-09 11:21:07,164 : DEBUG : queueing job #18 (9996 words, 453 sentences) at alpha 0.01300
+2016-10-09 11:21:07,201 : DEBUG : queueing job #19 (9986 words, 538 sentences) at alpha 0.01300
+2016-10-09 11:21:07,237 : DEBUG : queueing job #20 (9994 words, 557 sentences) at alpha 0.01300
+2016-10-09 11:21:07,277 : DEBUG : queueing job #21 (9997 words, 576 sentences) at alpha 0.01300
+2016-10-09 11:21:07,314 : DEBUG : queueing job #22 (9980 words, 542 sentences) at alpha 0.01300
+2016-10-09 11:21:07,350 : DEBUG : queueing job #23 (9990 words, 572 sentences) at alpha 0.01300
+2016-10-09 11:21:07,384 : DEBUG : queueing job #24 (9985 words, 528 sentences) at alpha 0.01300
+2016-10-09 11:21:07,418 : DEBUG : queueing job #25 (9968 words, 453 sentences) at alpha 0.01300
+2016-10-09 11:21:07,453 : DEBUG : queueing job #26 (9994 words, 424 sentences) at alpha 0.01300
+2016-10-09 11:21:07,489 : DEBUG : queueing job #27 (9973 words, 435 sentences) at alpha 0.01300
+2016-10-09 11:21:07,525 : DEBUG : queueing job #28 (9993 words, 465 sentences) at alpha 0.01300
+2016-10-09 11:21:07,562 : DEBUG : queueing job #29 (9980 words, 572 sentences) at alpha 0.01300
+2016-10-09 11:21:07,601 : DEBUG : queueing job #30 (9985 words, 557 sentences) at alpha 0.01300
+2016-10-09 11:21:07,637 : DEBUG : queueing job #31 (9986 words, 562 sentences) at alpha 0.01300
+2016-10-09 11:21:07,637 : INFO : PROGRESS: at 58.68% examples, 316450 words/s, in_qsize 2, out_qsize 0
+2016-10-09 11:21:07,674 : DEBUG : queueing job #32 (9998 words, 550 sentences) at alpha 0.01300
+2016-10-09 11:21:07,709 : DEBUG : queueing job #33 (9999 words, 579 sentences) at alpha 0.01300
+2016-10-09 11:21:07,743 : DEBUG : queueing job #34 (9996 words, 479 sentences) at alpha 0.01300
+2016-10-09 11:21:07,777 : DEBUG : queueing job #35 (9990 words, 433 sentences) at alpha 0.01300
+2016-10-09 11:21:07,812 : DEBUG : queueing job #36 (9989 words, 421 sentences) at alpha 0.01300
+2016-10-09 11:21:07,848 : DEBUG : queueing job #37 (9999 words, 457 sentences) at alpha 0.01300
+2016-10-09 11:21:07,885 : DEBUG : queueing job #38 (9966 words, 512 sentences) at alpha 0.01300
+2016-10-09 11:21:07,920 : DEBUG : queueing job #39 (9984 words, 570 sentences) at alpha 0.01300
+2016-10-09 11:21:07,957 : DEBUG : queueing job #40 (9977 words, 562 sentences) at alpha 0.01300
+2016-10-09 11:21:07,994 : DEBUG : queueing job #41 (9997 words, 552 sentences) at alpha 0.01300
+2016-10-09 11:21:08,029 : DEBUG : queueing job #42 (9997 words, 557 sentences) at alpha 0.01300
+2016-10-09 11:21:08,063 : DEBUG : queueing job #43 (9991 words, 551 sentences) at alpha 0.01300
+2016-10-09 11:21:08,098 : DEBUG : queueing job #44 (9978 words, 460 sentences) at alpha 0.01300
+2016-10-09 11:21:08,133 : DEBUG : queueing job #45 (9997 words, 423 sentences) at alpha 0.01300
+2016-10-09 11:21:08,168 : DEBUG : queueing job #46 (9976 words, 432 sentences) at alpha 0.01300
+2016-10-09 11:21:08,204 : DEBUG : queueing job #47 (8756 words, 388 sentences) at alpha 0.01300
+2016-10-09 11:21:08,274 : DEBUG : job loop exiting, total 48 jobs
+2016-10-09 11:21:08,341 : DEBUG : worker exiting, processed 48 jobs
+2016-10-09 11:21:08,341 : INFO : worker thread finished; awaiting finish of 0 more threads
+2016-10-09 11:21:08,341 : INFO : training on 478080 raw words (545575 effective words) took 1.7s, 318843 effective words/s
+2016-10-09 11:21:08,342 : INFO : training model with 1 workers on 2637 vocabulary and 300 features, using sg=0 hs=1 sample=0 negative=0
+2016-10-09 11:21:08,342 : INFO : expecting 4880 sentences, matching count from corpus used for vocabulary survey
+2016-10-09 11:21:08,343 : DEBUG : queueing job #0 (9993 words, 558 sentences) at alpha 0.01100
+2016-10-09 11:21:08,343 : DEBUG : queueing job #1 (9982 words, 562 sentences) at alpha 0.01100
+2016-10-09 11:21:08,344 : DEBUG : queueing job #2 (9977 words, 564 sentences) at alpha 0.01100
+2016-10-09 11:21:08,345 : DEBUG : queueing job #3 (9991 words, 547 sentences) at alpha 0.01100
+2016-10-09 11:21:08,380 : DEBUG : queueing job #4 (9983 words, 581 sentences) at alpha 0.01100
+2016-10-09 11:21:08,414 : DEBUG : queueing job #5 (9992 words, 501 sentences) at alpha 0.01100
+2016-10-09 11:21:08,449 : DEBUG : queueing job #6 (9964 words, 447 sentences) at alpha 0.01100
+2016-10-09 11:21:08,483 : DEBUG : queueing job #7 (9952 words, 428 sentences) at alpha 0.01100
+2016-10-09 11:21:08,519 : DEBUG : queueing job #8 (9966 words, 433 sentences) at alpha 0.01100
+2016-10-09 11:21:08,555 : DEBUG : queueing job #9 (9990 words, 491 sentences) at alpha 0.01100
+2016-10-09 11:21:08,592 : DEBUG : queueing job #10 (9993 words, 566 sentences) at alpha 0.01100
+2016-10-09 11:21:08,628 : DEBUG : queueing job #11 (9991 words, 561 sentences) at alpha 0.01100
+2016-10-09 11:21:08,664 : DEBUG : queueing job #12 (9987 words, 560 sentences) at alpha 0.01100
+2016-10-09 11:21:08,700 : DEBUG : queueing job #13 (9967 words, 547 sentences) at alpha 0.01100
+2016-10-09 11:21:08,735 : DEBUG : queueing job #14 (9987 words, 578 sentences) at alpha 0.01100
+2016-10-09 11:21:08,769 : DEBUG : queueing job #15 (9989 words, 465 sentences) at alpha 0.01100
+2016-10-09 11:21:08,804 : DEBUG : queueing job #16 (9993 words, 431 sentences) at alpha 0.01100
+2016-10-09 11:21:08,839 : DEBUG : queueing job #17 (9986 words, 420 sentences) at alpha 0.01100
+2016-10-09 11:21:08,874 : DEBUG : queueing job #18 (9996 words, 453 sentences) at alpha 0.01100
+2016-10-09 11:21:08,910 : DEBUG : queueing job #19 (9986 words, 538 sentences) at alpha 0.01100
+2016-10-09 11:21:08,946 : DEBUG : queueing job #20 (9994 words, 557 sentences) at alpha 0.01100
+2016-10-09 11:21:08,982 : DEBUG : queueing job #21 (9997 words, 576 sentences) at alpha 0.01100
+2016-10-09 11:21:09,019 : DEBUG : queueing job #22 (9980 words, 542 sentences) at alpha 0.01100
+2016-10-09 11:21:09,055 : DEBUG : queueing job #23 (9990 words, 572 sentences) at alpha 0.01100
+2016-10-09 11:21:09,089 : DEBUG : queueing job #24 (9985 words, 528 sentences) at alpha 0.01100
+2016-10-09 11:21:09,124 : DEBUG : queueing job #25 (9968 words, 453 sentences) at alpha 0.01100
+2016-10-09 11:21:09,160 : DEBUG : queueing job #26 (9994 words, 424 sentences) at alpha 0.01100
+2016-10-09 11:21:09,197 : DEBUG : queueing job #27 (9973 words, 435 sentences) at alpha 0.01100
+2016-10-09 11:21:09,233 : DEBUG : queueing job #28 (9993 words, 465 sentences) at alpha 0.01100
+2016-10-09 11:21:09,272 : DEBUG : queueing job #29 (9980 words, 572 sentences) at alpha 0.01100
+2016-10-09 11:21:09,309 : DEBUG : queueing job #30 (9985 words, 557 sentences) at alpha 0.01100
+2016-10-09 11:21:09,347 : INFO : PROGRESS: at 58.68% examples, 317726 words/s, in_qsize 1, out_qsize 0
+2016-10-09 11:21:09,348 : DEBUG : queueing job #31 (9986 words, 562 sentences) at alpha 0.01100
+2016-10-09 11:21:09,384 : DEBUG : queueing job #32 (9998 words, 550 sentences) at alpha 0.01100
+2016-10-09 11:21:09,419 : DEBUG : queueing job #33 (9999 words, 579 sentences) at alpha 0.01100
+2016-10-09 11:21:09,453 : DEBUG : queueing job #34 (9996 words, 479 sentences) at alpha 0.01100
+2016-10-09 11:21:09,488 : DEBUG : queueing job #35 (9990 words, 433 sentences) at alpha 0.01100
+2016-10-09 11:21:09,523 : DEBUG : queueing job #36 (9989 words, 421 sentences) at alpha 0.01100
+2016-10-09 11:21:09,558 : DEBUG : queueing job #37 (9999 words, 457 sentences) at alpha 0.01100
+2016-10-09 11:21:09,596 : DEBUG : queueing job #38 (9966 words, 512 sentences) at alpha 0.01100
+2016-10-09 11:21:09,632 : DEBUG : queueing job #39 (9984 words, 570 sentences) at alpha 0.01100
+2016-10-09 11:21:09,668 : DEBUG : queueing job #40 (9977 words, 562 sentences) at alpha 0.01100
+2016-10-09 11:21:09,705 : DEBUG : queueing job #41 (9997 words, 552 sentences) at alpha 0.01100
+2016-10-09 11:21:09,740 : DEBUG : queueing job #42 (9997 words, 557 sentences) at alpha 0.01100
+2016-10-09 11:21:09,774 : DEBUG : queueing job #43 (9991 words, 551 sentences) at alpha 0.01100
+2016-10-09 11:21:09,808 : DEBUG : queueing job #44 (9978 words, 460 sentences) at alpha 0.01100
+2016-10-09 11:21:09,843 : DEBUG : queueing job #45 (9997 words, 423 sentences) at alpha 0.01100
+2016-10-09 11:21:09,878 : DEBUG : queueing job #46 (9976 words, 432 sentences) at alpha 0.01100
+2016-10-09 11:21:09,914 : DEBUG : queueing job #47 (8756 words, 388 sentences) at alpha 0.01100
+2016-10-09 11:21:09,984 : DEBUG : job loop exiting, total 48 jobs
+2016-10-09 11:21:10,051 : DEBUG : worker exiting, processed 48 jobs
+2016-10-09 11:21:10,052 : INFO : worker thread finished; awaiting finish of 0 more threads
+2016-10-09 11:21:10,052 : INFO : training on 478080 raw words (545575 effective words) took 1.7s, 319522 effective words/s
+2016-10-09 11:21:10,052 : INFO : training model with 1 workers on 2637 vocabulary and 300 features, using sg=0 hs=1 sample=0 negative=0
+2016-10-09 11:21:10,052 : INFO : expecting 4880 sentences, matching count from corpus used for vocabulary survey
+2016-10-09 11:21:10,053 : DEBUG : queueing job #0 (9993 words, 558 sentences) at alpha 0.00900
+2016-10-09 11:21:10,054 : DEBUG : queueing job #1 (9982 words, 562 sentences) at alpha 0.00900
+2016-10-09 11:21:10,054 : DEBUG : queueing job #2 (9977 words, 564 sentences) at alpha 0.00900
+2016-10-09 11:21:10,055 : DEBUG : queueing job #3 (9991 words, 547 sentences) at alpha 0.00900
+2016-10-09 11:21:10,092 : DEBUG : queueing job #4 (9983 words, 581 sentences) at alpha 0.00900
+2016-10-09 11:21:10,126 : DEBUG : queueing job #5 (9992 words, 501 sentences) at alpha 0.00900
+2016-10-09 11:21:10,161 : DEBUG : queueing job #6 (9964 words, 447 sentences) at alpha 0.00900
+2016-10-09 11:21:10,196 : DEBUG : queueing job #7 (9952 words, 428 sentences) at alpha 0.00900
+2016-10-09 11:21:10,232 : DEBUG : queueing job #8 (9966 words, 433 sentences) at alpha 0.00900
+2016-10-09 11:21:10,269 : DEBUG : queueing job #9 (9990 words, 491 sentences) at alpha 0.00900
+2016-10-09 11:21:10,305 : DEBUG : queueing job #10 (9993 words, 566 sentences) at alpha 0.00900
+2016-10-09 11:21:10,341 : DEBUG : queueing job #11 (9991 words, 561 sentences) at alpha 0.00900
+2016-10-09 11:21:10,378 : DEBUG : queueing job #12 (9987 words, 560 sentences) at alpha 0.00900
+2016-10-09 11:21:10,415 : DEBUG : queueing job #13 (9967 words, 547 sentences) at alpha 0.00900
+2016-10-09 11:21:10,450 : DEBUG : queueing job #14 (9987 words, 578 sentences) at alpha 0.00900
+2016-10-09 11:21:10,484 : DEBUG : queueing job #15 (9989 words, 465 sentences) at alpha 0.00900
+2016-10-09 11:21:10,519 : DEBUG : queueing job #16 (9993 words, 431 sentences) at alpha 0.00900
+2016-10-09 11:21:10,555 : DEBUG : queueing job #17 (9986 words, 420 sentences) at alpha 0.00900
+2016-10-09 11:21:10,591 : DEBUG : queueing job #18 (9996 words, 453 sentences) at alpha 0.00900
+2016-10-09 11:21:10,628 : DEBUG : queueing job #19 (9986 words, 538 sentences) at alpha 0.00900
+2016-10-09 11:21:10,665 : DEBUG : queueing job #20 (9994 words, 557 sentences) at alpha 0.00900
+2016-10-09 11:21:10,701 : DEBUG : queueing job #21 (9997 words, 576 sentences) at alpha 0.00900
+2016-10-09 11:21:10,739 : DEBUG : queueing job #22 (9980 words, 542 sentences) at alpha 0.00900
+2016-10-09 11:21:10,775 : DEBUG : queueing job #23 (9990 words, 572 sentences) at alpha 0.00900
+2016-10-09 11:21:10,811 : DEBUG : queueing job #24 (9985 words, 528 sentences) at alpha 0.00900
+2016-10-09 11:21:10,846 : DEBUG : queueing job #25 (9968 words, 453 sentences) at alpha 0.00900
+2016-10-09 11:21:10,881 : DEBUG : queueing job #26 (9994 words, 424 sentences) at alpha 0.00900
+2016-10-09 11:21:10,916 : DEBUG : queueing job #27 (9973 words, 435 sentences) at alpha 0.00900
+2016-10-09 11:21:10,953 : DEBUG : queueing job #28 (9993 words, 465 sentences) at alpha 0.00900
+2016-10-09 11:21:10,989 : DEBUG : queueing job #29 (9980 words, 572 sentences) at alpha 0.00900
+2016-10-09 11:21:11,026 : DEBUG : queueing job #30 (9985 words, 557 sentences) at alpha 0.00900
+2016-10-09 11:21:11,062 : INFO : PROGRESS: at 58.68% examples, 316294 words/s, in_qsize 1, out_qsize 0
+2016-10-09 11:21:11,063 : DEBUG : queueing job #31 (9986 words, 562 sentences) at alpha 0.00900
+2016-10-09 11:21:11,099 : DEBUG : queueing job #32 (9998 words, 550 sentences) at alpha 0.00900
+2016-10-09 11:21:11,135 : DEBUG : queueing job #33 (9999 words, 579 sentences) at alpha 0.00900
+2016-10-09 11:21:11,169 : DEBUG : queueing job #34 (9996 words, 479 sentences) at alpha 0.00900
+2016-10-09 11:21:11,203 : DEBUG : queueing job #35 (9990 words, 433 sentences) at alpha 0.00900
+2016-10-09 11:21:11,239 : DEBUG : queueing job #36 (9989 words, 421 sentences) at alpha 0.00900
+2016-10-09 11:21:11,275 : DEBUG : queueing job #37 (9999 words, 457 sentences) at alpha 0.00900
+2016-10-09 11:21:11,314 : DEBUG : queueing job #38 (9966 words, 512 sentences) at alpha 0.00900
+2016-10-09 11:21:11,353 : DEBUG : queueing job #39 (9984 words, 570 sentences) at alpha 0.00900
+2016-10-09 11:21:11,390 : DEBUG : queueing job #40 (9977 words, 562 sentences) at alpha 0.00900
+2016-10-09 11:21:11,427 : DEBUG : queueing job #41 (9997 words, 552 sentences) at alpha 0.00900
+2016-10-09 11:21:11,463 : DEBUG : queueing job #42 (9997 words, 557 sentences) at alpha 0.00900
+2016-10-09 11:21:11,498 : DEBUG : queueing job #43 (9991 words, 551 sentences) at alpha 0.00900
+2016-10-09 11:21:11,532 : DEBUG : queueing job #44 (9978 words, 460 sentences) at alpha 0.00900
+2016-10-09 11:21:11,568 : DEBUG : queueing job #45 (9997 words, 423 sentences) at alpha 0.00900
+2016-10-09 11:21:11,606 : DEBUG : queueing job #46 (9976 words, 432 sentences) at alpha 0.00900
+2016-10-09 11:21:11,642 : DEBUG : queueing job #47 (8756 words, 388 sentences) at alpha 0.00900
+2016-10-09 11:21:11,714 : DEBUG : job loop exiting, total 48 jobs
+2016-10-09 11:21:11,782 : DEBUG : worker exiting, processed 48 jobs
+2016-10-09 11:21:11,783 : INFO : worker thread finished; awaiting finish of 0 more threads
+2016-10-09 11:21:11,783 : INFO : training on 478080 raw words (545575 effective words) took 1.7s, 315687 effective words/s
+2016-10-09 11:21:11,783 : INFO : training model with 1 workers on 2637 vocabulary and 300 features, using sg=0 hs=1 sample=0 negative=0
+2016-10-09 11:21:11,783 : INFO : expecting 4880 sentences, matching count from corpus used for vocabulary survey
+2016-10-09 11:21:11,784 : DEBUG : queueing job #0 (9993 words, 558 sentences) at alpha 0.00700
+2016-10-09 11:21:11,785 : DEBUG : queueing job #1 (9982 words, 562 sentences) at alpha 0.00700
+2016-10-09 11:21:11,785 : DEBUG : queueing job #2 (9977 words, 564 sentences) at alpha 0.00700
+2016-10-09 11:21:11,786 : DEBUG : queueing job #3 (9991 words, 547 sentences) at alpha 0.00700
+2016-10-09 11:21:11,822 : DEBUG : queueing job #4 (9983 words, 581 sentences) at alpha 0.00700
+2016-10-09 11:21:11,855 : DEBUG : queueing job #5 (9992 words, 501 sentences) at alpha 0.00700
+2016-10-09 11:21:11,890 : DEBUG : queueing job #6 (9964 words, 447 sentences) at alpha 0.00700
+2016-10-09 11:21:11,925 : DEBUG : queueing job #7 (9952 words, 428 sentences) at alpha 0.00700
+2016-10-09 11:21:11,960 : DEBUG : queueing job #8 (9966 words, 433 sentences) at alpha 0.00700
+2016-10-09 11:21:11,997 : DEBUG : queueing job #9 (9990 words, 491 sentences) at alpha 0.00700
+2016-10-09 11:21:12,033 : DEBUG : queueing job #10 (9993 words, 566 sentences) at alpha 0.00700
+2016-10-09 11:21:12,069 : DEBUG : queueing job #11 (9991 words, 561 sentences) at alpha 0.00700
+2016-10-09 11:21:12,107 : DEBUG : queueing job #12 (9987 words, 560 sentences) at alpha 0.00700
+2016-10-09 11:21:12,144 : DEBUG : queueing job #13 (9967 words, 547 sentences) at alpha 0.00700
+2016-10-09 11:21:12,179 : DEBUG : queueing job #14 (9987 words, 578 sentences) at alpha 0.00700
+2016-10-09 11:21:12,214 : DEBUG : queueing job #15 (9989 words, 465 sentences) at alpha 0.00700
+2016-10-09 11:21:12,249 : DEBUG : queueing job #16 (9993 words, 431 sentences) at alpha 0.00700
+2016-10-09 11:21:12,284 : DEBUG : queueing job #17 (9986 words, 420 sentences) at alpha 0.00700
+2016-10-09 11:21:12,319 : DEBUG : queueing job #18 (9996 words, 453 sentences) at alpha 0.00700
+2016-10-09 11:21:12,356 : DEBUG : queueing job #19 (9986 words, 538 sentences) at alpha 0.00700
+2016-10-09 11:21:12,393 : DEBUG : queueing job #20 (9994 words, 557 sentences) at alpha 0.00700
+2016-10-09 11:21:12,430 : DEBUG : queueing job #21 (9997 words, 576 sentences) at alpha 0.00700
+2016-10-09 11:21:12,467 : DEBUG : queueing job #22 (9980 words, 542 sentences) at alpha 0.00700
+2016-10-09 11:21:12,503 : DEBUG : queueing job #23 (9990 words, 572 sentences) at alpha 0.00700
+2016-10-09 11:21:12,541 : DEBUG : queueing job #24 (9985 words, 528 sentences) at alpha 0.00700
+2016-10-09 11:21:12,576 : DEBUG : queueing job #25 (9968 words, 453 sentences) at alpha 0.00700
+2016-10-09 11:21:12,615 : DEBUG : queueing job #26 (9994 words, 424 sentences) at alpha 0.00700
+2016-10-09 11:21:12,650 : DEBUG : queueing job #27 (9973 words, 435 sentences) at alpha 0.00700
+2016-10-09 11:21:12,686 : DEBUG : queueing job #28 (9993 words, 465 sentences) at alpha 0.00700
+2016-10-09 11:21:12,722 : DEBUG : queueing job #29 (9980 words, 572 sentences) at alpha 0.00700
+2016-10-09 11:21:12,758 : DEBUG : queueing job #30 (9985 words, 557 sentences) at alpha 0.00700
+2016-10-09 11:21:12,795 : INFO : PROGRESS: at 58.68% examples, 315695 words/s, in_qsize 1, out_qsize 0
+2016-10-09 11:21:12,796 : DEBUG : queueing job #31 (9986 words, 562 sentences) at alpha 0.00700
+2016-10-09 11:21:12,832 : DEBUG : queueing job #32 (9998 words, 550 sentences) at alpha 0.00700
+2016-10-09 11:21:12,871 : DEBUG : queueing job #33 (9999 words, 579 sentences) at alpha 0.00700
+2016-10-09 11:21:12,905 : DEBUG : queueing job #34 (9996 words, 479 sentences) at alpha 0.00700
+2016-10-09 11:21:12,939 : DEBUG : queueing job #35 (9990 words, 433 sentences) at alpha 0.00700
+2016-10-09 11:21:12,975 : DEBUG : queueing job #36 (9989 words, 421 sentences) at alpha 0.00700
+2016-10-09 11:21:13,011 : DEBUG : queueing job #37 (9999 words, 457 sentences) at alpha 0.00700
+2016-10-09 11:21:13,048 : DEBUG : queueing job #38 (9966 words, 512 sentences) at alpha 0.00700
+2016-10-09 11:21:13,084 : DEBUG : queueing job #39 (9984 words, 570 sentences) at alpha 0.00700
+2016-10-09 11:21:13,120 : DEBUG : queueing job #40 (9977 words, 562 sentences) at alpha 0.00700
+2016-10-09 11:21:13,157 : DEBUG : queueing job #41 (9997 words, 552 sentences) at alpha 0.00700
+2016-10-09 11:21:13,193 : DEBUG : queueing job #42 (9997 words, 557 sentences) at alpha 0.00700
+2016-10-09 11:21:13,227 : DEBUG : queueing job #43 (9991 words, 551 sentences) at alpha 0.00700
+2016-10-09 11:21:13,264 : DEBUG : queueing job #44 (9978 words, 460 sentences) at alpha 0.00700
+2016-10-09 11:21:13,300 : DEBUG : queueing job #45 (9997 words, 423 sentences) at alpha 0.00700
+2016-10-09 11:21:13,336 : DEBUG : queueing job #46 (9976 words, 432 sentences) at alpha 0.00700
+2016-10-09 11:21:13,371 : DEBUG : queueing job #47 (8756 words, 388 sentences) at alpha 0.00700
+2016-10-09 11:21:13,443 : DEBUG : job loop exiting, total 48 jobs
+2016-10-09 11:21:13,510 : DEBUG : worker exiting, processed 48 jobs
+2016-10-09 11:21:13,511 : INFO : worker thread finished; awaiting finish of 0 more threads
+2016-10-09 11:21:13,511 : INFO : training on 478080 raw words (545575 effective words) took 1.7s, 316221 effective words/s
+2016-10-09 11:21:13,511 : INFO : saving Doc2Vec object under ./tmp/RareModel, separately None
+2016-10-09 11:21:13,511 : INFO : not storing attribute syn0norm
+2016-10-09 11:21:13,511 : INFO : not storing attribute cum_table
