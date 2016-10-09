@@ -1,22 +1,41 @@
+from nltk.corpus import stopwords
+
 from gensim import utils
 from gensim.models import Doc2Vec
 from gensim.models.doc2vec import TaggedDocument, LabeledSentence, Doc2Vec
+
 from QuestionFileCreator import QuestionCleaner, getQuestions
+from cosineSimilarity import cosineSimilarity
+from elementParser import elementParseroriginalQuestionParser
+
+from random import shuffle
+from pprint import pprint
+import csv
 import re
 import logging
-
-from nltk.corpus import stopwords
 import numpy
-from random import shuffle
-from sklearn.linear_model import LogisticRegression
-from whiskeyPrimer2 import thisList
-from cosineSimilarity import cosineSimilarity
-from elementParser import originalQuestionParser
-import csv
-from pprint import pprint
 import os
 
+
 stops = set(stopwords.words('english'))
+
+filePaths = [
+	'../Data/train-more-for-subtaskA-from-2015/SemEval2015-Task3-CQA-QL-train-reformatted-excluding-2016-questions-cleansed.xml',
+	'../Data/train-more-for-subtaskA-from-2015/SemEval2015-Task3-CQA-QL-dev-reformatted-excluding-2016-questions-cleansed.xml',
+	'../Data/train-more-for-subtaskA-from-2015/SemEval2015-Task3-CQA-QL-test-reformatted-excluding-2016-questions-cleansed.xml',
+	#All of the following contain OrigQuestions...not relevant
+	#'../Data/dev/SemEval2016-Task3-CQA-QL-dev-subtaskA.xml',
+	#'../Data/train/SemEval2016-Task3-CQA-QL-train-part2-subtaskA.xml',
+	#'../Data/train/SemEval2016-Task3-CQA-QL-train-part1-subtaskA.xml'
+]
+
+thisList = []
+
+for filePath in filePaths:
+	thisList += elementParser(filePath)
+
+
+
 
 
 '''
