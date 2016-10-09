@@ -78,9 +78,9 @@ def originalQuestionParser(filepath):
 			relQuestion['question'] = relQuestion['subject']
 		relevancy = RelQuestion.attrib['RELQ_RELEVANCE2ORGQ']
 		if(relevancy == 'PerfectMatch' or relevancy == 'Good'):
-			relevant = True
+			relevant = 'true'
 		else:
-			relevant = False
+			relevant = 'false'
 		relQuestion['relevant'] = relevant
 		relQuestions.append(relQuestion)
 		formerQuestionID = currentQuestionID
