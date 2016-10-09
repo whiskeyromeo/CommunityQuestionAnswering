@@ -11,7 +11,9 @@ from random import shuffle
 from sklearn.linear_model import LogisticRegression
 from whiskeyPrimer2 import thisList
 from cosineSimilarity import cosineSimilarity
-
+from elementParser import originalQuestionParser
+import csv
+from pprint import pprint
 
 stops = set(stopwords.words('english'))
 
@@ -84,47 +86,38 @@ for idx,row in enumerate(thisList):
 
 ##### EndProof ##################
 
-
 # TODO:
 # Write a function to run modified elementParser over
 # the TestFile to pull the Ids of the relevant question.
 # Need to step by 10 to pull each question_id 
 # Returns : a list of the questions and their ids
 
+origQfilePath = '../Data/english_scorer_and_random_baselines_v2.2/SemEval2016-Task3-CQA-QL-dev.xml'
+
+testQuestions = originalQuestionParser(origQfilePath)
 
 
-# TODO : Write function which takes a list of objects consisting 
-# of questions and their ids, performs doc2vec using a pretrained
-# model, and then 
-# Pulls the top 10 ranked questions into an associated object
-# Returns : a list of objects consisting of Questions 
-# and list of RankedQuestion objects
-# Output format:
-		# [{
-		# 	QuestionId: 	"QUEST_ID", 
-		# 	RankedQuestions: [
-		# 		{
-		# 			RankedQId:  "RANKEDQ",
-		# 			Rank:		"RANK || 0",
-		# 			CoSim: 		"COSINE_SIMILARITY",
-		# 			Rel:		"BOOL"
-
-		# 		}]
-		# }]
-
-
-
-# TODO : Write function to perform
-# construction of tsv file from output of previous function
-# Format:
-# <ORIG_Q> <TEST_Q> <RANK> <COSINE> <RELEVANT Y/N>
-
-#testFile = '../SemEval2016_task3_test_input/English/SemEval2016-Task3-CQA-QL-test-input.xml'
-
-
-
-
-
+# TODO : Convert to function following code
+# thisperforms construction of tsv file from output of previous function
+# Output Format:
+# 	<ORIG_Q> <TEST_Q> <RANK> <COSINE> <RELEVANT Y/N>
+with open("./record.pred","w") as tsvfile: 
+	writer = csv.writer(tsvfile, delimiter='\t')
+	for t_question in testQuestions[:10]:
+		t_question['origQNoStops'] = " ".join([i for i in t_question['origQuestion'].lower().split() if i not in stops])
+		t_question['D2V_OVec1'] = model.infer_vector(t_question['origQNoStops'])
+		simMatrix = cosineSimilarity(t_question['D2V_OVec1'], vecList)
+		for idx, row in enumerate(thisList):
+			row['simVal'] = simMatrix[idx]
+		newList = sorted(thisList, key=lambda x:x['simVal'], reverse=True)
+		count = 1
+		for question in newList[:10]:
+			if(question['simVal'] < 0.9):
+				rel = False
+			else:
+				rel = True
+			writer.writerow([t_question['quest_ID'], question['threadId'], count, question['simVal'], rel])
+			count += 1
 
 
 ### Alternative DOC2VEC IMPLEMENTATIONS ##########

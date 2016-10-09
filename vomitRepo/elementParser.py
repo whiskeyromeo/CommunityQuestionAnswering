@@ -1,3 +1,4 @@
+
 import xml.etree.ElementTree as ElementTree
 
 
@@ -46,3 +47,26 @@ def elementParser(filepath):
 		#put the comments into the Question object
 		threadList.append(QuestionDict)
 	return threadList
+
+"""
+	Takes a filePath and returns a List of original question objects
+"""
+def originalQuestionParser(filepath):
+	tree = ElementTree.parse(filepath)
+	root = tree.getroot()
+
+	questList = []
+	formerQuestionID = ''
+	for origQuestion in root.findall('OrgQuestion'):
+		#Create a dict for the original questions
+		OrigQDict = {}
+		# find each original question
+		currentQuestionID = origQuestion.attrib['ORGQ_ID']
+		if(currentQuestionID != formerQuestionID):
+			OrigQDict['quest_ID'] = origQuestion.attrib['ORGQ_ID']
+			OrigQDict['subject'] = origQuestion.find('OrgQSubject').text
+			OrigQDict['origQuestion'] = origQuestion.find('OrgQBody').text
+			questList.append(OrigQDict)
+		formerQuestionID = currentQuestionID
+	return questList
+

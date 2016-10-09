@@ -49,6 +49,11 @@ doc = questions[0]['question']
 vec_bow = dictionary.doc2bow(doc.lower().split())
 vec_lsi = lsi[vec_bow]
 sims = index[vec_lsi]
+
+
+
+
+#Sort the sims according to those most like the original question
 sims = sorted(enumerate(sims), key=lambda item: -item[1])
 
 for key, value in sims[:10]:
