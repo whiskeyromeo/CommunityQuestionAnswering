@@ -123,7 +123,7 @@ def createPredictionFile(filePath, questionList, model, withStops=False):
 		writer = csv.writer(tsvfile, delimiter="\t")
 		for t_question in testQuestions:
 			if(withStops):
-				t_question['D2V_OVec1'] = model.infer_vector(t_qustion['origQuestion'])
+				t_question['D2V_OVec1'] = model.infer_vector(t_question['origQuestion'])
 			else: 
 				t_question['origQNoStops'] = " ".join([i for i in t_question['origQuestion'].lower().split() if i not in stops])
 				t_question['D2V_OVec1'] = model.infer_vector(t_question['origQNoStops'])
