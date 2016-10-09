@@ -2,8 +2,6 @@
 import xml.etree.ElementTree as ElementTree
 
 
-
-
 def getValues(tree, category):
     parent = tree.find(".//parent[@name='%s']" % category)
     return [child.get('value') for child in parent]
@@ -54,19 +52,38 @@ def elementParser(filepath):
 def originalQuestionParser(filepath):
 	tree = ElementTree.parse(filepath)
 	root = tree.getroot()
-
 	questList = []
 	formerQuestionID = ''
-	for origQuestion in root.findall('OrgQuestion'):
-		#Create a dict for the original questions
-		OrigQDict = {}
+	for origQuestion in root.findall('OrgQuestion'):	
 		# find each original question
 		currentQuestionID = origQuestion.attrib['ORGQ_ID']
 		if(currentQuestionID != formerQuestionID):
+			if('OrigQDict' in locals()):
+				OrigQDict['rel_questions'] = relQuestions
+				questList.append(OrigQDict)
+			#Create a dict for the original questions
+			OrigQDict = {}
+			relQuestions = []
 			OrigQDict['quest_ID'] = origQuestion.attrib['ORGQ_ID']
 			OrigQDict['subject'] = origQuestion.find('OrgQSubject').text
 			OrigQDict['origQuestion'] = origQuestion.find('OrgQBody').text
-			questList.append(OrigQDict)
+		relQuestion = {}
+		Thread = origQuestion.find('Thread')
+		RelQuestion = Thread.find('RelQuestion')
+		relQuestion['rel_quest_ID'] = RelQuestion.attrib['RELQ_ID']
+		relQuestion['category'] = RelQuestion.attrib['RELQ_CATEGORY']
+		relQuestion['subject'] = RelQuestion.find('RelQSubject').text
+		relQuestion['question'] = RelQuestion.find('RelQBody').text
+		relevancy = RelQuestion.attrib['RELQ_RELEVANCE2ORGQ']
+		if(relevancy == 'PerfectMatch' or relevancy == 'Good'):
+			relevant = True
+		else:
+			relevant = False
+		relQuestion['relevant'] = relevant
+		relQuestions.append(relQuestion)
 		formerQuestionID = currentQuestionID
 	return questList
+
+
+
 

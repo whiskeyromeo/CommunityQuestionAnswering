@@ -35,9 +35,6 @@ for filePath in filePaths:
 	thisList += elementParser(filePath)
 
 
-
-
-
 '''
 	Preps the list of TaggedDocs to be fed into Doc2Vec
 '''
@@ -109,7 +106,10 @@ model = BuildDoc2VecMap(thisList)
 # Need to step by 10 to pull each question_id 
 # Returns : a list of the questions and their ids
 
+from elementParser import originalQuestionParser
 origQfilePath = '../Data/english_scorer_and_random_baselines_v2.2/SemEval2016-Task3-CQA-QL-dev.xml'
+questions = originalQuestionParser(origQfilePath)
+
 
 """
 	Create a list of vectors with a 1/1 match for each question in questionList
@@ -129,6 +129,8 @@ def getVectors(questionList):
 		file: takes the filename from the filePath and saves a .pred file based on that name
 		containing the information needed to run the MAP against it 
 """
+
+
 def createPredictionFile(filePath, questionList, model, withStops=False):
 	testQuestions = originalQuestionParser(filePath)
 	vecList = getVectors(questionList)
@@ -160,6 +162,9 @@ def createPredictionFile(filePath, questionList, model, withStops=False):
 					rel = True
 				writer.writerow([t_question['quest_ID'], question['threadId'], count, question['simVal'], rel])
 				count += 1
+
+
+
 
 
 # TODO : Convert to function following code
