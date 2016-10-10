@@ -1,3 +1,8 @@
+"""
+	2nd best performance, worse than implementation
+	in doc2vec3.py
+"""
+
 from nltk.corpus import stopwords
 
 from gensim import utils
@@ -70,30 +75,9 @@ def BuildDoc2VecMap(hashmap):
 	return model
 
 
-#### Proof of Concept ###########
-
 model = BuildDoc2VecMap(thisList)
 
-# vecList = []
-# for vecs in thisList:
-# 	vecList.append(vecs["D2V_qVec1"])
-
-
-# simMatrix = cosineSimilarity(vecList[0], vecList)
-
-# for idx,row in enumerate(thisList):
-# 	row["simVal"] = simMatrix[idx]
-
-##### EndProof ##################
-
-# TODO:
-# Write a function to run modified elementParser over
-# the TestFile to pull the Ids of the relevant question.
-# Need to step by 10 to pull each question_id 
-# Returns : a list of the questions and their ids
-
 origQfilePath = '../Data/english_scorer_and_random_baselines_v2.2/SemEval2016-Task3-CQA-QL-dev.xml'
-questions = originalQuestionParser(origQfilePath)
 
 
 """
@@ -151,70 +135,3 @@ createPredictionFile(origQfilePath, model, False)
 createPredictionFile(origQfilePath, model)
 
 
-
-
-# TODO : Convert to function following code
-# thisperforms construction of tsv file from output of previous function
-# Output Format:
-# 	<ORIG_Q> <TEST_Q> <RANK> <COSINE> <RELEVANT Y/N>
-
-# with open("./record.pred","w") as tsvfile: 
-# 	writer = csv.writer(tsvfile, delimiter='\t')
-# 	for t_question in testQuestions[:10]:
-# 		t_question['origQNoStops'] = " ".join([i for i in t_question['origQuestion'].lower().split() if i not in stops])
-# 		t_question['D2V_OVec1'] = model.infer_vector(t_question['origQNoStops'])
-# 		simMatrix = cosineSimilarity(t_question['D2V_OVec1'], vecList)
-# 		for idx, row in enumerate(thisList):
-# 			row['simVal'] = simMatrix[idx]
-# 		newList = sorted(thisList, key=lambda x:x['simVal'], reverse=True)
-# 		count = 1
-# 		for question in newList[:10]:
-# 			if(question['simVal'] < 0.9):
-# 				rel = False
-# 			else:
-# 				rel = True
-# 			writer.writerow([t_question['quest_ID'], question['threadId'], count, question['simVal'], rel])
-# 			count += 1
-
-
-### Alternative DOC2VEC IMPLEMENTATIONS ##########
-
-# questions = getQuestions(thisList)
-# mod_questions = prepLabeledSentList(questions)
-
-
-# mod_questions = []
-# for idx, question in enumerate(questions):
-# 	mod_questions.append(LabeledSentence(re.sub('[^a-zA-Z]',' ',question).lower().split(), ("SENT_" + str(idx))))
-
-# model = Doc2Vec(mod_questions, size=100, window=8, min_count=5, workers=4)
-# model_name = 'doc2vec_size100_window8_min5_work4'
-# model.save('./tmp/' + model_name)
-
-
-# def prepLabeledSentList(questions = []):
-# 	mod_questions = []
-# 	for idx, question in enumerate(questions):
-# 		#print 'idx: ' + str(idx) + ' , question: ' + question
-# 		mod_questions.append(TaggedDocument([i for i in question.lower().split() if i not in stops], ("SENT_" + str(idx))))
-# 	return mod_questions
-
-
-# def prepModel(mod_questions, size=100, window=8, minCount=5, workers=4):
-# 	model = Doc2Vec(mod_questions, size=size, window=window, min_count=minCount, workers=workers)
-# 	model_name = 'doc2vec_size{}window{}min{}work{}'.format(size, window, minCount, workers)
-# 	model.save('./tmp/'+ model_name)
-# 	return model
-
-
-# def altDoc2Vec(questions):
-# 	mod_questions = prepLabeledSentList(questions)
-# 	model = Doc2Vec(min_count=1, window=10, size=100, sample=1e-4, negative=5, workers=8)
-# 	model.build_vocab(mod_questions)
-# 	shuffle(mod_questions)
-
-# 	for epoch in range(10):
-# 		model.train(mod_questions)
-
-# 	model.save('./tmp/doc2vec_size100window10min5work4samp1e-4')
-# 	return model
