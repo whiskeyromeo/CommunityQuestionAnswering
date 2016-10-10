@@ -1,13 +1,26 @@
 from gensim import corpora, models, similarities
 from six import iteritems
-from QuestionFileCreator import CreateFilePath, getQuestions, QuestionCleaner
-from elementParser import originalQuestionParser
-from whiskeyPrimer2 import thisList
+from QuestionFileCreator import CreateFilePath, getQuestions, getComments, QuestionCleaner
+from elementParser import elementParser, originalQuestionParser
 from nltk.corpus import stopwords
 import logging
 import os
 import re
 import csv
+
+filePaths = [
+	'../Data/train-more-for-subtaskA-from-2015/SemEval2015-Task3-CQA-QL-train-reformatted-excluding-2016-questions-cleansed.xml',
+	'../Data/train-more-for-subtaskA-from-2015/SemEval2015-Task3-CQA-QL-dev-reformatted-excluding-2016-questions-cleansed.xml',
+	'../Data/train-more-for-subtaskA-from-2015/SemEval2015-Task3-CQA-QL-test-reformatted-excluding-2016-questions-cleansed.xml',
+	#'../Data/dev/SemEval2016-Task3-CQA-QL-dev-subtaskA.xml',
+	'../Data/train/SemEval2016-Task3-CQA-QL-train-part2-subtaskA.xml',
+	'../Data/train/SemEval2016-Task3-CQA-QL-train-part1-subtaskA.xml'
+]
+
+thisList = []
+
+for filePath in filePaths:
+	thisList += elementParser(filePath)
 
 #For Saving the lsi model for later
 new_dest = CreateFilePath('LsiModel')
@@ -17,11 +30,11 @@ logger = logging.getLogger(__name__)
 
 stops = set(stopwords.words('english'))
 
-questions = QuestionCleaner(getQuestions(thisList))
-
+sources = QuestionCleaner(getQuestions(thisList))
+#sources += QuestionCleaner(getComments(thisList))
 
 # Dictionary is generated based on the question content of thisList
-dictionary = corpora.Dictionary(line['question'].lower().split() for line in questions)
+dictionary = corpora.Dictionary(line['question'].lower().split() for line in sources)
 # remove stopwords
 stop_ids = [dictionary.token2id[stopword] for stopword in stops if stopword in dictionary.token2id]
 # remove words only appearing once
@@ -39,8 +52,6 @@ def generateLSIModel(corpus, dictionary, numTopics):
 	lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=numTopics)
 	index = similarities.MatrixSimilarity(lsi[serialized_corpus])
 	return lsi, index
-
-origQfilePath = '../Data/english_scorer_and_random_baselines_v2.2/SemEval2016-Task3-CQA-QL-dev.xml'
 
 def createLSIPredictionFile(filePath, dictionary, numFeatures=200, withStops=True):
 	testQuestions = originalQuestionParser(filePath)
@@ -73,6 +84,8 @@ def createLSIPredictionFile(filePath, dictionary, numFeatures=200, withStops=Tru
 				quest['simVal'] = sims[idx]
 				writer.writerow([t_question['quest_ID'], quest['rel_quest_ID'], idx, quest['simVal'], quest['relevant']])
 
-createLSIPredictionFile(origQfilePath, dictionary, 400)
+
+origQfilePath = '../Data/english_scorer_and_random_baselines_v2.2/SemEval2016-Task3-CQA-QL-dev.xml'
+createLSIPredictionFile(origQfilePath, dictionary, 400, False)
 
 
