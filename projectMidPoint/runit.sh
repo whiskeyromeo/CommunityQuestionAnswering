@@ -35,6 +35,9 @@ source $ACTIVATE NLPEnvironment
 echo "The following packages are installed:"
 $CONDA list
 
+echo "Running NLTK Setup"
+python setup.py
+
 echo "Executing Competition Entry"
 echo "Results will be in: $BASEDIR/SemEval2016-Task3-CQA-QL-dev-output.pred"
 
