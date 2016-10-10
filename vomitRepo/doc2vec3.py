@@ -2,8 +2,8 @@ from gensim.models import Doc2Vec
 from gensim.models.doc2vec import TaggedDocument
 from nltk.corpus import stopwords
 from QuestionFileCreator import getQuestions, getComments, QuestionCleaner
-from sourceFiles import thisList
-from doc2vec1 import origQfilePath, createPredictionFile
+from sourceFiles import thisList, origQfilePath
+from doc2vec1 import createPredictionFile
 
 stops = set(stopwords.words('english'))
 

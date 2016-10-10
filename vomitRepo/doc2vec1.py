@@ -24,7 +24,7 @@ import os
 
 stops = set(stopwords.words('english'))
 
-from sourceFiles import thisList
+from sourceFiles import thisList, origQfilePath
 
 '''
 	Preps the list of TaggedDocs to be fed into Doc2Vec
@@ -76,8 +76,6 @@ def BuildDoc2VecMap(hashmap):
 
 
 model = BuildDoc2VecMap(thisList)
-
-origQfilePath = '../Data/english_scorer_and_random_baselines_v2.2/SemEval2016-Task3-CQA-QL-dev.xml'
 
 
 """
