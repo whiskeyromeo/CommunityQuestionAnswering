@@ -1,4 +1,5 @@
-from whiskeyPrimer2 import elementParser, filePaths
+from elementParser import elementParser
+from sourceFiles import filePaths
 import sys
 import os
 import re

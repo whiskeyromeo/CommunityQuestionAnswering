@@ -14,3 +14,4 @@ thisList = []
 for filePath in filePaths:
 	thisList += elementParser(filePath)
 
+origQfilePath = '../Data/english_scorer_and_random_baselines_v2.2/SemEval2016-Task3-CQA-QL-dev.xml'
