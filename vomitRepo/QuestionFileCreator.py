@@ -73,23 +73,6 @@ def QuestionCleaner(questions = []):
 		q['question'] = re.sub('[\s+]', ' ', q['question'])
 	return questions
 
-# def QuestionCleaner(questions = []):
-# 	print("Getting ready to clean questions...")
-# 	# remove NonTypes or blank questions that may have slipped in
-# 	questions = filter(None, questions)
-# 	for idx, question in enumerate(questions):
-# 		# Remove Questions shorter than 5 characters in length
-# 		if(len(question) < 5):
-# 			questions.pop(idx)
-# 		# Replace all emoticons
-# 		#
-# 		# Remove all punctuation
-# 		questions[idx] = re.sub('[^\w\s]', ' ', questions[idx])
-# 		# Remove all unecessary whitespace
-# 		questions[idx] = re.sub('[\s+]', ' ', questions[idx])
-# 	return questions
-	
-
 '''
 	Takes a string to be used for the name of a textfile and a list of questions
 	Creates a file based on the list of questions with each one of the questions
@@ -123,6 +106,17 @@ def getQuestions(hashmap):
 		}
 		questions.append(qData)
 	return questions
+
+def getComments(hashmap):
+	comments = []
+	for row in hashmap:
+		for comment in row['comments']:	
+			cData = {
+				"id": comment["comment_id"],
+				"question": comment["comment"]
+			}
+			comments.append(cData)
+	return comments
 
 
 

@@ -1,0 +1,4 @@
+*.pred
+LdaModel.py
+logs/*.*
+tmp/*.*
