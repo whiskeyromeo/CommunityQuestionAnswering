@@ -36,8 +36,26 @@ echo "The following packages are installed:"
 $CONDA list
 
 echo "Executing Competition Entry"
+echo "Results will be in: $BASEDIR/SemEval2016-Task3-CQA-QL-dev-output.pred"
 
-python LsiModel.py
+rm -f $BASEDIR/SemEval2016-Task3-CQA-QL-dev-output.pred
+
+if [[ "$1" == "--doc2vec" ]]; then
+    echo "Executing Doc2Vec Script"
+    python doc2vec1.py
+    mv $BASEDIR/SemEval2016-Task3-CQA-QL-dev-d2v-with-stops.pred $BASEDIR/SemEval2016-Task3-CQA-QL-dev-output.pred
+elif [[ "$1" == "--lsi" ]]; then
+    echo "Executing LSI Script"
+    python LsiModel.py
+    mv $BASEDIR/SemEval2016-Task3-CQA-QL-dev-lsi400.pred $BASEDIR/SemEval2016-Task3-CQA-QL-dev-output.pred
+else
+    echo ""
+    echo "Note: you can pass --doc2vec or --lsi to control which system is being run.  Defaulting to LSI..."
+    echo ""
+    echo "Executing LSI Script"
+    python LsiModel.py
+    mv $BASEDIR/SemEval2016-Task3-CQA-QL-dev-lsi400.pred $BASEDIR/SemEval2016-Task3-CQA-QL-dev-output.pred
+fi
 
 echo "Checking for working Python 2.7 installation"
 
@@ -67,4 +85,4 @@ echo "Using $PYTHON"
 echo "Executing Scorer"
 
 cd ../Data/english_scorer_and_random_baselines_v2.2
-$PYTHON ./MAP_scripts/ev.py SemEval2016-Task3-CQA-QL-dev.xml.subtaskB.relevancy $BASEDIR/SemEval2016-Task3-CQA-QL-dev-lsi400.pred
+$PYTHON ./MAP_scripts/ev.py SemEval2016-Task3-CQA-QL-dev.xml.subtaskB.relevancy $BASEDIR/SemEval2016-Task3-CQA-QL-dev-output.pred
