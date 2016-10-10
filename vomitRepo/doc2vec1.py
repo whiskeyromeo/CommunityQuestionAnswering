@@ -106,7 +106,6 @@ model = BuildDoc2VecMap(thisList)
 # Need to step by 10 to pull each question_id 
 # Returns : a list of the questions and their ids
 
-from elementParser import originalQuestionParser
 origQfilePath = '../Data/english_scorer_and_random_baselines_v2.2/SemEval2016-Task3-CQA-QL-dev.xml'
 questions = originalQuestionParser(origQfilePath)
 
@@ -131,14 +130,14 @@ def getVectors(questionList):
 """
 
 
-def createPredictionFile(filePath, model, withStops=False):
+def createPredictionFile(filePath, model, withStops=True):
 	testQuestions = originalQuestionParser(filePath)
 	head, tail = os.path.split(filePath)
 	tail = tail.split('.')[0]
 	if(withStops):
-		predFile = tail + '-with-stops.pred'
+		predFile = tail + '-d2v-with-stops.pred'
 	else:
-		predFile = tail + '.pred'
+		predFile = tail + '-d2v.pred'
 	with open(predFile, "w") as tsvfile:
 		writer = csv.writer(tsvfile, delimiter="\t")
 		for t_question in testQuestions:
@@ -162,7 +161,7 @@ def createPredictionFile(filePath, model, withStops=False):
 				writer.writerow([t_question['quest_ID'], row['rel_quest_ID'], 0, row['simVal'], row['relevant']])
 				
 
-createPredictionFile(origQfilePath, model, True)
+createPredictionFile(origQfilePath, model, False)
 createPredictionFile(origQfilePath, model)
 
 
