@@ -51,8 +51,6 @@ def prepLabeledSentList(questions = [], withStops = False):
 """
 def prepModel(mod_questions, size=100, window=5, minCount=5, workers=4):
 	model = Doc2Vec(mod_questions, size=size, window=window, min_count=minCount, workers=workers)
-	model_name = 'doc2vec_size{}window{}min{}work{}'.format(size, window, minCount, workers)
-	model.save('./tmp/'+ model_name)
 	return model
 
 questions = getQuestions(thisList)

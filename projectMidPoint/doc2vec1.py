@@ -4,7 +4,7 @@
 	derived from the vectors of questions
 
 	__author__ = Will Russell
-	
+
 """
 
 from nltk.corpus import stopwords
@@ -60,8 +60,6 @@ def RareDoc2Vec(questions):
 	    model.train(mod_questions)
 	    model.alpha -= 0.002  # decrease the learning rate
 	    model.min_alpha = model.alpha  # fix the learning rate, no decay
-	# save the model for future use
-	model.save('./tmp/RareModel')
 	return model
 
 

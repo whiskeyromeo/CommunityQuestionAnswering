@@ -13,11 +13,6 @@ import os
 import re
 import logging
 
-#Create the log for each time the compile goes down
-logging.basicConfig(filename='./logs/QuestionFileCreator.log', format='%(asctime)s : %(levelname)s : %(message)s', level=logging.DEBUG)
-logger = logging.getLogger(__name__)
-
-
 '''
 	QuestionCreator takes an array of filepaths and uses them to construct an
 	array of questions out of the object array created via the elementParser
