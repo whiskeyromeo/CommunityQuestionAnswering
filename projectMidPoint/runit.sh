@@ -62,7 +62,7 @@ if [[ "$1" == "--doc2vec" ]]; then
     echo "Executing Doc2Vec Script"
     python doc2vec1.py
     mv $BASEDIR/SemEval2016-Task3-CQA-QL-dev-d2v-with-stops.pred $BASEDIR/SemEval2016-Task3-CQA-QL-dev-output.pred
-elif [[ "$1" == "--doc2vec-v2"]]; then
+elif [[ "$1" == "--doc2vec-v2" ]]; then
     echo "Executing Doc2Vec Script Version 2"
     python doc2vec3.py
     mv $BASEDIR/SemEval2016-Task3-CQA-QL-dev-d2v-with-stops.pred $BASEDIR/SemEval2016-Task3-CQA-QL-dev-output.pred
