@@ -8,7 +8,7 @@ import os
 import re
 import csv
 
-from sourceFiles import thisList
+from sourceFiles import thisList, origQfilePath
 
 #For Saving the lsi model for later
 new_dest = CreateFilePath('LsiModel')
@@ -56,6 +56,15 @@ def generateLSIModel(corpus, dictionary, numTopics):
 	index = similarities.MatrixSimilarity(lsi[serialized_corpus])
 	return lsi, index
 
+"""
+	createLSIPredictionFile outputs a prediction file based on
+		a LSI model generated from a given dictionary 
+	Params: 
+		filePath: the filePath of the source to derive the prediction from
+		dictionary: the dictionary to be used in the creation of the model
+		numFeatures: The dimensionality of the 
+
+"""
 def createLSIPredictionFile(filePath, dictionary, numFeatures=200, withStops=True):
 	testQuestions = originalQuestionParser(filePath)
 	head, tail = os.path.split(filePath)
@@ -65,7 +74,9 @@ def createLSIPredictionFile(filePath, dictionary, numFeatures=200, withStops=Tru
 	else:
 		predFile = tail + '-lsi' + str(numFeatures) + '.pred'
 	for oq in testQuestions:
+		# Remove all Punctuation, replacing it with a space
 		oq['origQuestion'] = re.sub('[^\w\s]', ' ', oq['origQuestion'])
+		# Remove all excess whitespace
 		oq['origQuestion'] = re.sub('[\s+]', ' ', oq['origQuestion'])
 		for q in oq['rel_questions']:
 			q['question'] = re.sub('[^\w\s]', ' ', q['question'])
@@ -93,9 +104,6 @@ def createLSIPredictionFile(filePath, dictionary, numFeatures=200, withStops=Tru
 				quest['simVal'] = sims[idx]
 				# Write out the values
 				writer.writerow([t_question['quest_ID'], quest['rel_quest_ID'], idx, quest['simVal'], quest['relevant']])
-
-
-origQfilePath = '../Data/english_scorer_and_random_baselines_v2.2/SemEval2016-Task3-CQA-QL-dev.xml'
 
 # Create the LSI prediction files
 createLSIPredictionFile(origQfilePath, dictionary, 400, False)

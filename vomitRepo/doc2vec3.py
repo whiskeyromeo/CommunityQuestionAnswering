@@ -49,9 +49,11 @@ def prepModel(mod_questions, size=100, window=5, minCount=5, workers=4):
 
 questions = getQuestions(thisList)
 #questions += getComments(thisList)
-mod_questions = prepLabeledSentList(questions)
+mod_questions = prepLabeledSentList(questions, True)
 model = prepModel(mod_questions)
 
+
+# Prep the predictive models
 createPredictionFile(origQfilePath, model)
 createPredictionFile(origQfilePath, model, False)
 
