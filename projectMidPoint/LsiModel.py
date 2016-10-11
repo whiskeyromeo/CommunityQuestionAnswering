@@ -33,12 +33,26 @@ dictionary.compactify()
 dictionary.save(new_dest +'.dict')
 
 
+"""
+	Generates an LSI Model based on a prepared corpus and dictionary
+	Params:
+		corpus : A corpus of documents represented as a stream of vectors
+		dictionary : A collection of word counts and relevant statistics for each word from the
+			training set
+		numTopics : Represents the dimensionality of LSI space to be used
+	Returns:
+		lsi: An lsi space generated from the corpus and dictionary
+		index: An index of documents in LSI space to be compared against
+"""
 def generateLSIModel(corpus, dictionary, numTopics):
 	corpora.MmCorpus.serialize(new_dest + '.mm', corpus)
 	serialized_corpus = corpora.MmCorpus(new_dest + '.mm')
+	# Apply tfidf weighting to the corpus
 	tfidf = models.TfidfModel(corpus)
 	corpus_tfidf = tfidf[corpus]
+	# generate an lsi model based on the tfidf weighted corpus
 	lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=numTopics)
+	# Transform the corpus to LSI space and index it
 	index = similarities.MatrixSimilarity(lsi[serialized_corpus])
 	return lsi, index
 
@@ -59,23 +73,31 @@ def createLSIPredictionFile(filePath, dictionary, numFeatures=200, withStops=Tru
 	with open(predFile, 'w') as tsvfile:
 		writer = csv.writer(tsvfile, delimiter='\t')
 		for t_question in testQuestions:
+			# generate the corpus from a distributed bag of words representation based on the dictinonary
 			corpus = [dictionary.doc2bow(q['question'].lower().split()) for q in t_question['rel_questions']]
 			lsi, index = generateLSIModel(corpus, dictionary, numFeatures)
+			# either keep or remove the stopwords based on the withStops boolean
 			if(withStops):
 				doc = t_question['origQuestion']
 			else: 
 				t_question['origQNoStops'] = " ".join([i for i in t_question['origQuestion'].lower().split() if i not in stops])
 				doc = t_question['origQNoStops']
+			# convert the vectors to a distributed bag of words representation
 			vec_bow = dictionary.doc2bow(doc.lower().split())
+			# convert the query to lsi space
 			vec_lsi = lsi[vec_bow]
+			# Perform a similarity query against the corpus for each question to rank against
 			sims = index[vec_lsi]
 			for idx, quest in enumerate(t_question['rel_questions']):
+				# Perform a similarity query against the corpus for each question to be ranked
 				quest['simVal'] = sims[idx]
+				# Write out the values
 				writer.writerow([t_question['quest_ID'], quest['rel_quest_ID'], idx, quest['simVal'], quest['relevant']])
 
 
 origQfilePath = '../Data/english_scorer_and_random_baselines_v2.2/SemEval2016-Task3-CQA-QL-dev.xml'
 
+# Create the LSI prediction files
 createLSIPredictionFile(origQfilePath, dictionary, 400, False)
 createLSIPredictionFile(origQfilePath, dictionary, 400)
 

@@ -7,12 +7,17 @@ def getValues(tree, category):
     return [child.get('value') for child in parent]
 
 """
-Returns an array populated with questions
-The comments are nested in each question
+The elementParser function takes an xml file structured in a particular manner
+and outputs a list of hashes containing information based on the attributes
+for each object in that hash
+Params:
+	filePath: The file to be parsed
+Returns:
+	threadList: a list populated with questions with comments are nested in each question
 
 """
 def elementParser(filepath):
-	# construc the Element Tree and get the root
+	# construct the Element Tree and get the root
 	tree = ElementTree.parse(filepath)
 	root = tree.getroot()
 	# create a list to store the pulled threads
@@ -47,7 +52,13 @@ def elementParser(filepath):
 	return threadList
 
 """
-	Takes a filePath and returns a List of original question objects
+	originalQuestionParser takes an xml file structured in a particular 
+	manner and outputs a hash based on the values in that hash
+	Params:
+		filePath : The file to be parsed
+	Returns:
+		questList : A list of hashes with original questions and their associated
+			questions to be ranked
 """
 def originalQuestionParser(filepath):
 	tree = ElementTree.parse(filepath)
@@ -58,6 +69,7 @@ def originalQuestionParser(filepath):
 		# find each original question
 		currentQuestionID = origQuestion.attrib['ORGQ_ID']
 		if(currentQuestionID != formerQuestionID):
+			# Check whether the first OrigQDict has been established
 			if('OrigQDict' in locals()):
 				OrigQDict['rel_questions'] = relQuestions
 				questList.append(OrigQDict)
@@ -70,6 +82,7 @@ def originalQuestionParser(filepath):
 		relQuestion = {}
 		Thread = origQuestion.find('Thread')
 		RelQuestion = Thread.find('RelQuestion')
+		# Populate the hash for each relevant question based on its attributes/values
 		relQuestion['rel_quest_ID'] = RelQuestion.attrib['RELQ_ID']
 		relQuestion['category'] = RelQuestion.attrib['RELQ_CATEGORY']
 		relQuestion['subject'] = RelQuestion.find('RelQSubject').text
@@ -82,6 +95,7 @@ def originalQuestionParser(filepath):
 		else:
 			relevant = 'false'
 		relQuestion['relevant'] = relevant
+		# Append the relevant question to the list of relevant questions
 		relQuestions.append(relQuestion)
 		formerQuestionID = currentQuestionID
 	return questList

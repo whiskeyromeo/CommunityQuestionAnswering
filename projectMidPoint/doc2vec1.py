@@ -142,6 +142,7 @@ def createPredictionFile(filePath, model, withStops=True):
 				writer.writerow([t_question['quest_ID'], row['rel_quest_ID'], 0, row['simVal'], row['relevant']])
 				
 
+#Call the function to create the prediction files
 createPredictionFile(origQfilePath, model, False)
 createPredictionFile(origQfilePath, model)
 

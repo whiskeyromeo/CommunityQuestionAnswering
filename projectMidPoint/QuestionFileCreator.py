@@ -84,7 +84,7 @@ def CleanQuestionFileCreator(filename, questions):
 
 
 '''
-	Creates a hashmap out of the questions and threadIds from the elementParser hash output
+	Creates a list out of the questions and threadIds from the elementParser hash output
 '''
 def getQuestions(hashmap):
 	questions = []
@@ -96,6 +96,10 @@ def getQuestions(hashmap):
 		questions.append(qData)
 	return questions
 
+
+'''
+	Creates a list out of the comments for eacch question from the elementParser hash output
+'''
 def getComments(hashmap):
 	comments = []
 	for row in hashmap:
