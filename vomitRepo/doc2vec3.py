@@ -1,3 +1,7 @@
+"""
+This was the best system tested
+"""
+
 from gensim.models import Doc2Vec
 from gensim.models.doc2vec import TaggedDocument
 from nltk.corpus import stopwords
@@ -14,7 +18,7 @@ def prepLabeledSentList(questions = [], withStops = False):
 	return mod_questions
 
 
-def prepModel(mod_questions, size=100, window=8, minCount=5, workers=4):
+def prepModel(mod_questions, size=100, window=5, minCount=5, workers=4):
 	model = Doc2Vec(mod_questions, size=size, window=window, min_count=minCount, workers=workers)
 	model_name = 'doc2vec_size{}window{}min{}work{}'.format(size, window, minCount, workers)
 	model.save('./tmp/'+ model_name)
@@ -26,3 +30,5 @@ mod_questions = prepLabeledSentList(questions)
 model = prepModel(mod_questions)
 
 createPredictionFile(origQfilePath, model)
+createPredictionFile(origQfilePath, model, False)
+

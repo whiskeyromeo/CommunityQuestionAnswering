@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 stops = set(stopwords.words('english'))
 
 sources = QuestionCleaner(getQuestions(thisList))
-#sources += QuestionCleaner(getComments(thisList))
+sources += QuestionCleaner(getComments(thisList))
 
 # Dictionary is generated based on the question content of thisList
 dictionary = corpora.Dictionary(line['question'].lower().split() for line in sources)
@@ -74,6 +74,7 @@ def createLSIPredictionFile(filePath, dictionary, numFeatures=200, withStops=Tru
 
 
 origQfilePath = '../Data/english_scorer_and_random_baselines_v2.2/SemEval2016-Task3-CQA-QL-dev.xml'
-createLSIPredictionFile(origQfilePath, dictionary, 400, False)
+createLSIPredictionFile(origQfilePath, dictionary, 100, False)
+createLSIPredictionFile(origQfilePath, dictionary, 100)
 
 

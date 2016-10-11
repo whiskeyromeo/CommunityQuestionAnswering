@@ -91,7 +91,8 @@ From the SemEval Site:
 * MAP
 	* [Kaggle Mean Average Precision](https://www.kaggle.com/wiki/MeanAveragePrecision)
 	* [MAP quick overview(How we actually are judged on the ranking)](http://fastml.com/what-you-wanted-to-know-about-mean-average-precision/)
-
+* Word2Vec/Doc2Vec classification
+	* [Blog post about creating vectors with Word2Vec and a ton of tweets](https://districtdatalabs.silvrback.com/modern-methods-for-sentiment-analysis)
 
 ####Former SemEval Projects
 * [SemanticZ SemEval Task 3 2016](http://m-mitchell.com/NAACL-2016/SemEval/pdf/SemEval123.pdf)

@@ -36,18 +36,6 @@ def QuestionFileReader(filename):
 		questions.append(line)
 	return questions
 
-'''
-	QuestionFileCreator takes a desired filename and and array of questions and creates
-	a textfile based on those questions, while removing whitespace and logging to 
-	a logfile
-'''
-def QuestionFileCreator(filename, questions):
-	file = open(filename + '.txt', 'w')
-	logging.info('Ready to write to ' + filename)
-	for row in questions:
-		re.sub('[\s+]',' ', 'row')
-		file.write(row + '\n')
-	logging.info('Finished writing to ' + filename)
 
 '''
 	Params: filename : a string representing the desired 

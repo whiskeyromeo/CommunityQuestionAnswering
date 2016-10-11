@@ -27,6 +27,7 @@ dictionary = corpora.Dictionary(line['question'].lower().split() for line in sou
 stop_ids = [dictionary.token2id[stopword] for stopword in stops if stopword in dictionary.token2id]
 # remove words only appearing once
 once_ids = [tokenid for tokenid, docfreq in iteritems(dictionary.dfs) if docfreq == 1]
+# Filter out stopwords and words which only occur once from the dictionary
 dictionary.filter_tokens(stop_ids + once_ids)
 dictionary.compactify()
 dictionary.save(new_dest +'.dict')
@@ -74,6 +75,8 @@ def createLSIPredictionFile(filePath, dictionary, numFeatures=200, withStops=Tru
 
 
 origQfilePath = '../Data/english_scorer_and_random_baselines_v2.2/SemEval2016-Task3-CQA-QL-dev.xml'
+
 createLSIPredictionFile(origQfilePath, dictionary, 400, False)
+createLSIPredictionFile(origQfilePath, dictionary, 400)
 
 

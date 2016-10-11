@@ -1,3 +1,9 @@
+"""
+	This file takes in the documents to be used in the training set
+	and outputs a list containing hashes populated with information
+	relevant to each question
+"""
+
 from elementParser import elementParser
 
 filePaths = [
@@ -13,5 +19,6 @@ thisList = []
 
 for filePath in filePaths:
 	thisList += elementParser(filePath)
+
 
 origQfilePath = '../Data/english_scorer_and_random_baselines_v2.2/SemEval2016-Task3-CQA-QL-dev.xml'

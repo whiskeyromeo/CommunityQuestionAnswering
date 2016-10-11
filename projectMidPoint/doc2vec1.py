@@ -21,13 +21,17 @@ import logging
 import numpy
 import os
 
+from sourceFiles import thisList, origQfilePath
 
 stops = set(stopwords.words('english'))
 
-from sourceFiles import thisList, origQfilePath
 
 '''
 	Preps the list of TaggedDocs to be fed into Doc2Vec
+	Params:
+		A list of questions
+	Returns:
+		A list of tagged documents
 '''
 def prepLabeledSentList(questions = []):
 	mod_questions = []
@@ -39,6 +43,10 @@ def prepLabeledSentList(questions = []):
 
 '''
 	Memory friendly implementation of Doc2Vec with decreasing learning rate to reduce decay
+	Params:
+		questions: A list of questions
+	Returns:
+		model: A doc2vec model
 '''
 def RareDoc2Vec(questions):
 	mod_questions = prepLabeledSentList(questions)
@@ -48,12 +56,16 @@ def RareDoc2Vec(questions):
 	    model.train(mod_questions)
 	    model.alpha -= 0.002  # decrease the learning rate
 	    model.min_alpha = model.alpha  # fix the learning rate, no decay
+	# save the model for future use
 	model.save('./tmp/RareModel')
 	return model
 
 
 '''
 	Sets the doc2vec vectors for each of the questions
+	Params:
+		hashmap: An list containing hashes with questions and properties
+		model: A doc2vec model
 '''
 def setVectors(hashmap, model):
 	for q in hashmap:
@@ -62,6 +74,10 @@ def setVectors(hashmap, model):
 
 '''
 	Modifies the hashmap to incorporate the doc2vec output for each question
+	Params:
+		hashmap: An list containing hashes with questions and properties
+	Returns:
+		model: A doc2vec model
 '''
 def BuildDoc2VecMap(hashmap):
 	# get the mini hash map of questions and ids
@@ -77,16 +93,6 @@ def BuildDoc2VecMap(hashmap):
 
 model = BuildDoc2VecMap(thisList)
 
-
-"""
-	Create a list of vectors with a 1/1 match for each question in questionList
-"""
-def getVectors(questionList):
-	vecList = []
-	for vecs in questionList:
-		vecList.append(vecs["D2V_qVec1"])
-	return vecList
-
 """
 	Create a prediction file
 	Arguments:
@@ -96,18 +102,21 @@ def getVectors(questionList):
 		file: takes the filename from the filePath and saves a .pred file based on that name
 		containing the information needed to run the MAP against it 
 """
-
-
 def createPredictionFile(filePath, model, withStops=True):
+	#pull the test questions out from the filePath
 	testQuestions = originalQuestionParser(filePath)
+	# Get the name of the directory and split the filename off
 	head, tail = os.path.split(filePath)
 	tail = tail.split('.')[0]
+	# Save the file according to whether stopwords are removed before processing
 	if(withStops):
 		predFile = tail + '-d2v-with-stops.pred'
 	else:
 		predFile = tail + '-d2v.pred'
+	# prepare to write the file
 	with open(predFile, "w") as tsvfile:
 		writer = csv.writer(tsvfile, delimiter="\t")
+		# iterate through the test questions, getting the vector
 		for t_question in testQuestions:
 			if(withStops):
 				t_question['D2V_OVec1'] = model.infer_vector(t_question['origQuestion'])
@@ -116,16 +125,20 @@ def createPredictionFile(filePath, model, withStops=True):
 				t_question['D2V_OVec1'] = model.infer_vector(t_question['origQNoStops'])
 
 			vecList = []
+			# iterate through each question set associated with each test questions
 			for rel_quest in t_question['rel_questions']:
+				# and set the vectors
 				if(withStops):
 					rel_quest['D2V_qVec1'] = model.infer_vector(rel_quest['question'])
 				else:
 					rel_quest['relQNoStops'] = " ".join([i for i in rel_quest['question'].lower().split() if i not in stops])
 					rel_quest['D2V_qVec1'] = model.infer_vector(rel_quest['relQNoStops'])
 				vecList.append(rel_quest['D2V_qVec1'])		
+			# generate the cosineSimilarity against the test question
 			simMatrix = cosineSimilarity(t_question['D2V_OVec1'], vecList)
 			for idx, row in enumerate(t_question['rel_questions']):
 				row['simVal'] = simMatrix[idx]
+				# write the obtained similarity values to the prediction file
 				writer.writerow([t_question['quest_ID'], row['rel_quest_ID'], 0, row['simVal'], row['relevant']])
 				
 
