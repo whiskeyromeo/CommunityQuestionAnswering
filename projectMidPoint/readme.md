@@ -13,7 +13,7 @@ As part of the SemEval Competition we chose to pursue SubTask B, Question-to-Que
 In order to achieve this we have used two different methods so far, Latent Semantic Analysis, and Paragraph2Vec using cosine similarity. Both implementations have been performed using the gensim python library.
 ***
 
-###
+### Inspirations
 
 
 ##Example output
@@ -79,7 +79,10 @@ AC2   - the absolute number of correct answers at @X
 
 ```
 
-
+###Resources
+* [Gensim Topic Modelling Library](https://radimrehurek.com/gensim/)
+* [SemanticZ from SemEval 2016 Task 3](http://www.aclweb.org/anthology/S/S16/S16-1136.pdf)
+* [SemEval-2016 Task 3 Description Paper](http://alt.qcri.org/semeval2016/task3/data/uploads/semeval2016-task3-report.pdf)
 
 
 clear introduction to problem,
