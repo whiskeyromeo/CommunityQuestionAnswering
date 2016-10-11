@@ -1,3 +1,12 @@
+"""
+	This file performs Latent Semantic Indexing
+	on a list of questions and outputs a prediction 
+	file based on that indexing
+
+	__author__ = Will Russell
+
+"""
+
 from gensim import corpora, models, similarities
 from six import iteritems
 from QuestionFileCreator import CreateFilePath, getQuestions, getComments, QuestionCleaner

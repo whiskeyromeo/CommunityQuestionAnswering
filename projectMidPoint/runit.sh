@@ -1,4 +1,10 @@
 #!/bin/bash
+# This file pulls in the dependencies required to run
+# the analyses via the various methods. It should install
+# anaconda on the user system and when commands are given
+# Perform either doc2vec or LSI modelling on a preset
+# test script
+# __author__ = Andy Fabian
 
 CONDA=conda/bin/conda
 ACTIVATE=conda/bin/activate
@@ -56,13 +62,17 @@ if [[ "$1" == "--doc2vec" ]]; then
     echo "Executing Doc2Vec Script"
     python doc2vec1.py
     mv $BASEDIR/SemEval2016-Task3-CQA-QL-dev-d2v-with-stops.pred $BASEDIR/SemEval2016-Task3-CQA-QL-dev-output.pred
+elif [[ "$1" == "--doc2vec-v2"]]; then
+    echo "Executing Doc2Vec Script Version 2"
+    python doc2vec3.py
+    mv $BASEDIR/SemEval2016-Task3-CQA-QL-dev-d2v-with-stops.pred $BASEDIR/SemEval2016-Task3-CQA-QL-dev-output.pred
 elif [[ "$1" == "--lsi" ]]; then
     echo "Executing LSI Script"
     python LsiModel.py
     mv $BASEDIR/SemEval2016-Task3-CQA-QL-dev-lsi400.pred $BASEDIR/SemEval2016-Task3-CQA-QL-dev-output.pred
 else
     echo ""
-    echo "Note: you can pass --doc2vec or --lsi to control which system is being run.  Defaulting to LSI..."
+    echo "Note: you can pass --doc2vec, --doc2vec-v2 or --lsi to control which system is being run.  Defaulting to LSI..."
     echo ""
     echo "Executing LSI Script"
     python LsiModel.py

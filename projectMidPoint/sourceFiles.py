@@ -2,6 +2,8 @@
 	This file takes in the documents to be used in the training set
 	and outputs a list containing hashes populated with information
 	relevant to each question
+
+	__author__ = Will Russell
 """
 
 from elementParser import elementParser

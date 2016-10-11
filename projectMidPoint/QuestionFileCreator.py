@@ -1,3 +1,11 @@
+"""
+	This file contains a number of functions used to parse
+	through question lists and work with file input/output
+
+	__author__ = Will Russell
+
+"""
+
 from elementParser import elementParser
 from sourceFiles import filePaths
 import sys

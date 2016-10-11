@@ -1,7 +1,16 @@
+"""
+	This file contains functions used to parse through
+	the xml filetypes and remove all relevant information
 
+	__authors__ = Will Russell, Josh Ramer
+
+"""
 import xml.etree.ElementTree as ElementTree
 
-
+"""
+	getValues takes a ElementTree structure and 
+	returns the values of its children
+"""
 def getValues(tree, category):
     parent = tree.find(".//parent[@name='%s']" % category)
     return [child.get('value') for child in parent]

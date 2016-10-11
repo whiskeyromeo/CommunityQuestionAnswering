@@ -1,6 +1,10 @@
 """
-	2nd best performance, worse than implementation
-	in doc2vec3.py
+	This file constructs a Doc2Vec model and outputs
+	the prediction file based on cosineSimilarity measures
+	derived from the vectors of questions
+
+	__author__ = Will Russell
+	
 """
 
 from nltk.corpus import stopwords
