@@ -106,5 +106,5 @@ echo "Using $PYTHON"
 
 echo "Executing Scorer"
 
-cd ../Data/english_scorer_and_random_baselines_v2.2
+cd english_scorer_and_random_baselines_v2.2
 $PYTHON ./MAP_scripts/ev.py SemEval2016-Task3-CQA-QL-dev.xml.subtaskB.relevancy $BASEDIR/SemEval2016-Task3-CQA-QL-dev-output.pred
