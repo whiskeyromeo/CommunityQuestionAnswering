@@ -1,6 +1,33 @@
 ##SemEval 2017 Task 3
 ***
 
+###Introduction
+> Community forums are increasingly gaining popularity as a way to pose questions and receive
+> honest and open answers.  These forums are rarely moderated, allowing anyone to ask or respond to a question.
+> The lack of moderation has many advantages including letting users post anything they want, resulting in
+> some well thought out responses.  However, this opennessopeness comes with a downfall of people posting
+> responses that are not relevant to the question asked.  Ranking comments that are most relevant to the question
+> asked will save the user from sifting through hundreds of responses.  Further, providing a list of similar
+> questions will provide the user with a bank of comments that could possibly provide they answer they are
+> seeking.
+>
+>	The data in Semeval Task 3 comes from Qatar Living.  This is a forum where users can post questions about
+> life in Qatar, and receive responses from the community.  We are focused on subtasks A and B, which is
+> question-comment similarity and question-question similarity.  During this first stage, we have primarily
+> focused on question-question similarity.  Our goals for the next stage of the project are to improve the
+> accuracy of the question-question similarity, as well as work on question-comment similarity.
+
+###Method
+>	In order to determine related questions, we first created a term frequency-inverse document
+> frequency matrix, where the questions were columns and vocabulary were rows.  We then
+> performed latent semantic indexing on this matrix and then calculated the cosine similarity
+> from the resulting matrix.  This allowed us to rank which questions were most similar to a given question.
+> We tried using both Doc2Vec as well as LSI on the matrix created by TF-IDF.  We found that using LSI
+> gave us slightly better results than Doc2Vec.  Finally, the Cosine Similarity was calculated on the vectors
+> found using LSI, which gave us scores corresponding to the vectors.  From these scores, we were able to
+> determine which questions ranked most similar to a question.
+
+
 ###Tasks
 From the SemEval Site:
 > Our main CQA task, as in 2016, is:
@@ -98,7 +125,3 @@ From the SemEval Site:
 * [SemanticZ SemEval Task 3 2016](http://m-mitchell.com/NAACL-2016/SemEval/pdf/SemEval123.pdf)
 * [Voltron: A Hybrid System For Answer Validation Based On Lexical AndDistance Features](http://anthology.aclweb.org/S/S15/S15-2.pdf#page=284)
 * [Guzman : MTE-NN at SemEval 2016- Task 3](https://www.researchgate.net/publication/305334825_MTE-NN_at_SemEval-2016_Task_3_Can_Machine_Translation_Evaluation_Help_Community_Question_Answering)
-
-
-Community forums are increasingly gaining popularity as a way to pose questions and receive honest and open answers.  These forums are rarely moderated, allowing anyone to ask or respond to a question.  The lack of moderation has many advantages including letting users post anything they want, resulting in some well thought out responses.  However, this opennessopeness comes with a downfall of people posting responses that are not relevant to the question asked.  Ranking comments that are most relevant to the question asked will save the user from sifting through hundreds of responses.  Further, providing a list of similar questions will provide the user with a bank of comments that could possibly provide they answer they are seeking.
-	The data in Semeval Task 3 comes from Qatar Living.  This is a forum where users can post questions about life in Qatar, and receive responses from the community.  We are focused on subtasks A and B, which is question-comment similarity and question-question similarity.  During this first stage, we have primarily focused on question-question similarity.  Our goals for the next stage of the project are to improve the accuracy of the question-question similarity, as well as work on question-comment similarity. 
