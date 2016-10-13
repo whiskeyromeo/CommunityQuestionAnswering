@@ -5,7 +5,7 @@
 > Community forums are increasingly gaining popularity as a way to pose questions and receive
 > honest and open answers.  These forums are rarely moderated, allowing anyone to ask or respond to a question.
 > The lack of moderation has many advantages including letting users post anything they want, resulting in
-> some well thought out responses.  However, this opennessopeness comes with a downfall of people posting
+> some well thought out responses.  However, this openness comes with a downfall of people posting
 > responses that are not relevant to the question asked.  Ranking comments that are most relevant to the question
 > asked will save the user from sifting through hundreds of responses.  Further, providing a list of similar
 > questions will provide the user with a bank of comments that could possibly provide they answer they are
