@@ -13,9 +13,6 @@ As part of the SemEval Competition we chose to pursue SubTask B, Question-to-Que
 In order to achieve this we have used two different methods so far, Latent Semantic Analysis, and Paragraph2Vec using cosine similarity. Both implementations have been performed using the gensim python library.
 ***
 
-##SemEval 2017 Task 3
-***
-
 ###Introduction
 > Community forums are increasingly gaining popularity as a way to pose questions and receive
 > honest and open answers.  These forums are rarely moderated, allowing anyone to ask or respond to a question.
