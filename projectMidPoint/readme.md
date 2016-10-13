@@ -124,8 +124,3 @@ AC2   - the absolute number of correct answers at @X
 * [Gensim Topic Modelling Library](https://radimrehurek.com/gensim/)
 * [SemanticZ from SemEval 2016 Task 3](http://www.aclweb.org/anthology/S/S16/S16-1136.pdf)
 * [SemEval-2016 Task 3 Description Paper](http://alt.qcri.org/semeval2016/task3/data/uploads/semeval2016-task3-report.pdf)
-
-
-clear introduction to problem,
-point by point outline of solution,
-and examples of actual program input and output
