@@ -13,8 +13,52 @@ As part of the SemEval Competition we chose to pursue SubTask B, Question-to-Que
 In order to achieve this we have used two different methods so far, Latent Semantic Analysis, and Paragraph2Vec using cosine similarity. Both implementations have been performed using the gensim python library.
 ***
 
-### Inspirations
+##SemEval 2017 Task 3
+***
 
+###Introduction
+> Community forums are increasingly gaining popularity as a way to pose questions and receive
+> honest and open answers.  These forums are rarely moderated, allowing anyone to ask or respond to a question.
+> The lack of moderation has many advantages including letting users post anything they want, resulting in
+> some well thought out responses.  However, this openness comes with a downfall of people posting
+> responses that are not relevant to the question asked.  Ranking comments that are most relevant to the question
+> asked will save the user from sifting through hundreds of responses.  Further, providing a list of similar
+> questions will provide the user with a bank of comments that could possibly provide they answer they are
+> seeking.
+>
+>	The data in Semeval Task 3 comes from Qatar Living.  This is a forum where users can post questions about
+> life in Qatar, and receive responses from the community.  We are focused on subtasks A and B, which is
+> question-comment similarity and question-question similarity.  During this first stage, we have primarily
+> focused on question-question similarity.  Our goals for the next stage of the project are to improve the
+> accuracy of the question-question similarity, as well as work on question-comment similarity.
+
+###Method
+>	In order to determine related questions, we first created a term frequency-inverse document
+> frequency matrix, where the questions were columns and vocabulary were rows.  We then
+> performed latent semantic indexing on this matrix and then calculated the cosine similarity
+> from the resulting matrix.  This allowed us to rank which questions were most similar to a given question.
+> We tried using both Doc2Vec as well as LSI on the matrix created by TF-IDF.  We found that using LSI
+> gave us slightly better results than Doc2Vec.  Finally, the Cosine Similarity was calculated on the vectors
+> found using LSI, which gave us scores corresponding to the vectors.  From these scores, we were able to
+> determine which questions ranked most similar to a question.
+
+
+###Tasks
+From the SemEval Site:
+> Our main CQA task, as in 2016, is:
+> “given (i) a new question and (ii) a large collection of question-answer threads created by a user community, rank the 
+> answer posts that are most useful for answering the new question.”
+
+> Additionally, we propose two sub-tasks:
+
+> [1] Question Similarity (QS): given the new question and a set of related questions from the collection, rank the similar 
+> questions according to their similarity to the original question (with the idea that the answers to the similar
+> questions should be answering the new question as well).
+
+> [2] Relevance Classification (RC): given a question from a question-answer thread, rank the answer posts according to 
+> their relevance with respect to the question.
+
+***
 
 ##Example output
 <p>Below are examples of the required input for compiling the python code and the resulting output when tested against the MAP scorer</p>

@@ -49,7 +49,7 @@ def prepLabeledSentList(questions = [], withStops = False):
 		minCount : The minimum count of each word to be taken into account in the model creation
 		workers : Number of worker threads to use in creation of the model
 """
-def prepModel(mod_questions, size=100, window=5, minCount=5, workers=4):
+def prepModel(mod_questions, size=300, window=7, minCount=5, workers=4):
 	model = Doc2Vec(mod_questions, size=size, window=window, min_count=minCount, workers=workers)
 	model_name = 'doc2vec_size{}window{}min{}work{}'.format(size, window, minCount, workers)
 	model.save('./tmp/'+ model_name)

@@ -54,8 +54,8 @@ dictionary.save(new_dest +'.dict')
 		index: An index of documents in LSI space to be compared against
 """
 def generateLSIModel(corpus, dictionary, numTopics):
-	corpora.MmCorpus.serialize(new_dest + '.mm', corpus)
-	serialized_corpus = corpora.MmCorpus(new_dest + '.mm')
+	# corpora.MmCorpus.serialize(new_dest + '.mm', corpus)
+	# serialized_corpus = corpora.MmCorpus(new_dest + '.mm')
 	# Apply tfidf weighting to the corpus
 	tfidf = models.TfidfModel(corpus)
 	corpus_tfidf = tfidf[corpus]
