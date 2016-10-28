@@ -12,9 +12,8 @@ from preprocessStopwords import *
 from preprocessPartOfSpeech import *
 from featuresDoc2Vec import *
 from setup import setup
-<<<<<<< HEAD
 from Features import *
-
+from utilities import *
 
 def getargvalue(name, required):
     output = False
@@ -24,10 +23,7 @@ def getargvalue(name, required):
     if required and not output:
         raise Exception("Required argument " + name + " not found in sys.argv")
     return output
-=======
-from pprint import pprint
-from utilities import *
->>>>>>> 29c0c9f365d3eb8a6017068f9d3f19f1ac9cc37a
+
 
 # Question-to-Question Module
 #

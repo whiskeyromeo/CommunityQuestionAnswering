@@ -7,4 +7,4 @@ runcounter.txt
 *.index
 *.lsi.projection
 *.dict
-
+*.pickle
