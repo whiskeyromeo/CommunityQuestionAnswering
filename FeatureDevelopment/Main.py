@@ -16,6 +16,7 @@ from FeatureFinder import FeatureFinder
 from Loader import Loader
 from Preprocessor import Preprocessor
 from Features import *
+from utilities import ellips
 import pickle, sys
 
 # we can cache the output of the loader+preprocessor to disk, to avoid this performance hit
@@ -33,7 +34,7 @@ else:
 
     # Preprocessors
 
-    questions = Preprocessor.preprocessQuestion(questions)
+    Preprocessor.preprocessQuestions(questions)
 
     # Store the new data as the current cache
 
@@ -42,8 +43,10 @@ else:
 # Print out question structure for reference
 
 print("\nSample question structure:")
-for key in questions[0]:
-    print("  " + key + " = " + str(questions[0][key]))
+samplequestion = questions[list(questions.keys())[0]]
+for key in samplequestion:
+    if key != 'related' and key != 'relevance' and key != 'featureVector':
+        print("  " + key + " = " + ellips(str(samplequestion[key]), 80))
 
 # Feature Generators
 
@@ -53,13 +56,18 @@ for feature in featureGenerators:
     featureClass = globals()[feature].__dict__[feature]()
     featureClass.init(questions)
     for question in questions:
-        question['featureVector'] += featureClass.createFeatureVector(question)
+        questions[question]['featureVector'] += featureClass.createFeatureVector(questions[question])
+        for relatedQuestion in questions[question]['related']:
+            questions[question]['related'][relatedQuestion]['featureVector'] += featureClass.createFeatureVector(questions[question]['related'][relatedQuestion])
 
 # Results
 
 print("\nSample questions and feature vectors:")
-for i in range(0, 5):
-    print('\nQuestion: ' + questions[i]['question'])
-    print('Feature Vector: ' + str(questions[i]['featureVector']))
+firstquestion = questions[list(questions.keys())[0]]
+print('\nOriginal Question: ' + firstquestion['question'])
+print('Feature Vector: ' + str(firstquestion['featureVector']))
+for id in firstquestion['related']:
+    print('\nRelated Question: ' + firstquestion['related'][id]['question'])
+    print('Feature Vector: ' + str(firstquestion['related'][id]['featureVector']))
 
 print("\nFinished")

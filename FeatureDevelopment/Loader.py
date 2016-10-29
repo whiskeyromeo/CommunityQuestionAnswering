@@ -15,75 +15,77 @@ class Loader:
     @staticmethod
     def defaultfilenames():
         filePaths = [
-            '../Data/train-more-for-subtaskA-from-2015/SemEval2015-Task3-CQA-QL-train-reformatted-excluding-2016-questions-cleansed.xml',
-            '../Data/train-more-for-subtaskA-from-2015/SemEval2015-Task3-CQA-QL-dev-reformatted-excluding-2016-questions-cleansed.xml',
-            '../Data/train-more-for-subtaskA-from-2015/SemEval2015-Task3-CQA-QL-test-reformatted-excluding-2016-questions-cleansed.xml',
-            # '../Data/dev/SemEval2016-Task3-CQA-QL-dev-subtaskA.xml',
-            '../Data/train/SemEval2016-Task3-CQA-QL-train-part2-subtaskA.xml',
-            '../Data/train/SemEval2016-Task3-CQA-QL-train-part1-subtaskA.xml'
+            '../Data/train/SemEval2016-Task3-CQA-QL-train-part1.xml',
+            '../Data/train/SemEval2016-Task3-CQA-QL-train-part2.xml'
         ]
         return filePaths
 
 
     @staticmethod
     def loadXMLQuestions(filenames):
-        output = []
+        output = {}
         for filePath in filenames:
             print("\nParsing %s" % filePath)
-            fileoutput = Loader.elementParser(filePath)
-            print("  Got %s entries" % len(fileoutput))
+            fileoutput = Loader.parseTask3TrainingData(filePath)
+            print("  Got %s primary questions" % len(fileoutput))
             if not len(fileoutput):
                 raise Exception("Failed to load any entries from " + filePath)
-            output += fileoutput
+            output.update(fileoutput)
         print("\nTotal of %s entries" % len(output))
         return output
 
-    """
-    Returns an array populated with questions
-    The comments are nested in each question
-
-    Each question will have the following structure:
-     - "question" (string)
-     - "subject" (string)
-     - "threadId" (string)
-     - "comments" (list of:)
-     -   "comment" (string)
-     -   "comment_id" (string)
-    """
+    # output format:
+    #
+    # dict(question_id => dict(
+    #   question
+    #   id
+    #   subject
+    #   comments = {}
+    #   related = dict(related_id => dict(
+    #     question
+    #     id
+    #     subject
+    #     relevance
+    #     comments = dict(comment_id => dict(
+    #       comment
+    #       date
+    #       id
+    #       username
+    #     )
+    #   )
+    # )
     @staticmethod
-    def elementParser(filepath):
-        # construc the Element Tree and get the root
+    def parseTask3TrainingData(filepath):
         tree = ElementTree.parse(filepath)
         root = tree.getroot()
-        # create a list to store the pulled threads
-        threadList = []
-        # find each thread in the tree, starting at the root
-        for Thread in root.findall('Thread'):
-            # create a dict for each question
-            QuestionDict = {}
-            # find each question
-            relQuestion = Thread.find('RelQuestion')
-            #Pull the values from the questions into the relevant fields of the question dict
-            QuestionDict['threadId'] = relQuestion.attrib['RELQ_ID']
-            QuestionDict['subject'] = relQuestion.find('RelQSubject').text
-            QuestionDict['question'] = relQuestion.find('RelQBody').text
-            QuestionDict['category'] = relQuestion.attrib['RELQ_CATEGORY']
-            QuestionDict['username'] = relQuestion.attrib['RELQ_USERNAME']
-            comments = []
-            # Pull the comments from the filepath
-            for relComment in Thread.findall('RelComment'):
-                #create a dict for the comment
-                commentDict = {}
-                #populate the comment dict
-                commentDict['comment'] = relComment.find('RelCText').text
-                commentDict['comment_id'] = relComment.attrib['RELC_ID']
-                comments.append(commentDict)
-            # set the comments key to be equal to the question's comments
-            QuestionDict['comments'] = comments
-            QuestionDict['featureVector'] = []
-            #put the comments into the Question object
-            if type(QuestionDict['question']) is str:
-                threadList.append(QuestionDict)
-            #else:
-                #print("  Warning: skipping question %s with no question text" % QuestionDict['threadId'])
-        return threadList
+        OrgQuestions = {}
+        for OrgQuestion in root.iter('OrgQuestion'):
+            OrgQuestionOutput = {}
+            OrgQuestionOutput['id'] = OrgQuestion.attrib['ORGQ_ID']
+            OrgQuestionOutput['subject'] = OrgQuestion.find('OrgQSubject').text
+            OrgQuestionOutput['question'] = OrgQuestion.find('OrgQBody').text
+            OrgQuestionOutput['comments'] = {}
+            OrgQuestionOutput['related'] = {}
+            OrgQuestionOutput['featureVector'] = []
+            if OrgQuestionOutput['id'] not in OrgQuestions:
+                OrgQuestions[OrgQuestionOutput['id']] = OrgQuestionOutput
+            for RelQuestion in OrgQuestion.iter('RelQuestion'):
+                RelQuestionOutput = {}
+                RelQuestionOutput['id'] = RelQuestion.attrib['RELQ_ID']
+                RelQuestionOutput['subject'] = RelQuestion.find('RelQSubject').text
+                RelQuestionOutput['question'] = RelQuestion.find('RelQBody').text
+                RelQuestionOutput['relevance'] = RelQuestion.attrib['RELQ_RELEVANCE2ORGQ']
+                RelQuestionOutput['comments'] = {}
+                RelQuestionOutput['featureVector'] = []
+                for RelComment in OrgQuestion.iter('RelComment'):
+                    RelCommentOutput = {}
+                    RelCommentOutput['id'] = RelComment.attrib['RELC_ID']
+                    RelCommentOutput['date'] = RelComment.attrib['RELC_DATE']
+                    RelCommentOutput['username'] = RelComment.attrib['RELC_USERNAME']
+                    RelCommentOutput['comment'] = RelComment.find('RelCText').text
+                    RelQuestionOutput['comments'][RelCommentOutput['id']] = RelCommentOutput
+                if RelQuestionOutput['question'] != None:
+                    OrgQuestions[OrgQuestionOutput['id']]['related'][RelQuestionOutput['id']] = RelQuestionOutput
+                else:
+                    print("Warning: skipping empty question " + RelQuestionOutput['id'])
+        return OrgQuestions

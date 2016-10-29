@@ -17,3 +17,17 @@ def argvalueexists(name):
         if arg[2:len(name)+2] == name:
             output = True
     return output
+
+
+def forEachQuestion(questions, function):
+    for question in questions:
+        function(questions[question])
+        for relatedQuestion in questions[question]['related']:
+            function(questions[question]['related'][relatedQuestion])
+
+
+def ellips(text, length):
+    if len(text) > length:
+        return text[:60] + "..."
+    else:
+        return text
