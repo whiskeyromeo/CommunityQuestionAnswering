@@ -87,6 +87,6 @@ class Loader:
                     RelQuestionOutput['comments'][RelCommentOutput['id']] = RelCommentOutput
                 if RelQuestionOutput['question'] != None:
                     OrgQuestions[OrgQuestionOutput['id']]['related'][RelQuestionOutput['id']] = RelQuestionOutput
-                else:
-                    print("Warning: skipping empty question " + RelQuestionOutput['id'])
+                #else:
+                    #print("Warning: skipping empty question " + RelQuestionOutput['id'])
         return OrgQuestions
