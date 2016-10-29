@@ -17,6 +17,7 @@ from Loader import Loader
 from Preprocessor import Preprocessor
 from Features import *
 from utilities import ellips
+from Scorer import Scorer
 import pickle, sys
 
 # we can cache the output of the loader+preprocessor to disk, to avoid this performance hit
@@ -45,7 +46,7 @@ else:
 print("\nSample question structure:")
 samplequestion = questions[list(questions.keys())[0]]
 for key in samplequestion:
-    if key != 'related' and key != 'relevance' and key != 'featureVector':
+    if key != 'related' and key != 'featureVector':
         print("  " + key + " = " + ellips(str(samplequestion[key]), 80))
 
 # Feature Generators
@@ -55,19 +56,35 @@ for feature in featureGenerators:
     print("\nRunning feature generator '" + feature + "'")
     featureClass = globals()[feature].__dict__[feature]()
     featureClass.init(questions)
-    for question in questions:
-        questions[question]['featureVector'] += featureClass.createFeatureVector(questions[question])
-        for relatedQuestion in questions[question]['related']:
-            questions[question]['related'][relatedQuestion]['featureVector'] += featureClass.createFeatureVector(questions[question]['related'][relatedQuestion])
+    for q in questions:
+        questions[q]['featureVector'] += featureClass.createFeatureVector(questions[q])
+        for r in questions[q]['related']:
+            questions[q]['related'][r]['featureVector'] += featureClass.createFeatureVector(questions[q]['related'][r])
 
-# Results
+# Print Initial Results
 
 print("\nSample questions and feature vectors:")
 firstquestion = questions[list(questions.keys())[0]]
-print('\nOriginal Question: ' + firstquestion['question'])
+print('\nOriginal Question: ' + str(firstquestion['question'].encode('ascii', 'ignore'))[2:-1])
 print('Feature Vector: ' + str(firstquestion['featureVector']))
-for id in firstquestion['related']:
-    print('\nRelated Question: ' + firstquestion['related'][id]['question'])
-    print('Feature Vector: ' + str(firstquestion['related'][id]['featureVector']))
+for r in firstquestion['related']:
+    print('\nRelated Question: ' + str(firstquestion['related'][r]['question'].encode('ascii', 'ignore'))[2:-1])
+    print('Feature Vector: ' + str(firstquestion['related'][r]['featureVector']))
+
+# Scoring
+
+print("\nComputing similarity")
+Scorer.score(questions)
+
+# Ranking
+
+Scorer.rank(questions)
+
+# Print Final Results
+
+print("\nSample question ranking:")
+firstquestion = questions[list(questions.keys())[0]]
+for r in firstquestion['related']:
+    print("%s correct=%s computed=%s" % (r, firstquestion['related'][r]['givenRank'], firstquestion['related'][r]['rank']))
 
 print("\nFinished")

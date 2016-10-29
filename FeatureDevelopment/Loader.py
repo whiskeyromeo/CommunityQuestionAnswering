@@ -74,7 +74,8 @@ class Loader:
                 RelQuestionOutput['id'] = RelQuestion.attrib['RELQ_ID']
                 RelQuestionOutput['subject'] = RelQuestion.find('RelQSubject').text
                 RelQuestionOutput['question'] = RelQuestion.find('RelQBody').text
-                RelQuestionOutput['relevance'] = RelQuestion.attrib['RELQ_RELEVANCE2ORGQ']
+                RelQuestionOutput['givenRelevance'] = RelQuestion.attrib['RELQ_RELEVANCE2ORGQ']
+                RelQuestionOutput['givenRank'] = RelQuestion.attrib['RELQ_RANKING_ORDER']
                 RelQuestionOutput['comments'] = {}
                 RelQuestionOutput['featureVector'] = []
                 for RelComment in OrgQuestion.iter('RelComment'):
