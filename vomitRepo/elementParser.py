@@ -39,6 +39,12 @@ def elementParser(filepath):
 			#populate the comment dict
 			commentDict['comment'] = relComment.find('RelCText').text
 			commentDict['comment_id'] = relComment.attrib['RELC_ID']
+			relevancy = relComment.attrib['RELC_RELEVANCE2RELQ']
+			if(relevancy == 'PerfectMatch' or relevancy == 'Good'):
+				relevant = 'true'
+			else:
+				relevant = 'false'
+			commentDict['comment_rel'] = relevant
 			comments.append(commentDict)
 		# set the comments key to be equal to the question's comments
 		QuestionDict['comments'] = comments
@@ -69,9 +75,14 @@ def originalQuestionParser(filepath):
 			OrigQDict['origQuestion'] = origQuestion.find('OrgQBody').text
 		relQuestion = {}
 		Thread = origQuestion.find('Thread')
+		relComments = []
+		for comment in Thread.findall('RelComment'):
+			relComments.append(findCommentForOrigQ(comment))
+		relQuestion['comments'] = relComments
 		RelQuestion = Thread.find('RelQuestion')
 		relQuestion['rel_quest_ID'] = RelQuestion.attrib['RELQ_ID']
 		relQuestion['category'] = RelQuestion.attrib['RELQ_CATEGORY']
+		relQuestion['username'] = RelQuestion.attrib['RELQ_USERNAME']
 		relQuestion['subject'] = RelQuestion.find('RelQSubject').text
 		relQuestion['question'] = RelQuestion.find('RelQBody').text
 		if(relQuestion['question'] is None):
@@ -87,5 +98,25 @@ def originalQuestionParser(filepath):
 	return questList
 
 
-
-
+'''
+	This pulls out the relevant information for each comment for each thread in the
+	original question file
+'''
+def findCommentForOrigQ(RelComment):
+	relComment = {}
+	relComment['rel_comment_ID'] = RelComment.attrib['RELC_ID']
+	relComment['username'] = RelComment.attrib['RELC_USERNAME']
+	relComment['comment'] = RelComment.find('RelCText').text
+	relORGQ = RelComment.attrib['RELC_RELEVANCE2ORGQ']
+	if(relORGQ == 'PerfectMatch' or relORGQ == 'Good'):
+		relevant = 'true'
+	else:
+		relevant = 'false'
+	relComment['relORGQ'] = relevant
+	relRELQ = RelComment.attrib['RELC_RELEVANCE2RELQ']
+	if(relRELQ == 'PerfectMatch' or relRELQ == 'Good'):
+		relevant = 'true'
+	else:
+		relevant = 'false'
+	relComment['relRELQ'] = relevant
+	return relComment

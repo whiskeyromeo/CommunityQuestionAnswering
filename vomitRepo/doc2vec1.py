@@ -20,6 +20,8 @@ import re
 import logging
 import numpy
 import os
+import pickle
+from pathlib import Path 
 
 
 stops = set(stopwords.words('english'))
@@ -66,6 +68,7 @@ def setVectors(hashmap, model):
 def BuildDoc2VecMap(hashmap):
 	# get the mini hash map of questions and ids
 	questions = getQuestions(hashmap)
+	pickle.dump(questions, open("tmp/d2v1.p", "wb"))
 	# clean the questions, removing punctuation and whitespace
 	questions = QuestionCleaner(questions)
 	# Create the Doc2Vec Model
@@ -75,8 +78,11 @@ def BuildDoc2VecMap(hashmap):
 	return model
 
 
-model = BuildDoc2VecMap(thisList)
-
+if(Path("tmp/d2v1_model.p").is_file()):
+	model = pickle.load(open("tmp/d2vqc1_model.p", "rb"))
+else:
+	model = BuildDoc2VecMap(thisList)
+	pickle.dump(model, open("tmp/d2v1_model.p", "wb"))
 
 """
 	Create a list of vectors with a 1/1 match for each question in questionList
