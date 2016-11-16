@@ -2,3 +2,4 @@
 LdaModel.py
 logs/*.*
 tmp/*.*
+*.pyc
