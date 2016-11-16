@@ -1,5 +1,4 @@
 *.pred
-LdaModel.py
 logs/*.*
 tmp/*.*
 *.pyc
