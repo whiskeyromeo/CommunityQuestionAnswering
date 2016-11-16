@@ -18,7 +18,9 @@ from Preprocessor import Preprocessor
 from Features import *
 from utilities import ellips
 from Scorer import Scorer
+from pprint import pprint
 import pickle, sys
+import pandas
 
 # we can cache the output of the loader+preprocessor to disk, to avoid this performance hit
 # every time.  If the user wants to use the cached data, load it here and skip the loader+preprocessor
@@ -52,39 +54,51 @@ for key in samplequestion:
 # Feature Generators
 
 featureGenerators = FeatureFinder.getSelectedFeatureModules()
+featureNames = []
+print("")
 for feature in featureGenerators:
-    print("\nRunning feature generator '" + feature + "'")
+    print("Running feature generator '" + feature + "'")
     featureClass = globals()[feature].__dict__[feature]()
     featureClass.init(questions)
+    featureNames += featureClass.getFeatureNames()
     for q in questions:
-        questions[q]['featureVector'] += featureClass.createFeatureVector(questions[q])
+        questions[q]['featureVector'] += featureClass.createFeatureVector(questions[q], questions[q])
         for r in questions[q]['related']:
-            questions[q]['related'][r]['featureVector'] += featureClass.createFeatureVector(questions[q]['related'][r])
+            questions[q]['related'][r]['featureVector'] += featureClass.createFeatureVector(questions[q]['related'][r], questions[q])
 
 # Print Initial Results
 
 print("\nSample questions and feature vectors:")
 firstquestion = questions[list(questions.keys())[0]]
-print('\nOriginal Question: ' + str(firstquestion['question'].encode('ascii', 'ignore'))[2:-1])
-print('Feature Vector: ' + str(firstquestion['featureVector']))
+tempFeatures = [firstquestion['featureVector'] + ['Original']]
+tempIndex = [firstquestion['id']]
+print('\n' + firstquestion['id'] + ' ' + str(firstquestion['question'].encode('ascii', 'ignore'))[2:-1])
 for r in firstquestion['related']:
-    print('\nRelated Question: ' + str(firstquestion['related'][r]['question'].encode('ascii', 'ignore'))[2:-1])
-    print('Feature Vector: ' + str(firstquestion['related'][r]['featureVector']))
+    print('\n' + firstquestion['related'][r]['id'] + ' ' + str(firstquestion['related'][r]['question'].encode('ascii', 'ignore'))[2:-1])
+    tempFeatures.append(firstquestion['related'][r]['featureVector'] + [firstquestion['related'][r]['givenRelevance']])
+    tempIndex.append(firstquestion['related'][r]['id'])
+print('\nFeature Vector:')
+print(pandas.DataFrame(tempFeatures, columns=featureNames+['Label'], index=tempIndex))
 
 # Scoring
 
-print("\nComputing similarity")
-Scorer.score(questions)
+print("\nComputing Perfectness\n")
+output = Scorer.perfectness(questions, featureNames)
+print('')
+pprint(output[0:20])
 
 # Ranking
 
-Scorer.rank(questions)
+print("\nRanking and Final Results current broken\n")
+
+#print("\nRanking results\n")
+#Scorer.rank(questions)
 
 # Print Final Results
 
-print("\nSample question ranking:")
-firstquestion = questions[list(questions.keys())[0]]
-for r in firstquestion['related']:
-    print("%s correct=%s computed=%s" % (r, firstquestion['related'][r]['givenRank'], firstquestion['related'][r]['rank']))
+#print("\nSample question ranking:")
+#firstquestion = questions[list(questions.keys())[0]]
+#for r in firstquestion['related']:
+#    print("%s correct=%s computed=%s" % (r, firstquestion['related'][r]['givenRank'], firstquestion['related'][r]['rank']))
 
 print("\nFinished")

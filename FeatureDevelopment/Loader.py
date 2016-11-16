@@ -16,7 +16,8 @@ class Loader:
     def defaultfilenames():
         filePaths = [
             '../Data/train/SemEval2016-Task3-CQA-QL-train-part1.xml',
-            '../Data/train/SemEval2016-Task3-CQA-QL-train-part2.xml'
+            '../Data/train/SemEval2016-Task3-CQA-QL-train-part2.xml',
+            '../Data/english_scorer_and_random_baselines_v2.2/SemEval2016-Task3-CQA-QL-dev.xml'
         ]
         return filePaths
 

@@ -9,13 +9,14 @@ class Preprocessor:
     def preprocessQuestions(questions):
         print("\nPreprocessor: words")
         forEachQuestion(questions, Preprocessor.addWords)
-        print("\nPreprocessor: stopwords")
+        print("Preprocessor: stopwords")
         forEachQuestion(questions, Preprocessor.removeStopwords)
-        print("\nPreprocessor: parts of speech")
+        print("Preprocessor: parts of speech")
         forEachQuestion(questions, Preprocessor.addPartOfSpeech)
-        print("\nPreprocessor: bigrams")
+        print("Preprocessor: bigrams")
         forEachQuestion(questions, Preprocessor.addBigrams)
-
+        print("Preprocessor: trigrams")
+        forEachQuestion(questions, Preprocessor.addTrigrams)
 
 
     # This should augment the QA tree with bigram distributions for each question
@@ -23,6 +24,12 @@ class Preprocessor:
     def addBigrams(question):
         question['question_bigram_list'] = list(nltk.bigrams(question['question_words']))
         question['question_bigram_list_nostopwords'] = list(nltk.bigrams(question['question_words_nostopwords']))
+
+
+    @staticmethod
+    def addTrigrams(question):
+        question['question_trigram_list'] = list(nltk.trigrams(question['question_words']))
+        question['question_trigram_list_nostopwords'] = list(nltk.trigrams(question['question_words_nostopwords']))
 
 
     @staticmethod
