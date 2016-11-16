@@ -1,3 +1,9 @@
+'''
+	Need to install scrapy with conda in order to run
+		conda install -c scrapinghub scrapy
+	To run:
+		scrapy runspider qatarLiving_spider.py
+'''
 import scrapy
 import json
 from pprint import pprint
