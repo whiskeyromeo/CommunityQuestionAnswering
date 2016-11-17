@@ -28,10 +28,10 @@ class FeatureFinder:
     @staticmethod
     def filterByCommandlineArgument(allFeatures):
         if argvalueexists('features'):
-            requestedFeatures = getargvalue('features', False).split(',')
+            requestedFeatures = getargvalue('features', False).lower().split(',')
             features = []
             for feature in allFeatures:
-                if feature in requestedFeatures:
+                if feature.lower() in requestedFeatures:
                     features.append(feature)
         else:
             features = allFeatures
