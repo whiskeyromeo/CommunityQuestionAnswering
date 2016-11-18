@@ -8,3 +8,4 @@ runcounter.txt
 *.lsi.projection
 *.dict
 *.pickle
+*.pred

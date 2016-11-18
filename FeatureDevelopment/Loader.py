@@ -17,7 +17,7 @@ class Loader:
         filePaths = [
             '../Data/train/SemEval2016-Task3-CQA-QL-train-part1.xml',
             '../Data/train/SemEval2016-Task3-CQA-QL-train-part2.xml',
-            '../Data/english_scorer_and_random_baselines_v2.2/SemEval2016-Task3-CQA-QL-dev.xml'
+            '../Data/english_scorer_and_random_baselines_v2.2/SemEval2016-Task3-CQA-QL-dev.xml',
         ]
         return filePaths
 
@@ -31,6 +31,11 @@ class Loader:
             print("  Got %s primary questions" % len(fileoutput))
             if not len(fileoutput):
                 raise Exception("Failed to load any entries from " + filePath)
+            isTraining = "train" in filePath
+            for q in fileoutput:
+                fileoutput[q]['isTraining'] = isTraining
+                for r in fileoutput[q]['related']:
+                    fileoutput[q]['related'][r]['isTraining'] = isTraining
             output.update(fileoutput)
         print("\nTotal of %s entries" % len(output))
         return output
@@ -86,8 +91,10 @@ class Loader:
                     RelCommentOutput['username'] = RelComment.attrib['RELC_USERNAME']
                     RelCommentOutput['comment'] = RelComment.find('RelCText').text
                     RelQuestionOutput['comments'][RelCommentOutput['id']] = RelCommentOutput
-                if RelQuestionOutput['question'] != None:
-                    OrgQuestions[OrgQuestionOutput['id']]['related'][RelQuestionOutput['id']] = RelQuestionOutput
+                #if RelQuestionOutput['question'] != None:
+                if RelQuestionOutput['question'] == None:
+                    RelQuestionOutput['question'] = ""
+                OrgQuestions[OrgQuestionOutput['id']]['related'][RelQuestionOutput['id']] = RelQuestionOutput
                 #else:
                     #print("Warning: skipping empty question " + RelQuestionOutput['id'])
         return OrgQuestions

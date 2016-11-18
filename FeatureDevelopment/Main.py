@@ -13,14 +13,19 @@
 
 
 from FeatureFinder import FeatureFinder
+from ClassifierFinder import ClassifierFinder
 from Loader import Loader
 from Preprocessor import Preprocessor
+from Merger import Merger
+from OutputFileWriter import OutputFileWriter
 from Features import *
+from Classifiers import *
 from utilities import ellips
-from Scorer import Scorer
 from pprint import pprint
 import pickle, sys
 import pandas
+
+pandas.set_option('display.width', 1000)
 
 # we can cache the output of the loader+preprocessor to disk, to avoid this performance hit
 # every time.  If the user wants to use the cached data, load it here and skip the loader+preprocessor
@@ -80,25 +85,35 @@ for r in firstquestion['related']:
 print('\nFeature Vector:')
 print(pandas.DataFrame(tempFeatures, columns=featureNames+['Label'], index=tempIndex))
 
-# Scoring
+# Classifiers
 
-print("\nComputing Perfectness\n")
-output = Scorer.perfectness(questions, featureNames)
-print('')
-pprint(output[0:20])
+classifiers = ClassifierFinder.getSelectedClassifierModules()
+classifications = pandas.DataFrame()
+print("")
+trainingQuestions = { k: v for k, v in questions.items() if v['isTraining'] }
+testingQuestions = { k: v for k, v in questions.items() if not v['isTraining'] }
 
-# Ranking
+for classifier in classifiers:
+    print("Running classifier '" + classifier + "'")
+    classifierClass = globals()[classifier].__dict__[classifier]()
+    classifications[classifier] = classifierClass.classify(trainingQuestions, testingQuestions, featureNames)
 
-print("\nRanking and Final Results current broken\n")
+print('\nSample entries from Classifiers combined output:')
+pprint(classifications[0:10])
 
-#print("\nRanking results\n")
-#Scorer.rank(questions)
+# Merge results of individual classifiers together to get final scores
 
-# Print Final Results
+print('\nMerging results')
+output = Merger.merge(classifications)
 
-#print("\nSample question ranking:")
-#firstquestion = questions[list(questions.keys())[0]]
-#for r in firstquestion['related']:
-#    print("%s correct=%s computed=%s" % (r, firstquestion['related'][r]['givenRank'], firstquestion['related'][r]['rank']))
+print('\nSample final results:')
+
+pprint(output[0:10])
+
+# Done!  Write scoring file.
+
+outputfile = 'output.pred'
+print('\nWriting output to ' + outputfile)
+OutputFileWriter.write(output, outputfile, questions)
 
 print("\nFinished")

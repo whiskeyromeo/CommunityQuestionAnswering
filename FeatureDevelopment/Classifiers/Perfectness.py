@@ -12,41 +12,18 @@ import itertools
 import numpy
 
 
-class Scorer:
+class Perfectness:
 
-    @staticmethod
-    def rank(questions):
-        for q in questions:
-            scores = []
-            for r in questions[q]['related']:
-                scores.append(questions[q]['related'][r]['similarity'])
-            scores = sorted(scores)
-            for r in questions[q]['related']:
-                questions[q]['related'][r]['rank'] = scores.index(questions[q]['related'][r]['similarity'])
-            # also redo the given ranks, since they skip steps
-            scores = []
-            for r in questions[q]['related']:
-                scores.append(questions[q]['related'][r]['givenRank'])
-            scores = sorted(scores)
-            for r in questions[q]['related']:
-                questions[q]['related'][r]['givenRank'] = scores.index(questions[q]['related'][r]['givenRank'])
-
-    @staticmethod
-    def perfectness(questions, FeatureNames):
-        questionCount = len(questions)
-        trainCount = round(questionCount * 0.75)
-        i = iter(questions.items())
-        trainingQuestions = dict(itertools.islice(i, trainCount))
-        testingQuestions = dict(i)
-        models = Scorer.train(trainingQuestions, FeatureNames)
-        output = Scorer.predict(testingQuestions, FeatureNames, models)
+    def classify(self, trainingQuestions, testingQuestions, FeatureNames):
+        models = self.train(trainingQuestions, FeatureNames)
+        output = self.predict(testingQuestions, FeatureNames, models)
+        output = output.mean(axis=1)
         return output
 
-    @staticmethod
-    def predict(questions, FeatureNames, models):
+    def predict(self, questions, FeatureNames, models):
         output = {}
-        index = Scorer.getIndex(questions)
-        featureMatrix = Scorer.getFeatureMatrix(questions, FeatureNames, index)
+        index = self.getIndex(questions)
+        featureMatrix = self.getFeatureMatrix(questions, FeatureNames, index)
         output = pandas.DataFrame()
         for name, model in models:
             print("Predicting with %s model" % name)
@@ -57,11 +34,10 @@ class Scorer:
             output[name] = pandas.Series(modelOutput, index=index)
         return output
 
-    @staticmethod
-    def train(questions, FeatureNames):
-        index = Scorer.getIndex(questions)
-        featureMatrix = Scorer.getFeatureMatrix(questions, FeatureNames, index)
-        labelVector = Scorer.getLabelVector(questions, index)
+    def train(self, questions, FeatureNames):
+        index = self.getIndex(questions)
+        featureMatrix = self.getFeatureMatrix(questions, FeatureNames, index)
+        labelVector = self.getLabelVector(questions, index)
 
         models = []
         models.append(('LR', LogisticRegression()))
@@ -77,8 +53,7 @@ class Scorer:
 
         return models
 
-    @staticmethod
-    def getFeatureMatrix(questions, names, index):
+    def getFeatureMatrix(self, questions, names, index):
         features = []
         for q in questions:
             for r in questions[q]['related']:
@@ -86,8 +61,7 @@ class Scorer:
         featuresDataFrame = pandas.DataFrame(features, index=index, columns=names)
         return featuresDataFrame
 
-    @staticmethod
-    def getLabelVector(questions, index):
+    def getLabelVector(self, questions, index):
         labels = []
         for q in questions:
             for r in questions[q]['related']:
@@ -99,8 +73,7 @@ class Scorer:
         labelDataFrame = pandas.DataFrame(labels, index=index, columns=['Label'])
         return labelDataFrame
 
-    @staticmethod
-    def getIndex(questions):
+    def getIndex(self, questions):
         index = []
         for q in questions:
             for r in questions[q]['related']:
