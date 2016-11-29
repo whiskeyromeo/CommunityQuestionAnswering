@@ -41,5 +41,5 @@ class ClassifierFinder:
 
     @staticmethod
     def pathToClassifierName(classifier):
-        parts = classifier.split("\\")
+        parts = classifier.split(os.sep)
         return parts.pop()[:-3]

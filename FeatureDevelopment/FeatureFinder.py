@@ -41,5 +41,5 @@ class FeatureFinder:
 
     @staticmethod
     def pathToFeatureName(feature):
-        parts = feature.split("\\")
+        parts = feature.split(os.sep)
         return parts.pop()[:-3]
