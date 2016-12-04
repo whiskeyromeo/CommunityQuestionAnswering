@@ -6,6 +6,7 @@
 
 import os, glob
 from utilities import argvalueexists, getargvalue
+from pprint import pprint
 
 
 class FeatureFinder:
@@ -16,6 +17,7 @@ class FeatureFinder:
     @staticmethod
     def getSelectedFeatureModules():
         featureDirectory = os.path.dirname(os.path.abspath(__file__)) + "/Features"
+        pprint(featureDirectory)
         directoryEntries = glob.glob(featureDirectory + "/[A-Z]*.py")
         allFeatures = list(map(FeatureFinder.pathToFeatureName, directoryEntries))
         features = FeatureFinder.filterByCommandlineArgument(allFeatures)

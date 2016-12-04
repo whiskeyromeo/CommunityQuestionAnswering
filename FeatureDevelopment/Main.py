@@ -57,7 +57,6 @@ for key in samplequestion:
         print("  " + key + " = " + ellips(str(samplequestion[key]), 80))
 
 # Feature Generators
-
 featureGenerators = FeatureFinder.getSelectedFeatureModules()
 featureNames = []
 print("")
@@ -104,7 +103,7 @@ pprint(classifications[0:10])
 # Merge results of individual classifiers together to get final scores
 
 print('\nMerging results')
-output = Merger.merge(classifications)
+output,LsiModel = Merger.merge(classifications)
 
 print('\nSample final results:')
 

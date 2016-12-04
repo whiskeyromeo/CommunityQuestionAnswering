@@ -6,7 +6,7 @@
 	__author__ = Will Russell
 
 """
-
+import pickle
 from gensim import corpora, models, similarities
 from six import iteritems
 from QuestionFileCreator import CreateFilePath, getQuestions, getComments, QuestionCleaner
@@ -78,6 +78,13 @@ def createLSIPredictionFile(filePath, dictionary, numFeatures=200, withStops=Tru
 	testQuestions = originalQuestionParser(filePath)
 	head, tail = os.path.split(filePath)
 	tail = tail.split('.')[0]
+	#Josh's mergeData
+	qid=[]
+	rqid=[]
+	index=[]
+	simval=[]
+	relevance=[]
+	mergeData = {'qid': qid, 'rqid': rqid, 'index': index, 'simval': simval, 'relevance': relevance}
 	if(withStops):
 		predFile = tail +'-lsi' + str(numFeatures) +'-with-stops.pred'
 	else:
@@ -111,11 +118,20 @@ def createLSIPredictionFile(filePath, dictionary, numFeatures=200, withStops=Tru
 			for idx, quest in enumerate(t_question['rel_questions']):
 				# Perform a similarity query against the corpus for each question to be ranked
 				quest['simVal'] = sims[idx]
+				#Save the data for Josh (Merger)
+				mergeData['qid'].append(t_question['quest_ID'])
+				mergeData['rqid'].append(quest['rel_quest_ID'])
+				mergeData['index'].append(idx)
+				mergeData['simval'].append(quest['simVal'])
+				mergeData['relevance'].append(quest['relevant'])
 				# Write out the values
 				writer.writerow([t_question['quest_ID'], quest['rel_quest_ID'], idx, quest['simVal'], quest['relevant']])
 
+	return mergeData
+
 # Create the LSI prediction files
-createLSIPredictionFile(origQfilePath, dictionary, 400, False)
+mergeData=createLSIPredictionFile(origQfilePath, dictionary, 400, False)
+pickle.dump(mergeData,open('.' + os.sep + 'tmp' + os.sep + 'LsiModel' + os.sep + 'mergeLsiData.dict', mode='wb'))
 createLSIPredictionFile(origQfilePath, dictionary, 400)
 
 
