@@ -1,5 +1,6 @@
 import os
 import this
+from pprint import pprint
 
 from pandas.io import pickle
 
@@ -14,9 +15,15 @@ class Merger:
     def merge(classificationsDataFrame):
         output = classificationsDataFrame.mean(axis=1)
         output = pandas.DataFrame(output)
-        output.columns = ['Score']
+        output.columns=['Score']
         dictionary=Merger.getLsiDict()
-        return output,dictionary
+        dictionary=pandas.DataFrame(dictionary)
+        dictionary.head(10)
+        dictionary=dictionary.set_index(['rqid'])
+        output=pandas.DataFrame.join(output,dictionary)
+        output.head(10)
+
+        return output
 
     @staticmethod
     def getLsiDict():

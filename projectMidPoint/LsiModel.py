@@ -131,7 +131,12 @@ def createLSIPredictionFile(filePath, dictionary, numFeatures=200, withStops=Tru
 
 # Create the LSI prediction files
 mergeData=createLSIPredictionFile(origQfilePath, dictionary, 400, False)
-pickle.dump(mergeData,open('.' + os.sep + 'tmp' + os.sep + 'LsiModel' + os.sep + 'mergeLsiData.dict', mode='wb'))
+temp=open('.' + os.sep + 'tmp' + os.sep + 'LsiModel' + os.sep + 'mergeLsiData.dict', mode='wb')
+pickle.dump(mergeData,temp)
+temp.close()
 createLSIPredictionFile(origQfilePath, dictionary, 400)
+temp=open('.' + os.sep + 'tmp' + os.sep + 'LsiModel' + os.sep + 'mergeLsiDataWstops.dict', mode='wb')
+pickle.dump(mergeData,temp)
+temp.close()
 
-
+print("\nFinished")

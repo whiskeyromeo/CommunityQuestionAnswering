@@ -103,7 +103,7 @@ pprint(classifications[0:10])
 # Merge results of individual classifiers together to get final scores
 
 print('\nMerging results')
-output,LsiModel = Merger.merge(classifications)
+output = Merger.merge(classifications)
 
 print('\nSample final results:')
 
