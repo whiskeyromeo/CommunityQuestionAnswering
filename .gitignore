@@ -9,3 +9,5 @@ runcounter.txt
 *.dict
 *.pickle
 *.pred
+*.json
+!questFileExample.json

@@ -4,7 +4,6 @@
 """
 
 from nltk.corpus import stopwords
-
 from gensim import utils
 from gensim.models import Doc2Vec
 from gensim.models.doc2vec import TaggedDocument, Doc2Vec
@@ -13,6 +12,7 @@ from random import shuffle
 from pprint import pprint
 import csv
 import re
+import nltk
 import logging
 import numpy
 import os

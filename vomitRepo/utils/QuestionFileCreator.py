@@ -144,4 +144,12 @@ def getComments(hashmap):
 	return comments
 
 
-
+def getQuestionsFromQTL(hashmap):
+	questions = []
+	for row in hashmap:
+		qData = {
+			"id": row["question_id"],
+			"question":row["question"]
+		}
+		questions.append(qData)
+	return questions
