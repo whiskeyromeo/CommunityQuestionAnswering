@@ -15,7 +15,13 @@ import pickle
 import nltk
 from pathlib import Path 
 
-from vectorTools import *
+sys.path.insert(0, os.path.abspath('..'))
+from crawler.jsonDumper import createObjectListFromJson
+from utils.sourceFiles import thisList
+from utils.QuestionFileCreator import getQuestionsFromQTL, getQuestions
+
+
+from vectorTools import buildQuestionMap, generateTokens, generateAvgVectors
 
 #Generate the dimensions for the word2vec model
 DIM = 600
@@ -29,7 +35,11 @@ NEGATIVE = 10
 	Need to generate a set of functions which can create a model based on the vocabulary derived from both the crawler json files and the xml files
 '''
 
-from word2vec1 import questions, qtlQuestions
+qtlQuestions = createObjectListFromJson('../crawler/data/questFileExample.json')
+qtlQuestions = getQuestionsFromQTL(qtlQuestions)
+generateTokens(qtlQuestions)
+questions = getQuestions(thisList)
+generateTokens(questions)
 
 questionList = []
 for q in questions:
@@ -43,4 +53,6 @@ model = Word2Vec(size=DIM, window=WINDOW, workers=WORKERS,hs=0,negative=NEGATIVE
 model.build_vocab(corpus())
 model.train(corpus())
 
+generateAvgVectors(model, questions, DIM)
+generateAvgVectors(model, qtlQuestions, DIM)
 

@@ -1,6 +1,8 @@
 from utils.QuestionFileCreator import QuestionCleaner
+from utils.cosineSimilarity import cosineSimilarity
 from nltk.corpus import stopwords
 import numpy as np
+import nltk
 
 def buildQuestionMap(questionList):
 	questions = QuestionCleaner(questionList)
@@ -8,6 +10,8 @@ def buildQuestionMap(questionList):
 	model = buildBasicW2VModel(questions)
 	generateAvgVectors(model, questions, 100)
 	return questions
+
+
 
 def generateTokens(questionList=[]):
 	stops = set(stopwords.words('english'))
@@ -32,4 +36,13 @@ def generateAvgVectors(model, questionList, numFeatures):
 		q['question_vector'] = generateQuestionVector(model, q['question_tokens'], numFeatures)
 
 
+
+def generateCosineSimilarities(testQuestion, questionList):
+	questionVectors = []
+	for q in questionList:
+		questionVectors.append(q['question_vector'])
+	sims = cosineSimilarity(testQuestion['question_vector'], questionVectors)
+	for i,sim in enumerate(sims):
+		questionList[i]['W2V_sim'] = sim
+	return questionList 
 
