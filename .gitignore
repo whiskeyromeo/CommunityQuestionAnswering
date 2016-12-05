@@ -8,6 +8,5 @@ runcounter.txt
 *.lsi.projection
 *.dict
 *.pickle
-*.pred
 *.json
 !questFileExample.json
