@@ -16,8 +16,9 @@ from nltk.corpus import stopwords
 import sys
 import os
 
-sys.path.insert(0, os.path.absPath('..'))
+sys.path.insert(0, os.path.abspath('..'))
 from utils.QuestionFileCreator import getQuestions, getComments, QuestionCleaner, prepModelFolder, initializeLog
+from utils.QuestionFileCreator import getQuestionsFromQTL, QTLQuestionCreator
 from utils.sourceFiles import thisList, origQfilePath
 from D2V.doc2vec1 import createPredictionFile
 
@@ -62,7 +63,14 @@ def prepModel(mod_questions, size=300, window=7, minCount=5, workers=4):
 	model.save('./tmp/'+ model_name)
 	return model
 
+
+qtlFiles = ['../crawler/data/questFile.json',
+			'../crawler/data/questFile2.json']
+
+QTLQuestions = QTLQuestionCreator(qtlFiles)
+
 questions = getQuestions(thisList)
+questions += getQuestionsFromQTL(QTLQuestions)
 #questions += getComments(thisList)
 mod_questions = prepLabeledSentList(questions, True)
 model = prepModel(mod_questions)

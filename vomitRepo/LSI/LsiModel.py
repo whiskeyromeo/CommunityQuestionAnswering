@@ -8,7 +8,7 @@ import csv
 import sys
 
 sys.path.insert(0, os.path.abspath('..'))
-from utils.QuestionFileCreator import CreateFilePath, getQuestions, getComments, QuestionCleaner, prepModelFolder, initializeLog
+from utils.QuestionFileCreator import CreateFilePath, QTLQuestionCreator, getQuestions, getQuestionsFromQTL, getComments, QuestionCleaner, prepModelFolder, initializeLog
 from utils.elementParser import elementParser, originalQuestionParser
 from utils.sourceFiles import thisList, origQfilePath
 
@@ -19,8 +19,15 @@ new_dest = CreateFilePath('LsiModel')
 
 stops = set(stopwords.words('english'))
 
+qtlFiles = ['../crawler/data/questFile.json',
+			'../crawler/data/questFile2.json']
+
+QTLQuestions = QTLQuestionCreator(qtlFiles)
+
 sources = QuestionCleaner(getQuestions(thisList))
 sources += QuestionCleaner(getComments(thisList))
+sources += QuestionCleaner(getQuestionsFromQTL(QTLQuestions))
+
 
 # Dictionary is generated based on the question content of thisList
 dictionary = corpora.Dictionary(line['question'].lower().split() for line in sources)

@@ -4,6 +4,7 @@ import re
 import logging
 
 from utils.elementParser import elementParser
+from crawler.jsonDumper import createObjectListFromJson
 
 #Create the log for each time the compile goes down
 def initializeLog():
@@ -30,6 +31,14 @@ def QuestionCreator(filePaths = []):
 	for row in thisList:
 		questions.append(row['question'])
 	return questions
+
+
+def QTLQuestionCreator(filePaths=[]):
+	questionList = []
+	for filePath in filePaths:
+		questionList += createObjectListFromJson(filePath)
+	return questionList
+
 
 '''
 	QuestionFileReader takes the name of a file which is comprised of questions
@@ -132,6 +141,7 @@ def getQuestions(hashmap):
 		questions.append(qData)
 	return questions
 
+
 def getComments(hashmap):
 	comments = []
 	for row in hashmap:
@@ -142,6 +152,8 @@ def getComments(hashmap):
 			}
 			comments.append(cData)
 	return comments
+
+
 
 
 def getQuestionsFromQTL(hashmap):
