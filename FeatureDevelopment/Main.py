@@ -95,7 +95,7 @@ testingQuestions = { k: v for k, v in questions.items() if not v['isTraining'] }
 for classifier in classifiers:
     print("Running classifier '" + classifier + "'")
     classifierClass = globals()[classifier].__dict__[classifier]()
-    classifications[classifier] = classifierClass.classify(trainingQuestions, testingQuestions, featureNames)
+    classifications[classifier],separatedOutput = classifierClass.classify(trainingQuestions, testingQuestions, featureNames)
 
 print('\nSample entries from Classifiers combined output:')
 pprint(classifications[0:10])
@@ -103,9 +103,9 @@ pprint(classifications[0:10])
 # Merge results of individual classifiers together to get final scores
 
 print('\nMerging results')
-output = Merger.merge(classifications)
+output = Merger.merge(classifications,separatedOutput)
 
-print('\nSample final results:')
+print('\nJoined data frames on QID_RQID:')
 
 pprint(output[0:10])
 

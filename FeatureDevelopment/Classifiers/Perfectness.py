@@ -17,8 +17,9 @@ class Perfectness:
     def classify(self, trainingQuestions, testingQuestions, FeatureNames):
         models = self.train(trainingQuestions, FeatureNames)
         output = self.predict(testingQuestions, FeatureNames, models)
+        separatedOutput=output
         output = output.mean(axis=1)
-        return output
+        return output,separatedOutput
 
     def predict(self, questions, FeatureNames, models):
         output = {}

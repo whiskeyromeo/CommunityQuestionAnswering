@@ -12,17 +12,16 @@ from gensim import *
 class Merger:
 
     @staticmethod
-    def merge(classificationsDataFrame):
+    def merge(classificationsDataFrame,separatedOutput):
         output = classificationsDataFrame.mean(axis=1)
         output = pandas.DataFrame(output)
         output.columns=['Score']
         dictionary=Merger.getLsiDict()
         dictionary=pandas.DataFrame(dictionary)
-        dictionary.head(10)
+        print("Data frame of incoming Lsi data: ")
+        pprint(dictionary.head(10))
         dictionary=dictionary.set_index(['rqid'])
         output=pandas.DataFrame.join(output,dictionary)
-        output.head(10)
-
         return output
 
     @staticmethod
