@@ -24,6 +24,7 @@ from utilities import ellips
 from pprint import pprint
 import pickle, sys
 import pandas
+import time
 
 pandas.set_option('display.width', 1000)
 
@@ -65,10 +66,20 @@ for feature in featureGenerators:
     featureClass = globals()[feature].__dict__[feature]()
     featureClass.init(questions)
     featureNames += featureClass.getFeatureNames()
+    # control=1
+    if feature=='NER':
+        print("Start NER:  ",time.asctime(time.localtime(time.time())))
     for q in questions:
-        questions[q]['featureVector'] += featureClass.createFeatureVector(questions[q], questions[q])
+        if not feature=='NER':
+            questions[q]['featureVector'] += featureClass.createFeatureVector(questions[q], questions[q])
         for r in questions[q]['related']:
             questions[q]['related'][r]['featureVector'] += featureClass.createFeatureVector(questions[q]['related'][r], questions[q])
+            # control=control+1
+            # if feature=='NER' and control:
+            #     questions[q]['featureVector']+=questions[q]['related'][r]['featureVector']
+    if feature == 'NER':
+        print("End NER:  ",time.asctime(time.localtime(time.time())))
+
 
 # Print Initial Results
 
