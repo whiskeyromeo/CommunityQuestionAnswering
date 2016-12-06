@@ -1,5 +1,6 @@
 import nltk
 from nltk import *
+from nltk.tag import StanfordNERTagger
 
 class NER:
 
@@ -7,6 +8,7 @@ class NER:
     # dataset is passed as a parameter, in case the initialization requires any of that data.
 
     def init(self, allQuestions):
+        nerMachine=StanfordNERTagger('english.all.3class')
         return
 
     # Given a specific question, return a feature vector (one-dimensional array of one

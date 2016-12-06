@@ -24,7 +24,6 @@ class Merger:
         output=pandas.DataFrame.join(output,dictionary)
         output["Score"]=((output["Score"])+(output["simval"]))
         print('\nJoined data frames on QID_RQID and counted lsi with twice weight of doc2vec:')
-        # output=output.__delitem__('')
         pprint(output[0:10])
         return output
 
