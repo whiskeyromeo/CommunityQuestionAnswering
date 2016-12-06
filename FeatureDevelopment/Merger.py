@@ -12,7 +12,7 @@ from gensim import *
 class Merger:
 
     @staticmethod
-    def merge(classificationsDataFrame,separatedOutput):
+    def merge(classificationsDataFrame):
         output = classificationsDataFrame.mean(axis=1)
         output = pandas.DataFrame(output)
         output.columns=['Score']
@@ -22,6 +22,10 @@ class Merger:
         pprint(dictionary.head(10))
         dictionary=dictionary.set_index(['rqid'])
         output=pandas.DataFrame.join(output,dictionary)
+        output["Score"]=((output["Score"])+(output["simval"]))
+        print('\nJoined data frames on QID_RQID and counted lsi with twice weight of doc2vec:')
+        # output=output.__delitem__('')
+        pprint(output[0:10])
         return output
 
     @staticmethod
