@@ -73,9 +73,10 @@ for feature in featureGenerators:
         if not feature=='NER':
             questions[q]['featureVector'] += featureClass.createFeatureVector(questions[q], questions[q])
         for r in questions[q]['related']:
-            questions[q]['related'][r]['featureVector'] += featureClass.createFeatureVector(questions[q]['related'][r], questions[q])
+            tempNer=featureClass.createFeatureVector(questions[q]['related'][r], questions[q])
+            questions[q]['related'][r]['featureVector'] += tempNer
             if feature=='NER':
-                questions[q]['featureVector'] += questions[q]['related'][r]['featureVector']
+                questions[q]['featureVector'] += tempNer
             # control=control+1
             # if feature=='NER' and control:
             #     questions[q]['featureVector']+=questions[q]['related'][r]['featureVector']

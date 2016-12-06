@@ -5,6 +5,11 @@ import os
 
 from utilities import forEachQuestion
 
+"""
+Environment variables must be set(be aware of os dependent slashes):
+STANFORD_MODELS=./Features/stanford-ner-2014-06-16/classifiers/;
+CLASSPATH=./Features/stanford-ner-2014-06-16/stanford-ner.jar
+"""
 
 class NER:
 
