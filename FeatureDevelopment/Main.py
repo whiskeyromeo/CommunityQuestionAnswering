@@ -24,6 +24,7 @@ from utilities import ellips
 from pprint import pprint
 import pickle, sys
 import pandas
+import time
 
 pandas.set_option('display.width', 1000)
 
@@ -57,7 +58,6 @@ for key in samplequestion:
         print("  " + key + " = " + ellips(str(samplequestion[key]), 80))
 
 # Feature Generators
-
 featureGenerators = FeatureFinder.getSelectedFeatureModules()
 featureNames = []
 print("")
@@ -66,10 +66,25 @@ for feature in featureGenerators:
     featureClass = globals()[feature].__dict__[feature]()
     featureClass.init(questions)
     featureNames += featureClass.getFeatureNames()
+    # control=1
+    if feature=='NER':
+        print("Start NER:  ",time.asctime(time.localtime(time.time())))
     for q in questions:
-        questions[q]['featureVector'] += featureClass.createFeatureVector(questions[q], questions[q])
+        if not feature=='NER':
+            questions[q]['featureVector'] += featureClass.createFeatureVector(questions[q], questions[q])
+        # else: control=1
         for r in questions[q]['related']:
-            questions[q]['related'][r]['featureVector'] += featureClass.createFeatureVector(questions[q]['related'][r], questions[q])
+            tempNer=featureClass.createFeatureVector(questions[q]['related'][r], questions[q])
+            questions[q]['related'][r]['featureVector'] += tempNer
+            # if feature=='NER' and control==1:
+            #     questions[q]['featureVector'] += tempNer
+            #     control=2
+            # control=control+1
+            # if feature=='NER' and control:
+            #     questions[q]['featureVector']+=questions[q]['related'][r]['featureVector']
+    if feature == 'NER':
+        print("End NER:  ",time.asctime(time.localtime(time.time())))
+
 
 # Print Initial Results
 
@@ -105,10 +120,6 @@ pprint(classifications[0:10])
 
 print('\nMerging results')
 output = Merger.merge(classifications)
-
-print('\nSample final results:')
-
-pprint(output[0:10])
 
 # Done!  Write scoring file.
 

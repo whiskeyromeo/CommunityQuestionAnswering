@@ -4,6 +4,7 @@ import re
 import logging
 
 from utils.elementParser import elementParser
+from crawler.jsonDumper import createObjectListFromJson
 
 #Create the log for each time the compile goes down
 def initializeLog():
@@ -30,6 +31,14 @@ def QuestionCreator(filePaths = []):
 	for row in thisList:
 		questions.append(row['question'])
 	return questions
+
+
+def QTLQuestionCreator(filePaths=[]):
+	questionList = []
+	for filePath in filePaths:
+		questionList += createObjectListFromJson(filePath)
+	return questionList
+
 
 '''
 	QuestionFileReader takes the name of a file which is comprised of questions
@@ -99,6 +108,15 @@ def QuestionCleaner(questions = []):
 	return questions
 
 '''
+	Removes all punctuation from a given sentence
+'''
+def filterPunctuation(sentence):
+	sentence = re.sub('[^\w\s]', ' ', sentence)
+	sentence = re.sub('[\s+]', ' ', sentence)
+	return sentence
+
+
+'''
 	Takes a string to be used for the name of a textfile and a list of questions
 	Creates a file based on the list of questions with each one of the questions
 	being on a single row. 
@@ -120,11 +138,11 @@ def CleanQuestionFileCreator(filename, questions):
 
 
 '''
-	Creates a hashmap out of the questions and threadIds from the elementParser hash output
+	Creates a list of hashes out of the questions and threadIds from the elementParser hash output
 '''
-def getQuestions(hashmap):
+def getQuestions(hashlist):
 	questions = []
-	for row in hashmap:
+	for row in hashlist:
 		qData = {
 			"id": row["threadId"],
 			"question": row["question"] 
@@ -132,15 +150,39 @@ def getQuestions(hashmap):
 		questions.append(qData)
 	return questions
 
-def getComments(hashmap):
+
+def getComments(hashlist):
 	comments = []
-	for row in hashmap:
+	for row in hashlist:
 		for comment in row['comments']:	
 			cData = {
 				"id": comment["comment_id"],
 				"question": comment["comment"]
 			}
 			comments.append(cData)
+	return comments
+
+
+def getQuestionsFromQTL(hashlist):
+	questions = []
+	for row in hashlist:
+		qData = {
+			"id": row["question_id"],
+			"question":row["question"]
+		}
+		questions.append(qData)
+	return questions
+
+def getCommentsFromQTL(hashlist):
+	comments = []
+	for row in hashlist:
+		if 'comments' in row:
+			for c in row['comments']:
+				cData = {
+					"id": c['id'],
+					"comment": c['comment']
+				}
+				comments.append(cData)
 	return comments
 
 

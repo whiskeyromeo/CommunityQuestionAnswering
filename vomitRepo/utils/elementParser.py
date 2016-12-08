@@ -1,6 +1,7 @@
 
 import xml.etree.ElementTree as ElementTree
-
+import re
+import json
 
 def getValues(tree, category):
     parent = tree.find(".//parent[@name='%s']" % category)
@@ -96,6 +97,22 @@ def originalQuestionParser(filepath):
 		relQuestions.append(relQuestion)
 		formerQuestionID = currentQuestionID
 	return questList
+
+'''
+	Creates a list of hashes based on the crawler data
+'''
+def createObjectListFromJson(filepath):
+	someList = []
+	with open(filepath) as f:
+		for line in f:
+			data = json.loads(line)
+			data['question'] = data['question'].replace(u'\xa0', u' ')
+			data['subject'] = data['subject'].replace(u'\xa0', u' ')
+			if('comments' in data):
+				for c in data['comments']:
+					c['comment'] = c['comment'].replace(u'\xa0', u' ')
+			someList.append(data)
+		return someList
 
 
 '''

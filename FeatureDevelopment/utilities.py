@@ -9,7 +9,8 @@ def getargvalue(name, required):
     if required and not output:
         raise Exception("Required argument " + name + " not found in sys.argv")
     return output
-
+from scipy import spatial
+import math
 
 def argvalueexists(name):
     output = False
@@ -31,3 +32,31 @@ def ellips(text, length):
         return text[:60] + "..."
     else:
         return text
+
+
+def cosineSimilarity(questionNew=[], relatedQuestion=[]):
+
+    '''dot product of two lists'''
+
+    def dotProduct(x=[], y=[]):
+        total = 0
+        for component, element in zip(x, y):
+            prod = component * element
+            total = total + prod
+        return total
+
+    '''sum of the squares of vector components'''
+
+    def sumSquares(x=[]):
+        total = 0
+        for component in x:
+            sqr = component * component
+            total = total + sqr
+        return total
+
+    '''main method'''
+    numerator = dotProduct(questionNew, relatedQuestion)
+    denominator = math.sqrt(sumSquares(questionNew)) * math.sqrt(sumSquares(relatedQuestion))
+    cosineSimilarity = numerator / denominator
+
+    return cosineSimilarity

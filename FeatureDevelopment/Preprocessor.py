@@ -1,13 +1,15 @@
 import nltk
 from utilities import forEachQuestion
-
+import re
 
 class Preprocessor:
 
 
     @staticmethod
     def preprocessQuestions(questions):
-        print("\nPreprocessor: words")
+        print("\nPreprocessor: remove punctuation")
+        forEachQuestion(questions, Preprocessor.removePunctuation)
+        print("Preprocessor: words")
         forEachQuestion(questions, Preprocessor.addWords)
         print("Preprocessor: stopwords")
         forEachQuestion(questions, Preprocessor.removeStopwords)
@@ -17,9 +19,14 @@ class Preprocessor:
         forEachQuestion(questions, Preprocessor.addBigrams)
         print("Preprocessor: trigrams")
         forEachQuestion(questions, Preprocessor.addTrigrams)
-
+        
 
     # This should augment the QA tree with bigram distributions for each question
+    @staticmethod
+    def removePunctuation(question):
+        question['question_clean'] = re.sub('[^\w\s]', ' ', question['question'])
+        question['question_clean'] = re.sub('[\s+]', ' ', question['question'])
+
     @staticmethod
     def addBigrams(question):
         question['question_bigram_list'] = list(nltk.bigrams(question['question_words']))
@@ -53,3 +60,4 @@ class Preprocessor:
     @staticmethod
     def addWords(question):
         question['question_words'] = nltk.word_tokenize(question['question'])
+   
