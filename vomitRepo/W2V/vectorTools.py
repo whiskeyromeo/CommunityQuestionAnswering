@@ -4,6 +4,21 @@ from nltk.corpus import stopwords
 import numpy as np
 import nltk
 
+'''
+Should generalize the files here to work on documents
+rather than questions or comments.
+That way there is no confusion when applying them
+to the relevant datasets
+questions are documents
+comments are documents
+a list of either is a list of documents
+
+looking for word_tokens rather than question_tokens
+looking for doc_vectors rather than question_vectors
+
+
+'''
+
 def buildQuestionMap(questionList):
 	questions = QuestionCleaner(questionList)
 	generateTokens(questions)
@@ -18,7 +33,7 @@ def generateTokens(questionList=[]):
 	for i,q in enumerate(questionList):
 		split = nltk.word_tokenize(q['question'].lower())
 		split = [w for w in split if w not in stops]
-		q['question_tokens'] = split
+		q['word_tokens'] = split
 
 def generateQuestionVector(model, question, numFeatures):
 	featureVec = np.zeros((numFeatures,),dtype="float32")
@@ -33,7 +48,7 @@ def generateQuestionVector(model, question, numFeatures):
 
 def generateAvgVectors(model, questionList, numFeatures):
 	for q in questionList:
-		q['question_vector'] = generateQuestionVector(model, q['question_tokens'], numFeatures)
+		q['question_vector'] = generateQuestionVector(model, q['word_tokens'], numFeatures)
 
 
 

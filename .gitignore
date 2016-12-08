@@ -10,3 +10,4 @@ runcounter.txt
 *.pickle
 *.json
 !questFileExample.json
+*.p

@@ -1,3 +1,5 @@
 logs/*.*
 tmp/*.*
 *.pyc
+*.p
+*.pickle
