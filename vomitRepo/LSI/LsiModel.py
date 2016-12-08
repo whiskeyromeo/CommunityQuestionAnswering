@@ -23,46 +23,50 @@ stops = set(stopwords.words('english'))
 if not os.path.isdir('tmp'):
 	os.makedirs('tmp')
 
-# Create dictionary based on SemEval Questions
-if(Path("./tmp/LSIModel-Sem").is_file()):
-	print('SemEval Question Dictionary Found')
-	SemDictionary = dictionary.load('./LSIModel-Sem.dict')
-else:
-	print('Creating SemEval Dictionary...')
-	sources = filterPunctuation(DP.getQuestions(thisList))
-	SemDictionary = createDictionary(sources, 'Sem')
+def generateDictionaries():
+	# Create dictionary based on SemEval Questions
+	if(Path("./tmp/LSIModel-Sem").is_file()):
+		print('SemEval Question Dictionary Found')
+		SemDictionary = dictionary.load('./LSIModel-Sem.dict')
+	else:
+		print('Creating SemEval Dictionary...')
+		sources = filterPunctuation(DP.getQuestions(thisList))
+		SemDictionary = createDictionary(sources, 'Sem')
 
-# Create Dictionary based on SemEval Question + Comments
-if(Path("./tmp/LSIModel-SemC").is_file()):
-	print('SemEval Question/Comment Dictionary Found')
-	SemCDictionary = dictionary.load('./LSIModel-SemC.dict')
-else:
-	print('Creating SemEval Question/Comment Dictionary...')
-	sources = filterPunctuation(DP.getQuestions(thisList))
-	sources += filterPunctuation(DP.getComments(thisList))
-	SemCDictionary = createDictionary(sources, 'SemC')
+	# Create Dictionary based on SemEval Question + Comments
+	if(Path("./tmp/LSIModel-SemC").is_file()):
+		print('SemEval Question/Comment Dictionary Found')
+		SemCDictionary = dictionary.load('./LSIModel-SemC.dict')
+	else:
+		print('Creating SemEval Question/Comment Dictionary...')
+		sources = filterPunctuation(DP.getQuestions(thisList))
+		sources += filterPunctuation(DP.getComments(thisList))
+		SemCDictionary = createDictionary(sources, 'SemC')
 
-# Create Dictionary based on SemEval Questions + Crawler Questions
-if(Path("./tmp/LSIModel-QTL").is_file()):
-	print('QatarLiving + SemEval Dictionary Found')
-	QTLDictionary = dictionary.load('./LSIModel-QTL.dict')
-else:
-	print('Creating QatarLiving + SemEval Question Dictionary...')
-	sources = filterPunctuation(DP.combineDocumentData(thisList, QTL_List))
-	QTLDictionary = createDictionary(sources, 'QTL')
+	# Create Dictionary based on SemEval Questions + Crawler Questions
+	if(Path("./tmp/LSIModel-QTL").is_file()):
+		print('QatarLiving + SemEval Dictionary Found')
+		QTLDictionary = dictionary.load('./LSIModel-QTL.dict')
+	else:
+		print('Creating QatarLiving + SemEval Question Dictionary...')
+		sources = filterPunctuation(DP.combineDocumentData(thisList, QTL_List))
+		QTLDictionary = createDictionary(sources, 'QTL')
 
-# Create Dictionary based on SemEval Questions+Comments and Crawler Question+Comments
-if(Path("./tmp/LSIModel-QTLC").is_file()):
-	print('QatarLiving + SemEval Question/Comment Dictionary Found')
-	QTLCDictionary = dictionary.load('./LSIModel-QTLC.dict')
-else:
-	print('Creating QatarLiving + SemEval Question/Comment Dictionary...')
-	sources = filterPunctuation(DP.combineDocumentData(thisList, QTL_List, True))
-	QTLCDictionary = createDictionary(sources, 'QTLC')
+	# Create Dictionary based on SemEval Questions+Comments and Crawler Question+Comments
+	if(Path("./tmp/LSIModel-QTLC").is_file()):
+		print('QatarLiving + SemEval Question/Comment Dictionary Found')
+		QTLCDictionary = dictionary.load('./LSIModel-QTLC.dict')
+	else:
+		print('Creating QatarLiving + SemEval Question/Comment Dictionary...')
+		sources = filterPunctuation(DP.combineDocumentData(thisList, QTL_List, True))
+		QTLCDictionary = createDictionary(sources, 'QTLC')
+	return SemDictionary, SemCDictionary, QTLDictionary, QTLCDictionary
 
 
+SemDictionary, SemCDictionary, QTLDictionary, QTLCDictionary = generateDictionaries()
 
-def createDictionary(sources, fileTag=''):
+
+def createDictionary(sources, fileName="LSIModel", fileTag=''):
 	dictionary = corpora.Dictionary(line['question'].lower().word_tokenize() for line in sources)
 	stop_ids = [dictionary.token2id[stopword] for stopword in stops if stopword in dictionary.token2id]
 	once_ids = [tokenid for tokenid, docfreq in iteritems(dictionary.dfs) if docfreq == 1]
@@ -70,7 +74,7 @@ def createDictionary(sources, fileTag=''):
 	dictionary.compactify()
 	if(len(fileTag) > 0):
 		fileTag = '-' + fileTag
-	filename = 'LSIModel' + fileTag + '.dict'
+	filename = fileName + fileTag + '.dict'
 	dictionary.save('tmp/' + filename)
 	return dictionary
 
