@@ -1,7 +1,8 @@
 import os
+from pathlib import Path
 import this
 from pprint import pprint
-
+from subprocess import call
 from pandas.io import pickle
 
 from utilities import *
@@ -29,5 +30,11 @@ class Merger:
 
     @staticmethod
     def getLsiDict():
-        dictionary=pickle.read_pickle('..'+os.sep + "projectMidPoint" + os.sep + "tmp" + os.sep + "LsiModel" + os.sep + "mergeLsiData.dict")
+        externalFilePath = '..' + os.sep + "projectMidPoint" + os.sep + "tmp" + os.sep + "LsiModel" + os.sep + "mergeLsiData.dict"
+        externalFile = Path(externalFilePath)
+        if not externalFile.is_file():
+            print("Running Will's LSI Model\n")
+            os.chdir('..' + os.sep + "projectMidPoint" + os.sep)
+            call(["python", "LsiModel.py"])
+        dictionary=pickle.read_pickle(externalFilePath)
         return dictionary
