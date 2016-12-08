@@ -17,13 +17,14 @@ class Merger:
         output = classificationsDataFrame.mean(axis=1)
         output = pandas.DataFrame(output)
         output.columns=['Score']
+        pprint(output[0:10])
         dictionary=Merger.getLsiDict()
         dictionary=pandas.DataFrame(dictionary)
         print("Data frame of incoming Lsi data: ")
         pprint(dictionary.head(10))
         dictionary=dictionary.set_index(['rqid'])
         output=pandas.DataFrame.join(output,dictionary)
-        output["Score"]=((output["Score"])+(output["simval"]))
+        output["WeightedScore"]=((output["Score"])+(output["simval"]))
         print('\nJoined data frames on QID_RQID and counted lsi with twice weight of doc2vec:')
         pprint(output[0:10])
         return output

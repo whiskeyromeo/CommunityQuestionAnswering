@@ -12,7 +12,7 @@ class OutputFileWriter:
         with open(outputFilename, "w") as tsvfile:
             writer = csv.writer(tsvfile, delimiter="\t")
             for id, values in output.iterrows():
-                score = values['Score']
+                score = values['WeightedScore']
                 qid = id.split('_')[0]
                 question = questions[qid]['related'][id]
                 if question['givenRelevance'] == 'PerfectMatch' or question['givenRelevance'] == 'Relevant':
