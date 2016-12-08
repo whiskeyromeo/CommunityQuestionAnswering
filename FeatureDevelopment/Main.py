@@ -66,24 +66,11 @@ for feature in featureGenerators:
     featureClass = globals()[feature].__dict__[feature]()
     featureClass.init(questions)
     featureNames += featureClass.getFeatureNames()
-    # control=1
-    if feature=='NER':
-        print("Start NER:  ",time.asctime(time.localtime(time.time())))
     for q in questions:
-        if not feature=='NER':
-            questions[q]['featureVector'] += featureClass.createFeatureVector(questions[q], questions[q])
-        # else: control=1
+        questions[q]['featureVector'] += featureClass.createFeatureVector(questions[q], questions[q])
         for r in questions[q]['related']:
             tempNer=featureClass.createFeatureVector(questions[q]['related'][r], questions[q])
             questions[q]['related'][r]['featureVector'] += tempNer
-            # if feature=='NER' and control==1:
-            #     questions[q]['featureVector'] += tempNer
-            #     control=2
-            # control=control+1
-            # if feature=='NER' and control:
-            #     questions[q]['featureVector']+=questions[q]['related'][r]['featureVector']
-    if feature == 'NER':
-        print("End NER:  ",time.asctime(time.localtime(time.time())))
 
 
 # Print Initial Results
