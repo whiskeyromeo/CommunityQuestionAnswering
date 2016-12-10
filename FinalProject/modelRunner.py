@@ -13,10 +13,11 @@ for file in glob.glob('*.pred'):
 print('###################################')
 print('Getting Ready to run experiments')
 print('here we go...')
-print('###################################')
 
 os.chdir('..')
 for file in filenames:
+	print('###################################')
+	print(file)
 	if 'subtaskA' in file:
 		os.system("gnome-terminal -e 'bash -c \"python ./scorer/MAP_scripts/ev.py ./scorer/SemEval2016-Task3-CQA-QL-dev-subtaskA.xml.subtaskA.relevancy ./models/" + file +";exec bash\"'")
 	else:
