@@ -2,6 +2,7 @@ import nltk
 from nltk import *
 from nltk.tag import StanfordNERTagger
 import os
+import time
 
 from utilities import forEachQuestion
 
@@ -17,7 +18,30 @@ class NER:
     # dataset is passed as a parameter, in case the initialization requires any of that data.
 
     def init(self,allQuestions):
+        os.environ["STANFORD_MODELS"] = "./Features/stanford-ner-2014-06-16/classifiers/"
+        os.environ["CLASSPATH"] = "./Features/stanford-ner-2014-06-16/stanford-ner.jar"
         self.nerMachine=StanfordNERTagger('english.all.3class.distsim.crf.ser.gz')
+
+        sentences = []
+        ids = []
+        for q in allQuestions:
+            ids.append("Q" + allQuestions[q]['id'])
+            sentences.append(allQuestions[q]['question_words'])
+            for r in allQuestions[q]['related']:
+                ids.append("R" + allQuestions[q]['related'][r]['id'])
+                sentences.append(allQuestions[q]['related'][r]['question_words'])
+
+        tagged = self.nerMachine.tag_sents(sentences)
+
+        for i in range(0, len(ids)):
+            id = ids[i]
+            if id[0] == 'Q':
+                qid = id[1:]
+                allQuestions[qid]['ner'] = tagged[i]
+            else:
+                rid = id[1:]
+                allQuestions[qid]['related'][rid]['ner'] = tagged[i]
+
         return
 
     # Given a specific question, return a feature vector (one-dimensional array of one
@@ -25,8 +49,10 @@ class NER:
     def createFeatureVector(self, question, parentQuestion):
         # This is just placeholder code - insert code that actually generates a feature vector here
         # for the given question, and then return that feature vector instead of [0].
-        question['ner']=self.nerMachine.tag(question['question_words'])
-        parentQuestion['ner'] = self.nerMachine.tag(parentQuestion['question_words'])
+        #question['ner']=self.nerMachine.tag(question['question_words'])
+        #parentQuestion['ner'] = self.nerMachine.tag(parentQuestion['question_words'])
+        #pprint(question['question_words'])
+        #pprint(question['ner'])
         # print(question['ner'])
         # print(parentQuestion['ner'])
         qNer=[]
@@ -38,6 +64,7 @@ class NER:
                 if not j[1] == 'O':
                     pNer.append(str.lower(j[0]))
         feature = len(list(set(qNer).intersection(pNer)))
+
         # for i in parentQuestion['ner']:
         #     if not i[1]=='O':
         #         pNer.append(str.lower(i[0]))
