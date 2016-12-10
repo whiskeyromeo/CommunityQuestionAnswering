@@ -24,6 +24,3 @@ for file in filenames:
 
 
 os.system("gnome-terminal -e 'bash -c \"sl; exec bash\"'")
-
-
-def outputFilename(filename):
