@@ -41,5 +41,7 @@ for file in filenames:
 	else:
 		os.system("gnome-terminal -e 'bash -c \"python ./scorer/MAP_scripts/ev.py ./scorer/SemEval2016-Task3-CQA-QL-dev.xml.subtaskB.relevancy ./models/" + file +";exec bash\"'")
 		raw_input()
+
+
 os.system("gnome-terminal -e 'bash -c \"sl; exec bash\"'")
 print('All prediction files executed. Have a nice day.')

@@ -30,6 +30,7 @@ In order to achieve this we have used two different methods so far, Latent Seman
 > accuracy of the question-question similarity, as well as work on question-comment similarity.
 
 ###Method
+>  <b>SubTask B</b>
 >	In order to determine related questions, we first created a term frequency-inverse document
 > frequency matrix, where the questions were columns and vocabulary were rows.  We then
 > performed latent semantic indexing on this matrix and then calculated the cosine similarity
@@ -38,6 +39,18 @@ In order to achieve this we have used two different methods so far, Latent Seman
 > gave us slightly better results than Doc2Vec.  Finally, the Cosine Similarity was calculated on the vectors
 > found using LSI, which gave us scores corresponding to the vectors.  From these scores, we were able to
 > determine which questions ranked most similar to a question.
+> 
+> 
+> <b>SubTask A</b>
+>    We followed much of the same line of though in the approach to Subtask A as we did in Subtask B, which 
+> the exception that we incorporated data pulled from the QatarLiving site via a webCrawler and also developed 
+> a model based on averaging of word vectors obtained using Word2Vec to establish document vectors. This was found
+> to provide better results than when using Doc2Vec in this task, however this did not carry over to Subtask B. We
+> were not able to employ LSI on this subtask as there is a bug in the code for applying the LSI model
+> which we have not yet been able to sort out. 
+> 
+>
+
 
 
 ###Tasks
