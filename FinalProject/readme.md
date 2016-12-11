@@ -150,7 +150,7 @@ The Results included are those from the most recent run of the models included i
 			<td>SemEval+Crawler Questions/Comments with stopwords</td>
 			<td>SubTask B </td>
 		</tr>
-		<tr>
+		<tr style="background-color: lightgreen">
 			<td>11</td>
 			<td>LSI</td>
 			<td>0.6480</td>
@@ -206,7 +206,7 @@ The Results included are those from the most recent run of the models included i
 			<td>SemEval Questions</td>
 			<td>SubTask B - with stopwords</td>
 		</tr>
-		<tr>
+		<tr style="background-color: lightblue">
 			<td>19</td>
 			<td>Word2Vec</td>
 			<td>0.5389</td>
