@@ -19,8 +19,9 @@ echo "Checking build system"
 
 dpkg -l | grep build-essential | grep ii > /dev/null
 if [[ "$?" == "1" ]]; then
-    echo "Please run the following command, and then re-run this script:"
+    echo "Please run the following commands, and then re-run this script:"
     echo "  sudo apt-get install build-essential"
+    echo "  sudo apt-get install sl"
     exit 1
 fi
 

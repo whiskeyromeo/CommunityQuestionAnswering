@@ -1,4 +1,6 @@
-
+'''
+	__authors__ = Will Russell, Josh Ramer
+'''
 import xml.etree.ElementTree as ElementTree
 import re
 import json

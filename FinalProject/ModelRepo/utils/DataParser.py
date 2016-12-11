@@ -1,3 +1,9 @@
+'''
+ __author__ = Will Russell
+
+'''
+
+
 class DataParser:
 	
 

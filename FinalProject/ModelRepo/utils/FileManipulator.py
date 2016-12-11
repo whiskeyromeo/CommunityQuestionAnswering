@@ -1,3 +1,7 @@
+'''
+	__author__ = Will Russell
+'''
+
 class FileManipulator:
 
 	'''

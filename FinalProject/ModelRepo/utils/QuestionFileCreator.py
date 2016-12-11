@@ -1,3 +1,7 @@
+'''
+	__author__ = Will Russell
+'''
+
 import sys
 import os
 import re

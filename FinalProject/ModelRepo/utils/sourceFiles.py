@@ -1,3 +1,5 @@
+__author__ = 'Will Russell'
+
 from utils.elementParser import elementParser, createObjectListFromJson
 from pathlib import Path 
 import pickle
