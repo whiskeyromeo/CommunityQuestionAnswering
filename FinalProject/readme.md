@@ -66,6 +66,176 @@ In order to achieve this we have used two different methods so far, Latent Seman
 > 
 >
 
+###Results
+
+The Results included are those from the most recent run of the models included in the models directory.
+
+####Base Models
+<table>
+	<thead>
+		<th>Index</th>
+		<th>Model</th>
+		<th>MAP Score</th>
+		<th>Dataset trained on</th>
+		<th>Additional Notes</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>1</td>
+			<td>Doc2Vec</td>
+			<td>0.5615</td>
+			<td>SemEval Questions + Comments</td>
+			<td>Subtask B</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>Doc2Vec</td>
+			<td>0.5141</td>
+			<td>SemEval Questions + Comments</td>
+			<td>Subtask B</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>Doc2Vec</td>
+			<td>0.5047</td>
+			<td>SemEval+Crawler Questions/Comments</td>
+			<td>SubTask A</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>Doc2Vec</td>
+			<td>0.5214</td>
+			<td>SemEval+Crawler Questions</td>
+			<td>SubTask B</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>Word2Vec</td>
+			<td>0.5475</td>
+			<td>SemEval+Crawler Questions</td>
+			<td>SubTask B</td>
+		</tr>
+		<tr>
+			<td>6</td>
+			<td>Doc2Vec</td>
+			<td>0.5461</td>
+			<td>SemEval Questions</td>
+			<td>SubTask B</td>
+		</tr>
+		<tr>
+			<td>7</td>
+			<td>Doc2Vec</td>
+			<td>0.5548</td>
+			<td>SemEval Questions</td>
+			<td>SubTask B - d2v3 model</td>
+		</tr>
+		<tr>
+			<td>8</td>
+			<td>LSI</td>
+			<td>0.6470</td>
+			<td>SemEval Questions</td>
+			<td>SubTask B </td>
+		</tr>
+		<tr>
+			<td>9</td>
+			<td>Doc2Vec</td>
+			<td>0.5070</td>
+			<td>SemEval+Crawler Questions/Comments</td>
+			<td>SubTask B </td>
+		</tr>
+		<tr>
+			<td>10</td>
+			<td>Doc2Vec</td>
+			<td>0.5234</td>
+			<td>SemEval+Crawler Questions/Comments with stopwords</td>
+			<td>SubTask B </td>
+		</tr>
+		<tr>
+			<td>11</td>
+			<td>LSI</td>
+			<td>0.6480</td>
+			<td>SemEval Questions</td>
+			<td>SubTask B</td>
+		</tr>
+		<tr>
+			<td>12</td>
+			<td>Doc2Vec</td>
+			<td>0.5497</td>
+			<td>SemEval+Crawler Questions</td>
+			<td>SubTask B - d2v3 model</td>
+		</tr>
+		<tr>
+			<td>13</td>
+			<td>Word2Vec</td>
+			<td>0.5298</td>
+			<td>SemEval Questions</td>
+			<td>SubTask A - with stopwords</td>
+		</tr>
+		<tr>
+			<td>14</td>
+			<td>LSI</td>
+			<td>0.6470</td>
+			<td>SemEval Questions</td>
+			<td>SubTask B - with stopwords</td>
+		</tr>
+		<tr>
+			<td>15</td>
+			<td>Doc2Vec</td>
+			<td>0.5498</td>
+			<td>SemEval Questions</td>
+			<td>SubTask B - with stopwords</td>
+		</tr>
+		<tr>
+			<td>16</td>
+			<td>Doc2Vec</td>
+			<td>0.5520</td>
+			<td>SemEval Questions</td>
+			<td>SubTask B - d2v3 model</td>
+		</tr>
+		<tr>
+			<td>17</td>
+			<td>Doc2Vec</td>
+			<td>0.4988</td>
+			<td>SemEval+Crawler Questions/Comments</td>
+			<td>SubTask A</td>
+		</tr>
+		<tr>
+			<td>18</td>
+			<td>Word2Vec</td>
+			<td>0.5568</td>
+			<td>SemEval Questions</td>
+			<td>SubTask B - with stopwords</td>
+		</tr>
+		<tr>
+			<td>19</td>
+			<td>Word2Vec</td>
+			<td>0.5389</td>
+			<td>SemEval Questions</td>
+			<td>SubTask A</td>
+		</tr>
+		<tr>
+			<td>20</td>
+			<td>Doc2Vec</td>
+			<td>0.5725</td>
+			<td>SemEval Questions/Comments</td>
+			<td>SubTask B - d2v3 model</td>
+		</tr>s
+
+	</tbody>
+</table>
+
+####Models + Features
+<table>
+	<thead>
+		<th>Index</th>
+		<th>Model</th>
+		<th>MAP Score</th>
+		<th>Dataset trained on</th>
+		<th>Additional Notes</th>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
 
 
 ###Tasks

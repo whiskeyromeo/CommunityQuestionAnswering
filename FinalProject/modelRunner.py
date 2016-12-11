@@ -15,22 +15,20 @@ try:
 
 	print('''
 
-	#####################################################
+#####################################################
 
 
-		This file will execute the MAP scorer on the .pred files
-		contained within the models folder. To proceed through 
-		the files, please press enter on this console window 
-		when you are ready to view the next set of results. 
+This file will execute the MAP scorer on the .pred files
+contained within the models folder. To proceed through 
+the files, please press enter on this console window 
+when you are ready to view the next set of results. 
 
 
-		Getting ready to run experiments....
+Getting ready to run experiments....
 
 
 
-		Here we go....
-
-
+Here we go....
 
 		''')
 	os.chdir('..')
