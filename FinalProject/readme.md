@@ -30,7 +30,9 @@ In order to achieve this we have used two different methods so far, Latent Seman
 > accuracy of the question-question similarity, as well as work on question-comment similarity.
 
 ###Method
->	In order to determine related questions, we first created a term frequency-inverse document
+>  <b>SubTask B: Stage 1</b> 
+>
+> In order to determine related questions, we first created a term frequency-inverse document
 > frequency matrix, where the questions were columns and vocabulary were rows.  We then
 > performed latent semantic indexing on this matrix and then calculated the cosine similarity
 > from the resulting matrix.  This allowed us to rank which questions were most similar to a given question.
@@ -38,6 +40,32 @@ In order to achieve this we have used two different methods so far, Latent Seman
 > gave us slightly better results than Doc2Vec.  Finally, the Cosine Similarity was calculated on the vectors
 > found using LSI, which gave us scores corresponding to the vectors.  From these scores, we were able to
 > determine which questions ranked most similar to a question.
+> 
+> <b>SubTask B: Stage 2</b>
+>
+> We expanded on our original method mentioned above by incorporating new features by which to enhance our
+> previous results. In addition, we developed a secondary method for document vector generation by averaging
+> word2vec vectors of individual words in a given question. Though the method of vector averaging did not enhance our 
+> results in SubTask B, it was more successful than the Doc2Vec models in Subtask A, though the source of the disparity
+> in the results between the two subtasks is something we are still investigating. 
+> 
+> We also worked on expanding our dataset with the hope that we might be able to further improve the results of our
+> models by including more training data, though so far it seems that any improvements have been marginal at best. We
+> believe that this may simply be a result of the overbearing noise in the data and that perhaps by incorporating
+> NER and better preprocessing techniques we might improve the outcomes. 
+> 
+> We were able to get a slight boost in the results from LSI obtained from Stage 1 through by coupling the results
+> with output from the FeatureDevelopment module. ##TODO: Describe Feature Development here 
+> 
+> <b>SubTask A: Stage 2</b>
+>
+>    We followed much of the same line of though in the approach to Subtask A as we did in Subtask B for this stage. 
+> In this case, though the Word2Vec averaging method was found to provide better results than when using Doc2Vec. We
+> were not able to employ LSI on this subtask as there is a bug in the code for applying the LSI model
+> which we have not yet been able to sort out. The results achieved in this 
+> 
+>
+
 
 
 ###Tasks
