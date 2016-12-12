@@ -20,6 +20,7 @@ class NER:
     def init(self,allQuestions):
         os.environ["STANFORD_MODELS"] = "./Features/stanford-ner-2014-06-16/classifiers/"
         os.environ["CLASSPATH"] = "./Features/stanford-ner-2014-06-16/stanford-ner.jar"
+
         self.nerMachine=StanfordNERTagger('english.all.3class.distsim.crf.ser.gz')
 
         sentences = []
