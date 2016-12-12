@@ -4,7 +4,12 @@
 
 import os
 import glob
+import sys
 
+if len(sys.argv) > 1:
+	pythonexecutable = sys.argv[1]
+else:
+	pythonexecutable = "python"
 
 
 try:
@@ -37,10 +42,10 @@ Here we go....
 		print('Running MAP for : ' + file)
 		print('Press enter when ready or Ctrl+C to exit')
 		if 'subtaskA' in file:
-			os.system("gnome-terminal -e 'bash -c \"python ./scorer/MAP_scripts/ev.py ./scorer/SemEval2016-Task3-CQA-QL-dev-subtaskA.xml.subtaskA.relevancy ./models/" + file +";exec bash\"'")
+			os.system("gnome-terminal -e 'bash -c \"" + pythonexecutable + " ./scorer/MAP_scripts/ev.py ./scorer/SemEval2016-Task3-CQA-QL-dev-subtaskA.xml.subtaskA.relevancy ./models/" + file +";exec bash\"'")
 			raw_input()
 		else:
-			os.system("gnome-terminal -e 'bash -c \"python ./scorer/MAP_scripts/ev.py ./scorer/SemEval2016-Task3-CQA-QL-dev.xml.subtaskB.relevancy ./models/" + file +";exec bash\"'")
+			os.system("gnome-terminal -e 'bash -c \"" + pythonexecutable + " ./scorer/MAP_scripts/ev.py ./scorer/SemEval2016-Task3-CQA-QL-dev.xml.subtaskB.relevancy ./models/" + file +";exec bash\"'")
 			raw_input()
 
 

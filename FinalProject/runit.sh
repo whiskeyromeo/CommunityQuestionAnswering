@@ -95,4 +95,4 @@ $PYTHON ./MAP_scripts/ev.py SemEval2016-Task3-CQA-QL-dev.xml.subtaskB.relevancy 
 
 cd ..
 
-$PYTHON modelRunner.py
+$PYTHON modelRunner.py $PYTHON
