@@ -38,4 +38,5 @@ class Merger:
             os.chdir('..' + os.sep + '..' + os.sep + "projectMidPoint" + os.sep)
             call(["python", "LsiModel.py"])
         dictionary=pickle.read_pickle(externalFilePath)
+        os.chdir('..' + os.sep + 'FinalProject' + os.sep + 'FeatureDevelopment')
         return dictionary
