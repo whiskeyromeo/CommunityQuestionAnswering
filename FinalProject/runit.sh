@@ -92,3 +92,7 @@ echo "Executing Scorer"
 
 cd scorer
 $PYTHON ./MAP_scripts/ev.py SemEval2016-Task3-CQA-QL-dev.xml.subtaskB.relevancy $BASEDIR/FeatureDevelopment/output.pred
+
+cd ..
+
+$PYTHON modelRunner.py
