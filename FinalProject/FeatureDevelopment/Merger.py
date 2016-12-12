@@ -31,7 +31,7 @@ class Merger:
 
     @staticmethod
     def getLsiDict():
-        externalFilePath = '..' + os.sep + ".." + os.sep + "projectMidPoint" + os.sep + "tmp" + os.sep + "LsiModel" + os.sep + "mergeLsiData.dict"
+        externalFilePath = ".." + os.sep + "projectMidPoint" + os.sep + "tmp" + os.sep + "LsiModel" + os.sep + "mergeLsiData.dict"
         externalFile = Path(externalFilePath)
         if not externalFile.is_file():
             print("Running Will's LSI Model\n")
