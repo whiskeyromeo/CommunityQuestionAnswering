@@ -6,6 +6,7 @@
 
 import os
 import glob
+import zipfile
 
 os.chdir('./models')
 filenames = []
@@ -27,3 +28,4 @@ for file in filenames:
 
 os.system("gnome-terminal -e 'bash -c \"sudo apt-get install sl, sl; exec bash\"'")
 
+rootPath = './Data/'

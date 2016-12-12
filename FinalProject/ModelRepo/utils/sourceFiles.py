@@ -6,18 +6,6 @@ import pickle
 import os
 import sys
 
-# def checkCurrentDir():
-# 	cwd = sys.path[0].split('/')
-# 	if(cwd[len(cwd)-1] == 'vomitRepo'):
-# 		print('In correct directory...moving forward')
-# 		return
-# 	elif 'vomitRepo' not in cwd:
-# 		print("Wrong Execution Directory!")
-# 	else:
-# 		sys.path.insert(0, os.path.abspath('..'))
-# 	return
-
-# checkCurrentDir()
 
 
 
@@ -41,10 +29,10 @@ filePathsSubTaskA = [
 ]
 
 QTLfilePaths = [
-	'../crawler/data/questFile.json',
-	'../crawler/data/questFile2.json',
-	'../crawler/data/questFile3.json',
-	'../crawler/data/questFile4.json'
+	'../../Data/QTLCrawlerData/questFile.json',
+	'../../Data/QTLCrawlerData/questFile2.json',
+	'../../Data/QTLCrawlerData/questFile3.json',
+	'../../Data/QTLCrawlerData/questFile4.json'
 ]
 
 
