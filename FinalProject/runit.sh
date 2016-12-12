@@ -59,8 +59,6 @@ echo "Results will be in: $BASEDIR/FeatureDevelopment/output.pred"
 
 rm -f $BASEDIR/FeatureDevelopment/output.pred
 
-python modelRunner.py
-
 cd FeatureDevelopment
 python Main.py
 cd ..

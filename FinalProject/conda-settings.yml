@@ -23,3 +23,5 @@ dependencies:
 - wheel=0.29.0=py34_0
 - xz=5.2.2=0
 - zlib=1.2.8=3
+- panda=0.19.1=np111py35_0
+- python-dateutil=2.6.0=py35_0
