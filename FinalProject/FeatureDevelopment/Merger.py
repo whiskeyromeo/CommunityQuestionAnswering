@@ -31,11 +31,12 @@ class Merger:
 
     @staticmethod
     def getLsiDict():
-        externalFilePath = '..' + os.sep + "projectMidPoint" + os.sep + "tmp" + os.sep + "LsiModel" + os.sep + "mergeLsiData.dict"
+        externalFilePath = ".." + os.sep + "projectMidPoint" + os.sep + "tmp" + os.sep + "LsiModel" + os.sep + "mergeLsiData.dict"
         externalFile = Path(externalFilePath)
         if not externalFile.is_file():
             print("Running Will's LSI Model\n")
-            os.chdir('..' + os.sep + "projectMidPoint" + os.sep)
+            os.chdir('..' + os.sep + '..' + os.sep + "projectMidPoint" + os.sep)
             call(["python", "LsiModel.py"])
         dictionary=pickle.read_pickle(externalFilePath)
+        os.chdir('..' + os.sep + 'FinalProject' + os.sep + 'FeatureDevelopment')
         return dictionary

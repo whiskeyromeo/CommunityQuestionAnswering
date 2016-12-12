@@ -234,6 +234,42 @@ The Results included are those from the most recent run of the models included i
 		<th>Additional Notes</th>
 	</thead>
 	<tbody>
+	</tr>
+		<tr style="background-color: ">
+			<td>21</td>
+			<td>Perfectness + LSI</td>
+			<td>0.6431</td>
+			<td>SemEval Questions</td>
+			<td>SubTask B</td>
+		</tr>
+		<tr style="background-color: ">
+			<td>22</td>
+			<td>Perfectness + LSI</td>
+			<td>0.6506</td>
+			<td>SemEval Questions</td>
+			<td>SubTask B</td>
+		</tr>
+		<tr style="background-color: ">
+			<td>23</td>
+			<td>Perfectness(NER) + LSI</td>
+			<td>0.6525</td>
+			<td>SemEval Questions</td>
+			<td>SubTask B</td>
+		</tr>
+		<tr style="background-color: ">
+			<td>24</td>
+			<td>Perfectness(NER) + LSI</td>
+			<td>0.6571</td>
+			<td>SemEval Questions</td>
+			<td>SubTask B</td>
+		</tr>
+		<tr style="background-color: ">
+			<td>25</td>
+			<td>Perfectness(NER) + LSI</td>
+			<td>0.6617</td>
+			<td>SemEval Questions</td>
+			<td>SubTask B</td>
+		</tr>
 	</tbody>
 </table>
 

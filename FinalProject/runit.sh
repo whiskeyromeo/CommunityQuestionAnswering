@@ -55,30 +55,13 @@ echo "Running NLTK Setup"
 python setup.py
 
 echo "Executing Competition Entry"
-echo "Results will be in: $BASEDIR/SemEval2016-Task3-CQA-QL-dev-output.pred"
+echo "Results will be in: $BASEDIR/FeatureDevelopment/output.pred"
 
-rm -f $BASEDIR/SemEval2016-Task3-CQA-QL-dev-output.pred
+rm -f $BASEDIR/FeatureDevelopment/output.pred
 
-if [[ "$1" == "--doc2vec" ]]; then
-    echo "Executing Doc2Vec Script"
-    python doc2vec1.py
-    mv $BASEDIR/SemEval2016-Task3-CQA-QL-dev-d2v-with-stops.pred $BASEDIR/SemEval2016-Task3-CQA-QL-dev-output.pred
-elif [[ "$1" == "--doc2vec-v2" ]]; then
-    echo "Executing Doc2Vec Script Version 2"
-    python doc2vec3.py
-    mv $BASEDIR/SemEval2016-Task3-CQA-QL-dev-d2v-with-stops.pred $BASEDIR/SemEval2016-Task3-CQA-QL-dev-output.pred
-elif [[ "$1" == "--lsi" ]]; then
-    echo "Executing LSI Script"
-    python LsiModel.py
-    mv $BASEDIR/SemEval2016-Task3-CQA-QL-dev-lsi400.pred $BASEDIR/SemEval2016-Task3-CQA-QL-dev-output.pred
-else
-    echo ""
-    echo "Note: you can pass --doc2vec, --doc2vec-v2 or --lsi to control which system is being run.  Defaulting to LSI..."
-    echo ""
-    echo "Executing LSI Script"
-    python LsiModel.py
-    mv $BASEDIR/SemEval2016-Task3-CQA-QL-dev-lsi400.pred $BASEDIR/SemEval2016-Task3-CQA-QL-dev-output.pred
-fi
+cd FeatureDevelopment
+python Main.py
+cd ..
 
 echo "Checking for working Python 2.7 installation"
 
@@ -108,4 +91,8 @@ echo "Using $PYTHON"
 echo "Executing Scorer"
 
 cd scorer
-$PYTHON ./MAP_scripts/ev.py SemEval2016-Task3-CQA-QL-dev.xml.subtaskB.relevancy $BASEDIR/SemEval2016-Task3-CQA-QL-dev-output.pred
+$PYTHON ./MAP_scripts/ev.py SemEval2016-Task3-CQA-QL-dev.xml.subtaskB.relevancy $BASEDIR/FeatureDevelopment/output.pred
+
+cd ..
+
+$PYTHON modelRunner.py $PYTHON
