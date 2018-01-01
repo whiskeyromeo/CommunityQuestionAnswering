@@ -1,11 +1,11 @@
-##SemEval 2017 Task 3
+## SemEval 2017 Task 3
 ***
 
 ### Note
-> Code for the project and final results may be found in the FinalProject directory.
+> Code for the project and final results may be found in the **FinalProject** directory.
 > Additionally, there exists over 130MB of ublabeled Questions/Comments which I crawled from 
 > QatarLiving which may be of use to those studying the topic in the future. The crawler itself no longer is functional
-> as the QatarLiving site layout has changed however [the compressed, unlabeled data may be found here](https://github.com/whiskeyromeo/CommunityQuestionAnswering/tree/master/FinalProject/Data/QTLCrawlerData).
+> as the QatarLiving site layout has changed however [the compressed, unlabeled data may be found here]>(https://github.com/whiskeyromeo/CommunityQuestionAnswering/tree/master/FinalProject/Data/QTLCrawlerData).
 
 ### Introduction
 > Community forums are increasingly gaining popularity as a way to pose questions and receive
