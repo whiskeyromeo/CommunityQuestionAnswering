@@ -1,6 +1,12 @@
 ##SemEval 2017 Task 3
 ***
 
+### Note
+> Code for the project and final results may be found in the FinalProject directory.
+> Additionally, there exists over 130MB of ublabeled Questions/Comments which I crawled from 
+> QatarLiving which may be of use to those studying the topic in the future. The crawler itself no longer is functional
+> as the QatarLiving site layout has changed however [the compressed, unlabeled data may be found here](https://github.com/whiskeyromeo/CommunityQuestionAnswering/tree/master/FinalProject/Data/QTLCrawlerData).
+
 ### Introduction
 > Community forums are increasingly gaining popularity as a way to pose questions and receive
 > honest and open answers.  These forums are rarely moderated, allowing anyone to ask or respond to a question.
@@ -65,35 +71,6 @@ From the SemEval Site:
 
 
 ***
-
-### Important Dates
-
-**From SemEval Site**
-
-* Mon 01 Aug 2016: Trial data ready
-* Mon 05 Sep 2016: Training data ready
-* Mon 09 Jan 2017: Evaluation start
-* Mon 30 Jan 2017: Evaluation end
-* Mon 06 Feb 2017: Results posted
-* Mon 27 Feb 2017: Paper submissions due
-* Mon 03 Apr 2017: Author notifications
-* Mon 17 Apr 2017: Camera ready submissions due
-
-***
-
-## Things to look into
-
-**Suggestions by Professor McInnes**
-* Feature Vectors
-
-***
-
-## Feature Ideas
-
-* Number of co occurring words
-
-***
-
 
 ### Links
 
